@@ -1,0 +1,118 @@
+:scss
+  .header-menu{
+    //background-color: rgba(254,235,204,0.8);
+    background-color: rgb(0, 169, 81);
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+      background-color: rgb(0, 189, 91);
+      color: white;
+    }
+    .navbar-nav > li > .dropdown-menu{
+      background-color: rgb(0, 179, 91);
+    }
+    .navbar{
+      background-color: rgb(0, 169, 81);
+      margin-bottom: 0;
+      border: none;
+      .navbar-nav>li>a{
+        font-size: 16px;
+      }
+      a{
+        color: white;
+      }
+      li>a{
+        color: white;
+      }
+      .dropdown-menu > li > a{
+        background-color: rgb(0, 189, 91);
+        color: white;
+      }
+    }
+  }
+
+.header-menu
+  .container
+    %nav.navbar.navbar-default
+      .container-fluid
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} Головна
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "#"} Публічна інформація
+            %li
+              %a{:href => "#"} Новини
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Заклади
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"} Action
+                %li
+                  %a{:href => "#"} Another action
+                %li
+                  %a{:href => "#"} Something else here
+                -#%li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Separated link
+                -#%li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} One more separated link
+            %li
+              %a{:href => "#"} Контакти
+          -#%form.navbar-form.navbar-left{:role => "search"}
+          -#  .form-group
+          -#    %input.form-control{:placeholder => "Search", :type => "text"}
+          -#  %button.btn.btn-default{:type => "submit"} Submit
+          -#%ul.nav.navbar-nav.navbar-right
+          -#  %li
+          -#    %a{:href => "#"} Link
+          -#  %li.dropdown
+          -#    %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          -#      Dropdown
+          -#      %span.caret
+          -#    %ul.dropdown-menu
+          -#      %li
+          -#        %a{:href => "#"} Action
+          -#      %li
+          -#        %a{:href => "#"} Another action
+          -#      %li
+          -#        %a{:href => "#"} Something else here
+          -#      %li.divider{:role => "separator"}
+          -#      %li
+          -#        %a{:href => "#"} Separated link
+
+:javascript
+  $(function (){
+    $('.dropdown').hover(
+      function (){
+        $('.dropdown').removeClass('open'),
+        $(this).addClass('open')},
+      function (){
+        $(this).removeClass('open')}
+    );
+  });
+
+  //setTimeout(func, 1000);
+  //$(document).ready(function(){
+  //  $('.dropdown').mouseover(
+  //    function(){
+  //      $('.dropdown').removeClass('open');
+  //      $(this).addClass('open')
+  //    }
+  //  );
+  //});
+
+
+  //$(function(){
+  //  $('.dropdown').hover(function(){
+  //    $('.dropdown').addClass('open')
+  //  });
+  //});

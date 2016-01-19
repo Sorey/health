@@ -1,0 +1,86 @@
+:scss
+  .footer{
+    padding-bottom: 20px;
+    background-color: #eef7f2;
+    .three-colmn{
+      padding: 30px 0 30px;
+      .f-column{
+        //height: 100%;
+        //border-right: 2px solid rgba(214,235,224,0.8);
+        h3{
+          margin-top: 0;
+        }
+        a{
+          color: #008f44;
+        }
+        a:hover{
+          color: black;
+          text-decoration: none;
+        }
+        .icon{
+          i{
+            color: #008f44;
+          }
+          padding-left: 0px;
+        }
+      }
+      .f-column:nth-child(2){
+        border-left: 2px solid rgba(214,235,224,0.8);
+        border-right: 2px solid rgba(214,235,224,0.8);
+      }
+    }
+    .owner-year{
+      margin: 0 auto;
+      padding: 10px;
+      text-align: center;
+      border-top: 2px solid rgba(214,235,224,0.8);
+      color: #008f44;
+    }
+  }
+
+.footer
+  .container
+    .row.three-colmn
+      .col-sm-4.f-column
+        -#%h3 На зв'язку
+        .container-fluid
+          .row
+            .col-sm-12.icon
+              %h3 На зв'язку
+            .col-xs-2.icon
+              %i @
+            .col-xs-10
+              Free phone: 800-2345-6789
+            .col-xs-2.icon
+              %i @
+            .col-xs-10
+              Free phone: 800-2345-6789
+            .col-xs-2.icon
+              %i @
+            .col-xs-10
+              Free phone: 800-2345-6789
+      .col-sm-4.f-column
+        %h3 Останні новини
+        %h4
+          %a{:href => "#"} Поради вчителям, батькам, медичним працівникам.
+        %h4
+          %a{:href => "#"} Таємниці ритмів
+        %h4
+          %a{:href => "#"} ОСТЕРІГАЙТЕСЬ ВІДМОРОЖЕНЬ!
+      .col-sm-4.f-column
+        %h3 Навігація
+        %p
+          %a{:href => "#"} Головна
+        %p
+          %a{:href => "#"} Публічна інформація
+        %p
+          %a{:href => "#"} Новини
+        %p
+          %a{:href => "#"} Заклади
+        %p
+          %a{:href => "#"} Контакти
+    .row
+      .col-sm-12
+        .owner-year
+          Medical Diagnostic Center © 2015.
+          %a{:href => "#"} Privacy Policy

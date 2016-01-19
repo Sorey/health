@@ -36,7 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 
 # https://github.com/seyhunak/twitter-bootstrap-rails/tree/bootstrap3
-# gem 'less-rails'
+gem 'therubyracer'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git',  :branch => 'bootstrap3'
 
 group :development, :test do

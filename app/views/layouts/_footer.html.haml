@@ -23,6 +23,20 @@
           }
           padding-left: 0px;
         }
+        .news{
+          p{
+            span{
+              color: #777777;
+            }
+          }
+        }
+        .info{
+          p{
+            span{
+              color: #008f44;
+            }
+          }
+        }
       }
       .f-column:nth-child(2){
         border-left: 2px solid rgba(214,235,224,0.8);
@@ -44,29 +58,54 @@
       .col-sm-4.f-column
         -#%h3 На зв'язку
         .container-fluid
-          .row
+          .row.info
             .col-sm-12.icon
               %h3 На зв'язку
-            .col-xs-2.icon
-              %i @
-            .col-xs-10
-              Free phone: 800-2345-6789
-            .col-xs-2.icon
-              %i @
-            .col-xs-10
-              Free phone: 800-2345-6789
-            .col-xs-2.icon
-              %i @
-            .col-xs-10
-              Free phone: 800-2345-6789
+            .col-xs-1.icon
+              %i.fa.fa-phone.fa-lg
+            .col-xs-11
+              %p
+                %span Вільна лінія:
+                800-2345-6789
+            .col-xs-1.icon
+              %i.fa.fa-home.fa-lg
+            .col-xs-11
+              %p
+                %span Адреса:
+                вул. Пирогова 134
+            .col-xs-1.icon
+              %i.fa.fa-clock-o.fa-lg
+            .col-xs-11
+              %p
+                %span Години:
+                Пн–Пт: 10 – 18;  Сб–Нд:  10 – 16
+            .col-xs-1.icon
+              %i.fa.fa-envelope-o.fa-lg
+            .col-xs-11
+              %p
+                %span Е-мейл:
+                health@gmail.com
       .col-sm-4.f-column
-        %h3 Останні новини
-        %h4
-          %a{:href => "#"} Поради вчителям, батькам, медичним працівникам.
-        %h4
-          %a{:href => "#"} Таємниці ритмів
-        %h4
-          %a{:href => "#"} ОСТЕРІГАЙТЕСЬ ВІДМОРОЖЕНЬ!
+        .container-fluid
+          .row.news
+            .col-sm-12.icon
+              %h3 Останнні новини
+            .col-xs-2.icon
+              %i.fa.fa-calendar.fa-lg
+            .col-xs-10
+              %p
+                %span 12 Січня 2015
+            .col-xs-12.icon
+              %p
+                %a{:href => "#"} На центральному стадіоні відбулася Всеукраїнська акція «Пізнай себе»
+            .col-xs-2.icon
+              %i.fa.fa-calendar.fa-lg
+            .col-xs-10
+              %p
+                %span 17 Січня 2015
+            .col-xs-12.icon
+              %p
+                %a{:href => "#"} Для інформування населення в центральній бібліотеці створений загальнодоступний інформаційний куточок.
       .col-sm-4.f-column
         %h3 Навігація
         %p
@@ -82,5 +121,5 @@
     .row
       .col-sm-12
         .owner-year
-          Medical Diagnostic Center © 2015.
+          Департамент Охорони Здоров'я © 2015.
           %a{:href => "#"} Privacy Policy

@@ -12,8 +12,48 @@
       font-size: 25px;
       color: #008f44;
     }
+
+
+    .carousel-indicators li{
+      border-color: #52E096;
+    }
+    .carousel-inner{
+      .carousel-caption{
+        color: #00bd5b;
+      }
+    }
+    .carousel-control{
+      color: #D1F1D1;
+    }
   }
 .slide
-  = image_tag 'slide/home-slide-img2.jpg'
+  -#= image_tag 'slide/home-slide-img2.jpg'
   .text
     Методичні  рекомендації з надання лікувально-профілактичної допомоги
+#carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+  / Indicators
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+  / Wrapper for slides
+  .carousel-inner{:role => "listbox"}
+    .item.active
+      = image_tag 'slide/home-slide-img1.jpg'
+      .carousel-caption
+        %h2 Підвищення імунітету в ритмі вашого серця
+    .item
+      = image_tag 'slide/home-slide-img2.jpg'
+      .carousel-caption
+        %h2 Методичні  рекомендації з надання лікувально-профілактичної допомоги
+    .item
+      = image_tag 'slide/home-slide-img3.jpg'
+      .carousel-caption
+        %h2 Рекомендації лікарів щодо організації режиму праці
+  / Controls
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+    %span.sr-only Next

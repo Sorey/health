@@ -2,12 +2,29 @@
   .header-menu{
     //background-color: rgba(254,235,204,0.8);
     background-color: rgb(0, 169, 81);
-    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .open > a{
       background-color: rgb(0, 189, 91);
       color: white;
     }
+    //.navbar-default .navbar-nav > .open > a{
+    //  background-color: rgb(0, 189, 91);
+    //  color: white;
+    //}
     .navbar-nav > li > .dropdown-menu{
-      background-color: rgb(0, 179, 91);
+      border: 1px solid rgb(0, 189, 91);
+      border-top: none;
+      border-radius: 0;
+      background-color: white;
+      padding: 1px 0;
+      .divider{
+        margin: 0;
+        background-color: rgb(0, 189, 91);
+      }
+      li{
+        a{
+          padding: 8px 10px;
+        }
+      }
     }
     .navbar{
       background-color: rgb(0, 169, 81);
@@ -23,8 +40,8 @@
         color: white;
       }
       .dropdown-menu > li > a{
-        background-color: rgb(0, 189, 91);
-        color: white;
+        //background-color: rgb(0, 189, 91);
+        color: rgb(0, 179, 91);
       }
     }
   }
@@ -55,14 +72,16 @@
               %ul.dropdown-menu
                 %li
                   %a{:href => "#"} Action
+                %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Another action
+                %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Something else here
-                -#%li.divider{:role => "separator"}
+                %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Separated link
-                -#%li.divider{:role => "separator"}
+                %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} One more separated link
             %li

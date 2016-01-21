@@ -11,6 +11,7 @@
     //  color: white;
     //}
     .navbar-nav > li > .dropdown-menu{
+      min-width: 100%;
       border: 1px solid rgb(0, 189, 91);
       border-top: none;
       border-radius: 0;
@@ -62,28 +63,22 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li
-              %a{:href => "#"} Публічна інформація
+              %a{:href => "#"} Департамент охорони здоров'я
             %li
-              %a{:href => "#"} Новини
+              %a{:href => "#"} Лікувально-профілактичні заклади
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Заклади
+                Нормативна база
                 %span.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Action
+                  %a{:href => "#"} Силка 1
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Another action
+                  %a{:href => "#"} Силка 1
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Something else here
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Separated link
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} One more separated link
+                  %a{:href => "#"} Силка 1
             %li
               %a{:href => "#"} Контакти
           -#%form.navbar-form.navbar-left{:role => "search"}

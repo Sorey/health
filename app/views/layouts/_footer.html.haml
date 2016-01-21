@@ -1,6 +1,6 @@
 :scss
   .footer{
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     background-color: #eef7f2;
     .three-colmn{
       padding: 30px 0 30px;
@@ -33,6 +33,31 @@
         .info{
           p{
             span{
+              color: #008f44;
+            }
+          }
+        }
+        .social-icons{
+          margin-top: 10px;
+          width: 100%;
+          .con-center{
+            width: 200px;
+            margin: 0 auto;
+            .icon{
+              display: inline-block;
+              color: #919191;
+              width: 50px;
+              height: 50px;
+              text-align: center;
+              padding-top: 12px;
+              margin-right: 10px;
+              background: white;
+              border-radius: 25px;
+              .fa{
+                color: #919191;
+              }
+            }
+            .icon:hover .fa{
               color: #008f44;
             }
           }
@@ -85,13 +110,22 @@
               %p
                 %span Е-мейл:
                 health@gmail.com
+          .social-icons
+            .con-center
+              .icon
+                %i.fa.fa-facebook.fa-2x
+              .icon
+                %i.fa.fa-twitter.fa-2x
+              .icon
+                %i.fa.fa-instagram.fa-2x
+
       .col-sm-4.f-column
         .container-fluid
           .row.news
             .col-sm-12.icon
               %h3 Останнні новини
             .col-xs-2.icon
-              %i.fa.fa-calendar.fa-lg
+              %i.fa.fa-calendar
             .col-xs-10
               %p
                 %span 12 Січня 2015
@@ -99,7 +133,7 @@
               %p
                 %a{:href => "#"} На центральному стадіоні відбулася Всеукраїнська акція «Пізнай себе»
             .col-xs-2.icon
-              %i.fa.fa-calendar.fa-lg
+              %i.fa.fa-calendar
             .col-xs-10
               %p
                 %span 17 Січня 2015
@@ -111,14 +145,14 @@
         %p
           %a{:href => "#"} Головна
         %p
-          %a{:href => "#"} Публічна інформація
+          %a{:href => "#"} Департамент охорони здоров'я
         %p
-          %a{:href => "#"} Новини
+          %a{:href => "#"} Лікувально-профілактичні заходи
         %p
-          %a{:href => "#"} Заклади
+          %a{:href => "#"} Нормативна база
         %p
           %a{:href => "#"} Контакти
-    .row
+    -#.row
       .col-sm-12
         .owner-year
           Департамент Охорони Здоров'я © 2015.

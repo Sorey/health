@@ -11,16 +11,6 @@ GIT
     rails_log_stdout (0.0.1)
 
 GIT
-  remote: git://github.com/mongoid/mongoid.git
-  revision: 63ece9973709a837a1817824d202b367db3e3688
-  specs:
-    mongoid (5.0.0.beta)
-      activemodel (~> 4.0)
-      mongo (= 2.1.0.beta)
-      origin (~> 2.1)
-      tzinfo (>= 0.3.37)
-
-GIT
   remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -70,9 +60,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bson (3.2.6)
     builder (3.2.2)
     byebug (8.2.1)
     coffee-rails (4.1.1)
@@ -128,12 +118,9 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
-    mongo (2.1.0.beta)
-      bson (~> 3.0)
     multi_json (1.11.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
-    origin (2.2.0)
     pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -216,6 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
   font-awesome-rails
@@ -223,7 +211,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
-  mongoid!
   pg (~> 0.18.4)
   rails (= 4.2.5)
   rails3_serve_static_assets!

@@ -1,0 +1,10 @@
+.users
+  .container
+    .col-sm-11
+      %h1 Create user
+    .col-sm-1
+      %h1
+        = link_to 'Back', users_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'

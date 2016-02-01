@@ -2,14 +2,24 @@
   .header-menu{
     //background-color: rgba(254,235,204,0.8);
     background-color: rgb(0, 169, 81);
+    .navbar-collapse{
+      max-height: inherit;
+    }
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
+      background-color: rgb(0, 189, 91);
+      //color: white;
+      transition-duration: .7s;
+    }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .open > a{
       background-color: rgb(0, 189, 91);
       color: white;
+      transition-duration: .7s;
     }
     //.navbar-default .navbar-nav > .open > a{
     //  background-color: rgb(0, 189, 91);
     //  color: white;
     //}
+
     .navbar-nav > li > .dropdown-menu{
       min-width: 100%;
       border: 1px solid rgb(0, 189, 91);
@@ -24,8 +34,25 @@
       li{
         a{
           padding: 8px 10px;
+          font-weight: 700;
         }
       }
+    }
+    .dropdown:hover  .dropdown-menu{
+      -webkit-transition: all 0.6s;
+      -moz-transition: all 0.6s;
+      -ms-transition: all 0.6s;
+      -o-transition: all 0.6s;
+      transition: all 0.6s linear;
+
+      max-height: 0;
+      display: block;
+      overflow: hidden;
+      opacity: 0.1;
+    }
+    .dropdown.open .dropdown-menu{
+      max-height: 550px;
+      opacity: 1;
     }
     .navbar{
       background-color: rgb(0, 169, 81);
@@ -44,6 +71,14 @@
         //background-color: rgb(0, 189, 91);
         color: rgb(0, 179, 91);
       }
+      .dropdown-menu > li > .a-within{
+        background: transparent;
+        padding: 3px 4px 3px 14px;
+        font-weight: 500;
+      }
+      .dropdown-menu > li > .a-within:hover, .dropdown-menu > li > .a-within:focus{
+        background: #F3F3F3;
+      }
     }
   }
 
@@ -58,27 +93,72 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Головна
+          %a.navbar-brand{:href => "/"} Головна
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li
-              %a{:href => "#"} Департамент охорони здоров'я
-            %li
-              %a{:href => "#"} Лікувально-профілактичні заклади
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
+                Департамент охорони здоров'я
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"} Структура
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Працівники ДОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Графік прийому громадян
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Лікувально-профілактичні заклади
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"} Лікувальні заклади (по територіях)
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Інші заклади
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Навчальні медичні заклади
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 Нормативна база
                 %span.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Силка 1
+                  %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
+                    Нормативна база МОЗ
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Силка 1
+                  %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
+                    Програми
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Силка 1
+                  %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
+                    Розпорядження голови ОДА
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
+                    Рішення обласної Ради
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Накази ДОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Рішення засідань колегії ДОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} План роботи ДОЗ
+                %li
+                  %a.a-within{:href => "#"} Комплексний план
+                %li
+                  %a.a-within{:href => "#"} План роботи на місяць
             %li
               %a{:href => "#"} Контакти
           -#%form.navbar-form.navbar-left{:role => "search"}
@@ -104,15 +184,15 @@
           -#        %a{:href => "#"} Separated link
 
 :javascript
-  $(function (){
-    $('.dropdown').hover(
-      function (){
-        $('.dropdown').removeClass('open'),
-        $(this).addClass('open')},
-      function (){
-        $(this).removeClass('open')}
-    );
-  });
+  //$(function (){
+  //  $('.dropdown').hover(
+  //    function (){
+  //      $('.dropdown').removeClass('open'),
+  //      $(this).addClass('open')},
+  //    function (){
+  //      $(this).removeClass('open')}
+  //  );
+  //});
 
   //setTimeout(func, 1000);
   //$(document).ready(function(){

@@ -60,10 +60,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_column_3.html.haml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_column_3.html.haml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/content/_column_3.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7511177">
+            <state vertical-scroll-proportion="32.666668">
               <caret line="179" column="17" selection-start-line="179" selection-start-column="17" selection-end-line="179" selection-end-column="17" />
               <folding>
                 <marker date="1454674782704" expanded="true" signature="17:3525" placeholder="{...}" />
@@ -165,10 +165,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_feedback.html.haml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_feedback.html.haml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.851851">
+            <state vertical-scroll-proportion="0.59016395">
               <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
               <folding>
                 <marker date="1454674550884" expanded="true" signature="17:498" placeholder="{...}" />
@@ -831,9 +831,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="-4" width="1863" height="1084" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2616633" sideWeight="0.49949342" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2616633" sideWeight="0.49949342" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.49142224" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1257,40 +1257,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_2-data/_interview.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.851851">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-          <folding>
-            <marker date="1454663572932" expanded="true" signature="18:577" placeholder="{...}" />
-            <marker date="1454663572932" expanded="true" signature="67:573" placeholder="{...}" />
-            <marker date="1454663572932" expanded="true" signature="80:566" placeholder="{...}" />
-            <marker date="1454663572932" expanded="true" signature="119:357" placeholder="{...}" />
-            <marker date="1454663572932" expanded="true" signature="372:500" placeholder="{...}" />
-            <marker date="1454663572932" expanded="true" signature="521:558" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.851851">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding>
-            <marker date="1454674550884" expanded="true" signature="17:498" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="65:493" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="108:354" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="169:278" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="308:346" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="369:487" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="438:479" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/content/_column_3.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7511177">
+        <state vertical-scroll-proportion="32.666668">
           <caret line="179" column="17" selection-start-line="179" selection-start-column="17" selection-end-line="179" selection-end-column="17" />
           <folding>
             <marker date="1454674782704" expanded="true" signature="17:3525" placeholder="{...}" />
@@ -1326,6 +1295,37 @@
             <marker date="1454674782704" expanded="true" signature="3325:3363" placeholder="{...}" />
             <marker date="1454674782704" expanded="true" signature="3375:3413" placeholder="{...}" />
             <marker date="1454674782704" expanded="true" signature="3478:3521" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_2-data/_interview.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.851851">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding>
+            <marker date="1454663572932" expanded="true" signature="18:577" placeholder="{...}" />
+            <marker date="1454663572932" expanded="true" signature="67:573" placeholder="{...}" />
+            <marker date="1454663572932" expanded="true" signature="80:566" placeholder="{...}" />
+            <marker date="1454663572932" expanded="true" signature="119:357" placeholder="{...}" />
+            <marker date="1454663572932" expanded="true" signature="372:500" placeholder="{...}" />
+            <marker date="1454663572932" expanded="true" signature="521:558" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59016395">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding>
+            <marker date="1454674550884" expanded="true" signature="17:498" placeholder="{...}" />
+            <marker date="1454674550884" expanded="true" signature="65:493" placeholder="{...}" />
+            <marker date="1454674550884" expanded="true" signature="108:354" placeholder="{...}" />
+            <marker date="1454674550884" expanded="true" signature="169:278" placeholder="{...}" />
+            <marker date="1454674550884" expanded="true" signature="308:346" placeholder="{...}" />
+            <marker date="1454674550884" expanded="true" signature="369:487" placeholder="{...}" />
+            <marker date="1454674550884" expanded="true" signature="438:479" placeholder="{...}" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,88 @@
+:scss
+  .feedback{
+    border-bottom: 1px solid #cce7d9;
+    form{
+      margin-top: 10px;
+      .form-group{
+        //margin-bottom: 10px;
+        .col-sm-2, .col-sm-4{
+          padding: 7px 0 0 15px;
+          vertical-align: middle;
+          //text-align: right;
+        }
+        textarea.form-control{
+          //height: 100px;
+        }
+      }
+      .actions{
+        margin-left: 75%;
+        margin-bottom: 10px;
+        .btn{
+          padding:  4px 10px;
+        }
+      }
+    }
+
+  }
+
+.feedback
+  %h3 Зворонтій зв'язок
+  = form_tag("/", method: "get") do
+    .form-group.row
+      .col-sm-2
+        = label_tag(:q, "Ім'я", :class=>"")
+      .col-sm-10
+        = text_field_tag(:q, nil, :placeholder=> "Ім'я", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
+    .form-group.row
+      .col-sm-2
+        = label_tag(:q, "E-mail")
+      .col-sm-10
+        = email_field_tag(:q, nil, :placeholder=> "E-mail", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", "data-errormessage-type-mismatch"=>"Ваша електронна пошта!", :class => 'form-control can_be_disable')
+    .form-group.row
+      .col-sm-2
+        = label_tag(:q, "Тема")
+      .col-sm-10
+        = text_field_tag(:q, nil, :placeholder=> "Тема", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
+    .form-group.row
+      .col-sm-12
+        = label_tag(:q, "Повідомлення")
+        = text_area_tag(:message, nil, :rows=>"4", :placeholder=> "Повідомлення", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
+    .actions
+      = submit_tag("Відправити", :class=>"btn btn-success")
+
+  -#- @ffgff = {:name => "Name", :email=> "3ggg4@gmail.com", :title=> "Title", :description=> "Fjgj gjgjj"}
+  -#= form_for @ffgff, :html => { :class => 'form-horizontal', :multipart => false } do |f|
+  -#  - if @library_book.errors.any?
+  -#    #error_explanation
+  -#      %h3
+  -#        = t('library.books.index.errors')
+  -#        (
+  -#        = pluralize(@library_book.errors.count, "")
+  -#        )
+  -#      %ul
+  -#        - @library_book.errors.full_messages.each do |msg|
+  -#          %li= msg
+  -#
+  -#  .form-group
+  -#    .field.col-md-12
+  -#      = f.label :name, "Ім'я"
+  -#      = f.text_field :name, :class => 'form-control can_be_disable'
+  -#  .form-group
+  -#    .field.col-md-12
+  -#      = f.label :email, "Ім'я"
+  -#      = f.text_field :email, :class => 'form-control can_be_disable'
+  -#  .form-group
+  -#    .field.col-md-12
+  -#      = f.label :title, "Ім'я"
+  -#      = f.text_field :title, :class => 'form-control can_be_disable'
+  -#  .form-group
+  -#    .field.col-md-12
+  -#      = f.label :description, t('library.books.index.description')
+  -#      = f.text_area :description, :class => 'form-control can_be_disable'
+  -#  .actions
+  -#    = f.submit t('library.books.new.save'), :class => 'btn btn-primary can_be_disable'
+  -#    = link_to t('library.books.index.p_back'), :class => 'btn btn-info can_be_disable'
+
+:javascript
+
+  (function(){function t(t){return function(e){if("RADIO"===e.target.type.toUpperCase()){var a=document.getElementsByName(e.target.name);for(i=0;a.length>i;i++)a[i].setCustomValidity("")}else e.target.setCustomValidity("");t&&t(e),e.target.checkValidity()}}function e(t){return function(e){var a,n,o=e.target,i=o.validity,r=i.valueMissing?"value-missing":i.typeMismatch?"type-mismatch":i.patternMismatch?"pattern-mismatch":i.tooLong?"too-long":i.rangeUnderflow?"range-underflow":i.rangeOverflow?"range-overflow":i.stepMismatch?"step-mismatch":i.customError?"custom-error":"";r&&(a=o.getAttribute("data-errormessage-"+r))?o.setCustomValidity(a):(n=o.getAttribute("data-errormessage"))?o.setCustomValidity(n):o.setCustomValidity(o.validationMessage),t&&t(e)}}var a=function(){var a,n=[],o=document.getElementsByTagName("input");for(a=0;o.length>a;a++)n.push(o[a]);var i=document.getElementsByTagName("textarea");for(a=0;i.length>a;a++)n.push(i[a]);var r=document.getElementsByTagName("select");for(a=0;r.length>a;a++)n.push(r[a]);for(a=0;n.length>a;a++){var s=n[a];s.willValidate&&(console.log(s.tagName),"SELECT"===s.tagName.toUpperCase()||"RADIO"===s.type.toUpperCase()||"CHECKBOX"===s.type.toUpperCase()?s.onchange=t(s.onchange):s.oninput=t(s.oninput),s.oninvalid=e(s.oninvalid))}};window.addEventListener?window.addEventListener("load",a,!1):window.attachEvent&&window.attachEvent("onload",a)})();

@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7aa3972-b3f6-439b-a44b-0c62c38adbbc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/content/columns_2-data/_interview.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/home/content/columns-data/_actual.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/columns_1-data/_actual.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/home/content/columns-data/_advertising.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/columns_1-data/_advertising.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/home/content/columns-data/_news.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/columns_2-data/_news.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/646aa018c7045fd0ad9ad57e7e9c5f2960fe3223/(__TEMPLATE__)c" afterPath="$PROJECT_DIR$/.sass-cache/646aa018c7045fd0ad9ad57e7e9c5f2960fe3223/(__TEMPLATE__)c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/health.iml" afterPath="$PROJECT_DIR$/.idea/health.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/content/_column_1.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/_column_1.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/content/_column_2.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/_column_2.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/content/_column_3.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/_column_3.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml" afterPath="$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml" />
     </list>
     <ignored path="health.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.77272725">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -165,19 +157,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_feedback.html.haml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_feedback.html.haml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59016395">
-              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            <state vertical-scroll-proportion="-50.666668">
+              <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
               <folding>
-                <marker date="1454674550884" expanded="true" signature="17:498" placeholder="{...}" />
-                <marker date="1454674550884" expanded="true" signature="65:493" placeholder="{...}" />
-                <marker date="1454674550884" expanded="true" signature="108:354" placeholder="{...}" />
-                <marker date="1454674550884" expanded="true" signature="169:278" placeholder="{...}" />
-                <marker date="1454674550884" expanded="true" signature="308:346" placeholder="{...}" />
-                <marker date="1454674550884" expanded="true" signature="369:487" placeholder="{...}" />
-                <marker date="1454674550884" expanded="true" signature="438:479" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="17:351" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="17:496" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="65:351" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="108:351" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="169:278" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="308:344" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="367:485" placeholder="{...}" />
+                <marker date="1454674532636" expanded="true" signature="436:477" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -187,7 +180,7 @@
         <entry file="file://$PROJECT_DIR$/log/development.log">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="55421.277">
-              <caret line="12570" column="0" selection-start-line="12570" selection-start-column="0" selection-end-line="12570" selection-end-column="0" />
+              <caret line="13973" column="0" selection-start-line="13973" selection-start-column="0" selection-end-line="13973" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -232,7 +225,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="github" target-branch="master" />
+      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
@@ -268,12 +261,12 @@
         <option value="$PROJECT_DIR$/app/views/users/_form.html.haml" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/views/header/_header_menu.html.haml" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/home/content/columns_2-data/_interview.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/content/_column_2.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/content/_column_1.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/content/_column_3.html.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml" />
       </list>
     </option>
   </component>
@@ -831,9 +824,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="-4" width="1863" height="1084" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2616633" sideWeight="0.49949342" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2616633" sideWeight="0.49949342" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.49142224" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -841,8 +834,8 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21816283" sideWeight="0.5005066" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.49584946" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1663286" sideWeight="0.504678" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1663286" sideWeight="0.49532196" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1203,18 +1196,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/development.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="55421.277">
-          <caret line="12570" column="0" selection-start-line="12570" selection-start-column="0" selection-end-line="12570" selection-end-column="0" />
+          <caret line="13973" column="0" selection-start-line="13973" selection-start-column="0" selection-end-line="13973" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1316,17 +1301,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/content/columns_1-data/_feedback.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59016395">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        <state vertical-scroll-proportion="-50.666668">
+          <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
           <folding>
-            <marker date="1454674550884" expanded="true" signature="17:498" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="65:493" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="108:354" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="169:278" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="308:346" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="369:487" placeholder="{...}" />
-            <marker date="1454674550884" expanded="true" signature="438:479" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="17:351" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="17:496" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="65:351" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="108:351" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="169:278" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="308:344" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="367:485" placeholder="{...}" />
+            <marker date="1454674532636" expanded="true" signature="436:477" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77272725">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

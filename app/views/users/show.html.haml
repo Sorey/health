@@ -1,0 +1,36 @@
+.container
+  - if notice
+    %p#notice= notice
+  %p
+    %h2
+      User
+      %em
+        = @user.name
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        -#%tr
+          %th Role
+          -#%td
+            - @roles = @user.roles
+            - @roles.each do |r|
+              = r.name
+        -#%tr
+        -#  %th Login
+        -#  %td= @user.login
+        %tr
+          %th Name
+          %td= @user.name
+        -#%tr
+        -#  %th Last_name
+        -#  %td= @user.last_name ||= "empty"
+        %tr
+          %th Email
+          %td= @user.email
+  = link_to 'Back', users_path, :class => 'btn btn-primary'
+  -#- if current_user && current_user.editor?
+  = link_to 'Edit', edit_user_path(@user), :class => 'btn btn-primary'
+  -#- if current_user && current_user.admin?
+  = link_to 'Destroy', user_path(@user), :class => 'btn btn-primary', |
+    method: :delete,                                                  |
+    data: { confirm: 'Are you sure?' }                                |

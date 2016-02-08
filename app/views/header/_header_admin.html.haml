@@ -1,7 +1,7 @@
 :scss
   .header-menu{
     //background-color: rgba(254,235,204,0.8);
-    background-color: rgb(0, 169, 81);
+    background-color: rgb(0, 29, 150);
     .navbar-collapse{
       max-height: inherit;
     }
@@ -100,25 +100,11 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
+            %li
+              = link_to 'Користувачі', users_path
             %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
-                Департамент охорони здоров'я
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} Структура
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Працівники ДОЗ
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Графік прийому громадян
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Лікувально-профілактичні заклади
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
+                Новини
                 %span.caret
               %ul.dropdown-menu
                 %li
@@ -131,25 +117,9 @@
                   %a{:href => "#"} Навчальні медичні заклади
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Нормативна база
+                Актуальні заходи та події
                 %span.caret
               %ul.dropdown-menu
-                %li
-                  %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
-                    Нормативна база МОЗ
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
-                    Програми
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
-                    Розпорядження голови ОДА
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
-                    Рішення обласної Ради
-                %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Накази ДОЗ
                 %li.divider{:role => "separator"}
@@ -163,53 +133,6 @@
                 %li
                   %a.a-within{:href => "#"} План роботи на місяць
             %li
-              %a{:href => "#"} Контакти
-          -#%form.navbar-form.navbar-left{:role => "search"}
-          -#  .form-group
-          -#    %input.form-control{:placeholder => "Search", :type => "text"}
-          -#  %button.btn.btn-default{:type => "submit"} Submit
-          -#%ul.nav.navbar-nav.navbar-right
-          -#  %li
-          -#    %a{:href => "#"} Link
-          -#  %li.dropdown
-          -#    %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          -#      Dropdown
-          -#      %span.caret
-          -#    %ul.dropdown-menu
-          -#      %li
-          -#        %a{:href => "#"} Action
-          -#      %li
-          -#        %a{:href => "#"} Another action
-          -#      %li
-          -#        %a{:href => "#"} Something else here
-          -#      %li.divider{:role => "separator"}
-          -#      %li
-          -#        %a{:href => "#"} Separated link
-
-:javascript
-  //$(function (){
-  //  $('.dropdown').hover(
-  //    function (){
-  //      $('.dropdown').removeClass('open'),
-  //      $(this).addClass('open')},
-  //    function (){
-  //      $(this).removeClass('open')}
-  //  );
-  //});
-
-  //setTimeout(func, 1000);
-  //$(document).ready(function(){
-  //  $('.dropdown').mouseover(
-  //    function(){
-  //      $('.dropdown').removeClass('open');
-  //      $(this).addClass('open')
-  //    }
-  //  );
-  //});
-
-
-  //$(function(){
-  //  $('.dropdown').hover(function(){
-  //    $('.dropdown').addClass('open')
-  //  });
-  //});
+              %a{:href => new_user_path} Соціальна реклама
+            %li
+              %a{:href => users_path} Опитування

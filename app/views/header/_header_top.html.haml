@@ -16,6 +16,7 @@
     .title{
       font-size: 30px;
       color: #008f44;
+      font-family: Century Gothic;
     }
     .welcome{
       .message{
@@ -32,7 +33,7 @@
       }
       .number{
         padding-top: 20px;
-        text-align: right;
+        text-align: center;
         font-size: 25px;
         color: #008f44;
       }
@@ -51,8 +52,7 @@
           .col-md-9
             .title
               -#%h2
-              Департамент охорони здоров'я
-
+              Охорона здоров'я Вінниччини
       .col-md-7
         .row.welcome
           .col-md-7
@@ -65,3 +65,7 @@
           .col-md-4
             .number
               800-2345-6789​
+              %form
+                %input.form-control{ placeholder: 'Пошук...', type: 'search'}
+                -#%button.morphsearch-submit{type: 'submit'}
+                  -#Search

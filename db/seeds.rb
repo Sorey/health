@@ -6,12 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# User.delete_all
+User.delete_all
 u1 = User.create(name: "Admin", email: "33admin44@gmail.com", password: "987789", password_confirmation: "987789")
+u2 = User.create(name: "Manager", email: "33manager44@gmail.com", password: "876678", password_confirmation: "876678")
+u3 = User.create(name: "User", email: "33user44@gmail.com", password: "765567", password_confirmation: "765567")
 
 Role.delete_all
-r1 = Role.create(title: "Admin")
-r2 = Role.create(title: "Manager")
-r3 = Role.create(title: "User")
+r1 = Role.create(title: "admin", type_role: 0)
+r2 = Role.create(title: "manager", type_role: 0)
+r3 = Role.create(title: "user", type_role: 0)
 
-u1.role << [r1]
+UserRole.delete_all
+u1.roles << [r1]
+u2.roles << [r2]
+u3.roles << [r3]

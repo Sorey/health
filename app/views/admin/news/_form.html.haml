@@ -1,0 +1,72 @@
+:scss
+  .fix {
+      float: right;
+  }
+    /*body {*/
+      /*background: url('/assets/36.jpg');*/
+    /*}*/
+= form_for(@news, html: { class: 'form-horizontal' })  do |u|
+  .form-group
+    .col-sm-10.col-md-offset-2
+      - if @news.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@news.errors.count, "error")
+            prohibited this news from being saved:
+          %ul
+            - @news.errors.full_messages.each do |msg|
+              %li= msg
+  -#.form-group
+  -#  .field
+  -#    = u.label :login, :class => 'col-sm-2 control-label'
+  -#    .col-sm-10
+  -#      = u.text_field :login, :class => 'form-control input-responsive'
+
+  .form-group
+    .field
+      = u.label :title, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = u.text_field :title, :class => 'form-control input-responsive'
+  .form-group
+    = u.label :pre_text, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.text_field :pre_text, :class => 'form-control input-responsive'
+  .form-group
+    = u.label :description, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.text_area :description, :class => 'form-control input-responsive'
+  .form-group
+    = u.label :image, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.file_field :image, :class => 'form-control input-responsive'
+
+
+  .form-group
+    = u.label :publish_on, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    = u.label :publish_up, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.datetime_select :publish_up,  :class => 'datetimepicker form-control input-responsive'
+  .form-group
+    = u.label :publish_down, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.datetime_select :publish_down, :class => 'form-control input-responsive'
+
+  -#.form-group
+  -#  = u.label :role_title, :class => 'col-sm-2 control-label'
+  -#  .col-sm-10
+  -#    -#= u.collection_select(:role_id, Role.all, :id, :title, {}, {:class => 'form-control input-responsive'})
+  -#    = u.select :role_ids, Role.all.collect {|x| [x.title, x.id]}, {},  :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = u.submit @buttom, :class => 'btn btn-primary'
+
+:javascript
+  $(function () {
+    $('.datetimepicker').datetimepicker({
+      sideBySide: true
+    });
+  });

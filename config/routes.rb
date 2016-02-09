@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :users, path: "/admin/users"
 
   get 'home/index' => 'home#index'
+  namespace :admin do
+    # get 'news/' => 'news#index'
+    resources :news
+  end
+  # get 'news/' => 'news#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

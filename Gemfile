@@ -41,6 +41,11 @@ gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-boot
 
 gem 'font-awesome-rails'
 
+# https://github.com/carrierwaveuploader/carrierwave
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+# gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem "mini_magick"
+
 # https://gorails.com/blog/rails-4-0-with-mongodb-and-mongoid
 # # gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 # gem 'mongoid', github: 'mongoid/mongoid'

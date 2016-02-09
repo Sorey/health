@@ -1,0 +1,13 @@
+:scss
+
+.new-news
+  New News_!_!_!
+  .container
+    .col-sm-11
+      %h1 Create news
+    .col-sm-1
+      %h1
+        = link_to 'Back', admin_news_index_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form', buttom: "Create news"

@@ -10,7 +10,7 @@
       %thead
         %tr
           %th #
-          -#%th Role
+          %th Role
           %th Name
           %th Email
           %th Show
@@ -18,10 +18,10 @@
         - @users.each do |u|
           %tr
             %td= u.id
-            -#%td
+            %td
               - @roles = u.roles
               - @roles.each do |r|
-                = r.name
+                = r.title
             %td= u.name
             %td= u.email
             %td= link_to "Show user", user_path(u), :class => 'btn btn-primary'

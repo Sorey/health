@@ -45,8 +45,8 @@
   .form-group
     = u.label :role_title, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.collection_select(:role_id, Role.all, :id, :title, {}, {:class => 'form-control input-responsive'})
-      -#= u.select :role_ids, Role.all.collect {|x| [x.title, x.id, params[:area]]}, {}, :multiple => true, :row => 2, :class => 'form-control input-responsive'
+      -#= u.collection_select(:role_id, Role.all, :id, :title, {}, {:class => 'form-control input-responsive'})
+      = u.select :role_ids, Role.all.collect {|x| [x.title, x.id]}, {},  :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

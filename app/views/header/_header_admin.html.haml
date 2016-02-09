@@ -1,7 +1,7 @@
 :scss
   .header-menu{
     //background-color: rgba(254,235,204,0.8);
-    background-color: rgb(0, 29, 150);
+    background-color: #D1FFD2;
     .navbar-collapse{
       max-height: inherit;
     }
@@ -58,7 +58,8 @@
       opacity: 1;
     }
     .navbar{
-      background-color: rgb(0, 169, 81);
+      //background-color: rgb(0, 169, 81);
+      background-color:#2AD27A;
       margin-bottom: 0;
       border: none;
       .navbar-nav>li>a{
@@ -121,10 +122,11 @@
                 %span.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Накази ДОЗ
+                  %a{:href => admin_news_index_path} Новини
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Рішення засідань колегії ДОЗ
+                  %a{:href => new_admin_news_path } Створити новину
+                  -#admin_news_path
                 %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} План роботи ДОЗ

@@ -9,12 +9,12 @@
   .container
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %tbody
-        -#%tr
+        %tr
           %th Role
-          -#%td
+          %td
             - @roles = @user.roles
             - @roles.each do |r|
-              = r.name
+              = r.title
         -#%tr
         -#  %th Login
         -#  %td= @user.login

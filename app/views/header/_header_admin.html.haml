@@ -102,6 +102,7 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li
+
               = link_to 'Користувачі', users_path
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
@@ -109,13 +110,13 @@
                 %span.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Лікувальні заклади (по територіях)
+                  %a{:href => admin_news_index_path} Усі новини
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Інші заклади
+                  %a{:href => new_admin_news_path } Створити новину
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Навчальні медичні заклади
+                  %a{:href => "#"} ДаДаА
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 Актуальні заходи та події

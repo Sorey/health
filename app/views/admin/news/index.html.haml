@@ -19,6 +19,7 @@
           %th Picture
           %th Show
       %tbody
+        -#- unless @news.nil?
         - @news.each do |u|
           %tr
             %td= u.id

@@ -4,13 +4,17 @@
 
 .column-2
   = render :partial => 'home/content/columns_2-data/news'
+  -#.wow.bounceInRight
   = render :partial => 'home/content/columns_2-data/interview'
-
-
-
-
-
-
+  -#= render template: "admin/news/new", buttom: "Create news"   #, object: @news = Admin::News.all
+  -#= render template: "admin/news/index", locals: {:news => @news}
+  -#= render template: "admin/news/index"
 
   -#%h3 Таємниці ритмів
   -#%p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту проникне в наші серця. Ритми лежать в основі всіх життєвих процесів, і коли дитина тільки вступає в цей світ, ритмічні сили поступово стають тією основою, на якій розгорнеться полотно долі.
+
+:javascript
+  $(document).ready(function(){
+    new WOW().init();
+  });
+  //new WOW().init();

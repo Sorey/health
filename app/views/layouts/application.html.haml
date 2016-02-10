@@ -1,3 +1,10 @@
+:scss
+  h3{
+    font-size: 30px;
+  }
+  h4{
+    font-size: 25px;
+  }
 !!!
 %html
   %head
@@ -5,6 +12,17 @@
     %title Health
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    / Bootstrap core CSS
+    -#%link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", :rel => "stylesheet"}
+    / MDB core CSS
+    %link{:href => "http://mdbootstrap.com/mdbcdn/mdb.min.css", :rel => "stylesheet"}
+    / JQuery
+    -#%script{:src => "https://code.jquery.com/jquery-2.1.4.min.js", :type => "text/javascript"}
+    / Bootstrap core JavaScript
+    -#%script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js", :type => "text/javascript"}
+    / MDB core JavaScript
+    %script{:src => "http://mdbootstrap.com/mdbcdn/mdb.min.js", :type => "text/javascript"}
     = csrf_meta_tags
   %body
     = render :partial => 'layouts/header'

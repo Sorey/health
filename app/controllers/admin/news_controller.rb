@@ -65,6 +65,9 @@ class Admin::NewsController < ApplicationController
     redirect_to admin_news_index_path
   end
 
+  def news_test
+    jk = "YYYYIKY"
+  end
   private
 
   def news_params

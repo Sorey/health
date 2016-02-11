@@ -62,6 +62,17 @@
       background-color:#2AD27A;
       margin-bottom: 0;
       border: none;
+      .user-session{
+        display: inline-block;
+        float: right;
+        text-align: center;
+        form{
+          margin-bottom: 0;
+          .btn{
+            padding: 0 3px;
+          }
+        }
+      }
       .navbar-nav>li>a{
         font-size: 16px;
       }
@@ -101,9 +112,19 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li
-
-              = link_to 'Користувачі', users_path
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
+                Користувачі
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => users_path} Усі користувачі
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => new_user_path} Створити користувача
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Ролі
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
                 Новини
@@ -139,3 +160,13 @@
               %a{:href => new_user_path} Соціальна реклама
             %li
               %a{:href => users_path} Опитування
+          - if session[:user_id]
+            .user-session
+              .row
+                -#.col-sm-11
+                - user = User.find_by(id: session[:user_id])
+                -#  gf
+                -#.col-sm-1
+                %span
+                  = user.name
+                  = button_to 'Logout', admin_logout_path, method: :delete, :class => 'btn btn-info'

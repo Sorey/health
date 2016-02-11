@@ -1,3 +1,6 @@
+:scss
+
+
 !!!
 %html
   %head
@@ -7,6 +10,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %p
+      = @name_controller = params[:controller]
+    %p
+      = @name_action = params[:action]
     = render :partial => 'layouts/header_admin'
+    -#- if session[:user_id]
+      .user-session
+        .col-sm-11
+          - user = User.find_by(id: session[:user_id])
+        .col-sm-1
+          %h3
+            = user.name
+            = button_to 'Logout', admin_logout_path, method: :delete, :class => 'btn btn-info'
     = yield
     -#= render :partial => 'layouts/footer_admin'

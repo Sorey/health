@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
+
+
   get 'users/index'
   resources :users, path: "/admin/users"
 
   get 'home/index' => 'home#index'
+
   namespace :admin do
-    # get 'news/' => 'news#index'
+      controller :sessions do
+        get  'login' => :new
+        post 'login' => :create
+        delete 'logout' => :destroy
+      end
+      get 'signup'  => 'users#new'
+      # get 'news/' => 'news#index'
     resources :news
+    # resources :users
   end
   # get 'news/' => 'news#index'
   # The priority is based upon order of creation: first created -> highest priority.

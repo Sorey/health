@@ -1,0 +1,38 @@
+:scss
+  .login-session{
+    .notice{
+      color: white;
+      h5{
+        border-radius: 5px;
+        background: coral;
+        padding:5px 10px;
+      }
+
+    }
+  }
+
+.container.login-session
+  .row
+    .col-md-6.col-md-offset-3
+      .notice
+        - if flash[:alert]
+          %h5#notice= flash[:alert]
+      .form
+        .row
+          .col-sm-12
+            %h3 Please Log In
+        = form_tag( {action: 'create'}, { class: 'form-horizontal'}) do
+          .form-group
+            .field
+              = label_tag :name, 'Login:', :class => 'col-sm-2 control-label'
+              .col-sm-10
+                = text_field_tag :name, params[:login], :class => 'form-control input-responsive'
+          .form-group
+            .field
+              = label_tag :password, 'Password:', :class => 'col-sm-2 control-label'
+              .col-sm-10
+                = password_field_tag :password, params[:password], :class => 'form-control input-responsive'
+          .form-group
+            .actions
+              .col-sm-offset-2.col-sm-10
+                = submit_tag "Login", :class => 'btn btn-primary'

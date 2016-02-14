@@ -18,6 +18,7 @@
         - @users.each do |u|
           %tr
             %td= u.id
+            -#%td= u.role_id
             %td
               - @roles = u.roles
               - @roles.each do |r|

@@ -119,12 +119,14 @@
               %ul.dropdown-menu
                 %li
                   %a{:href => users_path} Усі користувачі
-                %li.divider{:role => "separator"}
                 %li
                   %a{:href => new_user_path} Створити користувача
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} Ролі
+                  %a{:href => roles_path} Ролі
+                %li
+                  %a{:href => new_role_path} Створити роль
+                %li.divider{:role => "separator"}
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
                 Новини
@@ -168,5 +170,6 @@
                 -#  gf
                 -#.col-sm-1
                 %span
-                  = user.name
-                  = button_to 'Logout', admin_logout_path, method: :delete, :class => 'btn btn-info'
+                  -if user
+                    = user.name
+                    = button_to 'Logout', admin_logout_path, method: :delete, :class => 'btn btn-info'

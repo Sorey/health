@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   layout 'application_admin'
 
   def index
+     # /////abort User.all.inspect
+    #
     @users = User.all
   end
 

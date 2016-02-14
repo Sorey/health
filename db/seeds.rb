@@ -12,9 +12,9 @@ u2 = User.create(name: "Manager", email: "33manager44@gmail.com", password: "876
 u3 = User.create(name: "User", email: "33user44@gmail.com", password: "765567", password_confirmation: "765567")
 
 Role.delete_all
-r1 = Role.create(title: "admin", type_role: 0)
-r2 = Role.create(title: "manager", type_role: 0)
-r3 = Role.create(title: "user", type_role: 0)
+r1 = Role.create(title: "admin", type_role: 0, parent_id: 0)
+r2 = Role.create(title: "manager", type_role: 0, parent_id: r1.id )
+r3 = Role.create(title: "user", type_role: 0, parent_id: r2.id)
 
 UserRole.delete_all
 u1.roles << [r1]

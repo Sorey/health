@@ -31,9 +31,12 @@ ActiveRecord::Schema.define(version: 20160209113231) do
   create_table "roles", force: :cascade do |t|
     t.string   "title"
     t.integer  "type_role"
+    t.integer  "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "roles", ["parent_id"], name: "index_roles_on_parent_id"
 
   create_table "user_roles", force: :cascade do |t|
     t.integer  "user_id"

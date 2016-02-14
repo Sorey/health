@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get 'users/index'
   resources :users, path: "/admin/users"
+  resources :roles, path: "/admin/roles"
 
   get 'home/index' => 'home#index'
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         post 'login' => :create
         delete 'logout' => :destroy
       end
+      # resources :users
       get 'signup'  => 'users#new'
       # get 'news/' => 'news#index'
     resources :news

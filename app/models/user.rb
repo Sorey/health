@@ -1,35 +1,34 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-
-  # def editor?(object)
-  #   # attr_reader :action
-  #   @roles = "usersw"
-  #   @true = object
-  #   # Rails.logger.debug @true
-  #   @true == @roles
+  def access? (cont, act)
+    @admin = 0
+    @role_ask = "#{cont}#{act}"
+    @role_id_user = self.roles.first.id
+    @role_admin_user = self.roles.first.parent_id
+    if Role.take_title(@role_ask)
+      @parent_id_role = Role.take_title(@role_ask).parent_id
+      @parent_id_role = Role.where(id: @parent_id_role).take.parent_id if @role_id_user != @parent_id_role
+    end
+    # # Rails.logger.debug @role_user
+    # # abort @role_user.inspect
+    @role_id_user == @parent_id_role || @role_admin_user == @admin
+  end
+  # def editor?
+  #   @roles = self.roles
+  #   @roles.each do |r|
+  #     @true = r.title if r.title == 'Editor'
+  #   end
+  #   @true == 'Editor'
   # end
-
-  def access?(cont, act)
-    @role_new = "#{cont}#{act}"
-    @role_user = self.roles
-
-  end
-  def editor?
-    @roles = self.roles
-    @roles.each do |r|
-      @true = r.title if r.title == 'Editor'
-    end
-    @true == 'Editor'
-  end
-
-  def admin?
-    @roles = self.roles
-    @roles.each do |r|
-      @true = r.title if r.title == 'admin'
-    end
-    @true == 'admin'
-  end
+  #
+  # def admin?
+  #   @roles = self.roles
+  #   @roles.each do |r|
+  #     @true = r.title if r.title == 'admin'
+  #   end
+  #   @true == 'admin'
+  # end
 
   has_many :user_roles
   has_many :roles, through: :user_roles, dependent: :destroy

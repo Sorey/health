@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   def access? (cont, act)
     @admin = 0
     @role_ask = "#{cont}#{act}"
-    @role_id_user = self.roles.first.id
-    @role_admin_user = self.roles.first.parent_id
+    @role_id_user = self.roles.first.id if self.roles.first
+    @role_admin_user = self.roles.first.parent_id if self.roles.first
     if Role.take_title(@role_ask)
       @parent_id_role = Role.take_title(@role_ask).parent_id
       @parent_id_role = Role.where(id: @parent_id_role).take.parent_id if @role_id_user != @parent_id_role

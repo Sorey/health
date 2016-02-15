@@ -4,7 +4,7 @@
       %h1 List roles
     .col-sm-1
       -#- if current_user && current_user.admin?
-      %h1= link_to 'New user', new_role_path, :class => 'btn btn-primary'
+      %h1= link_to 'New role', new_role_path, :class => 'btn btn-primary'
   .container
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
@@ -21,4 +21,4 @@
             %td= r.title
             %td= r.parent_id
             %td= r.type_role
-            %td= link_to "Show user", role_path(r), :class => 'btn btn-primary'
+            %td= link_to "Show role", role_path(r), :class => 'btn btn-primary'

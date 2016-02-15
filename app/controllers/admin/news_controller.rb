@@ -5,23 +5,24 @@ module Admin
     layout 'application_admin'
 
     def index
-      @news = Admin::News.all
+      @news = News.all
     end
 
     def show
-      @news = Admin::News.find(params[:id])
+      @news = News.find(params[:id])
     end
 
     def new
-      @news = Admin::News.new
+      @news = News.new
     end
 
     def edit
-      @news = Admin::News.find(params[:id])
+      @news = News.find(params[:id])
     end
 
     def create
-      @news = Admin::News.new(news_params)
+      @news = News.new(news_params)
+      @news.user_id = current_user.id
 
       respond_to do |format|
         if @news.save
@@ -47,8 +48,8 @@ module Admin
     end
 
     def update
-      @news = Admin::News.find(params[:id])
-
+      @news = News.find(params[:id])
+      @news.remove_image!
       respond_to do |format|
         if @news.update(news_params)
           format.html { redirect_to @news, notice: 'News was successfully updated.' }
@@ -62,7 +63,7 @@ module Admin
     end
 
     def destroy
-      @news = Admin::News.find(params[:id])
+      @news = News.find(params[:id])
       @news.destroy
 
       redirect_to admin_news_index_path

@@ -3,6 +3,9 @@ class CreateRoles < ActiveRecord::Migration
     create_table :roles do |t|
       t.string :title
       t.integer :type_role
+      t.integer :parent_id
+
+      t.references :parent, index: true
 
       t.timestamps null: false
     end

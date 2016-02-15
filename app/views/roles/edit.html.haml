@@ -1,0 +1,10 @@
+.role-edit
+  .container
+    .col-sm-11
+      %h1 Edit role
+    .col-sm-1
+      %h1
+        = link_to 'Back',role_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'

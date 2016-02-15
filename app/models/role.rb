@@ -7,7 +7,7 @@ class Role < ActiveRecord::Base
   has_many :children, class_name: "Role", foreign_key: "parent_id"
   belongs_to :parent, class_name: "Role"
 
-  def self.parent_roles
+  def self.parent
     all.collect{|a| [a.title, a.id]}
   end
 

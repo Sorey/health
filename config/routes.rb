@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :roles, path: "/admin/roles"
 
   get 'home/index' => 'home#index'
+  get '/news/', to: 'home#all_news'
+  get '/news/:id', to: 'home#show_one_news', as: :show_one_news
 
   namespace :admin do
     controller :sessions do
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
     # resources :users
     get 'signup'  => 'users#new'
     # get 'news/' => 'news#index'
+
     resources :news
     # resources :users
   end

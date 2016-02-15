@@ -22,6 +22,7 @@ module Admin
 
     def create
       @news = News.new(news_params)
+      @news.user_id = current_user.id
 
       respond_to do |format|
         if @news.save
@@ -48,7 +49,7 @@ module Admin
 
     def update
       @news = News.find(params[:id])
-
+      @news.remove_image!
       respond_to do |format|
         if @news.update(news_params)
           format.html { redirect_to @news, notice: 'News was successfully updated.' }

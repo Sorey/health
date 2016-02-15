@@ -1,13 +1,57 @@
 :scss
 
+  .public-news{
+    .row{
+    padding: 0 15px;
+      .one-news{
+        border: 1px solid #cce7d9;
+        padding: 10px 0;
+        margin-bottom: 5px;
+        .image{
+          img{
+            //margin: 0 auto;
+            margin-bottom: 5px;
+          }
+        }
+        .info{
+          p{
+            .btn{
+              float:right;
+              padding: 3px 5px;
+
+            }
+          }
+
+        }
+      }
+    }
+
+
+
+  }
+
 .public-news
+  -#.container
+  -#  .col-sm-11
+  -#.row
+  -#  %h1 Усі новини
+  -#.col-sm-1
+  -#  - if current_user && current_user.admin?
+  -#  %h1= link_to 'New news', new_admin_news_path, :class => 'btn btn-primary'
   .container
-    .col-sm-11
-      %h1 List news
-    .col-sm-1
-      -#- if current_user && current_user.admin?
-      -#%h1= link_to 'New news', new_admin_news_path, :class => 'btn btn-primary'
-  .container
+    %h1 Усі новини
+    - @news.each do |n|
+
+      .row
+        .one-news.clearfix
+          .col-md-2.col-sm-3.col-xs-3.image
+            = link_to image_tag(n.image.thumb), show_one_news_path(n)
+          .col-md-10.col-sm-9.col-xs-9.info
+            %p
+              = n.title
+              = link_to "Переглянути", show_one_news_path(n), :class => 'btn btn-primary'
+            %p= n.description
+
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
         %tr

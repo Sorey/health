@@ -27,10 +27,10 @@
           %td
             - if @news.image?
               =image_tag @news.image.thumb
-  = link_to 'Back', admin_news_index_path, :class => 'btn btn-primary'
+  = link_to 'Усі новини', admin_news_index_path, :class => 'btn btn-primary'
   -#- if current_user && current_user.editor?
-  = link_to 'Edit', edit_admin_news_path(@news), :class => 'btn btn-primary'
+  = link_to 'Редагувати', edit_admin_news_path(@news), :class => 'btn btn-primary'
   -#- if current_user && current_user.admin?
-  = link_to 'Destroy', admin_news_path(@news), :class => 'btn btn-primary', |
+  = link_to 'Видалити', admin_news_path(@news), :class => 'btn btn-primary', |
     method: :delete,                                                  |
-    data: { confirm: 'Are you sure?' }                                |
+    data: { confirm: 'Ви впевнені?' }                                |

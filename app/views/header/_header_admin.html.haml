@@ -126,7 +126,6 @@
                   %a{:href => roles_path} Ролі
                 %li
                   %a{:href => new_role_path} Створити роль
-                %li.divider{:role => "separator"}
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
                 Новини
@@ -137,31 +136,28 @@
                 %li.divider{:role => "separator"}
                 %li
                   %a{:href => new_admin_news_path } Створити новину
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} ДаДаА
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 Актуальні заходи та події
                 %span.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => admin_news_index_path} Новини
+                  %a{:href => "#"} ввНовини
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => new_admin_news_path } Створити новину
+                  %a{:href => "#"} ввСтворити новину
                   -#admin_news_path
                 %li.divider{:role => "separator"}
                 %li
-                  %a{:href => "#"} План роботи ДОЗ
+                  %a{:href => "#"} ввПлан роботи ДОЗ
                 %li
-                  %a.a-within{:href => "#"} Комплексний план
+                  %a.a-within{:href => "#"} ввКомплексний план
                 %li
-                  %a.a-within{:href => "#"} План роботи на місяць
+                  %a.a-within{:href => "#"} ввПлан роботи на місяць
             %li
-              %a{:href => new_user_path} Соціальна реклама
+              %a{:href => "#"} Соціальна реклама
             %li
-              %a{:href => users_path} Опитування
+              %a{:href => "#"} Опитування
           - if session[:user_id]
             .user-session
               .row

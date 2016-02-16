@@ -24,33 +24,33 @@
 
   .form-group
     .field
-      = u.label :title, :class => 'col-sm-2 control-label'
+      = u.label :title, 'Заголовок', :class => 'col-sm-2 control-label'
       .col-sm-10
         = u.text_field :title, :class => 'form-control input-responsive'
   .form-group
-    = u.label :pre_text, :class => 'col-sm-2 control-label'
+    = u.label :pre_text,'Cтислий опис', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.text_field :pre_text, :class => 'form-control input-responsive'
   .form-group
-    = u.label :description, :class => 'col-sm-2 control-label'
+    = u.label :description,'Повний опис', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.text_area :description, :class => 'form-control input-responsive'
   .form-group
-    = u.label :image, :class => 'col-sm-2 control-label'
+    = u.label :image, 'Картинка', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.file_field :image, :class => 'form-control input-responsive'
 
 
   .form-group
-    = u.label :publish_on, :class => 'col-sm-2 control-label'
+    = u.label :publish_on, 'Публікувати?', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.check_box :publish_on, :class => 'form-control input-responsive'
   .form-group
-    = u.label :publish_up, :class => 'col-sm-2 control-label'
+    = u.label :publish_up, 'Початок публікації', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.datetime_select :publish_up,  :class => 'datetimepicker form-control input-responsive'
   .form-group
-    = u.label :publish_down, :class => 'col-sm-2 control-label'
+    = u.label :publish_down, 'Кінець публікації', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.datetime_select :publish_down, :class => 'form-control input-responsive'
 
@@ -62,7 +62,7 @@
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10
-        = u.submit @buttom, :class => 'btn btn-primary'
+        = u.submit buttom, :class => 'btn btn-primary'
 
 :javascript
   $(function () {

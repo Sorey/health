@@ -49,7 +49,15 @@ module Admin
 
     def update
       @news = News.find(params[:id])
-      @news.remove_image!
+
+      unless news_params[:title].blank?
+        unless news_params[:description].blank?
+          unless news_params[:image].blank?
+            @news.remove_image!
+          end
+        end
+      end
+      # @news.remove_image!
       respond_to do |format|
         if @news.update(news_params)
           format.html { redirect_to @news, notice: 'News was successfully updated.' }
@@ -70,6 +78,7 @@ module Admin
     end
 
     private
+
 
     def news_params
       params.require(:admin_news).permit(:title, :pre_text, :description, :publish_on, :publish_up, :publish_down, :image)

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       delete 'logout' => :destroy
     end
     # resources :users
-    get 'signup'  => 'users#new'
+    # get 'signup'  => 'users#new'
     # get 'news/' => 'news#index'
 
     resources :news

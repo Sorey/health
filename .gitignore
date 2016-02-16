@@ -6,6 +6,7 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
+/public/uploads
 /coverage/
 /spec/tmp
 **.orig
@@ -19,6 +20,7 @@ config/initializers/secret_token.rb
 ## Environment normalization:
 /.bundle
 /vendor/bundle
+
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset

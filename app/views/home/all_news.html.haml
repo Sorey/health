@@ -3,31 +3,55 @@
   .public-news{
     .row{
     padding: 0 15px;
+
       .one-news{
+        background: #F3FFF9;
         border: 1px solid #cce7d9;
         padding: 10px 0;
         margin-bottom: 5px;
+        border-radius: 10px 10px 50px 10px;
         .image{
           img{
             //margin: 0 auto;
-            margin-bottom: 5px;
+            //margin-bottom: 5px;
+            display: block;
+            margin: 0 auto 5px;
+            width: 100%;
           }
         }
         .info{
           p{
             .btn{
               float:right;
-              padding: 3px 5px;
+              padding: 2px 5px;
+
+            }
+            span{
+              float:right;
+              padding: 3px 10px;
+              color: #ABAAAA;
+            }
+            strong{
+              a{
+                color: #008F44;
+                font-size: 20px;
+              }
 
             }
           }
-
+          .pre-text{
+            font-size: 17px;
+          }
+          .description{
+            line-height: 1.6em;
+            font-size: 15px;
+          }
         }
       }
     }
-
-
-
+    .row:nth-child(2n) .one-news{
+      background: #F3FDFF;
+    }
   }
 
 .public-news
@@ -41,18 +65,21 @@
   .container
     %h1 Усі новини
     - @news.each do |n|
-
       .row
         .one-news.clearfix
           .col-md-2.col-sm-3.image
             = link_to image_tag(n.image.thumb), show_one_news_path(n)
           .col-md-10.col-sm-9.info
             %p
-              = n.title
-              = link_to "Переглянути", show_one_news_path(n), :class => 'btn btn-primary'
-            %p= n.description
-
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+              %strong
+                %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
+              = link_to "Переглянути", show_one_news_path(n), :class => 'btn btn-success'
+              %span
+                -#= truncate(strip_tags(n.publish_up.to_s), length: 10)
+                = (n.publish_up.to_s).mb_chars.limit(10)
+            %p.pre-text= n.pre_text
+            %p.description= truncate(strip_tags(n.description), length: 400)
+    -#%table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
         %tr
           %th #

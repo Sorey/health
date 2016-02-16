@@ -102,6 +102,7 @@
             color: #00a951;
           }
           .fa-chevron-down{
+            //color:#067F40;
             display: none;
           }
           .fa{
@@ -112,6 +113,12 @@
             text-align: right;
             color: #a8d6be;
           }
+          .fa-click{
+            color: #067F40;
+          }
+        }
+        .item-click{
+          color: #067F40;
         }
         .item:hover, .item:active , .item:visited, .item:focus{
           background-color: #dcefe5;
@@ -166,7 +173,7 @@
       -#    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
             .item
               .text
@@ -189,7 +196,7 @@
               %i.fa.fa-chevron-left
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
             .item
               .text
@@ -211,7 +218,7 @@
               %i.fa.fa-chevron-left
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFour"}
             .item
               .text
@@ -267,7 +274,7 @@
               %i.fa.fa-chevron-left
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFive"}
             .item
               .text
@@ -289,7 +296,7 @@
               %i.fa.fa-chevron-left
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseSix"}
             .item
               .text
@@ -353,7 +360,7 @@
               %i.fa.fa-chevron-left
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseSeven"}
             .item
               .text
@@ -406,7 +413,7 @@
         #accordion2.items
           .panel.panel-default
             .panel-heading
-              %h4.panel-title
+              %h4.panel-title.dd
                 %a{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseSeven1"}
                   .item
                     .text
@@ -440,7 +447,7 @@
               %i.fa.fa-chevron-left
     .panel.panel-default
       .panel-heading
-        %h4.panel-title
+        %h4.panel-title.dd
           %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseEight"}
             .item
               .text
@@ -460,6 +467,7 @@
               .text
                 Блок громадського здоров’я
               %i.fa.fa-chevron-left
+
 
   -#.items
   -#  %a{:href => "#"}
@@ -531,3 +539,21 @@
 
   -#%h3 ОСТЕРІГАЙТЕСЬ ВІДМОРОЖЕНЬ!
   -#%p Закликаємо вас бути уважними та обережними на вулицях та на відкритому повітрі у зимовий період! При перших ознаках відмороження звертайтесь до найближчого лікувально–профілактичного закладу міста.
+
+:javascript
+  //jQuery('.item').click(function(){
+  //  jQuery(this).toggleClass('item-click');
+  //});
+
+  $(".panel-title.dd .item").click(function(){
+     if($(this).hasClass("item-click") ){
+        $(this).removeClass("item-click");
+        $(this).find('.fa').removeClass("fa-click");
+     }
+     else{
+        $('.panel-title.dd .item').removeClass("item-click");
+        $(this).addClass("item-click");
+        $('.panel-title.dd .item').find('.fa').removeClass("fa-click");
+        $(this).find('.fa').addClass("fa-click");
+     }
+  });

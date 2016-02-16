@@ -1,12 +1,29 @@
 :scss
+  .admin_all_news{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
 
-.news
+          margin:20px 0 5px;
+        }
+      }
+    }
+
+  }
+
+.admin_all_news
   .container
-    .col-sm-11
-      %h1 List news
-    .col-sm-1
-      -#- if current_user && current_user.admin?
-      %h1= link_to 'New news', new_admin_news_path, :class => 'btn btn-primary'
+    .heading
+      .title
+        %h1 Список новин
+      .btn-new-news
+        -#- if current_user && current_user.admin?
+        = link_to 'Створити новину', new_admin_news_path, :class => 'btn btn-primary'
   .container
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
@@ -27,4 +44,4 @@
             %td
               - if u.image?
                 =image_tag u.image.thumb
-            %td= link_to "Show news", admin_news_path(u), :class => 'btn btn-primary'
+            %td= link_to "Переглянути", admin_news_path(u), :class => 'btn btn-primary'

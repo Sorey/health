@@ -37,12 +37,11 @@
   - @news_limit.each do |n|
     .box.clearfix
       -#= image_tag 'news/child.jpg'
-      = link_to image_tag(n.image.thumb), show_one_news_path(n)
+      = link_to image_tag(n.image.thumb), show_one_news_path(n), title: "Переглянути"
       -#= image_tag n.image
       .text
         %p.title
-          %a{:href => show_one_news_path(n)}= n.title
-          %a{:href => "#"}= n.user_id
+          %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
         %span= truncate(strip_tags(n.description), length: 210)
   -#.box.clearfix
   -#  = image_tag 'news/child.jpg'

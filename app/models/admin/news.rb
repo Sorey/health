@@ -2,8 +2,8 @@ require 'file_size_validator'
 class Admin::News < ActiveRecord::Base
   self.table_name = "news"
 
-  validates :title,  length: { minimum: 3, maximum: 30}, :presence => true
-  validates :pre_text,  length: { minimum: 6, maximum: 50} unless :pre_text.blank?
+  validates :title,  length: { minimum: 3, maximum: 40}, :presence => true
+  validates :pre_text,  length: { minimum: 6, maximum: 80} unless :pre_text.blank?
   validates :description,  length: { minimum: 10}, :presence => true
   # validates :password,  length: { minimum: 6}, on: :create #if :password.blank?
 

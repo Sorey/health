@@ -1,7 +1,7 @@
 :scss
   .header-menu{
     //background-color: rgba(254,235,204,0.8);
-    background-color: #D1FFD2;
+    //background-color: #D1FFD2;
     .navbar-collapse{
       max-height: inherit;
     }
@@ -59,7 +59,8 @@
     }
     .navbar{
       //background-color: rgb(0, 169, 81);
-      background-color:#2AD27A;
+      //background-color:#2AD27A;
+      background-color:rgb(76, 126, 204);
       margin-bottom: 0;
       border: none;
       .user-session{
@@ -112,52 +113,60 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
-                Користувачі
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => users_path} Усі користувачі
-                %li
-                  %a{:href => new_user_path} Створити користувача
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => roles_path} Ролі
-                %li
-                  %a{:href => new_role_path} Створити роль
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
-                Новини
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => admin_news_index_path} Усі новини
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => new_admin_news_path } Створити новину
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Актуальні заходи та події
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} ввНовини
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} ввСтворити новину
-                  -#admin_news_path
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} ввПлан роботи ДОЗ
-                %li
-                  %a.a-within{:href => "#"} ввКомплексний план
-                %li
-                  %a.a-within{:href => "#"} ввПлан роботи на місяць
-            %li
-              %a{:href => "#"} Соціальна реклама
-            %li
-              %a{:href => "#"} Опитування
+            - if current_user && current_user.access_admin?
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
+                  Користувачі
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => users_path} Усі користувачі
+                  %li
+                    %a{:href => new_user_path} Створити користувача
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => roles_path} Ролі
+                  %li
+                    %a{:href => new_role_path} Створити роль
+            - if current_user
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
+                  Новини
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => admin_news_index_path} Усі новини
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => new_admin_news_path } Створити новину
+            - if current_user && current_user.access_admin?
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Актуальні заходи та події
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"} ввНовини
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => "#"} ввСтворити новину
+                    -#admin_news_path
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => "#"} ввПлан роботи ДОЗ
+                  %li
+                    %a.a-within{:href => "#"} ввКомплексний план
+                  %li
+                    %a.a-within{:href => "#"} ввПлан роботи на місяць
+            - if current_user && current_user.access_admin?
+              %li
+                %a{:href => "#"} Соціальна реклама
+            - if current_user
+              %li
+                %a{:href => "#"} Опитування
+            - unless current_user
+              %li
+                %a{:href => "#"} Вхід в Панель Управління!
           - if session[:user_id]
             .user-session
               .row

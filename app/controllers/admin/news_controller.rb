@@ -1,6 +1,7 @@
 module Admin
   class NewsController < ApplicationController
     before_action :authorize
+    before_action :require_role
     # class Admin::NewsController < ApplicationController
     layout 'application_admin'
 

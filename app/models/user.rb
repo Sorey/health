@@ -30,6 +30,9 @@ class User < ActiveRecord::Base
   #   @true == 'admin'
   # end
 
+  def access_admin?
+    self.roles.first.title == "admin"
+  end
   has_many :user_roles
   has_many :roles, through: :user_roles, dependent: :destroy
   accepts_nested_attributes_for :user_roles

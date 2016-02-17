@@ -15,6 +15,13 @@ Role.delete_all
 r1 = Role.create(title: "admin", type_role: 0, parent_id: 0)
 r2 = Role.create(title: "manager", type_role: 0, parent_id: r1.id )
 r3 = Role.create(title: "user", type_role: 0, parent_id: r2.id)
+r4 = Role.create(title: "admin/newsindex", type_role: 1, parent_id: r2.id)
+r5 = Role.create(title: "admin/newsshow", type_role: 1, parent_id: r2.id)
+r6 = Role.create(title: "admin/newsnew", type_role: 1, parent_id: r2.id)
+r7 = Role.create(title: "admin/newscreate", type_role: 1, parent_id: r2.id)
+r8 = Role.create(title: "admin/newsedit", type_role: 1, parent_id: r2.id)
+r9 = Role.create(title: "admin/newsupdate", type_role: 1, parent_id: r2.id)
+r10 = Role.create(title: "admin/newsdelete", type_role: 1, parent_id: r2.id)
 
 UserRole.delete_all
 u1.roles << [r1]
@@ -24,10 +31,13 @@ u3.roles << [r3]
 # Admin::News.delete_all
 # Admin::News.create(title: "Переохолодження!", pre_text: "Обережно, переохолодження та обмороження!",
 #                    description: "До кінця тижня на Черкащині прогнозують пониження температури до 10 грудусів нижче нуля. У Департаменті охорони здоров'я Черкаської ОДА закликають жителів бути обережними та не переохолоджуватися.",
-#                     publish_on: true, image: "child.jpg", user_id: u1.id)
+#                     publish_on: true, user_id: u1.id) #image: "news/child.jpg",
 # Admin::News.create(title: "Захист від вірусів", pre_text: "Як слизові оболонки допоможуть захиститися від вірусів",
 #                    description: "Аби віруси не потрапляли в організм, слизові оболонки слід оберігати від пересихання. Наступні прості поради допоможуть посилити захист від інфекцій.",
-#                    publish_on: true, image: "child.jpg", user_id: u2.id)
+#                    publish_on: true, user_id: u2.id) #image: "news/woman.jpg",
 # Admin::News.create(title: "Грип", pre_text: "Грип: поширення, симптоми, профілактика",
 #                    description: "В Україні спостерігається значне підвищення рівня захворюваності на грип, близьке до епідемічного. МОЗ України наголошує на необхідності дотримання заходів задля попередження зараження грипом та у разі захворювання.",
-#                    publish_on: true, image: "child.jpg", user_id: u2.id)
+#                    publish_on: true, user_id: u2.id) #image: "news/air.jpg",
+# Admin::News.create(title: "Проба ополонки!", pre_text: "Обережно, переохолодження та обмороження!",
+#                    description: "До кінця тижня на Черкащині прогнозують пониження температури до 10 грудусів нижче нуля. У Департаменті охорони здоров'я Черкаської ОДА закликають жителів бути обережними та не переохолоджуватися.",
+#                    publish_on: true, user_id: u2.id) #image: "news/36.jpg",

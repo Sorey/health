@@ -51,13 +51,13 @@ module Admin
     def update
       @news = News.find(params[:id])
 
-      unless news_params[:title].blank?
-        unless news_params[:description].blank?
-          unless news_params[:image].blank?
-            @news.remove_image!
-          end
-        end
-      end
+      # unless news_params[:title].blank?
+      #   unless news_params[:description].blank?
+      #     unless news_params[:image].blank?
+      #       @news.remove_image!
+      #     end
+      #   end
+      # end
       # @news.remove_image!
       respond_to do |format|
         if @news.update(news_params)

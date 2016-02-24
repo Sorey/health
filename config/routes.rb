@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users, path: "/admin/users"
   resources :roles, path: "/admin/roles"
+  resources :medical_setups
 
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'

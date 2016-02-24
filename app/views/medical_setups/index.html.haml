@@ -1,0 +1,42 @@
+.users
+  .container
+    .col-sm-11
+      %h1 List medical setups
+    .col-sm-1
+      -#- if current_user && current_user.admin?
+      %h1
+        = link_to 'New medical setup', new_medical_setup_path, :class => 'btn btn-primary'
+        = link_to "Show medical setup", medical_setup_path(m), :class => 'btn btn-primary'
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %thead
+        %tr
+          %th{rowspan: 2} #
+          %th{rowspan: 2} Назва закладу
+          %th{rowspan: 2} Адреса
+          %th{rowspan: 2} Телефон
+          %th{rowspan: 2} Головний лікар
+          %th{rowspan: 2} Email
+          %th{colspan: 3} Ліцензія
+          %th{rowspan: 2} Категорія
+          %th{rowspan: 2} Сайт
+        %tr
+          %th Діє з
+          %th Номер ліцензії
+          %th Діє до
+      %tbody
+        - @medical_setups.each do |m|
+          %tr
+            %td= m.id
+            %td= m.name
+            %td= m.address
+            %td= m.phone
+            %td= m.head_doctor
+            %td= m.email
+            %td= m.medical_setup_license.date_start
+            %td= m.medical_setup_license.number_license
+            %td= m.medical_setup_license.date_finish
+            %td= m.category_level
+            %td= m.site_address
+
+            -#%td= link_to "Show medical setup", medical_setup_path(m), :class => 'btn btn-primary'

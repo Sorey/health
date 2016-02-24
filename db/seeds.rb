@@ -41,3 +41,12 @@ u3.roles << [r3]
 # Admin::News.create(title: "Проба ополонки!", pre_text: "Обережно, переохолодження та обмороження!",
 #                    description: "До кінця тижня на Черкащині прогнозують пониження температури до 10 грудусів нижче нуля. У Департаменті охорони здоров'я Черкаської ОДА закликають жителів бути обережними та не переохолоджуватися.",
 #                    publish_on: true, user_id: u2.id) #image: "news/36.jpg",
+MedicalSetupCategory.delete_all
+msc1 = MedicalSetupCategory.create(name: "First category", type_category: "Location")
+msc2 = MedicalSetupCategory.create(name: "Second category", type_category: "Other medical setups")
+msc3 = MedicalSetupCategory.create(name: "Third category", type_category: "Study medical setups")
+
+MedicalSetup.delete_all
+ms1 = MedicalSetup.create(name: "Перший заклад 1", address: "Апдреса перша 1", phone: "111 111 111",
+                          head_doctor: "Першиий Голова", email: "f111@g.com", category_level: "1", site_address: "http://www.cyberforum.ru/",
+                          medical_setup_category_id: msc1.id )

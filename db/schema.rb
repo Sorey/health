@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209113231) do
+ActiveRecord::Schema.define(version: 20160224140724) do
+
+  create_table "medical_setup_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type_category"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "medical_setup_licenses", force: :cascade do |t|
+    t.date     "date_start"
+    t.date     "date_finish"
+    t.string   "number_license"
+    t.integer  "medical_setup_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "medical_setup_licenses", ["medical_setup_id"], name: "index_medical_setup_licenses_on_medical_setup_id"
+
+  create_table "medical_setups", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "head_doctor"
+    t.string   "email"
+    t.string   "category_level"
+    t.string   "site_address"
+    t.integer  "medical_setup_category_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "medical_setups", ["medical_setup_category_id"], name: "index_medical_setups_on_medical_setup_category_id"
 
   create_table "news", force: :cascade do |t|
     t.string   "title"

@@ -89,106 +89,123 @@
   .container
     .row
       %nav.navbar.navbar-default
-        .container-fluid
-          / Brand and toggle get grouped for better mobile display
-          .navbar-header
-            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-              %span.sr-only Toggle navigation
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            %a.navbar-brand{:href => "/"} Головна
-          / Collect the nav links, forms, and other content for toggling
-          #bs-example-navbar-collapse-1.collapse.navbar-collapse
-            %ul.nav.navbar-nav
-              %li.dropdown
-                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
-                  Департамент охорони здоров'я
-                  %span.caret
-                %ul.dropdown-menu
-                  %li
-                    %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Про департамент
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Структура
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Працівники ДОЗ
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Графік прийому громадян
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
-              %li.dropdown
-                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                  Медичні заклади
-                  %span.caret
-                %ul.dropdown-menu
-                  %li
-                    %a{:href => "#"} Лікувальні заклади (по територіях)
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Інші заклади
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Навчальні медичні заклади
-              %li.dropdown
-                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                  Нормативна база
-                  %span.caret
-                %ul.dropdown-menu
-                  %li
-                    %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
-                      Нормативна база МОЗ
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
-                      Програми
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
-                      Розпорядження голови ОДА
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
-                      Рішення обласної Ради
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Накази ДОЗ
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} Рішення засідань колегії ДОЗ
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => "#"} План роботи ДОЗ
-                  %li
-                    %a.a-within{:href => "#"} Комплексний план
-                  %li
-                    %a.a-within{:href => "#"} План роботи на місяць
-              %li
-                %a{:href => "#"} Контакти
-            -#%form.navbar-form.navbar-left{:role => "search"}
-            -#  .form-group
-            -#    %input.form-control{:placeholder => "Search", :type => "text"}
-            -#  %button.btn.btn-default{:type => "submit"} Submit
-            -#%ul.nav.navbar-nav.navbar-right
-            -#  %li
-            -#    %a{:href => "#"} Link
-            -#  %li.dropdown
-            -#    %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            -#      Dropdown
-            -#      %span.caret
-            -#    %ul.dropdown-menu
-            -#      %li
-            -#        %a{:href => "#"} Action
-            -#      %li
-            -#        %a{:href => "#"} Another action
-            -#      %li
-            -#        %a{:href => "#"} Something else here
-            -#      %li.divider{:role => "separator"}
-            -#      %li
-            -#        %a{:href => "#"} Separated link
+        -#.container-fluid
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"} Головна
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
+                Департамент охорони здоров'я
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Про департамент
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Структура
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Працівники ДОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Графік прийому громадян
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Медичні заклади
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"} Первинного рівня
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Вторинного рівня (спеціалізовані)
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Третинного рівня  (високоспеціалізовані)
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Санаторії
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Швидка медична допомога
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Будинки дитини
+                -#%li
+                -#  %a{:href => "#"} Лікувальні заклади (по територіях)
+                -#%li.divider{:role => "separator"}
+                -#%li
+                -#  %a{:href => "#"} Інші заклади
+                -#%li.divider{:role => "separator"}
+                -#%li
+                -#  %a{:href => "#"} Навчальні медичні заклади
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Нормативна база
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
+                    Нормативна база МОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
+                    Програми
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
+                    Розпорядження голови ОДА
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
+                    Рішення обласної Ради
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Накази ДОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Рішення засідань колегії ДОЗ
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} План роботи ДОЗ
+                %li
+                  %a.a-within{:href => "#"} Комплексний план
+                %li
+                  %a.a-within{:href => "#"} План роботи на місяць
+            %li
+              %a{:href => "#"} Контакти
+          -#%form.navbar-form.navbar-left{:role => "search"}
+          -#  .form-group
+          -#    %input.form-control{:placeholder => "Search", :type => "text"}
+          -#  %button.btn.btn-default{:type => "submit"} Submit
+          -#%ul.nav.navbar-nav.navbar-right
+          -#  %li
+          -#    %a{:href => "#"} Link
+          -#  %li.dropdown
+          -#    %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          -#      Dropdown
+          -#      %span.caret
+          -#    %ul.dropdown-menu
+          -#      %li
+          -#        %a{:href => "#"} Action
+          -#      %li
+          -#        %a{:href => "#"} Another action
+          -#      %li
+          -#        %a{:href => "#"} Something else here
+          -#      %li.divider{:role => "separator"}
+          -#      %li
+          -#        %a{:href => "#"} Separated link
 
 :javascript
   //$(function (){

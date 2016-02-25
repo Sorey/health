@@ -1,6 +1,29 @@
 :scss
   .header-top{
     padding: 30px 0 15px;
+    //.gerb1{
+    //  position: absolute;
+    //  top: 35px;
+    //  left: 10%;
+    //  width:55px;
+    //  img{
+    //    opacity: .6;
+    //    width: 100%;
+    //    height: auto;
+    //  }
+    //}
+    .gerb1{
+      //position: absolute;
+      //top: 5px;
+      //left: 10%;
+      width:55px;
+      display:inline-block;
+      img{
+        opacity: .5;
+        width: 100%;
+        height: auto;
+      }
+    }
     .gerb{
       position: absolute;
       top: -23px;
@@ -12,7 +35,12 @@
         height: auto;
       }
     }
+    .image-logos{
+      white-space:  nowrap;
+    }
+
     .logo{
+      display:inline-block;
       width: 80px;
       img{
         width: 100%;
@@ -43,44 +71,59 @@
       }
       .phone-icon{
         padding-top: 15px;
+        //text-align: right;
       }
       .number{
-        padding-top: 20px;
+        padding-top: 7px;
         text-align: center;
-        font-size: 25px;
+        font-size: 22px;
         color: #008f44;
       }
     }
   }
 
 .header-top
+  -#.gerb1
+    = image_tag 'gerb_vin.png'
   .container
     .row
-      .col-md-5
+      .col-md-6
         .row
-          .col-md-2.col-sm-2.col-xs-2
-            .gerb
+          -#.col-md-2.col-sm-2.col-xs-2
+            .gerb1
+              = image_tag 'gerb_vin.png'
+          .col-md-3.col-sm-3.col-xs-5.image-logos
+            -#.gerb
+              = image_tag 'gerb_vin.png'
+            .gerb1
               = image_tag 'gerb_vin.png'
             .logo
               = image_tag 'snake.png'
             -#= link_to '', '#', class: "logo"
-          .col-md-10.col-sm-10.col-xs-10
+          .col-md-9.col-sm-9.col-xs-7
             .title
               -#%h2
               Охорона здоров'я Вінниччини
-      .col-md-7
+      .col-md-6
         .row.welcome
-          .col-md-7
+          .col-md-6
             .message
-              %span Ми на зв'язку з вами 24 години на добу.
-              %span По невідкладним потребам можете зателефонувати нам
-          .col-md-1
-            .phone-icon
-              = image_tag 'phone-icon.png'
-          .col-md-4
-            .number
-              800-2345-6789​
               %form
                 %input.form-control{ placeholder: 'Пошук...', type: 'search'}
-                -#%button.morphsearch-submit{type: 'submit'}
+              -#%button.morphsearch-submit{type: 'submit'}
                   -#Search
+              -#%span Ми на зв'язку з вами 24 години на добу.
+              -#%span По невідкладним потребам можете зателефонувати нам
+          .col-md-6
+            .row
+              .col-md-2.col-sm-2.col-xs-3
+                .phone-icon
+                  = image_tag 'phone-icon.png'
+              .col-md-10.col-sm-10.col-xs-9
+                .number
+                  .phone (0432) 35-37-43
+                  .phone (0432) 67-01-20
+                  -#%form
+                    %input.form-control{ placeholder: 'Пошук...', type: 'search'}
+                    -#%button.morphsearch-submit{type: 'submit'}
+                      -#Search

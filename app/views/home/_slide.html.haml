@@ -38,6 +38,19 @@
     %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
   / Wrapper for slides
   .carousel-inner{:role => "listbox"}
+    -#.item.active
+    -#  = image_tag 'carusel/1busha.jpg'
+    -#  .carousel-caption
+    -#    %h2 Підвищення імунітету в ритмі вашого серця
+    -#.item
+    -#  = image_tag 'carusel/3busha.jpg'
+    -#  .carousel-caption
+    -#    %h2 Методичні  рекомендації з надання лікувально-профілактичної допомоги
+    -#.item
+    -#  = image_tag 'carusel/5busha.jpg'
+    -#  .carousel-caption
+    -#    %h2 Рекомендації лікарів щодо організації режиму праці
+
     .item.active
       = image_tag 'slide/home-slide-img1.jpg'
       .carousel-caption

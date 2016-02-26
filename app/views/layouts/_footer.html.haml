@@ -157,7 +157,24 @@
         %p
           %a{:href => "#"} Контакти
     -#.row
-      .col-sm-12
-        .owner-year
-          Департамент Охорони Здоров'я © 2015.
-          %a{:href => "#"} Privacy Policy
+    -#  .col-sm-12
+    -#    .owner-year
+    -#      Департамент Охорони Здоров'я © 2015.
+    -#      %a{:href => "#"} Privacy Policy
+
+:javascript
+
+  $(document).ready(function(){
+
+      // Плавный скролл по якорям
+      $('a[href^="#"]').click(function () {
+          elementClick = $(this).attr("href");
+          destination = $(elementClick).offset().top;
+          if($.browser.safari){
+          $('body').animate( { scrollTop: destination }, 1000 );
+          } else {
+              $('html').animate( { scrollTop: destination }, 1000 );
+          }
+          return false;
+     });
+  });

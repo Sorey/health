@@ -84,7 +84,8 @@
       }
     }
   }
-
+-#%script{:src => "http://code.jquery.com/jquery-1.11.1.js"}
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
 .header-menu
   .container
     .row
@@ -208,6 +209,24 @@
           -#        %a{:href => "#"} Separated link
 
 :javascript
+
+  $(document).ready(function(){
+
+      // Плавный скролл по якорям
+      $('a[href^="#"]').click(function () {
+          elementClick = $(this).attr("href");
+          destination = $(elementClick).offset().top;
+          if($.browser.safari){
+          $('body').animate( { scrollTop: destination }, 1000 );
+          } else {
+              $('html').animate( { scrollTop: destination }, 1000 );
+          }
+          return false;
+     });
+  });
+
+
+
   //$(function (){
   //  $('.dropdown').hover(
   //    function (){

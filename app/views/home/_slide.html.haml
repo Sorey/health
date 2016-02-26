@@ -40,9 +40,24 @@
     %li{"data-slide-to" => "4", "data-target" => "#carousel-example-generic"}
     %li{"data-slide-to" => "5", "data-target" => "#carousel-example-generic"}
     %li{"data-slide-to" => "6", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "7", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "8", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "9", "data-target" => "#carousel-example-generic"}
   / Wrapper for slides
   .carousel-inner{:role => "listbox"}
     .item.active
+      = image_tag 'slide/home-slide-img1.jpg'
+      .carousel-caption
+        %h2 Підвищення імунітету в ритмі вашого серця
+    .item
+      = image_tag 'slide/home-slide-img2.jpg'
+      .carousel-caption
+        %h2 Методичні  рекомендації з надання лікувально-профілактичної допомоги
+    .item
+      = image_tag 'slide/home-slide-img3.jpg'
+      .carousel-caption
+        %h2 Рекомендації лікарів щодо організації режиму праці
+    .item
       = image_tag 'carusel/f27pirog.jpg'
       -#.carousel-caption
     .item

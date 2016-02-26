@@ -110,13 +110,13 @@
                   %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Про департамент
                 %li.divider{:role => "separator"}
                 %li
-                  %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrF2C5Z?OpenDocument&count=5&RestrictToCategory=GrF2C5Z"} Структура
+                  %a{:href => structure_path} Структура
                 %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Працівники ДОЗ
                 %li.divider{:role => "separator"}
                 %li
-                  %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrF2C8Z?OpenDocument&count=5&RestrictToCategory=GrF2C8Z"} Графік прийому громадян
+                  %a{:href => schedule_path} Графік прийому громадян
                 %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
@@ -184,7 +184,7 @@
                 %li
                   %a.a-within{:href => "#"} План роботи на місяць
             %li
-              %a{:href => "#"} Контакти
+              %a{:href => "#contacts"} Контакти
           -#%form.navbar-form.navbar-left{:role => "search"}
           -#  .form-group
           -#    %input.form-control{:placeholder => "Search", :type => "text"}

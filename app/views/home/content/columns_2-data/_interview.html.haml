@@ -1,7 +1,10 @@
 :scss
+
   .interview{
     border-bottom: 1px solid #cce7d9;
     .poll{
+      box-shadow: 0 0 10px #cce7d9;
+      padding: 3px;
       .head{
         margin: 10px 0;
         .icon{
@@ -24,6 +27,21 @@
           color: #444444;
         }
       }
+      .rdio-b{
+        margin: 7px;
+      }
+      .actions{
+
+        margin-bottom: 10px;
+        .btn{
+          display:inline-block;
+          text-align: right;
+          //position:relative;
+          //right: 0px;
+          float: right;
+          padding:  4px 10px;
+        }
+      }
 
     }
   }
@@ -36,18 +54,79 @@
         %i.fa.fa-check-square-o.fa-2x
       %a{:href => "#"}
         .title Опитування №1
-    %p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту
+    %p Текст запитання
+    .rdio-b
+      = radio_button_tag 'color', "green", class: "color_input"
+      варіант 1
+    .rdio-b
+      = radio_button_tag 'color', "green", class: "color_input"
+      варіант 2
+    .rdio-b
+      = radio_button_tag 'color', "green", class: "color_input"
+      варіант 3
+    .actions.clearfix
+      = submit_tag("Відправити", :class=>"btn btn-success")
   .poll
     .head
       .icon
         %i.fa.fa-check-square-o.fa-2x
       %a{:href => "#"}
         .title Опитування №2
-    %p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту
+    %p Текст запитання
+    .rdio-b
+      = radio_button_tag 'color1', "green1", true, class: "color_input"
+      варіант 1
+    .rdio-b
+      = radio_button_tag 'color1', "green1", class: "color_input"
+      варіант 2
+    .rdio-b
+      = radio_button_tag 'color1', "green1", class: "color_input"
+      варіант 3
+    .actions.clearfix
+      = submit_tag("Відправити", :class=>"btn btn-success")
   .poll
     .head
       .icon
         %i.fa.fa-check-square-o.fa-2x
       %a{:href => "#"}
         .title Опитування №3
-    %p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту
+    %p Текст запитання
+    .rdio-b
+      = radio_button_tag 'color2', "green2", class: "color_input"
+      варіант 1
+    .rdio-b
+      = radio_button_tag 'color2', "green2", class: "color_input"
+      варіант 2
+    .rdio-b
+      = radio_button_tag 'color2', "green2", class: "color_input"
+      варіант 3
+    .actions.clearfix
+      = submit_tag("Відправити", :class=>"btn btn-success")
+  -#.poll
+  -#  .head
+  -#    .icon
+  -#      %i.fa.fa-check-square-o.fa-2x
+  -#    %a{:href => "#"}
+  -#      .title Опитування №1
+  -#  %p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту
+  -#.poll
+  -#  .head
+  -#    .icon
+  -#      %i.fa.fa-check-square-o.fa-2x
+  -#    %a{:href => "#"}
+  -#      .title Опитування №2
+  -#  %p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту
+  -#.poll
+  -#  .head
+  -#    .icon
+  -#      %i.fa.fa-check-square-o.fa-2x
+  -#    %a{:href => "#"}
+  -#      .title Опитування №3
+  -#  %p Гармонійні ритми пронизують увесь світ. Вони в нас і навколо нас. Проте, ми нажаль, перестали прислухатися до них, хоча варто зробити невелике зусилля, як музика Всесвіту
+
+
+-#    Опитування №1 (текст)
+-#варіант 1
+-#варіант 2
+-#варіант
+-#3

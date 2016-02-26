@@ -1,0 +1,63 @@
+:scss
+  .schedule{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .message{
+        display: inline-block;
+        float: right;
+        text-align: right;
+        vertical-align: bottom;
+        color: orangered;
+        //margin:20px 0 5px;
+        //.btn{
+        //
+        //  margin:20px 0 5px;
+        //}
+      }
+    }
+    .photo{
+      //display: inline-block;
+      text-align: center;
+      min-width: 100px;
+      margin: 0 auto;
+      img{
+        display: inline-block;
+        margin: 0 auto;
+      }
+    }
+
+  }
+
+.schedule
+  .container
+    .heading
+      -#.title
+        %h2 ГРАФІК особистого прийому громадян керівництвом Департаменту охорони здоров'я Вінницької облдержадміністрації
+      .message
+        -#- if current_user && current_user.admin?
+        -#= link_to 'Створити новину', new_admin_news_path, :class => 'btn btn-primary'
+        розділ в розробці
+  .container
+    .photo
+      = image_tag 'http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/16f6d6ee76bfca88c2256fc7003eb153/abf4d07335054a90c2257456002a14d7/F_Abstract/0.B4!OpenElement&FieldElemFormat=jpg'
+    -#%table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#33AF52"}
+    -#  -#%thead
+    -#    %tr
+    -#      %th #
+    -#      %th Title
+    -#      %th Description
+    -#      %th Publish_on
+    -#      %th Picture
+    -#      %th Show
+    -#  %tbody
+    -#    %tr
+    -#      %th Директор Департаменту
+    -#      %td Грабович Людмила Олексіївна
+    -#    %tr
+    -#      %th Заступник директора Департаменту
+    -#      %td Марусяк Надія Дмитрівна
+    -#    %tr
+    -#      %th Заступник директора Департаменту, начальник управління фінансово-економічного забезпечення та організаційно-кадрової роботи з персоналом
+    -#      %td Житанська Олена Сергіївна

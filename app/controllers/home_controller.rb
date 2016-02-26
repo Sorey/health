@@ -11,4 +11,11 @@ class HomeController < ApplicationController
     @news = Admin::News.find(params[:id])
   end
 
+  def structure
+
+  end
+
+  def schedule
+
+  end
 end

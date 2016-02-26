@@ -36,12 +36,33 @@
     %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
     %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
     %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "3", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "4", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "5", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "6", "data-target" => "#carousel-example-generic"}
   / Wrapper for slides
   .carousel-inner{:role => "listbox"}
-    -#.item.active
-    -#  = image_tag 'carusel/1busha.jpg'
-    -#  .carousel-caption
-    -#    %h2 Підвищення імунітету в ритмі вашого серця
+    .item.active
+      = image_tag 'carusel/f27pirog.jpg'
+      -#.carousel-caption
+    .item
+      = image_tag 'carusel/f2sofi.jpg'
+      -#.carousel-caption
+    .item
+      = image_tag 'carusel/f3busha.jpg'
+      -#.carousel-caption
+    .item
+      = image_tag 'carusel/f4busha.jpg'
+      -#.carousel-caption
+    .item
+      = image_tag 'carusel/f5busha.jpg'
+      -#.carousel-caption
+    .item
+      = image_tag 'carusel/f6potoc.jpg'
+      -#.carousel-caption
+    .item
+      = image_tag 'carusel/f1busha.jpg'
+      -#.carousel-caption
     -#.item
     -#  = image_tag 'carusel/3busha.jpg'
     -#  .carousel-caption
@@ -51,18 +72,18 @@
     -#  .carousel-caption
     -#    %h2 Рекомендації лікарів щодо організації режиму праці
 
-    .item.active
-      = image_tag 'slide/home-slide-img1.jpg'
-      .carousel-caption
-        %h2 Підвищення імунітету в ритмі вашого серця
-    .item
-      = image_tag 'slide/home-slide-img2.jpg'
-      .carousel-caption
-        %h2 Методичні  рекомендації з надання лікувально-профілактичної допомоги
-    .item
-      = image_tag 'slide/home-slide-img3.jpg'
-      .carousel-caption
-        %h2 Рекомендації лікарів щодо організації режиму праці
+    -#.item.active
+    -#  = image_tag 'slide/home-slide-img1.jpg'
+    -#  .carousel-caption
+    -#    %h2 Підвищення імунітету в ритмі вашого серця
+    -#.item
+    -#  = image_tag 'slide/home-slide-img2.jpg'
+    -#  .carousel-caption
+    -#    %h2 Методичні  рекомендації з надання лікувально-профілактичної допомоги
+    -#.item
+    -#  = image_tag 'slide/home-slide-img3.jpg'
+    -#  .carousel-caption
+    -#    %h2 Рекомендації лікарів щодо організації режиму праці
   / Controls
   %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
     %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}

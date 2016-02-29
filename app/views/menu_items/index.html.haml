@@ -1,0 +1,40 @@
+:scss
+  .menu-items{
+    table{
+      th, td{
+      padding:5px;
+        border: 1px solid dodgerblue;
+      }
+    }
+  }
+
+
+.container.menu-items
+  %h1 Listing menu_items
+
+  %table
+    %thead
+      %tr
+        %th Type way
+        %th Type item
+        %th Title
+        %th Parent
+        %th
+        %th
+        %th
+
+    %tbody
+      - @menu_items.each do |menu_item|
+        %tr
+          = menu_item.id
+          %td= menu_item.type_way
+          %td= menu_item.type_item
+          %td= menu_item.title
+          %td= menu_item.parent_id
+          %td= link_to 'Show', menu_item
+          %td= link_to 'Edit', edit_menu_item_path(menu_item)
+          %td= link_to 'Destroy', menu_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Menu item', new_menu_item_path

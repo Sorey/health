@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224140724) do
+ActiveRecord::Schema.define(version: 20160229085519) do
 
   create_table "medical_setup_categories", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20160224140724) do
   end
 
   add_index "medical_setups", ["medical_setup_category_id"], name: "index_medical_setups_on_medical_setup_category_id"
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "type_way"
+    t.string   "type_item"
+    t.string   "title"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "menu_items", ["parent_id"], name: "index_menu_items_on_parent_id"
 
   create_table "news", force: :cascade do |t|
     t.string   "title"

@@ -1,0 +1,19 @@
+.container
+  %p#notice= notice
+
+  %p
+    %b Type way:
+    = @menu_item.type_way
+  %p
+    %b Type item:
+    = @menu_item.type_item
+  %p
+    %b Title:
+    = @menu_item.title
+  %p
+    %b Parent:
+    = @menu_item.parent_id
+
+  = link_to 'Edit', edit_menu_item_path(@menu_item)
+  \|
+  = link_to 'Back', menu_items_path

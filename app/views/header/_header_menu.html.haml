@@ -102,13 +102,15 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
+
+            -#- @menu_items.each do|m_i|
             %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", target: "blank" }
                 Департамент охорони здоров'я
                 %span.caret
               %ul.dropdown-menu
                 %li
-                  %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Про департамент
+                  %a{target: "blank", :href => "#"} Про департамент
                 %li.divider{:role => "separator"}
                 %li
                   %a{:href => structure_path} Структура
@@ -121,71 +123,94 @@
                 %li.divider{:role => "separator"}
                 %li
                   %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Медичні заклади
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} Первинного рівня
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Вторинного рівня (спеціалізовані)
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Третинного рівня  (високоспеціалізовані)
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Санаторії
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Швидка медична допомога
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Будинки дитини
-                -#%li
-                -#  %a{:href => "#"} Лікувальні заклади (по територіях)
-                -#%li.divider{:role => "separator"}
-                -#%li
-                -#  %a{:href => "#"} Інші заклади
-                -#%li.divider{:role => "separator"}
-                -#%li
-                -#  %a{:href => "#"} Навчальні медичні заклади
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Нормативна база
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
-                    Нормативна база МОЗ
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
-                    Програми
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
-                    Розпорядження голови ОДА
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
-                    Рішення обласної Ради
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Накази ДОЗ
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Рішення засідань колегії ДОЗ
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} План роботи ДОЗ
-                %li
-                  %a.a-within{:href => "#"} Комплексний план
-                %li
-                  %a.a-within{:href => "#"} План роботи на місяць
-            %li
-              %a{:href => "#contacts"} Контакти
+
+            -#%li.dropdown
+            -#  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
+            -#    Департамент охорони здоров'я
+            -#    %span.caret
+            -#  %ul.dropdown-menu
+            -#    %li
+            -#      %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Про департамент
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => structure_path} Структура
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Працівники ДОЗ
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => schedule_path} Графік прийому громадян
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
+            -#%li.dropdown
+            -#  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            -#    Медичні заклади
+            -#    %span.caret
+            -#  %ul.dropdown-menu
+            -#    %li
+            -#      %a{:href => "#"} Первинного рівня
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Вторинного рівня (спеціалізовані)
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Третинного рівня  (високоспеціалізовані)
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Санаторії
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Швидка медична допомога
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Будинки дитини
+            -#    -#%li
+            -#    -#  %a{:href => "#"} Лікувальні заклади (по територіях)
+            -#    -#%li.divider{:role => "separator"}
+            -#    -#%li
+            -#    -#  %a{:href => "#"} Інші заклади
+            -#    -#%li.divider{:role => "separator"}
+            -#    -#%li
+            -#    -#  %a{:href => "#"} Навчальні медичні заклади
+            -#%li.dropdown
+            -#  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            -#    Нормативна база
+            -#    %span.caret
+            -#  %ul.dropdown-menu
+            -#    %li
+            -#      %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
+            -#        Нормативна база МОЗ
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
+            -#        Програми
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
+            -#        Розпорядження голови ОДА
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
+            -#        Рішення обласної Ради
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Накази ДОЗ
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} Рішення засідань колегії ДОЗ
+            -#    %li.divider{:role => "separator"}
+            -#    %li
+            -#      %a{:href => "#"} План роботи ДОЗ
+            -#    %li
+            -#      %a.a-within{:href => "#"} Комплексний план
+            -#    %li
+            -#      %a.a-within{:href => "#"} План роботи на місяць
+            -#%li
+            -#  %a{:href => "#contacts"} Контакти
+
+
+
           -#%form.navbar-form.navbar-left{:role => "search"}
           -#  .form-group
           -#    %input.form-control{:placeholder => "Search", :type => "text"}

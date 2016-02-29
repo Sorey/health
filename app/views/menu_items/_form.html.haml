@@ -1,0 +1,23 @@
+= form_for @menu_item do |f|
+  - if @menu_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@menu_item.errors.count, "error")} prohibited this menu_item from being saved:"
+      %ul
+        - @menu_item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :type_way
+    = f.select :type_way, [0,1,2,3,4,5], {:include_blank =>  true}, :multiple => false
+  .field
+    = f.label :type_item
+    = f.select :type_item, MenuItem.type_items, {}, :multiple => false
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :parent_id
+    = f.select :parent_id, MenuItem.parent_roles, {:include_blank =>  true}, :multiple => false
+
+  .actions
+    = f.submit 'Save'

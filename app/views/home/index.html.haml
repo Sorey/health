@@ -1,6 +1,15 @@
 :scss
 
 .home
+  -#= debug @menu_items
+  = debug @g_m_i
+  -#- @s1s.each do |menu_item|
+    %ul
+      %li= menu_item.id
+      %li= menu_item.type_way
+      %li= menu_item.type_item
+      %li= menu_item.title
+      %li= menu_item.parent_id
   = render :partial => 'home/slide'
   = render :partial => 'home/content'
   = render :partial => 'home/gmap'

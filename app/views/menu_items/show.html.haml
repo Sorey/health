@@ -3,7 +3,7 @@
 
   %p
     %b Type way:
-    = @menu_item.type_way
+    = @menu_item.type_level
   %p
     %b Type item:
     = @menu_item.type_item
@@ -13,6 +13,9 @@
   %p
     %b Parent:
     = @menu_item.parent_id
+  %p
+    %b Show:
+    = @menu_item.show
 
   = link_to 'Edit', edit_menu_item_path(@menu_item)
   \|

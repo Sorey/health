@@ -72,6 +72,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:type_way, :type_item, :title, :parent_id)
+      params.require(:menu_item).permit(:type_item, :title, :parent_id, :type_level, :show)
     end
 end

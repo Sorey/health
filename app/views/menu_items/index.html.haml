@@ -15,7 +15,7 @@
   %table
     %thead
       %tr
-        %th Type way
+        %th Type level
         %th Type item
         %th Title
         %th Parent
@@ -27,7 +27,7 @@
       - @menu_items.each do |menu_item|
         %tr
           = menu_item.id
-          %td= menu_item.type_way
+          %td= menu_item.type_level.to_i
           %td= menu_item.type_item
           %td= menu_item.title
           %td= menu_item.parent_id

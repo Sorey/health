@@ -2,7 +2,9 @@
 
 .home
   -#= debug @menu_items
-  = debug @g_m_i
+  -#= debug @g_m_i
+  -#= debug @menu_items
+  -#=  @menu.html_safe
   -#- @s1s.each do |menu_item|
     %ul
       %li= menu_item.id

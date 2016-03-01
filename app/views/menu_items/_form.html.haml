@@ -7,17 +7,20 @@
           %li= msg
 
   .field
-    = f.label :type_way
-    = f.select :type_way, [0,1,2,3,4,5], {:include_blank =>  true}, :multiple => false
+    = f.label :type_level
+    = f.select :type_level, [0,1,2,3,4,5], {:include_blank =>  true}, :multiple => false
   .field
     = f.label :type_item
-    = f.select :type_item, MenuItem.type_items, {}, :multiple => false
+    = f.select :type_item , ['Головне меню', 'Бокове меню'], :multiple => false
   .field
     = f.label :title
     = f.text_field :title
   .field
     = f.label :parent_id
     = f.select :parent_id, MenuItem.parent_roles, {:include_blank =>  true}, :multiple => false
+  .field
+    = f.label :show
+    = f.check_box :show
 
   .actions
     = f.submit 'Save'

@@ -47,12 +47,24 @@ ActiveRecord::Schema.define(version: 20160229085519) do
   add_index "medical_setups", ["medical_setup_category_id"], name: "index_medical_setups_on_medical_setup_category_id"
 
   create_table "menu_items", force: :cascade do |t|
-    t.string   "type_way"
-    t.string   "type_item"
     t.string   "title"
+    t.integer  "type_level"
+    t.string   "type_item"
     t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "link"
+    t.boolean  "show"
+    t.string   "description"
+    t.integer  "order_item"
+    t.string   "alias"
+    t.string   "alias_type"
+    t.integer  "id_post"
+    t.string   "link_component"
+    t.string   "link_description"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "menu_items", ["parent_id"], name: "index_menu_items_on_parent_id"

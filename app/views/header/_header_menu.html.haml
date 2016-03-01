@@ -85,7 +85,7 @@
     }
   }
 -#%script{:src => "http://code.jquery.com/jquery-1.11.1.js"}
-%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
+
 .header-menu
   .container
     .row
@@ -101,7 +101,12 @@
           %a.navbar-brand{:href => "/"} Головна
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          =  @menu.html_safe
+
           %ul.nav.navbar-nav
+            %li
+              %a{:href => "#contacts"} Контакти
+          -#%ul.nav.navbar-nav
 
             -#- @menu_items.each do|m_i|
             %li.dropdown

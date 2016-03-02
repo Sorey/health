@@ -114,11 +114,8 @@
           %a.navbar-brand{:href => "/"} Головна
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          =  @menu.html_safe
+          =  $menu.html_safe if $menu
 
-          %ul.nav.navbar-nav
-            %li
-              %a{:href => "#contacts"} Контакти
           -#%ul.nav.navbar-nav
 
             -#- @menu_items.each do|m_i|

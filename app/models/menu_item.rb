@@ -2,6 +2,16 @@ class MenuItem < ActiveRecord::Base
   has_many :children, class_name: "MenuItem", foreign_key: "parent_id"
   belongs_to :parent, class_name: "MenuItem"
 
+  # before_create :get_level
+  # before_update :get_level
+
+  def get_level
+    level = self.parent.type_level if self.parent
+    # logger.debug level
+    level = -1 unless self.parent
+    self.type_level = level.to_i + 1
+   end
+
   def self.parent_roles
     all.collect{|a| [a.title, a.id]}
   end

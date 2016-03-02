@@ -6,21 +6,29 @@
         - @menu_item.errors.full_messages.each do |msg|
           %li= msg
 
+
   .field
-    = f.label :type_level
-    = f.select :type_level, [0,1,2,3,4,5], {:include_blank =>  true}, :multiple => false
-  .field
-    = f.label :type_item
+    = f.label :type_item, "Type menu"
     = f.select :type_item , ['Головне меню', 'Бокове меню'], :multiple => false
+  .field
+    = f.label :type_level, "Type menu item"
+    = f.select :type_level, ['Заголовок меню', 'Пункт меню', 'Перший рівень', 'Додатковий рівень'], :multiple => false
+  .field
+    = f.label :parent_id
+    = f.select :parent_id, MenuItem.parent_roles.insert(0, 0), :multiple => false
   .field
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :parent_id
-    = f.select :parent_id, MenuItem.parent_roles, {:include_blank =>  true}, :multiple => false
+    = f.label :link
+    = f.text_field :link
+  .field
+    = f.label :order_item
+    = f.number_field :order_item
   .field
     = f.label :show
     = f.check_box :show
+
 
   .actions
     = f.submit 'Save'

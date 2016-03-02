@@ -1,39 +1,49 @@
 class HomeController < ApplicationController
   # $MENU
-  def get_children id, t_way
+  def get_children id, t_level
 
-    @menu_items.each do |m_a|
-      @pfffp = true  if m_a.parent_id == id
+    # Inspect if m_item has children
+    pfffp = false
+    @menu_items.each do |m_b|
+      # @pfffp = true  if m_b.parent_id == id
+      if m_b.parent_id == id
+        pfffp = true
+      end
     end
 
-    @menu << '<ul class="dropdown-menu">' if @pfffp == true && t_way == "0"
-    @menu << '<ul class="level-3">' if @pfffp == true && t_way.to_i > 0
-    iterator = 0
-    @menu_items.each do |m_a|
-      if m_a.parent_id == id
+    # abort pfffp.inspect
 
-        @menu << '<li class="divider", role = "separator"></li>' if iterator > 0 && t_way == "0"
-        @menu << "<li><a> #{m_a.title}</a>" if t_way.to_i == 0
-        @menu << "<li style='list-style: none; margin-left: -30px'><a style='color: #5390C5'> #{m_a.title}</a>" if t_way.to_i > 0
+    @menu << '<ul class="dropdown-menu">' if pfffp == true && t_level == 'Заголовок меню'
+    @menu << '<ul class="deep-level">' if pfffp == true && t_level != 'Заголовок меню'
+    iterator = 0
+    @menu_items.each do |m_b|
+      if m_b.parent_id == id
+
+        @menu << '<li class="divider", role = "separator"></li>' if iterator > 0 && t_level == 'Заголовок меню'
+        @menu << "<li><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
+        @menu << "<li style='list-style: none; margin-left: -30px; white-space: nowrap'><a href='#{m_b.link}' style='color: #5390C5'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
         # @menu << "<li><a> #{m_a.title}</a>"  if t_way > 1
         iterator += 1
-        get_children m_a.id, m_a.type_level
+        get_children m_b.id, m_b.type_level
         @menu << '</li>'
       end
     end
-    @menu << '</ul>' if @pfffp == true
+    @menu << '</ul>' if pfffp == true
+
   end
 
   def index
     @news_limit = Admin::News.where(publish_on: true).order(created_at: :desc).first(4)
 
-    @menu_items = MenuItem.all
-    @g_m_i = []
+    @menu_items = MenuItem.all.where(show: true, type_item: "Головне меню").order(:order_item)
+
     @menu = '<ul class="nav navbar-nav">'
 
     @menu_items.each do |m_a|
-      if m_a.parent_id == nil
-        @menu << "<li class='dropdown'><a class='dropdown-toggle' aria-expanded='false' aria-haspopup = 'true' data-toggle = 'dropdown' href = '#' role = 'button' target= 'blank'> #{m_a.title} <span class='caret'></span></a>"
+      if m_a.parent_id == 0
+        @menu << "<li class='dropdown'><a class='dropdown-toggle' aria-expanded='false' aria-haspopup = 'true' data-toggle = 'dropdown' href = '#{m_a.link}' role = 'button' target= 'blank'> #{m_a.title} <span class='caret'></span></a>" if m_a.type_level == 'Заголовок меню'
+        @menu << "<li ><a  href = '#{m_a.link}'> #{m_a.title} </span></a>" if m_a.type_level == 'Пункт меню'
+
         get_children m_a.id, m_a.type_level
         @menu << '</li>'
       end

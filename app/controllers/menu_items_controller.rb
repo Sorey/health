@@ -7,7 +7,45 @@ class MenuItemsController < ApplicationController
   # GET /menu_items
   # GET /menu_items.json
   def index
-    @menu_items = MenuItem.all
+    @menu_items = MenuItem.all.order(:order_item)
+    @menu = ''
+    @menu_items.each do |m_i|
+      if m_i.parent_id == 0
+        @menu << '<tr>'
+        # @menu << "<td> #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
+        @menu << "<td> #{m_i.title} </td> <td> #{m_i.link.blank? ? '-' : '+'} </td> <td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td>"
+        @menu << "<td><a href='/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/menu_items/#{m_i.id}'>Destroy</a></td> "
+        @menu << '</tr>'
+
+        get_children m_i.id
+      end
+    end
+  end
+
+  def get_children parent_id
+    @menu_items.each do |m_i|
+      if m_i.parent_id == parent_id
+        get_level = get_level m_i.type_level
+        # get_link = get_link m_i.link
+
+        @menu << '<tr>'
+        # @menu << "<td>#{get_level} #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
+        @menu << "<td>#{get_level} #{m_i.title} </td> <td> #{m_i.link.blank? ? '-' : '+'} </td> <td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td>"
+        @menu << "<td><a href='/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/menu_items/#{m_i.id}'>Destroy</a></td> "
+        @menu << '</tr>'
+
+        get_children m_i.id
+      end
+    end
+  end
+
+  def get_level level
+    result = case level
+      when 'Перший рівень' then "-"
+      when 'Додатковий рівень' then "- -"
+      else ""
+    end
+    result
   end
 
   # GET /menu_items/1
@@ -72,6 +110,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:type_item, :title, :parent_id, :type_level, :show)
+      params.require(:menu_item).permit(:type_item, :title, :parent_id, :type_level, :show, :order_item, :link)
     end
 end

@@ -1,0 +1,28 @@
+= form_for(@articles_group, html: { class: 'form-horizontal' }) do |f|
+  .form-group
+    .col-sm-10.col-md-offset-2
+      - if @articles_group.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@articles_group.errors.count, "error")} prohibited this articles_group from being saved:"
+          %ul
+            - @articles_group.errors.full_messages.each do |msg|
+              %li= msg
+
+  .form-group
+    = f.label :title,'Заголовок', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :description,'Повний опис', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :description, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :publish_on, 'Публікувати?', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Save', :class => 'btn btn-primary'
+
+

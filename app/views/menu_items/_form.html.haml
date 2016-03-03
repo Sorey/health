@@ -1,34 +1,45 @@
-= form_for @menu_item do |f|
-  - if @menu_item.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@menu_item.errors.count, "error")} prohibited this menu_item from being saved:"
-      %ul
-        - @menu_item.errors.full_messages.each do |msg|
-          %li= msg
+:scss
 
+= form_for(@menu_item, html: { class: 'form-horizontal' }) do |f|
+  .form-group
+    .col-sm-10.col-md-offset-2
+      - if @menu_item.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@menu_item.errors.count, "error")} prohibited this menu_item from being saved:"
+          %ul
+            - @menu_item.errors.full_messages.each do |msg|
+              %li= msg
 
-  .field
-    = f.label :type_item, "Type menu"
-    = f.select :type_item , ['Головне меню', 'Бокове меню'], :multiple => false
-  .field
-    = f.label :type_level, "Type menu item"
-    = f.select :type_level, ['Заголовок меню', 'Пункт меню', 'Перший рівень', 'Додатковий рівень'], :multiple => false
-  .field
-    = f.label :parent_id
-    = f.select :parent_id, MenuItem.parent_roles.insert(0, 0), :multiple => false
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :link
-    = f.text_field :link
-  .field
-    = f.label :order_item
-    = f.number_field :order_item
-  .field
-    = f.label :show
-    = f.check_box :show
+  .form-group
+    = f.label :type_item, "Type menu", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :type_item , ['Головне меню', 'Бокове меню'], {}, :multiple => false, :class => 'form-control'
+  .form-group
+    = f.label :type_level, "Type menu item", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :type_level, ['Заголовок меню', 'Пункт меню', 'Перший рівень', 'Додатковий рівень'], {}, :multiple => false, :class => 'form-control'
+  .form-group
+    = f.label :parent_id, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :parent_id, MenuItem.parent_roles.insert(0, 0), {}, :multiple => false, :class => 'form-control'
+  .form-group
+    = f.label :title, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :link, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :link , :class => 'form-control input-responsive'
+  .form-group
+    = f.label :order_item, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.number_field :order_item, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :show, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.check_box :show, :class => 'form-control input-responsive'
+    .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Save', :class => 'btn btn-primary'
 
-
-  .actions
-    = f.submit 'Save'

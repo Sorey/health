@@ -83,10 +83,11 @@
         background: #F3F3F3;
       }
       .deep-level{
-        li:hover{
+        a:hover{
           background: #F5F5F5;
         }
         li{
+          list-style: none;
           padding-bottom: 5px !important;
           a{
             color: #00B35B !important;
@@ -98,6 +99,10 @@
     }
   }
 -#%script{:src => "http://code.jquery.com/jquery-1.11.1.js"}
+- @links = MenuItem.get_alias_links
+= debug @links.inspect
+- @links.each do |link|
+  %p=  "#{link.link}"
 
 .header-menu
   .container

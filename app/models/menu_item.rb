@@ -5,6 +5,10 @@ class MenuItem < ActiveRecord::Base
   # before_create :get_level
   # before_update :get_level
 
+  def self.get_alias_links
+    select('id, link').where.not( link: "", show: false).take(1)
+  end
+
   def get_level
     level = self.parent.type_level if self.parent
     # logger.debug level

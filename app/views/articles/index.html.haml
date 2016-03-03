@@ -1,0 +1,69 @@
+-#%h1 Listing articles
+-#
+-#%table
+-#  %thead
+-#    %tr
+-#      %th
+-#      %th
+-#      %th
+-#
+-#  %tbody
+-#    - @articles.each do |article|
+-#      %tr
+-#        %td= link_to 'Show', article
+-#        %td= link_to 'Edit', edit_article_path(article)
+-#        %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+-#
+-#%br
+-#
+-#= link_to 'New Article', new_article_path
+
+:scss
+  .admin_all_news{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+
+  }
+
+.admin_all_news
+  .container
+    .heading
+      .title
+        %h1 Список статей
+      .btn-new-news
+        -#- if current_user && current_user.admin?
+        = link_to 'New Article', new_article_path, :class => 'btn btn-primary'
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %thead
+        %tr
+          -#%th Type menu item
+          -#%th Type menu
+          %th Title
+          %th Description
+          %th Publish
+          %th Group
+          %th
+          %th
+          %th
+      %tbody
+        - @articles.each do |article|
+          %tr
+            %td= article.title
+            %td= article.description
+            %td= article.publish_on
+            %td= article.articles_group.title unless article.articles_group.nil?
+            %td= link_to 'Show', article
+            %td= link_to 'Edit', edit_article_path(article)
+            %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }

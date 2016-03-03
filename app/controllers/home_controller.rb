@@ -21,8 +21,8 @@ class HomeController < ApplicationController
       if m_b.parent_id == id
 
         $menu << '<li class="divider", role = "separator"></li>' if iterator > 0 && t_level == 'Заголовок меню'
-        $menu << "<li><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
-        $menu << "<li style='list-style: none; margin-left: -30px; white-space: nowrap'><a href='#{m_b.link}' style='color: #5390C5'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
+        $menu << "<li><a href=#{m_b.link}.html> #{m_b.title}</a>" if t_level == 'Заголовок меню'
+        $menu << "<li ><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
         # @menu << "<li><a> #{m_a.title}</a>"  if t_way > 1
         iterator += 1
         get_children m_b.id, m_b.type_level

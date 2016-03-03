@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302092834) do
+ActiveRecord::Schema.define(version: 20160303101732) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "publish_on"
+    t.integer  "articles_group_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "articles", ["articles_group_id"], name: "index_articles_on_articles_group_id"
+
+  create_table "articles_groups", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "publish_on"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "medical_setup_categories", force: :cascade do |t|
     t.string   "name"
@@ -83,6 +102,25 @@ ActiveRecord::Schema.define(version: 20160302092834) do
   end
 
   add_index "news", ["user_id"], name: "index_news_on_user_id"
+
+  create_table "post_groups", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "publish_on"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "publish_on"
+    t.integer  "post_group_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "posts", ["post_group_id"], name: "index_posts_on_post_group_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "title"

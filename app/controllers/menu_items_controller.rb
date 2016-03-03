@@ -12,9 +12,10 @@ class MenuItemsController < ApplicationController
     @menu_items.each do |m_i|
       if m_i.parent_id == 0
         @menu << '<tr>'
+        @menu << "<td> #{m_i.id}</td>"
         # @menu << "<td> #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
         @menu << "<td> #{m_i.title} </td> <td> #{m_i.link.blank? ? '-' : '+'} </td> <td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td>"
-        @menu << "<td><a href='/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/menu_items/#{m_i.id}'>Destroy</a></td> "
+        @menu << "<td><a href='/admin/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/admin/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}'>Destroy</a></td> "
         @menu << '</tr>'
 
         get_children m_i.id
@@ -29,9 +30,10 @@ class MenuItemsController < ApplicationController
         # get_link = get_link m_i.link
 
         @menu << '<tr>'
+        @menu << "<td> #{m_i.id}</td>"
         # @menu << "<td>#{get_level} #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
         @menu << "<td>#{get_level} #{m_i.title} </td> <td> #{m_i.link.blank? ? '-' : '+'} </td> <td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td>"
-        @menu << "<td><a href='/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/menu_items/#{m_i.id}'>Destroy</a></td> "
+        @menu << "<td><a href='/admin/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/admin/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}'>Destroy</a></td> "
         @menu << '</tr>'
 
         get_children m_i.id

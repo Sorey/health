@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :menu_items
+
+
+
+  resources :articles_groups, path: "/admin/articles_groups"
+  resources :articles, path: "/admin/articles"
+  resources :menu_items, path: "/admin/menu_items"
   resources :users, path: "/admin/users"
   resources :roles, path: "/admin/roles"
   resources :medical_setups
@@ -8,8 +13,8 @@ Rails.application.routes.draw do
   get '/news/', to: 'home#all_news'
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news
 
-  get '/schedule' => 'home#schedule', as: :schedule
-  get '/structure' => 'home#structure', as: :structure
+  # get '/schedule' => 'home#schedule', as: :schedule
+  # get '/structure' => 'home#structure', as: :structure
 
   namespace :admin do
     controller :sessions do
@@ -24,13 +29,30 @@ Rails.application.routes.draw do
     resources :news
     # resources :users
   end
+
+
+
   # get 'news/' => 'news#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
 
+  @links = MenuItem.get_alias_links
+  # coun = 0
+  @links.each do |link|
+    get "/#{link.link}.html", :to => "menu_items#show", as: link.link , defaults: { id: link.id }
+    # coun+=1
+    # get "/#{link.to_s}.html" => 'articles#show_front_page' , as: link
+    # test = "/#{link.link}.html"
+    # abort test
+    # link_to = "menu_i#{link.link}"
+    # abort link_to
+    # get "/#{link.link}.html", :to => "menu_items#show", as: link_to , defaults: { id: link.id }
+    # break
+  end
+
+  root 'home#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

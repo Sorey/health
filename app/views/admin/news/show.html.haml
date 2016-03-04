@@ -9,24 +9,24 @@
       News
       %em
         = @news.title
-  .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-      %tbody
-        %tr
-          %th Title
-          %td= @news.title
-        %tr
-          %th Last_time
-          %td= @news.publish_down ||= "empty"
-        %tr
-          %th On
-          %td= @news.publish_on ||= "empty"
-        %tr
-          %th Picture
+.container
+  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %tbody
+      %tr
+        %th Title
+        %td= @news.title
+      %tr
+        %th Last_time
+        %td= @news.publish_down ||= "empty"
+      %tr
+        %th On
+        %td= @news.publish_on ||= "empty"
+      %tr
+        %th Picture
 
-          %td
-            - if @news.image?
-              =image_tag @news.image.thumb
+        %td
+          - if @news.image?
+            =image_tag @news.image.thumb
   = link_to 'Усі новини', admin_news_index_path, :class => 'btn btn-primary'
   -#- if current_user && current_user.editor?
   = link_to 'Редагувати', edit_admin_news_path(@news), :class => 'btn btn-primary'

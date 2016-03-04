@@ -27,9 +27,17 @@
     .col-sm-10
       = f.text_field :title, :class => 'form-control input-responsive'
   .form-group
+    = f.label :id_post, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :id_post, Article.all.collect {|x| [x.title, x.id]}, {}, :multiple => false,  :class => 'form-control input-responsive'
+  .form-group
     = f.label :link, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :link , :class => 'form-control input-responsive'
+  .form-group
+    = f.label :alias, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :alias , :class => 'form-control input-responsive'
   .form-group
     = f.label :order_item, :class => 'col-sm-2 control-label'
     .col-sm-10

@@ -1,12 +1,19 @@
 class MenuItem < ActiveRecord::Base
   has_many :children, class_name: "MenuItem", foreign_key: "parent_id"
   belongs_to :parent, class_name: "MenuItem"
-
+  after_save :reload_routes
   # before_create :get_level
   # before_update :get_level
 
+  def reload_routes
+    DynamicRouter.reload
+  end
   def self.get_alias_links
-    select('id, link').where.not( link: "", show: false).take(1)
+    select('id_post, alias').where.not( alias: "", show: false)
+    # ggg = 'http'
+    # where("link like ?", "%#{ggg}%").to_sql
+    # where{:link.matches '%http%'}
+    # where("link LIKE ?" , "%#{ggg}%")
   end
 
   def get_level

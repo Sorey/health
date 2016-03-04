@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   resources :articles_groups, path: "/admin/articles_groups"
   resources :articles, path: "/admin/articles"
   resources :menu_items, path: "/admin/menu_items"
@@ -30,6 +28,7 @@ Rails.application.routes.draw do
     # resources :users
   end
 
+  DynamicRouter.load
 
 
   # get 'news/' => 'news#index'
@@ -38,19 +37,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  @links = MenuItem.get_alias_links
-  # coun = 0
-  @links.each do |link|
-    get "/#{link.link}.html", :to => "menu_items#show", as: link.link , defaults: { id: link.id }
-    # coun+=1
-    # get "/#{link.to_s}.html" => 'articles#show_front_page' , as: link
-    # test = "/#{link.link}.html"
-    # abort test
-    # link_to = "menu_i#{link.link}"
-    # abort link_to
-    # get "/#{link.link}.html", :to => "menu_items#show", as: link_to , defaults: { id: link.id }
-    # break
-  end
+  # -- Create dinamic routes for articles( item_menu -> article )
+  # @links = MenuItem.get_alias_links
+  # @links.each do |link|
+  #   get "/#{link.alias}.html", :to => "home#show_article", as: 'menu_item_'+link.alias, defaults: { id: link.id_post }
+  # end
 
   root 'home#index'
   # Example of regular route:

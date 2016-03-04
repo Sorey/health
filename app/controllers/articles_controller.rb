@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :require_role
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   layout 'application_admin'
-
+  around_filter :catch_not_found
   # GET /articles
   # GET /articles.json
   def index
@@ -69,9 +69,25 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+    def catch_not_found
+      yield
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_url, :flash => { :error => "Record not found." }
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_article
+      # render_404 unless params[:id]
+      # render_404 and return if params[:id].blank?
       @article = Article.find(params[:id])
+
+      # begin
+      #   # @userEvents = current_user.event
+      #   @article = Article.find(params[:id])
+      # rescue ActiveRecord::RecordNotFound
+      #   render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+      #   return
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

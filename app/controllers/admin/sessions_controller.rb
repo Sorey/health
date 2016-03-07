@@ -11,8 +11,10 @@ module Admin
       unless user
         user = User.find_by(email: params[:name])
       end
+      user
       if user and user.authenticate(params[:password])
-        session[:user_id] = user.id
+        session[:user_id] = user.id.to_s
+        # abort user.id.to_s.inspect
         redirect_to admin_news_index_path
       else
         redirect_to admin_login_url, alert: "Invalid user/password combination"

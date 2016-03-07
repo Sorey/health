@@ -1,4 +1,27 @@
-class MenuItem < ActiveRecord::Base
+class MenuItem
+
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  field :title, type: String
+  field :type_level, type: String
+  field :type_item, type: String
+  field :parent_id, type: String
+  field :link, type: String
+  field :show, type: Boolean
+  field :description, type: String
+  field :order_item, type: Integer
+
+  field :alias, type: String
+  field :alias_type, type: String
+  field :alias, type: String
+  field :id_post, type: String
+  field :link_component, type: String
+  field :link_description, type: String
+  field :meta_title, type: String
+  field :meta_description, type: String
+  field :meta_keywords, type: String
+
+
   has_many :children, class_name: "MenuItem", foreign_key: "parent_id"
   belongs_to :parent, class_name: "MenuItem"
   after_save :reload_routes
@@ -9,11 +32,16 @@ class MenuItem < ActiveRecord::Base
     DynamicRouter.reload
   end
   def self.get_alias_links
-    select('id_post, alias').where.not( alias: "", show: false)
-    # ggg = 'http'
-    # where("link like ?", "%#{ggg}%").to_sql
-    # where{:link.matches '%http%'}
-    # where("link LIKE ?" , "%#{ggg}%")
+    # find( { alias: { $ne => "" } } )
+    # ff = self.find(
+    #     { alias: { $ne: "" } },
+    #     { id_post: 1, alias: 1, _id: 0 }
+    # )
+    # select('id_post, alias').where(show: false)
+    where(:alias.ne =>  nil)
+    # where(:url.ne => "", :url.exists => true)
+    # find(show: false)
+
   end
 
   def get_level

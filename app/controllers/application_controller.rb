@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def menu_items_html
-    @menu_items = MenuItem.all.where(show: true, type_item: "Головне меню").order(:order_item)
+    @menu_items = MenuItem.where(show: true, type_item: "Головне меню").order(order_item: :asc)
 
     @menu = '<ul class="nav navbar-nav">'
 
@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
 
           @menu << '<li class="divider", role = "separator"></li>' if iterator_separator > 0 && t_level == 'Заголовок меню'
 
-          unless m_b.alias.nil?
+          unless m_b.alias.blank?
             m_i_alias = url_for(['menu_item', m_b.alias])
             @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
             @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'

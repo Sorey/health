@@ -48,7 +48,7 @@
   .form-group
     = u.label :publish_up, 'Початок публікації', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.datetime_select :publish_up,  :class => 'datetimepicker form-control input-responsive'
+      = u.datetime_select :publish_up, :order => [:day, :month, :year, :hour, :minute], :class => 'datetimepicker form-control input-responsive'
   .form-group
     = u.label :publish_down, 'Кінець публікації', :class => 'col-sm-2 control-label'
     .col-sm-10
@@ -64,9 +64,9 @@
       .col-sm-offset-2.col-sm-10
         = u.submit buttom, :class => 'btn btn-primary'
 
-:javascript
-  $(function () {
-    $('.datetimepicker').datetimepicker({
-      sideBySide: true
-    });
-  });
+-#:javascript
+-#  $(function () {
+-#    $('.datetimepicker').datetimepicker({
+-#      sideBySide: true
+-#    });
+-#  });

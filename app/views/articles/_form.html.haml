@@ -11,7 +11,7 @@
   .form-group
     = f.label :articles_group_id,'Заголовок', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :articles_group_id, ArticlesGroup.all.collect {|x| [x.title, x.id]}, {}, :class => 'form-control input-responsive'
+      = f.select :articles_group_id, ArticlesGroup.all.collect {|x| [x.title, x.id]}, {},:class => 'form-control input-responsive'
   .form-group
     = f.label :title,'Заголовок', :class => 'col-sm-2 control-label'
     .col-sm-10

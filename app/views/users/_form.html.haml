@@ -47,6 +47,9 @@
     .col-sm-10
       -#= u.collection_select(:role_id, Role.all, :id, :title, {}, {:class => 'form-control input-responsive'})
       = u.select :role_ids, Role.all.collect {|x| [x.title, x.id]}, {},  :class => 'form-control input-responsive'
+      -#= u.text_field :role_id, collection: Role.all, as: :select
+      -#= u.collection_select :role_ids, Role.all, :id, :title
+      -#= u.association :role, :collection => Role.all
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

@@ -34,16 +34,17 @@
 .news
   %h3.crud-block
     %a{:href => "/news", title: "Усі новини"} Новини
-  - @news_limit.each do |n|
-    .box.clearfix
-      -#- if request.host == "localhost"
-      = link_to image_tag(n.image.thumb), show_one_news_path(n), title: "Переглянути"
-      -#- else
-      -#= link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
-      .text
-        %p.title
-          %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
-        %span= truncate(strip_tags(n.description), length: 210)
+  - if @news_limit
+    - @news_limit.each do |n|
+      .box.clearfix
+        -#- if request.host == "localhost"
+        = link_to image_tag(n.image.thumb), show_one_news_path(n), title: "Переглянути"
+        -#- else
+        -#= link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
+        .text
+          %p.title
+            %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
+          %span= truncate(strip_tags(n.description), length: 210)
   -#.box.clearfix
   -#  = image_tag 'news/child.jpg'
   -#  .text

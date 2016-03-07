@@ -2,7 +2,6 @@ module Admin
   class NewsController < ApplicationController
     before_action :authorize
     before_action :require_role
-    # class Admin::NewsController < ApplicationController
     layout 'application_admin'
 
     def index
@@ -23,8 +22,8 @@ module Admin
 
     def create
       @news = News.new(news_params)
-      @news.user_id = current_user.id
-
+      # @news.user_id = current_user
+      @news << current_user
       respond_to do |format|
         if @news.save
           # if :require_admin

@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
  #  gem 'sqlite3'
-group :development, :test do
-  gem 'sqlite3'
-end
+# group :development, :test do
+#   gem 'sqlite3'
+# end
+gem 'mongoid', '~> 4.0.2'
+gem 'bson_ext'
+gem 'mongoid-sadstory'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,7 +49,7 @@ gem 'font-awesome-rails'
 
 # https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
-# gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem "mini_magick"
 
 # https://gorails.com/blog/rails-4-0-with-mongodb-and-mongoid
@@ -65,10 +68,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-group :production do
-  gem 'pg', '~> 0.18.4'
-  gem 'rails_12factor', '0.0.2'
-  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
-  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
-end
+# group :production do
+#   gem 'pg', '~> 0.18.4'
+#   gem 'rails_12factor', '0.0.2'
+#   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+#   gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+# end
 

@@ -7,7 +7,7 @@ class MenuItemsController < ApplicationController
   # GET /menu_items
   # GET /menu_items.json
   def index
-    @menu_items = MenuItem.all.order(:order_item)
+    @menu_items = MenuItem.order(order_item: "asc")
     @menu = ''
     @menu_items.each do |m_i|
       if m_i.parent_id == 0

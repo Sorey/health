@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+
+  DynamicRouter.load
+  # DynamicRouter.load
+  mount Ckeditor::Engine => '/ckeditor'
   resources :articles_groups, path: "/admin/articles_groups"
   resources :articles, path: "/admin/articles"
   resources :menu_items, path: "/admin/menu_items"
@@ -28,7 +32,8 @@ Rails.application.routes.draw do
     # resources :users
   end
 
-  DynamicRouter.load
+
+
 
   # get 'news/' => 'news#index'
   # The priority is based upon order of creation: first created -> highest priority.

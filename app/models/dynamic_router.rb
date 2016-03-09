@@ -10,8 +10,9 @@ class DynamicRouter
 
       if @links
         @links.each do |link|
-          puts "Routing #{link.alias}"
+          puts "Routing#{link.title} -  #{link.alias}"
           get "/#{link.alias}.html", :to => "home#show_article", as: 'menu_item_'+link.alias, defaults: { id: link.id_post.to_s }
+
         end
       end
     end

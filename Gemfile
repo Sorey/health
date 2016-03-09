@@ -52,6 +52,15 @@ gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem "mini_magick"
 
+# https://github.com/galetahub/ckeditor
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
+gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
+
+# https://github.com/summernote/summernote-rails
+gem 'summernote-rails', '~> 0.8.1.1'
+gem 'bootstrap-sass'     # required
+
 # https://gorails.com/blog/rails-4-0-with-mongodb-and-mongoid
 # # gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 # gem 'mongoid', github: 'mongoid/mongoid'

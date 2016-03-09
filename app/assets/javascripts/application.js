@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require ckeditor/init
+//= require bootstrap
+//= require summernote/plugin/hello/summernote-ext-hello
+//= require summernote/plugin/specialchars/summernote-ext-specialchars
+//= require summernote/summernote
+//= require summernote/lang/summernote-uk-UA
 //= require turbolinks
 //= require_tree .

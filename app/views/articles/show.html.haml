@@ -17,7 +17,7 @@
         %td= @article.title
       %tr
         %th Description
-        %td= @article.description ||= "empty"
+        %td= @article.description.html_safe ||= "empty"
 
   = link_to 'Усі статті', articles_path, :class => 'btn btn-primary'
   -#- if current_user && current_user.editor?

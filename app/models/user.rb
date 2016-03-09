@@ -46,5 +46,5 @@ class User
   # has_many :roles, through: :user_roles, dependent: :destroy
   # accepts_nested_attributes_for :user_roles
 
-  has_many :admin_newses, :class_name => 'Admin::News'
+  # has_many :admin_newses, :class_name => 'Admin::News'
 end

@@ -162,7 +162,7 @@
                   -#  %a.a-within{:href => "#"} ввКомплексний план
                   -#%li
                   -#  %a.a-within{:href => "#"} ввПлан роботи на місяць
-            - if current_user && current_user.access_admin?
+            -#- if current_user && current_user.access_admin?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                   Актуальні заходи та події
@@ -181,10 +181,10 @@
                     %a.a-within{:href => "#"} ввКомплексний план
                   %li
                     %a.a-within{:href => "#"} ввПлан роботи на місяць
-            - if current_user && current_user.access_admin?
+            -#- if current_user && current_user.access_admin?
               %li
                 %a{:href => "#"} Соціальна реклама
-            - if current_user
+            -#- if current_user
               %li
                 %a{:href => "#"} Опитування
             - unless current_user

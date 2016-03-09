@@ -82,7 +82,9 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-      unless User.find_by(id: session[:user_id])
+      # User.find_by(id: session[:user_id])
+      # abort session[:user_id].inspect
+      if session[:user_id].nil? || !User.find_by(id: session[:user_id])
         redirect_to admin_login_url, notice: "Please log in"
       end
     end

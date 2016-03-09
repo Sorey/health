@@ -24,13 +24,17 @@ class MenuItem
 
   has_many :children, class_name: "MenuItem", foreign_key: "parent_id"
   belongs_to :parent, class_name: "MenuItem"
-  after_save :reload_routes
+  # after_save :reload_routes
   # before_create :get_level
   # before_update :get_level
 
   def reload_routes
+    # if MenuItem.get_alias_links.count > 0
     DynamicRouter.reload
+    # end
+
   end
+
   def self.get_alias_links
     # find( { alias: { $ne => "" } } )
     # ff = self.find(
@@ -38,7 +42,9 @@ class MenuItem
     #     { id_post: 1, alias: 1, _id: 0 }
     # )
     # select('id_post, alias').where(show: false)
-    where(:alias.ne =>  nil)
+    # any_of({:alias.ne  => nil}).any_of({:alias.ne  => ""})
+    # where(:alias.ne =>  nil)
+    where(:alias.ne =>  nil).limit(1)
     # where(:url.ne => "", :url.exists => true)
     # find(show: false)
 

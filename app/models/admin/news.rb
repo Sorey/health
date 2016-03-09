@@ -14,9 +14,10 @@ class Admin::News
 
   field :publish_on, type: Boolean
   field :image, type: String
-  field :user_id, type: Integer
+  # field :user_id, type: String
 
-  belongs_to :user_id, class_name: 'User'
+  # belongs_to :user_id, class_name: 'User'
+  belongs_to :user, class_name: 'User'
 
   before_update :check_valid_image_size
 

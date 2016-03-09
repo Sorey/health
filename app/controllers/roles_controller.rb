@@ -49,7 +49,7 @@ class RolesController < ApplicationController
   end
 
   def update
-    @role = User.find(params[:id])
+    @role = Role.find(params[:id])
 
     respond_to do |format|
       if @role.update(role_params)

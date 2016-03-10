@@ -1,42 +1,5 @@
 :scss
   .column-3{
-    //background-color: #dcefe5;
-
-    //.items{
-    //  a{
-    //    text-decoration: none;
-    //    color: #00a951;
-    //    font-size: 18px;
-    //    .item{
-    //      width: 100%;
-    //      margin-bottom: 3px;
-    //      padding: 10px 0 10px 15px;
-    //      background-color: #eef7f2;
-    //      vertical-align: top;
-    //      content: "";
-    //      display: table;
-    //      clear: both;
-    //      .text{
-    //        width: 88%;
-    //        float: left;
-    //      }
-    //      .fa{
-    //        width: 10%;
-    //        float: right;
-    //        padding-right: 10px;
-    //        line-height: inherit;
-    //        text-align: right;
-    //        color: #a8d6be;
-    //      }
-    //    }
-    //    .item:hover{
-    //      background-color: #dcefe5;
-    //      .fa{
-    //        color: #00a951;
-    //      }
-    //    }
-    //  }
-    //}
     #accordion.panel-group{
       .panel{
         border: none;
@@ -47,40 +10,6 @@
           padding: 0;
         }
       }
-      //.panel-title> a{
-      //  text-decoration: none;
-      //  color: #00a951;
-      //  font-size: 18px;
-      //  .item{
-      //    width: 100%;
-      //    //margin-bottom: 3px;
-      //    padding: 10px 0 10px 15px;
-      //    background-color: #eef7f2;
-      //    vertical-align: top;
-      //    content: "";
-      //    display: table;
-      //    clear: both;
-      //    .text{
-      //      width: 88%;
-      //      float: left;
-      //    }
-      //    .fa{
-      //      width: 10%;
-      //      float: right;
-      //      padding-right: 10px;
-      //      line-height: inherit;
-      //      text-align: right;
-      //      color: #a8d6be;
-      //    }
-      //  }
-      //  .item:hover{
-      //    background-color: #dcefe5;
-      //    .fa{
-      //      color: #00a951;
-      //    }
-      //  }
-      //}
-
       a{
         text-decoration: none;
         color: #00a951;
@@ -162,6 +91,7 @@
 .column-3
   %h3 Сфера діяльності
   #accordion.panel-group
+    =  @right_menu.html_safe if @right_menu
     .panel.panel-default
       .panel-heading
         %h4.panel-title
@@ -176,13 +106,13 @@
     .panel.panel-default
       .panel-heading
         %h4.panel-title.dd
-          %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+          %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#Two"}
             .item
               .text
                 Впровадження сучасних методик та технологій
               %i.fa.fa-chevron-left
               %i.fa.fa-chevron-down
-      #collapseTwo.panel-collapse.collapse
+      #Two.panel-collapse.collapse
         -#.panel-body
         .items
           %a{:href => "#"}

@@ -61,6 +61,9 @@ gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 gem 'summernote-rails', '~> 0.8.1.1'
 gem 'bootstrap-sass'     # required
 
+# https://github.com/sparklemotion/nokogiri
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+
 # https://gorails.com/blog/rails-4-0-with-mongodb-and-mongoid
 # # gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 # gem 'mongoid', github: 'mongoid/mongoid'

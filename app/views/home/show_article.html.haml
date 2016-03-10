@@ -1,5 +1,6 @@
 :scss
   .show-article{
+    padding: 10px 0;
     .title{
       background: #DCEFE5;
       border-radius: 5px;
@@ -14,6 +15,8 @@
     - if notice
       %p#notice= notice
     = @article.description.html_safe
+    -#%meta{:content => @article.meta_description, :name => "description"}
+    -#%meta{:content => @article.meta_keywords, :name => "keywords"}
   -#  %h2.title
   -#    = @article.title
   -#  %p.description

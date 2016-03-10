@@ -1,28 +1,52 @@
-.container
-  - if notice
-    %p#notice= notice
-  %p
-    %h2
-      Стаття
-      %em
-        = @article.title
-.container
-  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-    %tbody
-      %tr
-        %th #
-        %td= @article.id
-      %tr
-        %th Title
-        %td= @article.title
-      %tr
-        %th Description
-        %td= @article.description.html_safe ||= "empty"
+:scss
+  .article{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-article{
+        display: inline-block;
+        float: right;
+        .btn{
 
-  = link_to 'Усі статті', articles_path, :class => 'btn btn-primary'
-  -#- if current_user && current_user.editor?
-  = link_to 'Редагувати', edit_article_path(@article), :class => 'btn btn-primary'
-  -#- if current_user && current_user.admin?
-  = link_to 'Видалити', article_path(@article), :class => 'btn btn-primary', |
-    method: :delete,                                                  |
-    data: { confirm: 'Ви впевнені?' }
+          margin:20px 0 5px;
+        }
+      }
+    }
+    .example{
+      background: white;
+    }
+
+  }
+.article
+  .container
+    - if notice
+      %p#notice= notice
+    .heading
+      .title
+        %h1
+          Стаття
+          %em
+            = @article.title
+      .btn-article
+        = link_to 'Усі статті', articles_path, :class => 'btn btn-primary'
+        -#- if current_user && current_user.editor?
+        = link_to 'Редагувати', edit_article_path(@article), :class => 'btn btn-primary'
+        -#- if current_user && current_user.admin?
+        = link_to 'Видалити', article_path(@article), :class => 'btn btn-primary',
+          method: :delete,
+          data: { confirm: 'Ви впевнені?' }
+    .example.clearfix
+      = @article.description.html_safe ||= "empty"
+  -#.container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        %tr
+          %th #
+          %td= @article.id
+        %tr
+          %th Title
+          %td= @article.title
+        %tr
+          %th Description
+          %td= @article.description.html_safe ||= "empty"

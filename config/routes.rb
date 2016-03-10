@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-
   DynamicRouter.load
-  # DynamicRouter.load
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles_groups, path: "/admin/articles_groups"
   resources :articles, path: "/admin/articles"

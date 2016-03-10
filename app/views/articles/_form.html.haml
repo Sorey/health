@@ -32,13 +32,26 @@
     .col-sm-10
       = f.check_box :publish_on, :class => 'form-control input-responsive'
   .form-group
+    = f.label :meta_keywords,'Meta_keywords', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :meta_keywords, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :meta_description,'Meta_description', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :meta_description, :class => 'form-control input-responsive'
+
+  .form-group
     .col-sm-12
       -#= f.text_area :description
       -#= f.label :content, 'Публікувати?', :class => 'col-sm-2 control-label'
       -#= f.input :content, :as => :ckeditor
       -#= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => { :height => 400 } }
       -#= f.cktext_area :notes, :class => 'someclass', :ckeditor => {:language => 'uk'}
-      = f.cktext_area :description, :class => 'form-control input-responsive'
+      -#= f.cktext_area :description, :ckeditor => {:uiColor => '#E1E4E3', :toolbar => 'mini',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
+      = f.cktext_area :description, :ckeditor => {:uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
+      -#= f.cktext_area :title, :class => 'form-control input-responsive', :ckeditor => {:language => 'uk'}
+      -#= f.cktext_area :description, :value => 'Default value', :id => 'sometext'
+      -#= cktext_area :description, :info, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini',:language => 'uk'}
       -#= cktext_area :page, :info, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}
 
   .form-group
@@ -48,6 +61,7 @@
 
 
 :javascript
+  // for summernote editor
   //$(document).ready(function() {
   //  $('#article_description').summernote({
   //

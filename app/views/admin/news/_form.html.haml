@@ -52,7 +52,7 @@
   .form-group
     = u.label :publish_down, 'Кінець публікації', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.datetime_select :publish_down, :class => 'form-control input-responsive'
+      = u.datetime_select :publish_down, :order => [:day, :month, :year, :hour, :minute], :class => 'form-control input-responsive'
 
   -#.form-group
   -#  = u.label :role_title, :class => 'col-sm-2 control-label'

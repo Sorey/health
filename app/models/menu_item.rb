@@ -24,8 +24,8 @@ class MenuItem
   has_many :children, class_name: "MenuItem", foreign_key: "parent_id"
   belongs_to :parent, class_name: "MenuItem"
   after_save :reload_routes
-  before_create :get_level
-  before_update :get_level
+  # before_create :get_level
+  # before_update :get_level
 
   def reload_routes
     DynamicRouter.reload
@@ -36,12 +36,12 @@ class MenuItem
     get_not_nil= get_not_empty.any_of({:alias.ne  => nil})
   end
 
-  def get_level
-    level = self.parent.type_level if self.parent
-    # logger.debug level
-    level = -1 unless self.parent
-    self.type_level = level.to_i + 1
-   end
+  # def get_level
+  #   level = self.parent.type_level if self.parent
+  #   # logger.debug level
+  #   level = -1 unless self.parent
+  #   self.type_level = level.to_i + 1
+  # end
 
   def self.parent_roles
     all.collect{|a| [a.title, a.id]}

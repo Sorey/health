@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     @menu = '<ul class="nav navbar-nav">'
 
     @menu_items.each do |m_a|
-      if m_a.parent_id == 0
+      if m_a.parent_id.to_s.to_i == 0
         @menu << "<li class='dropdown'><a class='dropdown-toggle' aria-expanded='false' aria-haspopup = 'true' data-toggle = 'dropdown' href = '#{m_a.link}' role = 'button' target= 'blank'> #{m_a.title} <span class='caret'></span></a>" if m_a.type_level == 'Заголовок меню'
         @menu << "<li > <a href = '#{m_a.link}'> #{m_a.title} </span></a>" if m_a.type_level == 'Пункт меню'
 
@@ -40,7 +40,6 @@ class ApplicationController < ActionController::Base
       end
     end
     @menu << '</ul>'
-    # $menu << @menu
   end
 
   protected
@@ -71,7 +70,7 @@ class ApplicationController < ActionController::Base
             end
           else
             @menu << "<li><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
-            @menu << "<li ><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
+            @menu << "<li><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
           end
           iterator_separator += 1
 

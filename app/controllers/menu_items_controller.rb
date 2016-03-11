@@ -7,10 +7,11 @@ class MenuItemsController < ApplicationController
   # GET /menu_items
   # GET /menu_items.json
   def index
-    @menu_items = MenuItem.order(order_item: "asc")
+    # @menu_items = MenuItem.where(show: true, type_item: "Бокове меню").order(order_item: :asc)
+    @menu_items = MenuItem.order( type_item: "asc")
     @menu = ''
     @menu_items.each do |m_i|
-      if m_i.parent_id == 0
+      if m_i.parent_id.to_s.to_i == 0
         @menu << '<tr>'
         @menu << "<td> #{m_i.id.to_s.last(8)}</td>"
         # @menu << "<td> #{m_i.type_level} </td> <td> #{m_i.type_item} </td>

@@ -21,7 +21,7 @@
     -#- if session[:user_id]
       .user-session
         .col-sm-11
-          - user = User.find_by(id: session[:user_id])
+          - user = User1.find_by(id: session[:user_id])
         .col-sm-1
           %h3
             = user.name

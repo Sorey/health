@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
 
   def get_right_menu
-    @right_menu_items = MenuItem.where(show: true, type_item: "Бокове меню").order(order_item: :asc)
+    @right_menu_items = Admin::MenuItem.where(show: true, type_item: "Бокове меню").order(order_item: :asc)
 
     @right_menu = ""
     @right_menu_items.each do |m_a|
@@ -37,7 +37,7 @@ class HomeController < ApplicationController
   end
 
   def show_article
-    @article = Article.find(params[:id])
+    @article = Admin::Article.find(params[:id])
   end
 
   def schedule

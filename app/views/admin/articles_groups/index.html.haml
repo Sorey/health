@@ -1,0 +1,50 @@
+:scss
+  .admin_all_news{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+
+  }
+
+.admin_all_news
+  .container
+    .heading
+      .title
+        %h1 Список груп статей
+      .btn-new-news
+        -#- if current_user && current_user.admin?
+        = link_to 'New Articles group', new_admin_articles_group_path, :class => 'btn btn-primary'
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %thead
+        %tr
+          -#%th Type menu item
+          -#%th Type menu
+          %th Title
+          %th Description
+          %th Publish
+          -#%th Group
+          %th
+          %th
+          %th
+      %tbody
+        - @articles_groups.each do |articles_group|
+          %tr
+            %td= articles_group.title
+            %td= articles_group.description
+            %td= articles_group.publish_on
+            -#%td= article.articles_group.title
+            %td= link_to 'Show', articles_group
+            %td= link_to 'Edit', edit_admin_articles_group_path(articles_group)
+            %td= link_to 'Destroy', articles_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+

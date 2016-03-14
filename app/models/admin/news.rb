@@ -17,7 +17,7 @@ class Admin::News
   # field :user_id, type: String
 
   # belongs_to :user_id, class_name: 'User'
-  belongs_to :user, class_name: 'User'
+  belongs_to :user, class_name: 'Admin::User'
 
   before_update :check_valid_image_size
 

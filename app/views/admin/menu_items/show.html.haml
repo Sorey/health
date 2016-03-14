@@ -1,0 +1,34 @@
+.container
+  %p#notice= notice
+
+  %p
+    %b Type level:
+    = @menu_item.type_level
+  %p
+    %b Type item:
+    = @menu_item.type_item
+  %p
+    %b Title:
+    = @menu_item.title
+  %p
+    %b Id_post:
+    = @menu_item.id_post
+  %p
+    %b Link:
+    - if @menu_item.link
+      +
+    - else
+      -
+  %p
+    %b Parent:
+    = @menu_item.parent_id
+  %p
+    %b Order_item:
+    = @menu_item.order_item
+  %p
+    %b Show:
+    = @menu_item.show
+
+  = link_to 'Edit', edit_admin_menu_item_path(@menu_item)
+
+  = link_to 'Back', admin_menu_items_path

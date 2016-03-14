@@ -119,14 +119,14 @@
                   %span.caret
                 %ul.dropdown-menu
                   %li
-                    %a{:href => users_path} Усі користувачі
+                    %a{:href => admin_users_path} Усі користувачі
                   %li
-                    %a{:href => new_user_path} Створити користувача
+                    %a{:href => new_admin_user_path} Створити користувача
                   %li.divider{:role => "separator"}
                   %li
-                    %a{:href => roles_path} Ролі
+                    %a{:href => admin_roles_path} Ролі
                   %li
-                    %a{:href => new_role_path} Створити роль
+                    %a{:href => new_admin_role_path} Створити роль
             - if current_user
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "users_url", :role => "button"}
@@ -145,16 +145,18 @@
                   %span.caret
                 %ul.dropdown-menu
                   %li
-                    %a{:href => menu_items_path} Головне меню
+                    = link_to 'Головне меню', admin_menu_items_path(category: 'Головне меню'), remote: true, :method => :get
+                    -#%a{:href => admin_menu_items_path} Головне меню
                   %li.divider{:role => "separator"}
                   %li
-                    %a{:href => "#"} Бокове меню
+                    = link_to 'Бокове меню', admin_menu_items_path(category: 'Бокове меню'), remote: true, :method => :get
+                    -#%a{:href => "#"} Бокове меню
                   -#admin_news_path
                   %li.divider{:role => "separator"}
                   %li
-                    %a{:href => articles_path} Статті
+                    %a{:href => admin_articles_path} Статті
                   %li
-                    %a{:href => articles_groups_path} Групи статей
+                    %a{:href => admin_articles_groups_path} Групи статей
                   -#%li.divider{:role => "separator"}
                   -#%li
                   -#  %a{:href => "#"} ddDDdd
@@ -194,7 +196,7 @@
             .user-session
               .row
                 -#.col-sm-11
-                - user = User.find_by(id: session[:user_id])
+                - user = Admin::User.find_by(id: session[:user_id])
                 -#  gf
                 -#.col-sm-1
                 %span

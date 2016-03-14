@@ -7,9 +7,9 @@ module Admin
     end
 
     def create
-      user = User.find_by(name: params[:name])
+      user = Admin::User.find_by(name: params[:name])
       unless user
-        user = User.find_by(email: params[:name])
+        user = Admin::User.find_by(email: params[:name])
       end
       user
       if user and user.authenticate(params[:password])

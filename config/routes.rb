@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
-  resources :articles_groups, path: "/admin/articles_groups"
-  resources :articles, path: "/admin/articles"
-  resources :menu_items, path: "/admin/menu_items"
-  resources :users, path: "/admin/users"
-  resources :roles, path: "/admin/roles"
+  # resources :articles_groups, path: "/admin/articles_groups"
+  # resources :articles, path: "/admin/articles"
+  # resources :menu_items, path: "/admin/menu_items"
+  # resources :users, path: "/admin/users"
+  # resources :roles, path: "/admin/roles"
   resources :medical_setups
 
   get 'home/index' => 'home#index'
@@ -23,15 +23,19 @@ Rails.application.routes.draw do
       post 'login' => :create
       delete 'logout' => :destroy
     end
-    # resources :users
-    # get 'signup'  => 'users#new'
+    # resources :users1
+    # get 'signup'  => 'users1#new'
     # get 'news/' => 'news#index'
 
     resources :news
-    # resources :users
+    resources :users
+    resources :roles
+    resources :menu_items
+    resources :articles
+    resources :articles_groups
   end
 
-
+  root 'home#index'
 
 
   # get 'news/' => 'news#index'
@@ -46,7 +50,7 @@ Rails.application.routes.draw do
   #   get "/#{link.alias}.html", :to => "home#show_article", as: 'menu_item_'+link.alias, defaults: { id: link.id_post }
   # end
 
-  root 'home#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

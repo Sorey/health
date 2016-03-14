@@ -1,0 +1,22 @@
+.heading
+  .title
+    %h1 Список пунктів  #{menu_category}
+  .btn-new-news
+    -#- if current_user && current_user.admin?
+    = link_to 'Створити пункт меню', new_admin_menu_item_path, :class => 'btn btn-primary'
+%table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+  %thead
+    %tr
+      -#%th Type menu item
+      -#%th Type menu
+      %th #
+      %th Title
+      %th Link
+      %th Alias
+      %th Parent
+      %th Order
+      %th
+      %th
+      %th
+  %tbody
+    = menu.html_safe

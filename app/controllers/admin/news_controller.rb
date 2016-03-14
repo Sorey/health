@@ -31,7 +31,7 @@ module Admin
           format.json { render action: 'show', status: :created, location: @news }
           # else
           #   session[:user_id] = @user.id
-          #   format.html { render action: 'users', notice: 'User was successfully created!!!' }
+          #   format.html { render action: 'users1', notice: 'User was successfully created!!!' }
           #   format.json { render action: '/', status: :created, location: @user }
           # end
         else
@@ -41,9 +41,9 @@ module Admin
       end
       # if @user.save
       #   #session[:user_id] = @user.id
-      #   redirect_to @user #'/users'
+      #   redirect_to @user #'/users1'
       # else
-      #   #redirect_to '/users/new'
+      #   #redirect_to '/users1/new'
       # end
     end
 

@@ -1,0 +1,28 @@
+.users
+  .container
+    .col-sm-11
+      %h1 List users1
+    .col-sm-1
+      -#- if current_user && current_user.admin?
+      %h1= link_to 'New user', new_admin_user_path, :class => 'btn btn-primary'
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %thead
+        %tr
+          %th #
+          %th Role
+          %th Name
+          %th Email
+          %th Show
+      %tbody
+        - @users.each do |u|
+          %tr
+            %td= u.id
+            -#%td= u.role_id
+            %td
+              - @roles = u.admin_roles
+              - @roles.each do |r|
+                = r.title
+            %td= u.name
+            %td= u.email
+            %td= link_to "Show user", admin_user_path(u), :class => 'btn btn-primary'

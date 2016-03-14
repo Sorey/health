@@ -1,7 +1,7 @@
 class DynamicRouter
   def self.load
     Rails.application.routes.draw do
-      @links = MenuItem.get_alias_links
+      @links = Admin::MenuItem.get_alias_links
       # @links.each do |link|
       #   abort link.inspect
       #   # puts "Routing #{link.alias}"

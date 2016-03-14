@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20160303101732) do
   add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id"
   add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id"
 
-  create_table "users", force: :cascade do |t|
+  create_table "users1", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
     t.string   "password_digest"

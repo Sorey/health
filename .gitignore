@@ -23,7 +23,6 @@ config/initializers/secret_token.rb
 .idea/*
 *.idea
 .idea/workspace.xml
-
 .sass-cache
 
 # these should all be checked in to normalize the environment:

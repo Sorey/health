@@ -58,8 +58,12 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 
 # https://github.com/summernote/summernote-rails
-gem 'summernote-rails', '~> 0.8.1.1'
-gem 'bootstrap-sass'     # required
+# gem 'summernote-rails', '~> 0.8.1.1'
+# gem 'bootstrap-sass'     # required
+
+# Captcha
+# gem 'simple_captcha', git: 'git://github.com/vittorius/simple-captcha.git'
+# gem 'protected_attributes'
 
 # https://github.com/sparklemotion/nokogiri
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'

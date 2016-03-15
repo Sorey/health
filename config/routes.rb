@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   # resources :roles, path: "/admin/roles"
   resources :medical_setups
 
+  post 'message' => 'message#create' , as: :message
+
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news

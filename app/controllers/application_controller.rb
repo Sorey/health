@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :menu_items_html
+  before_filter :get_footer_news
+
 
   helper_method :current_user
 
@@ -25,6 +27,10 @@ class ApplicationController < ActionController::Base
   # def require_admin
   #   redirect_to :back unless current_user.admin?
   # end
+
+  def get_footer_news
+    @news_footer = Admin::News.where(publish_on: true).order(created_at: :desc).limit(2)
+  end
 
   def menu_items_html
     @menu_items = Admin::MenuItem.where(show: true, type_item: "Головне меню").order(order_item: :asc)

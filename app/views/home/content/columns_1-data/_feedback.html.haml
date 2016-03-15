@@ -28,26 +28,29 @@
 
 .feedback
   %h3 Зворонтій зв'язок
-  = form_tag("/", method: "get") do
+  = form_tag(message_path, method: "post") do
     .form-group.row
       .col-sm-2
-        = label_tag(:q, "Ім'я", :class=>"")
+        = label_tag(:name, "Ім'я", :class=>"")
       .col-sm-10
-        = text_field_tag(:q, nil, :placeholder=> "Ім'я", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
+        = text_field_tag(:name, nil, :placeholder=> "Ім'я", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
     .form-group.row
       .col-sm-2
-        = label_tag(:q, "E-mail")
+        = label_tag(:email, "E-mail")
       .col-sm-10
-        = email_field_tag(:q, nil, :placeholder=> "E-mail", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", "data-errormessage-type-mismatch"=>"Ваша електронна пошта!", :class => 'form-control can_be_disable')
+        = email_field_tag(:email, nil, :placeholder=> "E-mail", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", "data-errormessage-type-mismatch"=>"Ваша електронна пошта!", :class => 'form-control can_be_disable')
     .form-group.row
       .col-sm-2
-        = label_tag(:q, "Тема")
+        = label_tag(:theme, "Тема")
       .col-sm-10
-        = text_field_tag(:q, nil, :placeholder=> "Тема", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
+        = text_field_tag(:theme, nil, :placeholder=> "Тема", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
     .form-group.row
       .col-sm-12
-        = label_tag(:q, "Повідомлення")
+        = label_tag(:message, "Повідомлення")
         = text_area_tag(:message, nil, :rows=>"4", :placeholder=> "Повідомлення", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
+    -#.form-group.row
+      .col-sm-12
+        -#= simple_captcha :label => "Enter numbers.."
     .actions
       = submit_tag("Відправити", :class=>"btn btn-success")
 

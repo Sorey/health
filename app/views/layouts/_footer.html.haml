@@ -128,22 +128,36 @@
           .row.news
             .col-sm-12.icon
               %h3 Останні новини
-            .col-xs-2.icon
-              %i.fa.fa-calendar
-            .col-xs-10
-              %p
-                %span 12 Січня 2015
-            .col-xs-12.icon
-              %p
-                %a{:href => "#"} На центральному стадіоні відбулася Всеукраїнська акція «Пізнай себе»
-            .col-xs-2.icon
-              %i.fa.fa-calendar
-            .col-xs-10
-              %p
-                %span 17 Січня 2015
-            .col-xs-12.icon
-              %p
-                %a{:href => "#"} Для інформування населення в центральній бібліотеці створений загальнодоступний інформаційний куточок.
+            - @news_footer.each do |n|
+              .col-xs-2.icon
+                %i.fa.fa-calendar
+              .col-xs-10
+                %p
+                  %span=l(n.created_at, :format => "%d %B %Y")
+                  = l n.created_at, :format => :short
+                  -#= n.created_at.strftime("%d %B %Y")
+              .col-xs-12.icon
+                %p
+                  %a{:href => show_one_news_path(n)}= truncate(strip_tags(n.description), length: 90)
+
+
+            -#.col-xs-2.icon
+            -#  %i.fa.fa-calendar
+            -#.col-xs-10
+            -#  %p
+            -#    %span 12 Січня 2015
+            -#.col-xs-12.icon
+            -#  %p
+            -#    %a{:href => "#"} На центральному стадіоні відбулася Всеукраїнська акція «Пізнай себе»
+            -#.col-xs-2.icon
+            -#  %i.fa.fa-calendar
+            -#.col-xs-10
+            -#  %p
+            -#    %span 17 Січня 2015
+            -#.col-xs-12.icon
+            -#  %p
+            -#    %a{:href => "#"} Для інформування населення в центральній бібліотеці створений загальнодоступний інформаційний куточок.
+
       .col-sm-4.f-column
         %h3 Навігація
         %p

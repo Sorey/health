@@ -22,9 +22,9 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.serve_static_assets = true
-  # config.serve_static_files = true
+  # config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # config.serve_static_assets = true
+  config.serve_static_files = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -32,6 +32,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
+
 
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
@@ -50,6 +51,8 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
+
+  # config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -78,5 +81,21 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+  # config.active_record.dump_schema_after_migration = false
+
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  # change host and port if needed
+
+  ActionMailer::Base.smtp_settings = {
+      address:         'smtp.gmail.com',  # don't change
+      port:            587,               # don't change
+      user_name:       'health2016vin@gmail.com',  # change to your gmail
+      password:        '163r2016',       # change to your pass on gmail
+      authentication:  :plain,            # don't change
+      enable_starttls_auto:  true,         # don't change
+      :openssl_verify_mode  => 'none'
+  }
 end

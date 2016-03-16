@@ -19,6 +19,8 @@
 
 .content
   .container
+    - if notice
+      %p#notice= notice
     .row
       .col-md-4.f-column
         = render :partial => 'home/content/column_1'

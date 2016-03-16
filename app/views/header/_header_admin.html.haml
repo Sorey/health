@@ -145,11 +145,11 @@
                   %span.caret
                 %ul.dropdown-menu
                   %li
-                    = link_to 'Головне меню', admin_menu_items_path(category: 'Головне меню'), remote: true, :method => :get
+                    = link_to 'Головне меню', admin_menu_items_path(category: 'Головне меню'), :method => :get
                     -#%a{:href => admin_menu_items_path} Головне меню
                   %li.divider{:role => "separator"}
                   %li
-                    = link_to 'Бокове меню', admin_menu_items_path(category: 'Бокове меню'), remote: true, :method => :get
+                    = link_to 'Бокове меню', admin_menu_items_path(category: 'Бокове меню'), :method => :get
                     -#%a{:href => "#"} Бокове меню
                   -#admin_news_path
                   %li.divider{:role => "separator"}

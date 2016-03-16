@@ -1,2 +1,13 @@
-%p= @message[:name]
--#%p= @message.name
+%h2 Зворотній зв'язок ДОЗ
+%h3
+  Тема:
+  = @message[:theme]
+%p
+  Від:
+  = @message[:name]
+%p
+  Пошта відправника:
+  = @message[:email]
+%p
+  Повідомлення:
+  = @message[:message]

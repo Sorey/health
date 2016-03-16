@@ -14,35 +14,17 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.raise_delivery_errors = true
-  #
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.default_url_options = { host: "localhost:3000" }
   # change host and port if needed
 
   ActionMailer::Base.smtp_settings = {
-      # :address        => "smtp.gmail.com",
-      # :port           => 587,
-      # :authentication => :plain,
-      # :user_name      => "<my gmail>@gmail.com",
-      # :password       => "<my gmail password>",
-      # :openssl_verify_mode  => 'none'
       address:         'smtp.gmail.com',  # don't change
-      domain:          'localhost', # don't change
       port:            587,               # don't change
-      # :user_name      => "<my gmail>@gmail.com",
-      # :password       => "<my gmail password>",
-      user_name:       '3sorey4@gmail.com',  # change to your gmail
-      password:        '2015t345',
-      # user_name: ENV["GMAIL_USERNAME"],
-      # password:ENV["GMAIL_PASSWORD"],
-      # user_name:       ENV["gmail_username"],  # change to your gmail
-      # password:        ENV["gmail_password"],        # change to your pass on gmail
+      user_name:       'health2016vin@gmail.com',  # change to your gmail
+      password:        '163r2016',       # change to your pass on gmail
       authentication:  :plain,            # don't change
       enable_starttls_auto:  true,         # don't change
       :openssl_verify_mode  => 'none'
@@ -51,6 +33,8 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+
+  config.serve_static_files = true
 
   # Raise an error on page load if there are pending migrations.
   # config.active_record.migration_error = :page_load
@@ -71,4 +55,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # ENV['RECAPTCHA_PUBLIC_KEY'] = 'PUBLICKEYHERE'
+  # ENV['RECAPTCHA_PRIVATE_KEY'] = 'PRIVATEKEYHERE'
+
+
 end

@@ -1,2 +1,2 @@
-class Admin::Admin
-end
+# class Admin::Admin
+# end

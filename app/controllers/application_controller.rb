@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
+    # abort @current_user.inspect
     @current_user ||= Admin::User.find(session[:user_id]) if session[:user_id]
   end
 
@@ -93,7 +94,9 @@ class ApplicationController < ActionController::Base
     def authorize
       # User.find_by(id: session[:user_id])
       # abort session[:user_id].inspect
+      # abort admin_login_url.inspect
       if session[:user_id].nil? || !Admin::User.find_by(id: session[:user_id])
+        # abort admin_login_url.inspect
         redirect_to admin_login_url, notice: "Please log in"
       end
     end

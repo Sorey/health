@@ -47,6 +47,8 @@ gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-boot
 
 gem 'font-awesome-rails'
 
+gem 'sass', :require => 'sass'
+
 # https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
@@ -60,6 +62,9 @@ gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 # https://github.com/summernote/summernote-rails
 # gem 'summernote-rails', '~> 0.8.1.1'
 # gem 'bootstrap-sass'     # required
+
+# https://github.com/ambethia/recaptcha
+# gem "recaptcha", require: "recaptcha/rails"
 
 # Captcha
 # gem 'simple_captcha', git: 'git://github.com/vittorius/simple-captcha.git'

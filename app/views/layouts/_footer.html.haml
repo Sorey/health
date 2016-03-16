@@ -134,7 +134,7 @@
               .col-xs-10
                 %p
                   %span=l(n.created_at, :format => "%d %B %Y")
-                  = l n.created_at, :format => :short
+                  -#= l n.created_at, :format => :short
                   -#= n.created_at.strftime("%d %B %Y")
               .col-xs-12.icon
                 %p

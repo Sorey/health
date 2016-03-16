@@ -31,7 +31,7 @@ module Admin
 
       respond_to do |format|
         if @user.save
-          MessageMailer.new_message(@user).deliver
+          # MessageMailer.new_message(@user).deliver
           # if :require_admin
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render action: 'show', status: :created, location: @user }

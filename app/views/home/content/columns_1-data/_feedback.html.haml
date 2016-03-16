@@ -49,8 +49,8 @@
         = label_tag(:message, "Повідомлення")
         = text_area_tag(:message, nil, :rows=>"4", :placeholder=> "Повідомлення", :required=> "required", "data-errormessage-value-missing"=>"Заповніть поле!", :class => 'form-control can_be_disable')
     -#.form-group.row
-      .col-sm-12
-        -#= simple_captcha :label => "Enter numbers.."
+    -#  .col-sm-12
+    -#    = recaptcha_tags
     .actions
       = submit_tag("Відправити", :class=>"btn btn-success")
 

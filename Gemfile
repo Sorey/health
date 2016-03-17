@@ -70,8 +70,14 @@ gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 # gem 'simple_captcha', git: 'git://github.com/vittorius/simple-captcha.git'
 # gem 'protected_attributes'
 
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
+
 # https://github.com/sparklemotion/nokogiri
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+
+gem 'unicorn'
 
 # https://gorails.com/blog/rails-4-0-with-mongodb-and-mongoid
 # # gem 'mongoid', '~> 4', github: 'mongoid/mongoid'

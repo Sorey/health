@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # devise_for :users, class_name: "Admin::User"
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   # get '/structure' => 'home#structure', as: :structure
 
   namespace :admin do
-    controller :sessions do
+      controller :sessions do
       get  'login' => :new
       post 'login' => :create
       delete 'logout' => :destroy

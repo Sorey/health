@@ -9,5 +9,5 @@ class Admin::Article
   field :meta_description, type: String
   field :meta_keywords, type: String
 
-  belongs_to :admin_articles_group, :class_name => 'Admin::Article'
+  belongs_to :admin_articles_group, :class_name => 'Admin::ArticlesGroup'
 end

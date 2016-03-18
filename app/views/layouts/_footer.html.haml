@@ -67,24 +67,25 @@
           }
         }
       }
-      .f-column:nth-child(2){
+      .f-column.center{
         border-left: 2px solid rgba(214,235,224,0.8);
         border-right: 2px solid rgba(214,235,224,0.8);
       }
     }
-    .owner-year{
-      margin: 0 auto;
-      padding: 10px;
-      text-align: center;
-      border-top: 2px solid rgba(214,235,224,0.8);
-      color: #008f44;
-    }
+    //.owner-year{
+    //  margin: 0 auto;
+    //  padding: 10px;
+    //  text-align: center;
+    //  border-top: 2px solid rgba(214,235,224,0.8);
+    //  color: #008f44;
+    //}
   }
 
 .footer
   .container
     .row.three-colmn
-      .col-sm-4.f-column
+      = @footer_contacts.description.html_safe
+      -#.col-sm-4.f-column
         -#%h3 На зв'язку
         .container-fluid
           .row.info#contacts
@@ -123,7 +124,7 @@
               .icon
                 %i.fa.fa-instagram.fa-2x
 
-      .col-sm-4.f-column
+      .col-sm-4.f-column.center
         .container-fluid
           .row.news
             .col-sm-12.icon
@@ -159,17 +160,20 @@
             -#    %a{:href => "#"} Для інформування населення в центральній бібліотеці створений загальнодоступний інформаційний куточок.
 
       .col-sm-4.f-column
-        %h3 Навігація
-        %p
-          %a{:href => "#"} Головна
-        %p
-          %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Департамент охорони здоров'я
-        %p
-          %a{:href => "#"} Лікувально-профілактичні заходи
-        %p
-          %a{:href => "#"} Нормативна база
-        %p
-          %a{:href => "#"} Контакти
+        - if @footer_navigation
+          = @footer_navigation.description.html_safe
+        -#- else
+          %h3 Навігація
+          %p
+            %a{:href => "/"} Головна
+          %p
+            %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Департамент охорони здоров'я
+          %p
+            %a{:href => "#"} Лікувально-профілактичні заходи
+          %p
+            %a{:href => "#"} Нормативна база
+          %p
+            %a{:href => "#"} Контакти
     -#.row
     -#  .col-sm-12
     -#    .owner-year

@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   get '/news/', to: 'home#all_news'
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news
 
-  # get '/schedule' => 'home#schedule', as: :schedule
-  # get '/structure' => 'home#structure', as: :structure
+  get '/schedule' => 'home#schedule', as: :schedule
+  get '/structure' => 'home#structure', as: :structure
 
   namespace :admin do
     controller :sessions do

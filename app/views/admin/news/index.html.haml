@@ -1,5 +1,10 @@
 :scss
   .admin_all_news{
+    td .btn{
+       display: inline-block;
+       margin: 0px 0 5px;
+       padding: 2px 3px;
+    }
     .heading{
       .title{
         display: inline-block;
@@ -8,12 +13,10 @@
         display: inline-block;
         float: right;
         .btn{
-
           margin:20px 0 5px;
         }
       }
     }
-
   }
 
 .admin_all_news
@@ -29,19 +32,22 @@
       %thead
         %tr
           %th #
-          %th Title
-          %th Description
-          %th Publish_on
-          %th Picture
-          %th Show
+          %th Заголовок
+          %th Опис
+          %th Публікувати?
+          %th Картинка
+          %th Дія
       %tbody
         - @news.each do |u|
           %tr
-            %td= u.id
+            %td= u.id.to_s.last(8)
             %td= u.title
             %td= u.description
             %td= u.publish_on
             %td
               - if u.image?
                 =image_tag u.image.thumb
-            %td= link_to "Переглянути", admin_news_path(u), :class => 'btn btn-primary'
+            %td
+              = link_to "Переглянути", admin_news_path(u), :class => 'btn btn-primary'
+              = link_to 'Редагувати', edit_admin_news_path(u), :class => 'btn btn-primary'
+              = link_to 'Видалити', u, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-primary'

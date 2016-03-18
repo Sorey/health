@@ -1,9 +1,9 @@
 require 'file_size_validator'
 class Admin::News
   require 'carrierwave/mongoid'
-  # self.table_name = "news"
+
   include Mongoid::Document
-  # include Mongoid::MultiParameterAttributes
+
   include Mongoid::Timestamps
 
   field :title, type: String
@@ -11,7 +11,6 @@ class Admin::News
   field :description, type: String
   field :publish_up, type: DateTime
   field :publish_down, type: DateTime
-
   field :publish_on, type: Boolean
   field :image, type: String
   # field :user_id, type: String
@@ -19,7 +18,7 @@ class Admin::News
   # belongs_to :user_id, class_name: 'User'
   belongs_to :user, class_name: 'Admin::User'
 
-  before_update :check_valid_image_size
+  # before_update :check_valid_image_size
 
   validates :title,  length: { minimum: 3, maximum: 40}, :presence => true
   validates :pre_text,  length: { minimum: 6, maximum: 80} unless :pre_text.blank?
@@ -38,12 +37,12 @@ class Admin::News
 
   private
 
-    def check_valid_image_size
-      if self.valid?
-        unless :image.blank?
-          self.remove_image
-        end
-      end
-    end
+    # def check_valid_image_size
+    #   if self.valid?
+    #     unless :image.blank?
+    #       self.remove_image!
+    #     end
+    #   end
+    # end
 
 end

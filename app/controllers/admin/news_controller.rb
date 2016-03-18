@@ -1,7 +1,7 @@
 module Admin
   class NewsController < ApplicationController
     before_action :authorize
-    before_action :require_role, except: :index
+    before_action :require_role
     layout 'application_admin'
 
     def index
@@ -22,50 +22,35 @@ module Admin
 
     def create
       @news = News.new(news_params)
-      # @news.user_id = current_user
       @news.user = current_user
       respond_to do |format|
         if @news.save
-          # if :require_admin
-          format.html { redirect_to @news, notice: 'News was successfully created.' }
+          format.html { redirect_to @news, notice: 'Новина успішно створена.' }
           format.json { render action: 'show', status: :created, location: @news }
-          # else
-          #   session[:user_id] = @user.id
-          #   format.html { render action: 'users1', notice: 'User was successfully created!!!' }
-          #   format.json { render action: '/', status: :created, location: @user }
-          # end
         else
           format.html { render action: 'new' }
           format.json { render json: @news.errors, status: :unprocessable_entity }
         end
       end
-      # if @user.save
-      #   #session[:user_id] = @user.id
-      #   redirect_to @user #'/users1'
-      # else
-      #   #redirect_to '/users1/new'
-      # end
     end
 
     def update
       @news = News.find(params[:id])
 
-      # unless news_params[:title].blank?
-      #   unless news_params[:description].blank?
-      #     unless news_params[:image].blank?
-      #       @news.remove_image!
-      #     end
-      #   end
-      # end
-      # @news.remove_image!
+      unless news_params[:title].blank?
+        unless news_params[:description].blank?
+          unless news_params[:image].blank?
+            @news.remove_image!
+          end
+        end
+      end
       respond_to do |format|
         if @news.update(news_params)
-          format.html { redirect_to @news, notice: 'News was successfully updated.' }
+          format.html { redirect_to @news, notice: 'Новина успішно оновлена.' }
           format.json { render action: 'show', status: :created, location: @news }
         else
           format.html { render action: 'edit' }
           format.json { render json: @news.errors, status: :unprocessable_entity }
-
         end
       end
     end

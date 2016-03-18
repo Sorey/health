@@ -1,28 +1,35 @@
-:scss
-
 .show-news
 .container
   - if notice
     %p#notice= notice
   %p
     %h2
-      News
+      Новина
       %em
         = @news.title
 .container
   %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
     %tbody
       %tr
-        %th Title
+        %th Заголовок
         %td= @news.title
       %tr
-        %th Last_time
-        %td= @news.publish_down ||= "empty"
+        %th Короткий опис
+        %td= @news.pre_text
       %tr
-        %th On
+        %th Опис
+        %td= @news.description
+      -#%tr
+      -#  %th Початок публікації
+      -#  %td= @news.publish_up ||= "empty"
+      -#%tr
+      -#  %th Кінець публікації
+      -#  %td= @news.publish_down ||= "empty"
+      %tr
+        %th Публікувати?
         %td= @news.publish_on ||= "empty"
       %tr
-        %th Picture
+        %th Картинка
 
         %td
           - if @news.image?

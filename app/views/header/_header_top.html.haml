@@ -120,10 +120,13 @@
                 .phone-icon
                   = image_tag 'phone-icon.png'
               .col-md-10.col-sm-10.col-xs-9
-                .number
-                  .phone (0432) 35-37-43
-                  .phone (0432) 67-01-20
-                  -#%form
-                    %input.form-control{ placeholder: 'Пошук...', type: 'search'}
-                    -#%button.morphsearch-submit{type: 'submit'}
-                      -#Search
+                - if @header_numbers
+                  = @header_numbers.description.html_safe
+                - else
+                  .number
+                    .phone (0432) 35-37-431
+                    .phone (0432) 67-01-20
+                    -#%form
+                      %input.form-control{ placeholder: 'Пошук...', type: 'search'}
+                      -#%button.morphsearch-submit{type: 'submit'}
+                        -#Search

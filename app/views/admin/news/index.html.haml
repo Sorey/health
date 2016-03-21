@@ -1,6 +1,9 @@
 :scss
   .admin_all_news{
-    td a.btn{
+    td.wrap{
+      text-align: justify;
+    }
+    td .btn{
        display: inline-block;
        margin: 0px 0px 5px;
        padding: 4px 6px;
@@ -32,22 +35,24 @@
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
         %tr
-          %th #
+          -#%th #
+          %th Картинка
           %th Заголовок
           %th Опис
           %th Публікувати?
-          %th Картинка
+
           %th Дія
       %tbody
         - @news.each do |u|
           %tr
-            %td= u.id.to_s.last(8)
-            %td= u.title
-            %td= u.description
-            %td= u.publish_on
+            -#%td= u.id.to_s.last(8)
             %td
               - if u.image?
                 =image_tag u.image.thumb
+            %td= u.title
+            %td.wrap= truncate(strip_tags(u.description), length: 410)
+            %td{ align: 'center' }= u.publish_on
+
             %td
 
               = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_news_path(u), title: "Переглянути",  :class => 'btn btn-info'

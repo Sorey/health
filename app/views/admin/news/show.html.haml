@@ -1,43 +1,43 @@
 .show-news
-.container
-  - if notice
-    %p#notice= notice
-  %p
-    %h2
-      Новина
-      %em
-        = @news.title
-.container
-  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-    %tbody
-      %tr
-        %th Заголовок
-        %td= @news.title
-      %tr
-        %th Стислий опис
-        %td= @news.pre_text
-      %tr
-        %th Опис
-        %td= @news.description
-      -#%tr
-      -#  %th Початок публікації
-      -#  %td= @news.publish_up ||= "empty"
-      -#%tr
-      -#  %th Кінець публікації
-      -#  %td= @news.publish_down ||= "empty"
-      %tr
-        %th Публікувати?
-        %td= @news.publish_on ||= "empty"
-      %tr
-        %th Картинка
+  .container
+    - if notice
+      %p#notice= notice
+    %p
+      %h2
+        Новина
+        %em
+          = @news.title
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        %tr
+          %th Картинка
+          %td
+            - if @news.image?
+              =image_tag @news.image.thumb
+        %tr
+          %th Публікувати?
+          %td= @news.publish_on ||= "empty"
+        %tr
+          %th Заголовок
+          %td= @news.title
+        %tr
+          %th Стислий опис
+          %td= @news.pre_text
+        -#%tr
+        -#  %th Початок публікації
+        -#  %td= @news.publish_up ||= "empty"
+        -#%tr
+        -#  %th Кінець публікації
+        -#  %td= @news.publish_down ||= "empty"
 
-        %td
-          - if @news.image?
-            =image_tag @news.image.thumb
-  = link_to 'Усі новини', admin_news_index_path, :class => 'btn btn-primary'
-  -#- if current_user && current_user.editor?
-  = link_to 'Редагувати', edit_admin_news_path(@news), :class => 'btn btn-primary'
-  -#- if current_user && current_user.admin?
-  = link_to 'Видалити', admin_news_path(@news), :class => 'btn btn-primary', |
-    method: :delete,                                                  |
-    data: { confirm: 'Ви впевнені?' }                                |
+        %tr
+          %th Опис
+          %td= @news.description
+    = link_to 'Усі новини', admin_news_index_path, :class => 'btn btn-primary'
+    -#- if current_user && current_user.editor?
+    = link_to 'Редагувати', edit_admin_news_path(@news), :class => 'btn btn-primary'
+    -#- if current_user && current_user.admin?
+    = link_to 'Видалити', admin_news_path(@news), :class => 'btn btn-primary', |
+      method: :delete,                                                  |
+      data: { confirm: 'Ви впевнені?' }                                |

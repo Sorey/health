@@ -5,7 +5,7 @@ module Admin
     layout 'application_admin'
 
     def index
-      @news = News.all
+      @news = News.all.order(updated_at: :desc)
     end
 
     def show

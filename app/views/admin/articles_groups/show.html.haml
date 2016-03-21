@@ -1,6 +1,23 @@
-%p#notice= notice
+.container
+  %p#notice= notice
+  %p
+    %h2
+      Articles group
+      %em
+        = @articles_group.title
+  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %tbody
+      %tr
+        %th Title:
+        %td= @articles_group.title
+      %tr
+        %th Publish on:
+        %td= @articles_group.publish_on
+      %tr
+        %th Type level:
+        %td= @articles_group.description
 
 
-= link_to 'Edit', edit_admin_articles_group_path(@articles_group)
-\|
-= link_to 'Back', admin_articles_groups_path
+  = link_to 'Edit', edit_admin_articles_group_path(@articles_group), :class => 'btn btn-primary'
+
+  = link_to 'Back', admin_articles_groups_path, :class => 'btn btn-primary'

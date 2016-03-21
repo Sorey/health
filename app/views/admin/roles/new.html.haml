@@ -1,9 +1,27 @@
-.role-new
+:scss
+  .new-role{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+.new-role
   .container
-    .col-sm-11
-      %h1 Create role
-    .col-sm-1
-      %h1
+    .container
+    .heading
+      .title
+        %h1 Create role
+      .btn-new-news
         = link_to 'Back', admin_roles_path, :class => 'btn btn-primary'
   .container
     .form

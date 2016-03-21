@@ -1,8 +1,29 @@
-.container
-  %h1 New article
-  = link_to 'Back', admin_articles_path
-.container
-  .form
-    = render 'form'
+:scss
+  .new-article{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+.new-article
+  .container
+    .heading
+      .title
+        %h1 New article
+      .btn-new-news
+        = link_to 'Back', admin_articles_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'
 
 

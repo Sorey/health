@@ -6,16 +6,15 @@
       User
       %em
         = @role.title
-  .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-      %tbody
-        %tr
-          %th Title
-          %td
-            = @role.title
-        %tr
-          %th Parent
-          %td= @role.type_role
+  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %tbody
+      %tr
+        %th Title
+        %td
+          = @role.title
+      %tr
+        %th Parent
+        %td= @role.type_role
   = link_to 'Back', admin_roles_path, :class => 'btn btn-primary'
   -#- if current_user && current_user.editor?
   = link_to 'Edit', edit_admin_role_path(@role), :class => 'btn btn-primary'

@@ -62,8 +62,7 @@ module Admin
       redirect_to admin_news_index_path
     end
 
-    private
-
+  private
 
     def news_params
       params.require(:admin_news).permit(:title, :pre_text, :description, :publish_on, :publish_up, :publish_down, :image)

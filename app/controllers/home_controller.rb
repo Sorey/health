@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     # @news = Admin::News.find( { publish_on: true } ).sort( { created_at: -1 } ).limit(4) if @news
-    @news_limit = Admin::News.where(publish_on: true).order(created_at: :desc).limit(4)
+    @news_limit = Admin::News.where(publish_on: true).order(created_at: :asc).limit(4)
   end
 
   def get_right_menu

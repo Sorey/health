@@ -12,6 +12,7 @@
  *
  *= require summernote.css
  *= require fancybox/jquery.fancybox
+ *= require fancybox/helpers/jquery.fancybox-buttons
  *= require_tree .
  *= require_self
  */

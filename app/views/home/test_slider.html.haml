@@ -5,6 +5,10 @@
 
 -#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
 -#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.js", :type => "text/javascript"}
+  / Optionally add helpers - button, thumbnail and/or media
+-#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+-#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js", :type => "text/javascript"}
+-#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-media.js", :type => "text/javascript"}
 :scss
 
   .news-photo{
@@ -52,24 +56,12 @@
           %img{:alt => "", :src => "http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg"}/
         = link_to image_tag(n.image.thumb), image_path(n.image), title: "Переглянути", :rel => "fancybox-button", :title => n.title, :class => "fancybox-button"
 
-
-        -#.box.clearfix
-          -#- if request.host == "localhost"
-          = link_to image_tag(n.image.thumb), show_one_news_path(n), title: "Переглянути"
-
-          -#- else
-          -#= link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
-          .text
-            %p.title
-              %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
-            %span= truncate(strip_tags(n.description), length: 210)
-
 :javascript
 
   $(document).ready(function() {
     $(".fancybox-button").fancybox({
       prevEffect	: 'none',
-      nextEffect	: 'none',
+      nextEffect	: 'fade',
       helpers		: {
         title	: { type : 'inside' },
         buttons	: {}

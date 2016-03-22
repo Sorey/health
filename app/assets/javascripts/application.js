@@ -16,6 +16,7 @@
 //= require ckeditor/init
 //= require bootstrap
 //= require fancybox/jquery.fancybox
+//= require fancybox/helpers/jquery.fancybox-buttons
 //= #require summernote/plugin/hello/summernote-ext-hello
 //= #require summernote/plugin/specialchars/summernote-ext-specialchars
 //= #require summernote/summernote

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require summernote.css
+ *= require fancybox/jquery.fancybox
  *= require_tree .
  *= require_self
  */

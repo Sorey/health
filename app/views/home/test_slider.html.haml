@@ -1,0 +1,78 @@
+/ Add mousewheel plugin (this is optional)
+-#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js", :type => "text/javascript"}
+-#/ Add fancyBox
+-#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+
+-#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+-#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.js", :type => "text/javascript"}
+:scss
+
+  .news-photo{
+    .box{
+      margin-bottom: 10px;
+      padding: 5px;
+      border: 1px solid #cce7d9;
+      .title {
+        line-height:1.2;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        a{
+          text-decoration: none;
+          color: #333333;
+        }
+        a:hover{
+          color: #008f44;
+        }
+      }
+      .text{
+        margin-left: 26%;
+        width: 75%;
+        font-size: 13px;
+      }
+      img{
+        width: 25%;
+        float: left;
+        border-radius: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+.news-photo
+  .container
+    %h3.crud-block
+      -#= debug @news_photo.inspect
+      %a{:href => "/news", title: "Усі новини"} Новини
+    - if @news_photo
+
+      - @news_photo.each do |n|
+        -#= debug n.inspect
+        -#%a.fancybox1{:href => "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg", :rel => "gallery1", :title => "Vertical - Special Edition! (cedarsphoto)"}
+          %img{:alt => "", :src => "http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg"}/
+        = link_to image_tag(n.image.thumb), image_path(n.image), title: "Переглянути", :rel => "fancybox-button", :title => n.title, :class => "fancybox-button"
+
+
+        -#.box.clearfix
+          -#- if request.host == "localhost"
+          = link_to image_tag(n.image.thumb), show_one_news_path(n), title: "Переглянути"
+
+          -#- else
+          -#= link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
+          .text
+            %p.title
+              %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
+            %span= truncate(strip_tags(n.description), length: 210)
+
+:javascript
+
+  $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+      prevEffect	: 'none',
+      nextEffect	: 'none',
+      helpers		: {
+        title	: { type : 'inside' },
+        buttons	: {}
+      }
+    });
+  });

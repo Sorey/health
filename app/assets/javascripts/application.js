@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require ckeditor/init
 //= require bootstrap
+//= require fancybox/jquery.fancybox
 //= #require summernote/plugin/hello/summernote-ext-hello
 //= #require summernote/plugin/specialchars/summernote-ext-specialchars
 //= #require summernote/summernote

@@ -44,6 +44,11 @@ class HomeController < ApplicationController
     #Static page
   end
 
+  # test_slider
+  def test_slider
+    @news_photo = Admin::News.all
+  end
+
   protected
 
   # Inspect if m_item has children

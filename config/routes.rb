@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get '/schedule' => 'home#schedule', as: :schedule
   get '/structure' => 'home#structure', as: :structure
+  get '/test_slider' => 'home#test_slider', as: :test_slider
 
   namespace :admin do
     controller :sessions do

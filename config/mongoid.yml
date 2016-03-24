@@ -102,6 +102,7 @@ test:
 production:
   sessions:
     default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
       database: health_production
       hosts:
         - localhost:27017

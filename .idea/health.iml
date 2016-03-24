@@ -179,6 +179,8 @@
     <orderEntry type="library" scope="PROVIDED" name="rails-deprecated_sanitizer (v1.0.3, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v1.0.7, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.0.3, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails3_serve_static_assets (v0.0.1@84910c, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails_log_stdout (v0.0.1@f9a927, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.2.5, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.2, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ref (v2.0.0, RVM: ruby-2.0.0-p647 [global]) [gem]" level="application" />

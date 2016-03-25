@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'medical_setups/index'
+  end
+
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'

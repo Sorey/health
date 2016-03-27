@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'medical_setups/index'
-  end
-
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -40,6 +36,7 @@ Rails.application.routes.draw do
     resources :menu_items
     resources :articles
     resources :articles_groups
+    resources :medical_setups
   end
 
   root 'home#index'

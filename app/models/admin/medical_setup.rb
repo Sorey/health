@@ -5,9 +5,9 @@ class Admin::MedicalSetup
   field :phone, type: String
   field :head_doctor, type: String
   field :email, type: String
+  field :number_license, type: String
   field :date_start, type: String
   field :date_finish, type: String
-  field :number_license, type: String
   field :medical_level, type: String
 
   # embedded_in :admin_medical_setup_category, :class_name => 'Admin::MedicalSetupCategory'

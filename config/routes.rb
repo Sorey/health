@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :statistic_catalogs
+  end
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -8,13 +11,15 @@ Rails.application.routes.draw do
   # resources :menu_items, path: "/admin/menu_items"
   # resources :users, path: "/admin/users"
   # resources :roles, path: "/admin/roles"
-  resources :medical_setups
+  # resources :medical_setups
 
   post 'message' => 'message#create' , as: :message
 
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news
+
+  get '/medical_setups' => 'medical_setups#index'
 
   get '/schedule' => 'home#schedule', as: :schedule
   get '/structure' => 'home#structure', as: :structure

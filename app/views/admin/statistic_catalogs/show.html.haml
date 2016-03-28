@@ -1,0 +1,10 @@
+%p#notice= notice
+
+= @admin_statistic_catalog.name
+
+-#= image_tag(@admin_statistic_catalog.images[0])
+-#- @admin_statistic_catalog.images.each do |i|
+-#  = image_tag(i.url)
+= link_to 'Edit', edit_admin_statistic_catalog_path(@admin_statistic_catalog)
+\|
+= link_to 'Back', admin_statistic_catalogs_path

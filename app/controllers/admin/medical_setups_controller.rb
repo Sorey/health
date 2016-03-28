@@ -7,11 +7,7 @@ class Admin::MedicalSetupsController < ApplicationController
   layout 'application_admin'
 
   def index
-    # /////abort User.all.inspect
-    #
-    @medical_setups = Admin::MedicalSetup.all.order(id: :asc)
-    @medical_setups_group = Admin::MedicalSetupCategory.where(:name=> params[:category]).first unless params[:category].blank?
-    @medical_setups = @medical_setups.where(:admin_medical_setup_category_id=> @medical_setups_group.id) unless params[:category].blank?
+    @medical_setups = Admin::MedicalSetup.get_medical_setups_group params[:category]
 
     respond_to do |format|
       format.js

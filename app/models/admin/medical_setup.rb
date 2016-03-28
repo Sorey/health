@@ -14,4 +14,13 @@ class Admin::MedicalSetup
   # has_and_belongs_to_many :admin_medical_setup_category, :class_name => 'Admin::MedicalSetupCategory'
   belongs_to :admin_medical_setup_category, :class_name => 'Admin::MedicalSetupCategory'
 
+
+  def self.get_medical_setups_group (group = '')
+    @medical_setups = self.all.order(id: :asc)
+    unless group == '' || group.nil?
+      @medical_setups_group = Admin::MedicalSetupCategory.where(:name=> group).first
+      @medical_setups = @medical_setups.where(:admin_medical_setup_category_id=> @medical_setups_group.id)
+    end
+    @medical_setups
+  end
 end

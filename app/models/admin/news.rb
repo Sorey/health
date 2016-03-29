@@ -20,10 +20,9 @@ class Admin::News
 
   # before_update :check_valid_image_size
 
-  validates :title,  length: { minimum: 3, maximum: 40}, :presence => true
-  validates :pre_text,  length: { minimum: 6, maximum: 80} unless :pre_text.blank?
+  validates :title,  length: { minimum: 5, maximum: 80}, :presence => true
+  validates :pre_text,  length: { minimum: 6, maximum: 150} unless :pre_text.blank?
   validates :description,  length: { minimum: 10}, :presence => true
-  # validates :password,  length: { minimum: 6}, on: :create #if :password.blank?
 
   validates :image,
             :presence => true,
@@ -34,15 +33,5 @@ class Admin::News
   mount_uploader :image, NewsUploader
   #Save previous image when update image_field is empty
   skip_callback :update, :before, :store_previous_model_for_image
-
-  private
-
-    # def check_valid_image_size
-    #   if self.valid?
-    #     unless :image.blank?
-    #       self.remove_image!
-    #     end
-    #   end
-    # end
 
 end

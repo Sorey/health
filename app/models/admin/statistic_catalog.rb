@@ -15,7 +15,7 @@ class Admin::StatisticCatalog
             #     :maximum => 2.megabytes.to_i, message: 'Максимально-можливий розмір файлу - 2 мб.'
             # }
 
-  mount_uploaders :images, StatisticCatalogsUploader
+  mount_uploader :images, StatisticCatalogsUploader
 
   def jjjjj
     abort self.images.inspect

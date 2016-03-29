@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   get '/medical_setups' => 'medical_setups#index'
 
+  get '/statistic' => 'gallery#galleries', as: :galleries
+  get '/gallery' => 'gallery#show', as: :gallery
+
   get '/schedule' => 'home#schedule', as: :schedule
   get '/structure' => 'home#structure', as: :structure
   get '/test_slider' => 'home#test_slider', as: :test_slider

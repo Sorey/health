@@ -5,6 +5,9 @@ class Admin::StatisticCatalogsController < ApplicationController
   # GET /admin/statistic_catalogs.json
   def index
     @admin_statistic_catalogs = Admin::StatisticCatalog.all
+    # @images = Dir.glob("app/assets/images/carusel/*.jpg")
+    # abort @images.inspect
+    # @images = Dir.glob("#{Rails.root}/app/images/camisas/*.jpg")
   end
 
   # GET /admin/statistic_catalogs/1

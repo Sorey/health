@@ -47,6 +47,7 @@ class HomeController < ApplicationController
   # test_slider
   def test_slider
     @news_photo = Admin::News.all
+    @images = Dir.glob("app/assets/images/carusel/*.jpg")
   end
 
   protected

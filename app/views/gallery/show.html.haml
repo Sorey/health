@@ -1,17 +1,5 @@
-/ Add mousewheel plugin (this is optional)
--#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js", :type => "text/javascript"}
--#/ Add fancyBox
--#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
--#
--#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
--#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.js", :type => "text/javascript"}
-  / Optionally add helpers - button, thumbnail and/or media
--#%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
--#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js", :type => "text/javascript"}
--#%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-media.js", :type => "text/javascript"}
 :scss
-
-  .news-photo{
+  .gallery-photo{
     a.fancybox-button{
       img{
         width: 32.5%;
@@ -50,7 +38,7 @@
     }
   }
 
-.news-photo
+.gallery-photo
   .container
     %h3.crud-block
       -#= debug @news_photo.inspect
@@ -74,16 +62,28 @@
     -#- if @news_photo
       - @news_photo.each do |n|
         -#= debug n.inspect
-        -#%a.fancybox1{:href => "http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg", :rel => "gallery1", :title => "Vertical - Special Edition! (cedarsphoto)"}
-          %img{:alt => "", :src => "http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg"}/
-        -#= link_to image_tag(n.image.thumb), image_path(n.image), title: "Переглянути", :rel => "fancybox-button", :title => n.title, :class => "fancybox-button"
         = link_to image_tag(n.image.thumb), image_path(n.image), title: "Переглянути", :rel => "fancybox-button fancybox-thumb", :title => n.title, :class => "fancybox-button fancybox-thumb"
     - if@images
       - @images.each do |n|
-        = link_to image_tag("carusel/#{n.split('/').last}"), image_path("carusel/#{n.split('/').last}"), title: "Переглянути", :rel => "fancybox-button fancybox-thumb", :class => "fancybox-button fancybox-thumb"
+        = link_to image_tag("statistic_gallery/#{@name_gallery}/#{n.split('/').last}"), image_path("statistic_gallery/#{@name_gallery}/#{n.split('/').last}"), title: "Переглянути", :rel => "fancybox-button", :class => "fancybox-button"
 
 
 :javascript
+
+  //$(document).on('page:load', function() {
+  //  $(".fancybox-button").fancybox({
+  //    prevEffect	: 'none',
+  //    nextEffect	: 'fade',
+  //    helpers		: {
+  //      title	: { type : 'inside' },
+  //      buttons	: {},
+  //      thumbs	: {
+  //        width	: 100,
+  //        height: 100
+  //      }
+  //    }
+  //  });
+  //});
 
   $(document).ready(function() {
     $(".fancybox-button").fancybox({

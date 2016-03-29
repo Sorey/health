@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require summernote.css
  *= require fancybox/jquery.fancybox
  *= require fancybox/helpers/jquery.fancybox-buttons
  *= require fancybox/helpers/jquery.fancybox-thumbs

@@ -1,4 +1,4 @@
-= form_for(@admin_statistic_catalog, :multipart=>true, html: { class: 'form-horizontal' }) do |f|
+= form_for(@admin_statistic_catalog, html: { class: 'form-horizontal', multipart: true }) do |f|
   - if @admin_statistic_catalog.errors.any?
     #error_explanation
       %h2= "#{pluralize(@admin_statistic_catalog.errors.count, "error")} prohibited this admin_statistic_catalog from being saved:"

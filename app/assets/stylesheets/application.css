@@ -13,6 +13,7 @@
  *= require fancybox/jquery.fancybox
  *= require fancybox/helpers/jquery.fancybox-buttons
  *= require fancybox/helpers/jquery.fancybox-thumbs
+ +*= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  *= require_self
  */

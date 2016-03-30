@@ -61,6 +61,9 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 
+# https://github.com/amatsuda/kaminari
+gem 'kaminari'
+
 # https://github.com/summernote/summernote-rails
 # gem 'summernote-rails', '~> 0.8.1.1'
 # gem 'bootstrap-sass'     # required

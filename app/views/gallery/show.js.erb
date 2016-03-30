@@ -1,0 +1,2 @@
+$('#results').html('<%= escape_javascript(raw(render partial: "search_images")) %>');
+  $('#images-paginator').html('<%= escape_javascript(paginate(@images, remote: true)) %>');

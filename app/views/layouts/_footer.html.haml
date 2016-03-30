@@ -84,7 +84,7 @@
 .footer
   .container
     .row.three-colmn
-      = @footer_contacts.description.html_safe
+      = @footer_contacts.description.html_safe if @footer_contacts
       -#.col-sm-4.f-column
         -#%h3 На зв'язку
         .container-fluid

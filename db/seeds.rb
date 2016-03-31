@@ -164,14 +164,14 @@
     ]
   ]
 
-Admin::MedicalSetupCategory.delete_all
+Admin::MedicalSetupsGroup.delete_all
 Admin::MedicalSetup.delete_all
 medical_sc = []
 medical_s = []
 msc_i = 0
 
 @m_s_g.each do |i|
-  medical_sc[msc_i] = Admin::MedicalSetupCategory.create(name: i)
+  medical_sc[msc_i] = Admin::MedicalSetupsGroup.create(name: i)
   ms_i = 0
   @m_s[msc_i].each do |k|
     medical_s[ms_i] = Admin::MedicalSetup.create(name: k[1], address: k[2], phone: k[3], head_doctor: k[4],
@@ -592,12 +592,12 @@ end
 # Admin::News.create(title: "Проба ополонки!", pre_text: "Обережно, переохолодження та обмороження!",
 #                    description: "До кінця тижня на Черкащині прогнозують пониження температури до 10 грудусів нижче нуля. У Департаменті охорони здоров'я Черкаської ОДА закликають жителів бути обережними та не переохолоджуватися.",
 #                    publish_on: true, user_id: u2.id) #image: "news/36.jpg",
-# MedicalSetupCategory.delete_all
-# msc1 = MedicalSetupCategory.create(name: "First category L1", type_category: "Location")
-# msc2 = MedicalSetupCategory.create(name: "First category L2", type_category: "Location")
-# msc3 = MedicalSetupCategory.create(name: "First category L3", type_category: "Location")
-# msc4 = MedicalSetupCategory.create(name: "Second category", type_category: "Other")
-# msc5 = MedicalSetupCategory.create(name: "Third category", type_category: "Study")
+# MedicalSetupsGroup.delete_all
+# msc1 = MedicalSetupsGroup.create(name: "First category L1", type_category: "Location")
+# msc2 = MedicalSetupsGroup.create(name: "First category L2", type_category: "Location")
+# msc3 = MedicalSetupsGroup.create(name: "First category L3", type_category: "Location")
+# msc4 = MedicalSetupsGroup.create(name: "Second category", type_category: "Other")
+# msc5 = MedicalSetupsGroup.create(name: "Third category", type_category: "Study")
 #
 # MedicalSetup.delete_all
 # ms1 = MedicalSetup.create(name: "Перший заклад 1 Location", address: "Апдреса перша 1", phone: "111 111 111",

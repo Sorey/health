@@ -15,9 +15,9 @@ class Admin::MedicalSetupsController < ApplicationController
     end
   end
 
-  def show
-    @medical_setup = Admin::MedicalSetup.find(params[:id])
-  end
+  # def show
+  #   @medical_setup = Admin::MedicalSetup.find(params[:id])
+  # end
 
   def new
     @medical_setup = Admin::MedicalSetup.new

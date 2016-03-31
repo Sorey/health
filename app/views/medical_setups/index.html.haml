@@ -44,7 +44,8 @@
   .container
     .heading
       .title
-        %h1= params[:category] ||= 'Список медичних установ'
+        %h1= @medical_setups_group ||= 'Список медичних установ'
+        -#%h1= params[:category] ||= 'Список медичних установ'
       -#.btn-new-news
         -#- if current_user && current_user.admin?
         = link_to 'Нова медична установа', new_admin_medical_setup_path, :class => 'btn btn-primary'

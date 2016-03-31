@@ -1,5 +1,5 @@
 :scss
-  .new-medical-setup{
+  .edit-medical-setup{
     .heading{
       .title{
         display: inline-block;
@@ -16,13 +16,13 @@
   }
 
 
-.new-medical-setup
+.edit-medical-setup
   .container
     .heading
       .title
-        %h1 Створення медичної установи
+        %h1 Редагування медичної установи
       .btn-new-news
-        = link_to 'Медичні установи', admin_medical_setups_path, :class => 'btn btn-primary'
+        = link_to 'Медичні установи', admin_news_index_path, :class => 'btn btn-primary'
   .container
     .form
-      = render 'form', buttom: "Створити"
+      = render 'form', buttom: "Редагувати"

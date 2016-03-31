@@ -5,9 +5,8 @@ class MessageController < ApplicationController
 
     MessageMailer.default_url_options[:host] = request.host_with_port
     MessageMailer.new_message(params).deliver
-    format.html {redirect_to root_url, notice: 'Ваше повідомлення відправлено.'}
+    redirect_to root_url, notice: 'Ваше повідомлення відправлено.'
+    # format.html {redirect_to root_url, notice: 'Ваше повідомлення відправлено.'}
 
-    # format.html { redirect_to root_url, notice: 'Ваше повідомлення відправлено.' }
-    # format.json { render root_url, notice: 'Ваше повідомлення відправлено!' }
   end
 end

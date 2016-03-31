@@ -4,7 +4,7 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
+      .btn-new-news, .medical_setups_groups{
         display: inline-block;
         float: right;
         .btn{
@@ -30,6 +30,13 @@
          padding: 4px 6px;
          width: 30px;
         }
+      }
+    }
+    .medical_setups_groups{
+      display: inline-block;
+      float: right;
+      .btn{
+        margin: 5px 0 20px;
       }
     }
   }
@@ -87,3 +94,5 @@
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, m, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
 
             - m_iterator = m_iterator + 1
+    .medical_setups_groups
+      = link_to 'Групи медичних установ', admin_medical_setups_groups_path, :class => 'btn btn-primary'

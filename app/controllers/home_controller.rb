@@ -44,12 +44,6 @@ class HomeController < ApplicationController
     #Static page
   end
 
-  # test_slider
-  def test_slider
-    @news_photo = Admin::News.all
-    @images = Dir.glob("app/assets/images/carusel/*.jpg")
-  end
-
   protected
 
   # Inspect if m_item has children

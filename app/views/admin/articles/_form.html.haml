@@ -48,7 +48,7 @@
       -#= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => { :height => 400 } }
       -#= f.cktext_area :notes, :class => 'someclass', :ckeditor => {:language => 'uk'}
       -#= f.cktext_area :description, :ckeditor => {:uiColor => '#E1E4E3', :toolbar => 'mini',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
-      = f.cktext_area :description, :ckeditor => {:uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
+      = f.cktext_area :description, :ckeditor => {:toolbar => 'full', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
       -#= f.cktext_area :title, :class => 'form-control input-responsive', :ckeditor => {:language => 'uk'}
       -#= f.cktext_area :description, :value => 'Default value', :id => 'sometext'
       -#= cktext_area :description, :info, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini',:language => 'uk'}

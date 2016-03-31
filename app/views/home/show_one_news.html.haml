@@ -4,6 +4,7 @@
     .panel{
       border-color: #cce7d9;
       background: #F3FFF9;
+      word-wrap: break-word;
       .panel-heading{
         background: #cce7d9;
         border-color: #cce7d9;
@@ -34,8 +35,6 @@
   .container
     - if notice
       %p#notice= notice
-
-
     .col-md-10.col-md-offset-1
       -#%p.row
         %h2
@@ -49,12 +48,11 @@
             -#= truncate(strip_tags(n.publish_up.to_s), length: 10)
             = (@news.publish_up.to_s).mb_chars.limit(10)
         .panel-body
-
           .image
             = image_tag @news.image
           .info
             %h4= @news.pre_text
-            %p= @news.description
+            %p= simple_format(@news.description)
     -#%p.row
       %h2
         News

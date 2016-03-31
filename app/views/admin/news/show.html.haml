@@ -1,3 +1,5 @@
+:scss
+
 .show-news
   .container
     - if notice
@@ -23,7 +25,7 @@
           %td= @news.title
         %tr
           %th Стислий опис
-          %td= @news.pre_text
+          %td.description= @news.pre_text
         -#%tr
         -#  %th Початок публікації
         -#  %td= @news.publish_up ||= "empty"

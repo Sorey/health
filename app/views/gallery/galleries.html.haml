@@ -39,12 +39,14 @@
     .galleries-box
       .gallery
         %a{:href => gallery_path("charts"),  'data-method' => "get"}
-          = image_tag("statistic_gallery/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg")
+          = image_tag("statistic_gallery/accounting.jpg")
+          -#= image_tag("statistic_gallery/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg")
           .title
             Показники за 2010-2015 роки
       .gallery
         %a{:href => gallery_path("cartograms"), 'data-method' => "get"}
-          = image_tag("statistic_gallery/g_graph.jpg")
+          = image_tag("statistic_gallery/accounting.jpg")
+          -#= image_tag("statistic_gallery/g_graph.jpg")
           .title
             Показники в картограмах за 2015 рік
 

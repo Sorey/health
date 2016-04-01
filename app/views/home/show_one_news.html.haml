@@ -52,7 +52,8 @@
             = image_tag @news.image
           .info
             %h4= @news.pre_text
-            %p= simple_format(@news.description)
+            %p= @news.description.html_safe
+            -#%p= simple_format(@news.description)
     -#%p.row
       %h2
         News

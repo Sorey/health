@@ -27,15 +27,15 @@
     .col-sm-10
       = f.text_field :title, :class => 'form-control input-responsive'
   .form-group
-    = f.label :id_post, :class => 'col-sm-2 control-label'
-    .col-sm-10
-      = f.select :id_post, Admin::Article.all.collect {|x| [x.title, x.id]}, {include_blank: true}, :multiple => false,  :class => 'form-control input-responsive'
-  .form-group
-    = f.label :link, :class => 'col-sm-2 control-label'
+    = f.label :link, '<span style="color:#15379E;">Link</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :link , :class => 'form-control input-responsive'
   .form-group
-    = f.label :alias, :class => 'col-sm-2 control-label'
+    = f.label :id_post, '<span style="color:#6224AF;">Post</span>'.html_safe, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :id_post, Admin::Article.all.collect {|x| [x.title, x.id]}, {include_blank: true}, :multiple => false,  :class => 'form-control input-responsive'
+  .form-group
+    = f.label :alias, '<span style="color:#6224AF;">Alias</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :alias , :class => 'form-control input-responsive'
   .form-group

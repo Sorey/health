@@ -21,7 +21,8 @@ class Admin::News
   # before_update :check_valid_image_size
 
   validates :title,  length: { minimum: 5, maximum: 80}, :presence => true
-  validates :pre_text,  length: { minimum: 6, maximum: 150} unless :pre_text.blank?
+  validates :pre_text, :allow_blank => true,  length: { minimum: 6, maximum: 150}
+
   validates :description,  length: { minimum: 10}, :presence => true
 
   validates :image,

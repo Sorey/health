@@ -9,7 +9,7 @@
     %tbody
       %tr
         %th Id_post:
-        %td= @menu_item.id_post
+        %td= @menu_item._id.to_s.last(8)
       %tr
         %th Type level:
         %td= @menu_item.type_level

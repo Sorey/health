@@ -18,6 +18,8 @@
 //= require fancybox/jquery.fancybox
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-thumbs
+//= require ckeditor/config.js
+//= require ckeditor/ckeditor
 //= #require summernote/plugin/hello/summernote-ext-hello
 //= #require summernote/plugin/specialchars/summernote-ext-specialchars
 //= #require summernote/summernote

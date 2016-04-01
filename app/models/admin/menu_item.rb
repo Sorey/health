@@ -23,12 +23,22 @@ class Admin::MenuItem
   has_many :children, class_name: "Admin::MenuItem" #, foreign_key: "parent_id"
   belongs_to :parent, class_name: "Admin::MenuItem"
   after_save :reload_routes
+  # before_save :set_type_level
   # before_create :get_level
   # before_update :get_level
 
-  def reload_routes
-    DynamicRouter.reload
-  end
+  # def set_type_level
+  #   type_menu = ['Заголовок меню', 'Пункт меню', 'Перший рівень', 'Додатковий рівень']
+  #   parent = Admin::MenuItem.find(self.parent_id).type_level
+  #   # abort parent.inspect
+  #
+  #   result = case parent
+  #              when type_menu[0] then type_menu[1]
+  #              when type_menu[1] then type_menu[2]
+  #
+  #              else "Invalid Score"
+  #            end
+  # end
 
   def self.get_alias_links
     get_not_empty = where(:alias.ne =>  '')
@@ -52,5 +62,9 @@ class Admin::MenuItem
 
   def self.get_menu_items
     where(type_item: "header-menu").order(created_at: :desc)
+  end
+
+  def reload_routes
+    DynamicRouter.reload
   end
 end

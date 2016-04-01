@@ -185,6 +185,8 @@ msc_i = 0
   msc_i = msc_i +1
 end
 
+
+
 # User.delete_all
 # u1 = User.create(name: "Admin", email: "33admin44@gmail.com", password: "987789", password_confirmation: "987789")
 # u2 = User.create(name: "Manager", email: "33manager44@gmail.com", password: "876678", password_confirmation: "876678")

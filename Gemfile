@@ -54,6 +54,7 @@ gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem "mini_magick"
 
+gem "fog-aws"
 
 # https://github.com/galetahub/ckeditor
 gem 'ckeditor', github: 'galetahub/ckeditor'

@@ -50,8 +50,8 @@
               - if u.image?
                 =image_tag u.image.thumb
             %td= u.title
-            %td.wrap= simple_format(u.description)
-            -#%td.wrap= truncate(strip_tags(u.description), length: 410)
+            -#%td.wrap= simple_format(u.description)
+            %td.wrap= truncate(strip_tags(u.description), length: 610)
             %td{ align: 'center' }= u.publish_on
 
             %td

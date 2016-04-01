@@ -35,7 +35,7 @@
 
         %tr
           %th Опис
-          %td= @news.description
+          %td= @news.description.html_safe
     = link_to 'Усі новини', admin_news_index_path, :class => 'btn btn-primary'
     -#- if current_user && current_user.editor?
     = link_to 'Редагувати', edit_admin_news_path(@news), :class => 'btn btn-primary'

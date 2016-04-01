@@ -12,27 +12,32 @@
 
   .form-group
     .field
-      = u.label :title, 'Заголовок', :class => 'col-sm-2 control-label'
+      = u.label :title, 'Заголовок<span style="color:#F98C39;"> *</span>'.html_safe, :class => 'col-sm-2 control-label'
       .col-sm-10
         = u.text_field :title, :class => 'form-control input-responsive'
   .form-group
     = u.label :pre_text,'Cтислий опис', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.text_field :pre_text, :class => 'form-control input-responsive'
-  .form-group
-    = u.label :description,'Повний опис', :class => 'col-sm-2 control-label'
+  -#.form-group
+    = u.label :description,'Повний опис <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.text_area :description, :class => 'form-control input-responsive'
   .form-group
-    = u.label :image, 'Картинка', :class => 'col-sm-2 control-label'
+    = u.label :image, 'Картинка <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.file_field :image, :class => 'form-control input-responsive'
-
-
   .form-group
-    = u.label :publish_on, 'Публікувати?', :class => 'col-sm-2 control-label'
+    = u.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    =u.label :description,'Повний опис <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      -#= u.cktext_area :description,:as => ckeditor, :input_html =>{ :ckeditor => {:toolbar => 'mini'} }, :class => 'col-sm-2 control-label'
+      = u.cktext_area :description, :ckeditor => {:toolbar => 'mini', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
+
+
   -#.form-group
   -#  = u.label :publish_up, 'Початок публікації', :class => 'col-sm-2 control-label'
   -#  .col-sm-10
@@ -43,6 +48,10 @@
   -#    = u.datetime_select :publish_down, :order => [:day, :month, :year, :hour, :minute], :class => 'form-control input-responsive'
   .form-group
     .actions
+      .col-sm-offset-2.col-sm-10
+        %p
+          = '<span style="color:#F98C39;"> * </span>'.html_safe
+          = "- Поля обов'язкові для заповнення."
       .col-sm-offset-2.col-sm-10
         = u.submit buttom, :class => 'btn btn-primary'
 

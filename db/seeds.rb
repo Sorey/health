@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@m_s_g = ["Заклади первинного рівня надання медичної допомоги",
-          "Заклади вторинного рівня надання медичної допомоги",
-          "Заклади третинного  рівня надання медичної допомоги",
-          "Заклади ШМД",
-          "Санаторії",
-          "Будинки дитини",
-          "Інші заклади",
-          "Медичні навчальні заклади"]
+@m_s_g = [["Заклади первинного рівня надання медичної допомоги", "medical_setups_primary_level"],
+          ["Заклади вторинного рівня надання медичної допомоги", "medical_setups_secondary_level"],
+          ["Заклади третинного  рівня надання медичної допомоги", "medical_setups_tertiary_level"],
+          ["Заклади ШМД", "ambulance"],
+          ["Санаторії", "sanatoriums"],
+          ["Будинки дитини", "childrens_homes"],
+          ["Інші заклади", "other_medical_setups"],
+          ["Медичні навчальні заклади", "medical_institutions"]]
 @m_s = [
     [
         ["1"," ЦПМСД №1","21011 Вінницька обл., м. Вінниця, вул. Пархоменко,13","(0432) 66-80-16","Фіщенко Людмила Володимирівна","cpmsd1-vn@ukr.net (секретар)","17.04.2014","АЕ №459863","",""  ],
@@ -171,7 +171,7 @@ medical_s = []
 msc_i = 0
 
 @m_s_g.each do |i|
-  medical_sc[msc_i] = Admin::MedicalSetupsGroup.create(name: i)
+  medical_sc[msc_i] = Admin::MedicalSetupsGroup.create(name: i[0], ang_name: i[1])
   ms_i = 0
   @m_s[msc_i].each do |k|
     medical_s[ms_i] = Admin::MedicalSetup.create(name: k[1], address: k[2], phone: k[3], head_doctor: k[4],

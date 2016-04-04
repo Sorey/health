@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  # namespace :admin do
-  #   resources :statistic_catalogs
-  # end
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -20,6 +17,8 @@ Rails.application.routes.draw do
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news
 
   get '/medical_setups' => 'medical_setups#index'
+  get '/private_medical_setups' => 'medical_setups#show_private_ms'
+
 
   get '/statistic' => 'gallery#galleries', as: :galleries
   get '/statistic/:gallery' => 'gallery#show', as: :gallery
@@ -45,6 +44,7 @@ Rails.application.routes.draw do
     resources :articles_groups
     resources :medical_setups
     resources :medical_setups_groups, exept: :show
+    resources :private_medical_setups
   end
 
   root 'home#index'

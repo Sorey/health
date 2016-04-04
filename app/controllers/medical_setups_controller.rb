@@ -13,6 +13,10 @@ class MedicalSetupsController < ApplicationController
     @medical_setups_group = group.name unless group.nil?
   end
 
+  def show_private_ms
+    @private_medical_setups = Admin::PrivateMedicalSetup.all.order(id: :asc)
+  end
+
   # def show
   #   @medical_setup = MedicalSetup.find(params[:id])
   # end

@@ -147,7 +147,6 @@
                   %li
                     = link_to 'Головне меню', admin_menu_items_path(category: 'Головне меню'), :method => :get
                     -#%a{:href => admin_menu_items_path} Головне меню
-                  %li.divider{:role => "separator"}
                   %li
                     = link_to 'Бокове меню', admin_menu_items_path(category: 'Бокове меню'), :method => :get
                     -#%a{:href => "#"} Бокове меню
@@ -160,6 +159,8 @@
                   %li.divider{:role => "separator"}
                   %li
                     %a{:href => admin_medical_setups_path} Медичні установи
+                  %li
+                    %a{:href => admin_private_medical_setups_path} Приватні медичні установи
                   -#%li.divider{:role => "separator"}
                   -#%li
                   -#  %a{:href => "#"} ddDDdd

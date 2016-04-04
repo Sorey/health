@@ -1,0 +1,28 @@
+:scss
+  .edit-private-medical-setup{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+
+.edit-private-medical-setup
+  .container
+    .heading
+      .title
+        %h1 Редагування приватної структури
+      .btn-new-news
+        = link_to 'Приватні структури', admin_private_medical_setups_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form', buttom: "Редагувати"

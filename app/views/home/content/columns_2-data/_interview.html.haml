@@ -4,7 +4,11 @@
     border-bottom: 1px solid #cce7d9;
     .poll{
       box-shadow: 0 0 10px #cce7d9;
-      padding: 3px;
+      padding: 5px 7px;
+      p{
+        font-weight: bold !important;
+        font-size: 15.5px;
+      }
       .head{
         margin: 10px 0;
         .icon{
@@ -32,7 +36,7 @@
       }
       .actions{
 
-        margin-bottom: 10px;
+        margin-bottom: 3px;
         .btn{
           display:inline-block;
           text-align: right;
@@ -54,16 +58,19 @@
         %i.fa.fa-check-square-o.fa-2x
       %a{:href => "#"}
         .title Опитування №1
-    %p Текст запитання
+    %p За надання медичних послуг краще сплачувати:
     .rdio-b
       = radio_button_tag 'color', "green", class: "color_input"
-      варіант 1
+      через касу закладу
     .rdio-b
       = radio_button_tag 'color', "green", class: "color_input"
-      варіант 2
+      через благодійний фонд при закладі
     .rdio-b
       = radio_button_tag 'color', "green", class: "color_input"
-      варіант 3
+      купуючи медичну страховку
+    .rdio-b
+      = radio_button_tag 'color', "green", class: "color_input"
+      я за безкоштовну медицину
     .actions.clearfix
       = submit_tag("Відправити", :class=>"btn btn-success")
   .poll
@@ -72,16 +79,25 @@
         %i.fa.fa-check-square-o.fa-2x
       %a{:href => "#"}
         .title Опитування №2
-    %p Текст запитання
+    %p Якщо Ви стикалися з проблемами у медичній сфері, з чим саме були пов'язані ці проблеми?
     .rdio-b
       = radio_button_tag 'color1', "green1", true, class: "color_input"
-      варіант 1
+      Помилки лікаря при встановленні діагнозу
     .rdio-b
       = radio_button_tag 'color1', "green1", class: "color_input"
-      варіант 2
+      Низька кваліфікація середнього медичного персоналу
     .rdio-b
       = radio_button_tag 'color1', "green1", class: "color_input"
-      варіант 3
+      Висока вартість ліків, послуг
+    .rdio-b
+      = radio_button_tag 'color1', "green1", true, class: "color_input"
+      Погане оснащення медичних закладів
+    .rdio-b
+      = radio_button_tag 'color1', "green1", class: "color_input"
+      Рекомендація-направлення до приватної лікувальної установи на обстеження чи лікування
+    .rdio-b
+      = radio_button_tag 'color1', "green1", class: "color_input"
+      Рекомендація щодо придбання ліків у конкретній аптеці
     .actions.clearfix
       = submit_tag("Відправити", :class=>"btn btn-success")
   .poll
@@ -90,16 +106,16 @@
         %i.fa.fa-check-square-o.fa-2x
       %a{:href => "#"}
         .title Опитування №3
-    %p Текст запитання
+    %p Чи задовольняє Вас якість та доступність медичних послуг у закладах охорони здоров'я України?
     .rdio-b
       = radio_button_tag 'color2', "green2", class: "color_input"
-      варіант 1
+      Так, задовольняє. Не потребує ніяких змін
     .rdio-b
       = radio_button_tag 'color2', "green2", class: "color_input"
-      варіант 2
+      В цілому задовольняє. Потребує вдосконалення
     .rdio-b
       = radio_button_tag 'color2', "green2", class: "color_input"
-      варіант 3
+      Не задовольняє. Потребує кардинальних змін
     .actions.clearfix
       = submit_tag("Відправити", :class=>"btn btn-success")
   -#.poll

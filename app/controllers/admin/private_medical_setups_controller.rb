@@ -2,32 +2,22 @@ class Admin::PrivateMedicalSetupsController < ApplicationController
   before_action :set_admin_private_medical_setup, only: [:show, :edit, :update, :destroy]
   before_action :authorize
   before_action :require_role
-  # before_action :require_admin, only: [:new, :destroy]
-  # before_action :require_editor, only: [:edit]
-  # before_action :require_admin, only: [:new, :destroy]
   layout 'application_admin'
-  # GET /admin/private_medical_setups
-  # GET /admin/private_medical_setups.json
+
   def index
     @private_medical_setups = Admin::PrivateMedicalSetup.all.order(id: :asc)
   end
 
-  # GET /admin/private_medical_setups/1
-  # GET /admin/private_medical_setups/1.json
   def show
   end
 
-  # GET /admin/private_medical_setups/new
   def new
     @private_medical_setup = Admin::PrivateMedicalSetup.new
   end
 
-  # GET /admin/private_medical_setups/1/edit
   def edit
   end
 
-  # POST /admin/private_medical_setups
-  # POST /admin/private_medical_setups.json
   def create
     @private_medical_setup = Admin::PrivateMedicalSetup.new(admin_private_medical_setup_params)
 
@@ -42,8 +32,6 @@ class Admin::PrivateMedicalSetupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /admin/private_medical_setups/1
-  # PATCH/PUT /admin/private_medical_setups/1.json
   def update
     respond_to do |format|
       if @private_medical_setup.update(admin_private_medical_setup_params)
@@ -56,8 +44,6 @@ class Admin::PrivateMedicalSetupsController < ApplicationController
     end
   end
 
-  # DELETE /admin/private_medical_setups/1
-  # DELETE /admin/private_medical_setups/1.json
   def destroy
     @private_medical_setup.destroy
     respond_to do |format|

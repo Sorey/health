@@ -1,0 +1,34 @@
+%p#notice= notice
+
+%p
+  %b Question:
+  = @test.question
+%p
+  %b Publish on:
+  = @test.publish_on
+%p
+  %b Replies:
+  = @test.replies
+
+- if @test.replies
+  - if @test.replies.size > 0
+    %h2 Comments
+    - for comment in @test.replies
+      %h3= comment.id
+      %p= comment.answer
+
+%h2 New Comment
+-#=debug admin_test_replies_path(@admin_test, Admin::Reply.new).inspect
+-#= form_for admin_test_reply_path(@admin_test, Admin::Reply.new) do |f|
+= form_for [@test, Reply.new] do |f|
+  -#  -#=debug admin_test_reply_path(@admin_test, @new_reply).inspect
+  -#  -#
+  %p
+    = f.label :answer
+    = f.text_field :answer
+  %p= f.submit
+
+
+= link_to 'Edit', edit_test_path(@test)
+\|
+= link_to 'Back', tests_path

@@ -1,32 +1,46 @@
--#%p#notice= notice
--#
--#%p
--#  %b Question:
--#  = @admin_test.question
--#%p
--#  %b Publish on:
--#  = @admin_test.publish_on
--#%p
--#  %b Replies:
--#  = @admin_test.replies
--#- if @admin_test.admin_replies
--#  - if @admin_test.admin_replies.size > 0
--#    %h2 Comments
--#    - for comment in @admin_test.admin_replies
--#      %h3= comment.id
--#      %p= comment.answer
--#
+%p#notice= notice
+
+%p
+  %b Question:
+  = @admin_test.question
+%p
+  %b Publish on:
+  = @admin_test.publish_on
+%p
+  %b Replies:
+  = @admin_test.admin_replies
+- if @admin_test.admin_replies
+  - if @admin_test.admin_replies.size > 0
+    %h2 Comments
+    - for comment in @admin_test.admin_replies
+      %h3= comment.id
+      %p= comment.answer
+      = link_to 'Edit', edit_admin_test_reply_path(@admin_test, comment)
+      = link_to 'Destroy', [@admin_test, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- @eee = @admin_test
+%h2 New Comment
+-#=debug admin_test_replies_path(@admin_test, Admin::Reply.new).inspect
+-#= form_for admin_test_reply_path(@admin_test, Admin::Reply.new) do |f|
+= form_for [@eee, Reply.new] do |f|
+  -#  -#=debug admin_test_reply_path(@admin_test, @new_reply).inspect
+  -#  -#
+  %p
+    = f.label :answer
+    = f.text_field :answer
+  %p= f.submit
+
+
 -#%h2 New Comment
--#=debug [@admin_test, @new_reply].inspect
--#-#= form_for admin_test_reply_path(@admin_test, @new_reply) do |f|
--#= form_for [@admin_test, @new_reply] do |f|
--#  =debug admin_test_reply_path(@admin_test, @new_reply).inspect
--#
+-#-#=debug admin_test_replies_path(@admin_test, Admin::Reply.new).inspect
+-#-#= form_for admin_test_reply_path(@admin_test, Admin::Reply.new) do |f|
+-#= form_for [@admin_test, Admin::Reply.new], method: :post do |f|
+-#  -#  -#=debug admin_test_reply_path(@admin_test, @new_reply).inspect
+-#  -#  -#
 -#  %p
 -#    = f.label :answer
 -#    = f.text_field :answer
 -#  %p= f.submit
--#
--#= link_to 'Edit', edit_admin_test_path(@admin_test)
--#\|
--#= link_to 'Back', admin_tests_path
+
+= link_to 'Edit', edit_admin_test_path(@admin_test)
+\|
+= link_to 'Back', admin_tests_path

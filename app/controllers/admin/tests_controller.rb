@@ -15,7 +15,14 @@ class Admin::TestsController < ApplicationController
   def show
 
     # @admin_test.admin_replies << Admin::Reply.new
-    # @new_reply = @admin_test.admin_replies
+
+    # @new_reply = Admin::Reply.new
+    # @new_reply = @admin_test.admin_replies.build
+    # @admin_test = Admin::Test.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @admin_test }
+    end
   end
 
   # GET /admin/tests/new
@@ -75,6 +82,6 @@ class Admin::TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_test_params
-      params.require(:admin_test).permit(:question, :publish_on, :replies)
+      params.require(:admin_test).permit(:question, :publish_on, :admin_replies)
     end
 end

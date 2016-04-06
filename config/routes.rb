@@ -32,9 +32,7 @@ Rails.application.routes.draw do
 
   get '/schedule' => 'home#schedule', as: :schedule
   get '/structure' => 'home#structure', as: :structure
-  resources :tests do
-    resources :replies
-  end
+
   namespace :admin do
     controller :sessions do
       get  'login' => :new
@@ -44,7 +42,7 @@ Rails.application.routes.draw do
     # resources :users1
     # get 'signup'  => 'users1#new'
     # get 'news/' => 'news#index'
-    resources :tests do
+    resources :questions do
       resources :replies
     end
     resources :news

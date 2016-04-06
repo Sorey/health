@@ -1,0 +1,51 @@
+
+
+.container
+  %p#notice= notice
+  %h3
+    %p
+      Publish on:
+      %em= @admin_question.publish_on
+    %em= @admin_question.question + ":"
+  - if @admin_question.replies
+    - if @admin_question.replies.size > 0
+      - @admin_question.replies.sort_by(&:answer).each_with_index do |reply, i|
+        %h4
+          = 'Reply ' + "#{i+1}" + ': - '
+          = link_to 'Edit', edit_admin_question_reply_path(@admin_question, reply)
+          = link_to 'Destroy', [@admin_question, reply], :method => :delete, :data => { :confirm => 'Are you sure?' }
+          -#= reply.id
+          %em= "--- " + reply.answer
+
+      -#- for comment in @@admin_question.replies
+      -#  %h4
+      -#    = 'reply '
+      -#    = comment.id
+      -#    = "--- " + comment.answer
+      -#  = link_to 'Edit', edit_admin_test_reply_path(@@admin_question, comment)
+      -#  = link_to 'Destroy', [@@admin_question, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %h2 New reply
+  = form_for [@admin_question, @reply], html: { class: 'form-horizontal' } do |f|
+    - if @reply.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@reply.errors.count, "error")} prohibited this reply from being saved:"
+        %ul
+          - @reply.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group
+      .field
+        -#= f.label :answer, false, :class => 'col-sm-12'
+        .col-sm-12
+          = f.text_field :answer, :class => 'form-control input-responsive'
+    .form-group
+      .actions
+        .col-sm-12
+          = f.submit :class => 'btn btn-primary'
+    -#%p
+    -#  = f.label :answer, 'Reply'
+    -#  = f.text_field :answer
+    -#%p= f.submit
+
+  = link_to 'Edit', edit_admin_question_path(@admin_question)
+  \|
+  = link_to 'Back', admin_questions_path

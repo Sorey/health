@@ -1,0 +1,21 @@
+= form_for @admin_question, html: { class: 'form-horizontal' } do |f|
+  - if @admin_question.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_question.errors.count, "error")} prohibited this @admin_question from being saved:"
+      %ul
+        - @admin_question.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    .field
+      = f.label :question, 'Назва', :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :question, :class => 'form-control input-responsive'
+  .form-group
+    .field
+      = f.label :publish_on, 'Назва', :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Save', :class => 'btn btn-primary'

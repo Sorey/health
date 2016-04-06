@@ -1,23 +1,14 @@
 Rails.application.routes.draw do
 
-
-  # namespace :admin do
-  #   # resources :tests
-  #   resources :tests do
-  #     resources :replies
-  #   end
-  # end
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
-  # resources :articles_groups, path: "/admin/articles_groups"
-  # resources :articles, path: "/admin/articles"
-  # resources :menu_items, path: "/admin/menu_items"
   # resources :users, path: "/admin/users"
   # resources :roles, path: "/admin/roles"
-  # resources :medical_setups
+
 
   post 'message' => 'message#create' , as: :message
+  post 'reply' => 'interrogation#get_reply', as: :reply
 
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'

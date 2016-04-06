@@ -12,6 +12,16 @@
       .col-sm-10
         = f.text_field :answer, :class => 'form-control input-responsive'
   .form-group
+    .field
+      = f.label :value, false, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :value, :class => 'form-control input-responsive'
+  .form-group
+    .field
+      = f.label :order_answer, false, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.number_field :order_answer, :class => 'form-control input-responsive'
+  .form-group
     .actions
       .col-sm-offset-2.col-sm-10
         = f.submit :class => 'btn btn-primary'

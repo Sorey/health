@@ -52,6 +52,24 @@
 
 .interview
   %h3 Опитування
+
+  .poll
+    .head
+      .icon
+        %i.fa.fa-check-square-o.fa-2x
+      %a{:href => "#"}
+        .title Опитування №0
+    %p За надання медичних послуг краще сплачувати:
+    = form_tag(reply_path, method: "post") do
+      .rdio-b
+        = radio_button_tag('color', "4green", checked = false, options = {class: "color_input"})
+        через касу закладу
+      .rdio-b
+        = radio_button_tag('color', "4green", checked = false, options = {class: "color_input"})
+        через благодійний фонд при закладі
+      .actions.clearfix
+        = submit_tag("Відправити", :class=>"btn btn-success")
+
   .poll
     .head
       .icon
@@ -60,17 +78,19 @@
         .title Опитування №1
     %p За надання медичних послуг краще сплачувати:
     .rdio-b
-      = radio_button_tag 'color', "green", class: "color_input"
+      = radio_button_tag 'color', "1green", class: "color_input"
       через касу закладу
     .rdio-b
-      = radio_button_tag 'color', "green", class: "color_input"
+      = radio_button_tag 'color', "2green", class: "color_input"
       через благодійний фонд при закладі
     .rdio-b
-      = radio_button_tag 'color', "green", class: "color_input"
+      = radio_button_tag 'color', "3green", class: "color_input"
       купуючи медичну страховку
-    .rdio-b
-      = radio_button_tag 'color', "green", class: "color_input"
-      я за безкоштовну медицину
+    .rdio-b.radio.disabled
+      = label_tag('color', "я за безкоштовну медицину") do
+        = radio_button_tag('color', "4green", checked = false, options = {class: "color_input radio disabled"})
+        я за безкоштовну медицину
+      -#я за безкоштовну медицину
     .actions.clearfix
       = submit_tag("Відправити", :class=>"btn btn-success")
   .poll
@@ -118,6 +138,7 @@
       Не задовольняє. Потребує кардинальних змін
     .actions.clearfix
       = submit_tag("Відправити", :class=>"btn btn-success")
+
   -#.poll
   -#  .head
   -#    .icon

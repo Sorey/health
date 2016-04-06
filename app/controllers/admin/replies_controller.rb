@@ -5,7 +5,7 @@ class Admin::RepliesController < ApplicationController
   layout 'application_admin'
   def create
     respond_to do |format|
-      if @admin_question.replies.create(reply_params)
+      if @admin_question.replies.create!(reply_params)
         format.html { redirect_to @admin_question, :notice => "Comment created!"}
         format.json { render :show, status: :ok, location: @admin_question }
         # abort @reply.inspect
@@ -55,6 +55,6 @@ class Admin::RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:answer)
+    params.require(:reply).permit(:answer, :order_answer, :value)
   end
 end

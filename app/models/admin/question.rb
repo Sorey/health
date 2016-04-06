@@ -12,6 +12,7 @@ end
 class Reply
   include Mongoid::Document
   field :answer, type: String
+  field :value, type: String
   field :order_answer, type: Integer
   field :count_answer, type: Integer
 

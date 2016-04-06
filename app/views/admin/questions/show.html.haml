@@ -9,13 +9,15 @@
     %em= @admin_question.question + ":"
   - if @admin_question.replies
     - if @admin_question.replies.size > 0
-      - @admin_question.replies.sort_by(&:answer).each_with_index do |reply, i|
+      - @admin_question.replies.sort_by(&:value).each_with_index do |reply, i|
         %h4
           = 'Reply ' + "#{i+1}" + ': - '
           = link_to 'Edit', edit_admin_question_reply_path(@admin_question, reply)
           = link_to 'Destroy', [@admin_question, reply], :method => :delete, :data => { :confirm => 'Are you sure?' }
           -#= reply.id
+          =reply.order_answer if reply.order_answer
           %em= "--- " + reply.answer
+
 
       -#- for comment in @@admin_question.replies
       -#  %h4
@@ -34,9 +36,20 @@
             %li= msg
     .form-group
       .field
-        -#= f.label :answer, false, :class => 'col-sm-12'
+        = f.label :answer, false, :class => 'col-sm-12'
         .col-sm-12
           = f.text_field :answer, :class => 'form-control input-responsive'
+    .form-group
+      .field
+        = f.label :value, false, :class => 'col-sm-12'
+        .col-sm-12
+          = f.text_field :value, :class => 'form-control input-responsive'
+    .form-group
+      .field
+        = f.label :order_answer, false, :class => 'col-sm-12'
+        .col-sm-12
+          = f.number_field :order_answer, :class => 'form-control input-responsive'
+
     .form-group
       .actions
         .col-sm-12

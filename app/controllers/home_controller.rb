@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_filter :get_right_menu
+  before_filter :get_questions
 
   def index
     # @news = Admin::News.find( { publish_on: true } ).sort( { created_at: -1 } ).limit(4) if @news
@@ -25,6 +26,10 @@ class HomeController < ApplicationController
         @right_menu << "</div>"
       end
     end
+  end
+
+  def get_questions
+    @questions = Admin::Question.all
   end
 
   def all_news

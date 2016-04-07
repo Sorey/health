@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     # resources :users1
     # get 'signup'  => 'users1#new'
     # get 'news/' => 'news#index'
-    resources :questions do
+    resources :polls do
       resources :replies
     end
     resources :news

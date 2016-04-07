@@ -1,0 +1,24 @@
+.container
+  %h1 Listing polls
+
+  %table.table.table-condensed.table-striped
+    %thead
+      %tr
+        %th Poll
+        %th Publish on
+        %th
+
+    %tbody
+      - @polls.each do |poll|
+        %tr
+          %td= poll.question
+          %td= poll.publish_on
+          -#%td= @admin_question.replies
+          %td
+            = link_to 'Show', poll
+            = link_to 'Edit', edit_admin_poll_path(poll)
+            = link_to 'Destroy', poll, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Poll', new_admin_poll_path

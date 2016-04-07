@@ -43,6 +43,7 @@
           //position:relative;
           //right: 0px;
           float: right;
+          margin-left:10px;
           padding:  4px 10px;
         }
       }
@@ -52,6 +53,29 @@
 
 .interview
   %h3 Опитування
+  .poll
+    За надання медичних послуг краще сплачувати:
+    -##piechart_3d{:style => "width: 100%"}
+  - @polls.each do |poll|
+    .poll
+      .head
+        .icon
+          %i.fa.fa-check-square-o.fa-2x
+        %a{:href => "#"}
+          .title Опитування №0
+      %p= poll.question
+      = form_tag(reply_path, method: "post") do
+        -#= hidden_field_tag 'question', '5706115491502d18a0000000'
+        = hidden_field_tag 'question', "#{poll.id}"
+        - poll.replies.sort_by(&:order_answer).each do |reply|
+          .rdio-b
+            -#= radio_button_tag('reply', "570611ea91502d18a0000002", checked = false, options = {class: "color_input"})
+            = radio_button_tag('reply', "#{reply.id}", checked = false, options = {class: "color_input"})
+            = reply.answer
+        .actions.clearfix
+          = submit_tag("Відправити", :class=>"btn btn-success")
+          %a{:href => "#", :class=>"btn btn-primary"}
+            Результати
 
   .poll
     .head
@@ -60,13 +84,18 @@
       %a{:href => "#"}
         .title Опитування №0
     %p За надання медичних послуг краще сплачувати:
+
     = form_tag(reply_path, method: "post") do
+      -#= hidden_field_tag 'question', '5706115491502d18a0000000'
+      = hidden_field_tag 'question', '57061f0e91502d1f30000000'
       .rdio-b
-        = radio_button_tag('color', "4green", checked = false, options = {class: "color_input"})
+        -#= radio_button_tag('reply', "570611ea91502d18a0000002", checked = false, options = {class: "color_input"})
+        = radio_button_tag('reply', "57061f1691502d1f30000001", checked = false, options = {class: "color_input"})
         через касу закладу
       .rdio-b
         = radio_button_tag('color', "4green", checked = false, options = {class: "color_input"})
         через благодійний фонд при закладі
+      = render :partial => 'home/content/columns_2-data/chart'
       .actions.clearfix
         = submit_tag("Відправити", :class=>"btn btn-success")
 
@@ -167,3 +196,5 @@
 -#варіант 2
 -#варіант
 -#3
+
+

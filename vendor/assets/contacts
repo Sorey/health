@@ -1,0 +1,57 @@
+<style type="text/css">
+.f-column.contacts {background-color: #eef7f2;}
+.f-column.contacts h3 {margin-top: 0; }
+.f-column.contacts a {color: #008f44; }
+.f-column.contacts a:hover {color: black;text-decoration: none; }
+.f-column.contacts .icon {padding-left: 0px; }
+.f-column.contacts .icon i {color: #008f44; }
+.f-column.contacts .news p span {color: #777777; }
+.f-column.contacts .info p span {color: #008f44; }
+.f-column.contacts .social-icons {margin-top: 10px;width: 100%; }
+.f-column.contacts .social-icons .con-center { width: 200px; margin: 0 auto; }
+.f-column.contacts .social-icons .con-center .icon {
+display: inline-block;
+color: #919191;
+width: 50px;
+height: 50px;
+text-align: center;
+padding-top: 12px;
+margin-right: 10px;
+background: white;
+border-radius: 25px; }
+.f-column.contacts .social-icons .con-center .icon .fa {margin-left: 7px;color: #919191; }
+.f-column.contacts .social-icons .con-center .icon:hover {color: white;background: #008f44; }
+.f-column.contacts .social-icons .con-center .icon:hover .fa {color: white; }</style>
+
+​<div class="col-sm-4 f-column contacts">
+<div class="container-fluid">
+<div class="row info" id="contacts">
+<div class="col-sm-12 icon">
+<h3>На зв&#39;язку</h3>
+</div>
+<div class="col-xs-1 icon"><i class="fa fa-phone fa-lg">&nbsp;</i></div>
+<div class="col-xs-11">
+<p>Вільна лінія: 66-12-05, 53-31-86</p>
+</div>
+<div class="col-xs-1 icon"><i class="fa fa-home fa-lg">&nbsp;</i></div>
+<div class="col-xs-11">
+<p>Адреса: вул. Хмельницьке ш., 7</p>
+</div>
+<div class="col-xs-1 icon"><i class="fa fa-clock-o fa-lg">&nbsp;</i></div>
+<div class="col-xs-11">
+<p>Години: пн - пт з 9 до 18</p>
+</div>
+<div class="col-xs-1 icon"><i class="fa fa-envelope-o fa-lg">&nbsp;</i></div>
+<div class="col-xs-11">
+<p>Е-мейл: health@gmail.com</p>
+</div>
+</div>
+<div class="social-icons">
+<div class="con-center">
+<div class="icon"><i class="fa fa-facebook fa-2x">&nbsp;</i></div>
+<div class="icon"><i class="fa fa-twitter fa-2x">&nbsp;</i></div>
+<div class="icon"><i class="fa fa-instagram fa-2x">&nbsp;</i></div>
+</div>
+</div>
+</div>
+</div>

@@ -5,53 +5,54 @@ class Admin::RepliesController < ApplicationController
   layout 'application_admin'
   def create
     respond_to do |format|
-      if @admin_question.replies.create!(reply_params)
-        format.html { redirect_to @admin_question, :notice => "Comment created!"}
-        format.json { render :show, status: :ok, location: @admin_question }
+      if @poll.replies.create!(reply_params)
+        format.html { redirect_to @poll, :notice => "Comment created!"}
+        format.json { render :show, status: :ok, location: @poll }
         # abort @reply.inspect
       else
         abort @reply.inspect
-        @reply = @admin_question.replies.find(params[:id])
+        @reply = @poll.replies.find(params[:id])
         abort @reply.inspect
-        format.html { render 'admin/questions/show'}
-        format.json { render json: @new_reply.errors, status: :unprocessable_entity, location: [@admin_question, @reply] }
+        format.html { render 'admin/polls/show'}
+        format.json { render json: @reply.errors, status: :unprocessable_entity, location: [@poll, @reply] }
       end
     end
-    # @admin_question.replies.create!(reply_params)
-    # redirect_to @admin_question, :notice => "Comment created!"
+    # @@poll.replies.create!(reply_params)
+    # redirect_to @@poll, :notice => "Comment created!"
   end
   def edit
-    @admin_question = Admin::Question.find(params[:question_id])
-    @reply = @admin_question.replies.find(params[:id])
+    @poll = Admin::Poll.find(params[:poll_id])
+    @reply = @poll.replies.find(params[:id])
   end
   def update
     respond_to do |format|
-      if @admin_question.replies.find(params[:id]).update(reply_params)
-        format.html { redirect_to @admin_question, :notice => "Comment deleted!" }
-        format.json { render :show, status: :ok, location: @admin_question }
+      if @poll.replies.find(params[:id]).update(reply_params)
+        format.html { redirect_to @poll, :notice => "Comment deleted!" }
+        format.json { render :show, status: :ok, location: @poll }
       else
-        @reply = @admin_question.replies.find(params[:id])
+        @reply = @poll.replies.find(params[:id])
         format.html { render :edit }
-        format.json { render json: @new_reply.errors, status: :unprocessable_entity, location: [@admin_question, @reply] }
+        format.json { render json: @reply.errors, status: :unprocessable_entity, location: [@poll, @reply] }
       end
     end
 
 
 
-    # @@admin_question.replies.find(params[:id]).update(reply_params)
-    # # @@admin_question.replies.create!(reply_params)
-    # redirect_to @@admin_question, :notice => "Comment deleted!"
+    # @@@poll.replies.find(params[:id]).update(reply_params)
+    # # @@@poll.replies.create!(reply_params)
+    # redirect_to @@@poll, :notice => "Comment deleted!"
   end
 
   def destroy
-    @admin_question.replies.find(params[:id]).destroy
-    redirect_to @admin_question, :notice => "Comment deleted!"
+    @poll.replies.find(params[:id]).destroy
+    redirect_to @poll, :notice => "Comment deleted!"
   end
 
   private
 
   def set_reply
-    @admin_question = Admin::Question.find(params[:question_id])
+    # abort params.inspect
+    @poll = Admin::Poll.find(params[:poll_id])
   end
 
   def reply_params

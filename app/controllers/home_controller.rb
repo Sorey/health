@@ -29,7 +29,7 @@ class HomeController < ApplicationController
   end
 
   def get_questions
-    @questions = Admin::Question.all
+    @polls = Admin::Poll.all
   end
 
   def all_news

@@ -1,16 +1,21 @@
-= form_for [@admin_question, @reply], html: { class: 'form-horizontal' } do |f|
+= form_for [@poll, @reply], html: { class: 'form-horizontal' } do |f|
   - if @reply.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@reply.errors.count, "error")} prohibited this @admin_question from being saved:"
+      %h2= "#{pluralize(@reply.errors.count, "error")} prohibited this @@poll from being saved:"
       %ul
         =debug @reply.errors.inspect
         - @reply.errors.full_messages.each do |msg|
           %li= msg
   .form-group
     .field
-      = f.label :answer, 'Назва', :class => 'col-sm-2 control-label'
+      = f.label :answer, 'Текст', :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.text_field :answer, :class => 'form-control input-responsive'
+  .form-group
+    .field
+      = f.label :name, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :name, :class => 'form-control input-responsive'
   .form-group
     .field
       = f.label :value, false, :class => 'col-sm-2 control-label'
@@ -20,7 +25,7 @@
     .field
       = f.label :order_answer, false, :class => 'col-sm-2 control-label'
       .col-sm-10
-        = f.number_field :order_answer, :class => 'form-control input-responsive'
+        = f.select :order_answer, options_for_select(1..25), {}, :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

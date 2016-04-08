@@ -17,7 +17,7 @@ class HomeController < ApplicationController
         @right_menu << "<a data-parent='#accordion' data-toggle='collapse' href='##{m_a.id.to_s.last(8)}'>
         <div class='item'><div class='text'>#{m_a.title}</div><i class='fa fa-chevron-left'></i>
         <i class='fa fa-chevron-down'></i></div></a></h4></div>" if m_a.type_level == 'Заголовок меню'
-        @right_menu << "<a href='#{m_a.link}'>
+        @right_menu << "<a href='#{m_a.link}' target='#{m_a.target}'>
         <div class='item'><div class='text'>#{m_a.title}</div>
         <i class='fa fa-chevron-left'></i></div></a></h4></div>" if m_a.type_level == 'Пункт меню'
 
@@ -74,7 +74,7 @@ class HomeController < ApplicationController
           @right_menu << "<div class='items'><a href='#{m_i_alias}'><div class='item'><div class='text'>#{m_b.title}
           </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? m_b.id
         else
-          @right_menu << "<div class='items'><a href='#{m_b.link}'><div class='item'><div class='text'>#{m_b.title}
+          @right_menu << "<div class='items'><a href='#{m_b.link}' target='#{m_b.target}'><div class='item'><div class='text'>#{m_b.title}
           </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? m_b.id
         end
         # abort "fsf"

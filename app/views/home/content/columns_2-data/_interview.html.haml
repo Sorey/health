@@ -53,10 +53,10 @@
 
 .interview
   %h3 Опитування
-  .poll
+  -#.poll
     За надання медичних послуг краще сплачувати:
     -##piechart_3d{:style => "width: 100%"}
-  - @polls.each do |poll|
+  -#- @polls.each do |poll|
     .poll
       .head
         .icon
@@ -77,7 +77,7 @@
           %a{:href => "#", :class=>"btn btn-primary"}
             Результати
 
-  .poll
+  -#.poll
     .head
       .icon
         %i.fa.fa-check-square-o.fa-2x
@@ -131,10 +131,7 @@
     %p Якщо Ви стикалися з проблемами у медичній сфері, з чим саме були пов'язані ці проблеми?
     .rdio-b
       = radio_button_tag 'color1', "green1", true, class: "color_input"
-      Помилки лікаря при встановленні діагнозу
-    .rdio-b
-      = radio_button_tag 'color1', "green1", class: "color_input"
-      Низька кваліфікація середнього медичного персоналу
+      Грубе, халатне відношення
     .rdio-b
       = radio_button_tag 'color1', "green1", class: "color_input"
       Висока вартість ліків, послуг

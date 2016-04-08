@@ -6,6 +6,7 @@ class Admin::MenuItem
   field :type_item, type: String
   field :parent_id, type: String
   field :link, type: String
+  field :target, type: String
   field :show, type: Boolean
   field :description, type: String
   field :order_item, type: Integer

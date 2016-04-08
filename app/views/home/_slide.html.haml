@@ -22,6 +22,14 @@
         color: #00bd5b;
       }
     }
+    .carousel-inner > .item {
+      //position: relative;
+      //display: none;
+      -webkit-transition: 1.5s ease-in-out left;
+      -moz-transition: 1.5s ease-in-out left;
+      -o-transition: 1.5s ease-in-out left;
+      transition: 1.5s ease-in-out left;
+    }
     .carousel-control{
       color: #D1F1D1;
     }
@@ -106,3 +114,11 @@
   %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
     %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
     %span.sr-only Next
+
+:javascript
+
+  //$('.carousel').carousel({
+  //  interval: 2000,
+  //  pause: 'hover',
+  //  wrap: true
+  //});

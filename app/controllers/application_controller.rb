@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
     @menu_items.each do |m_a|
       if m_a.parent_id.to_s.to_i == 0
         @menu << "<li class='dropdown'><a class='dropdown-toggle' aria-expanded='false' aria-haspopup = 'true' data-toggle = 'dropdown' href = '#{m_a.link}' role = 'button' target= 'blank'> #{m_a.title} <span class='caret'></span></a>" if m_a.type_level == 'Заголовок меню'
-        @menu << "<li > <a href = '#{m_a.link}'> #{m_a.title} </span></a>" if m_a.type_level == 'Пункт меню'
+        @menu << "<li > <a href = '#{m_a.link}' target='#{m_a.target}'> #{m_a.title} </span></a>" if m_a.type_level == 'Пункт меню'
 
         get_children m_a.id, m_a.type_level
 
@@ -85,8 +85,8 @@ class ApplicationController < ActionController::Base
               @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
             # end
           else
-            @menu << "<li><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
-            @menu << "<li><a href='#{m_b.link}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
+            @menu << "<li><a href='#{m_b.link}' target='#{m_b.target}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
+            @menu << "<li><a href='#{m_b.link}' target='#{m_b.target}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
           end
           iterator_separator += 1
 

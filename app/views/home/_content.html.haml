@@ -1,5 +1,12 @@
 :scss
   .content{
+    #notice{
+      span{
+        padding: 5px;
+        background: #FFD564;
+        border-radius: 5px;
+      }
+    }
     margin-top: 20px;
     h3{
       color: #008f44;
@@ -20,7 +27,8 @@
 .content
   .container
     - if notice
-      %p#notice= notice
+      %p#notice
+        %span= notice
     .row
       .col-md-4.f-column
         = render :partial => 'home/content/column_1'

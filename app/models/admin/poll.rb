@@ -3,7 +3,7 @@ class Admin::Poll
   field :question, type: String
   field :publish_on, type: Boolean
   field :order_question, type: Integer
-
+  # abort order_question.inspect
   validates_presence_of :question
 
   embeds_many :replies, class_name: 'Reply'

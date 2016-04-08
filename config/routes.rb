@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'message' => 'message#create' , as: :message
   post 'reply' => 'interrogation#get_reply', as: :reply
+  get 'polls_chart/:id' => 'interrogation#show_chart', as: :polls_chart
+  # get 'polls_chart/:id' => 'home#show_chart', as: :polls_chart
 
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'

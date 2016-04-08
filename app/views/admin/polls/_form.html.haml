@@ -12,6 +12,11 @@
         = f.text_field :question, :class => 'form-control input-responsive'
   .form-group
     .field
+      = f.label :order_question, false, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.select :order_question, options_for_select(1..25), {}, :class => 'form-control input-responsive'
+  .form-group
+    .field
       = f.label :publish_on, 'Назва', :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.check_box :publish_on, :class => 'form-control input-responsive'

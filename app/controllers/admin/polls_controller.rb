@@ -83,6 +83,6 @@ class Admin::PollsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_poll_params
       # abort params.inspect
-      params.require(:admin_poll).permit(:question, :publish_on, :replies)
+      params.require(:admin_poll).permit(:question, :order_question, :publish_on, :replies)
     end
 end

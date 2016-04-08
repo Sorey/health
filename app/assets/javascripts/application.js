@@ -18,8 +18,9 @@
 //= require fancybox/jquery.fancybox
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-thumbs
-//= require ckeditor/config.js
+//= require ckeditor/config
 //= require ckeditor/ckeditor
+//= require google_charts/google_charts
 //= #require summernote/plugin/hello/summernote-ext-hello
 //= #require summernote/plugin/specialchars/summernote-ext-specialchars
 //= #require summernote/summernote

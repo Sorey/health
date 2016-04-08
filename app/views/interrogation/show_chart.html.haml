@@ -1,0 +1,39 @@
+:scss
+  .show-chart{
+    h2{
+      text-align: center !important;
+    }
+  }
+
+.show-chart
+  .container
+    %h2
+      = @poll.question
+    #piechart_3d{:style => "width: 100%"}
+
+
+-#%script{:src => "https://www.gstatic.com/charts/loader.js", :type => "text/javascript"}
+
+:javascript
+
+  google.charts.load("44", {packages:["corechart"]});
+  //google.charts.load('41', {packages: ['line']});
+  google.charts.setOnLoadCallback(drawChart);
+  //alert("hdfhd");
+  function drawChart() {
+    var array = #{raw @poll_array};
+    var data = google.visualization.arrayToDataTable(array);
+
+    var options = {
+      legend: {position: 'right',alignment: 'center', textStyle: {fontSize: 17}},
+      chartArea: {left:0,top:0, bottom: 0, right: 0},
+      'legend.alignment': 'end',
+      title: '#{@poll.question}',
+      is3D: true,
+      height: 500,
+      tooltip: {textStyle: {fontSize: 13.5}, showColorCode: true},
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById("piechart_3d"));
+    chart.draw(data, options);
+  }

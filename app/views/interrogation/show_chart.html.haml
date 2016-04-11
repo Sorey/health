@@ -15,11 +15,18 @@
 -#%script{:src => "https://www.gstatic.com/charts/loader.js", :type => "text/javascript"}
 
 :javascript
+  $(document).ready(function(){
+      google.charts.load("43", {packages:["corechart"]});
+      //google.charts.load('41', {packages: ['line']});
+      google.charts.setOnLoadCallback(drawChart);
+      //alert("hdfhd");
 
-  google.charts.load("44", {packages:["corechart"]});
-  //google.charts.load('41', {packages: ['line']});
-  google.charts.setOnLoadCallback(drawChart);
-  //alert("hdfhd");
+    //google.charts.load("43", {packages:["corechart"]});
+    ////google.charts.load('41', {packages: ['line']});
+    //google.charts.setOnLoadCallback(drawChart);
+    ////alert("hdfhd");
+
+  });
   function drawChart() {
     var array = #{raw @poll_array};
     var data = google.visualization.arrayToDataTable(array);

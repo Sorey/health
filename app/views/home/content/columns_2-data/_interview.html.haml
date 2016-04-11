@@ -53,6 +53,7 @@
 
 .interview
   %h3 Опитування
+  - iterator = 1
   - @polls.each do |poll|
     .poll
       - if cookies[poll.id.to_s] == poll.id.to_s
@@ -61,7 +62,8 @@
         .icon
           %i.fa.fa-check-square-o.fa-2x
         %a{:href => "#"}
-          .title Опитування №0
+          .title Опитування №#{iterator}
+          -iterator = iterator + 1
       %p= poll.question
       = form_tag(reply_path, method: "post") do
         = hidden_field_tag 'question', "#{poll.id}"

@@ -102,8 +102,8 @@ test:
 production:
   sessions:
     default:
-      database: health_development
-#      database: health_production
+#      database: health_development
+      database: health_production
       hosts:
         - localhost:27017
 #      options:

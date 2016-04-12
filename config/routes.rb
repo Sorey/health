@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'polls_chart/:id' => 'interrogation#show_chart', as: :polls_chart
   # get 'polls_chart/:id' => 'home#show_chart', as: :polls_chart
 
+  get 'groups/:title_group' => 'articles#show_articles_group'
+  get 'groups/:title_group/:title_article' => 'articles#show_article'
+
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news

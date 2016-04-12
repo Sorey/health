@@ -2,6 +2,7 @@ class Admin::Article
   include Mongoid::Document
   include Mongoid::Timestamps
   field :title, type: String
+  field :title_english, type: String
   field :description, type: String
   field :publish_on, type: Boolean
 
@@ -10,4 +11,6 @@ class Admin::Article
   field :meta_keywords, type: String
 
   belongs_to :admin_articles_group, :class_name => 'Admin::ArticlesGroup'
+
+  validates :title_english, uniqueness: true
 end

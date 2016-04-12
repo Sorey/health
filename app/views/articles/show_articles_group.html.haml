@@ -1,0 +1,28 @@
+:scss
+  .articles_group{
+    .articles{
+      a.article{
+        display: block;
+        padding:8px 10px;
+        margin: 5px 0;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+        background-color: gold;
+        border-radius: 5px;
+        box-shadow: -5px 0 5px -3px #00a951, 5px 0 5px -3px #00a951;
+
+      }
+    }
+
+  }
+
+.container.articles_group
+  %p#notice= notice
+  %p
+    %h2
+      = @articles_group.title
+
+  .articles
+    - @articles.each do |article|
+      %a.article{:href => "/groups/#{@articles_group.title_english}/#{article.title_english}", :target => "_self"}= article.title

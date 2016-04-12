@@ -73,7 +73,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def articles_group_params
-        params.require(:admin_articles_group).permit(:title, :description, :publish_on)
+        params.require(:admin_articles_group).permit(:title,:title_english, :description, :publish_on)
       end
   end
 end

@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
-  # resources :users, path: "/admin/users"
-  # resources :roles, path: "/admin/roles"
-
 
   post 'message' => 'message#create' , as: :message
   post 'reply' => 'interrogation#get_reply', as: :reply

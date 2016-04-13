@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :managers_news
+  end
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -18,6 +21,9 @@ Rails.application.routes.draw do
   get 'home/index' => 'home#index'
   get '/news/', to: 'home#all_news'
   get '/news/:id', to: 'home#show_one_news', as: :show_one_news
+
+  get '/managers_news/' => 'news#all_managers_news',  as: :all_managers_news
+  get '/managers_news/:id' => 'news#show_one_managers_news',  as: :show_one_managers_news
 
   get '/medical_setups' => 'medical_setups#index'
   get '/private_medical_setups' => 'medical_setups#show_private_ms'

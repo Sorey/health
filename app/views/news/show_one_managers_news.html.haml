@@ -1,0 +1,39 @@
+:scss
+  .show-one-news{
+    margin-top: 10px;
+    .panel{
+      //border-color: #cce7d9;
+      //background: rgba(158, 158, 158, 0.1);
+      word-wrap: break-word;
+      .panel-heading{
+        //background: rgba(158, 158, 158, 0.4);
+        //border-color: #cce7d9;
+        strong{
+          float: left;
+        }
+        span{
+          float:right;
+        }
+      }
+      .panel-body{
+
+      }
+    }
+
+  }
+
+.show-one-news
+  .container
+    - if notice
+      %p#notice= notice
+    .col-md-10.col-md-offset-1
+      .panel.panel-default
+        .panel-heading.clearfix
+          %strong
+            = @managers_news.title
+          %span
+            -#= truncate(strip_tags(n.publish_up.to_s), length: 10)
+            = l(@managers_news.date_start, :format => "%d-%m-%Y")
+        .panel-body
+          .info
+            %p= sanitize(@managers_news.description)

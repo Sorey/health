@@ -1,0 +1,79 @@
+:scss
+  .admin-for-managers{
+    table{
+      border-style:solid;
+      border-color:#0BBA6A;
+      border-radius: 3px;
+      font-size: 15px;
+      thead{
+        th{
+          vertical-align: middle;
+          text-align: center;
+        }
+      }
+      tbody{
+        td:nth-child(n+2){
+          text-align: center;
+        }
+        td:nth-child(2){
+          //word-wrap: normal;
+          white-space: nowrap;
+        }
+        td.wrap{
+          text-align: justify;
+        }
+        td .btn{
+          display: inline-block;
+          margin: 0px 0px 5px;
+          padding: 4px 6px;
+          width: 30px;
+        }
+      }
+    }
+
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+.admin-for-managers
+  .container
+    - if notice
+      %p#notice= notice
+    .heading
+      .title
+        %h1 Список новин для керівників
+      .btn-new-news
+        -#- if current_user && current_user.admin?
+        = link_to 'Створити новину', new_admin_managers_news_path, :class => 'btn btn-primary'
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %thead
+        %tr
+          -#%th #
+          %th Title
+          %th Date start
+          %th Publish on
+          %th Description
+
+          %th Дія
+      %tbody
+        - @admin_managers_news.each do |admin_managers_news|
+          %tr
+            %td= admin_managers_news.title
+            %td=l(admin_managers_news.date_start, :format => "%d-%m-%Y")
+            %td= admin_managers_news.publish_on
+            %td.wrap= truncate(strip_tags(admin_managers_news.description), length: 610)
+            %td
+              = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_managers_news_path(admin_managers_news), title: "Переглянути",  :class => 'btn btn-info'
+              = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_managers_news_path(admin_managers_news), title: "Редагувати", :class => 'btn btn-primary'
+              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_managers_news, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'

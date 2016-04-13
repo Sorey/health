@@ -27,5 +27,7 @@ module Health
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
     # config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.action_view.sanitized_allowed_tags = ['p','strong', 'em', 'a', 'span']
+    config.action_view.sanitized_allowed_attributes = ['href', 'title', 'style']
   end
 end

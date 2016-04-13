@@ -1,0 +1,38 @@
+:scss
+  .show-news{
+    margin-bottom: 15px;
+  }
+
+.show-news
+  .container
+    - if notice
+      %p#notice= notice
+    %p
+      %h2
+        Новина
+        %em
+          = @admin_managers_news.title
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        %tr
+          %th Заголовок
+          %td= @admin_managers_news.title
+        %tr
+          %th Дата
+          %td= l(@admin_managers_news.date_start, :format => "%d %m %Y")
+        %tr
+          %th Публікувати?
+          %td= @admin_managers_news.publish_on
+        %tr
+          %th{:style => "text-align:center", colspan: 2} Опис
+        %tr
+          %td{colspan: 2}= sanitize(@admin_managers_news.description)
+    = link_to 'Усі новини', admin_managers_news_index_path, :class => 'btn btn-primary'
+    -#- if current_user && current_user.editor?
+    = link_to 'Редагувати', edit_admin_managers_news_path(@admin_managers_news), :class => 'btn btn-primary'
+    -#- if current_user && current_user.admin?
+    = link_to 'Видалити', @admin_managers_news, :class => 'btn btn-primary', |
+      method: :delete,                                                  |
+      data: { confirm: 'Ви впевнені?' }
+

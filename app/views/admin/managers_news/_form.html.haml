@@ -1,0 +1,56 @@
+:scss
+  .date-select select{
+    display: inline-block;
+    width: 33%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+  @media (max-width: 995px) {
+    .date-select select{
+       width: 100%;
+       margin-top: 3px;
+    }
+  }
+
+= form_for @admin_managers_news, html: { class: 'form-horizontal' } do |f|
+  - if @admin_managers_news.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_managers_news.errors.count, "error")} prohibited this @admin_managers_news from being saved:"
+      %ul
+        - @admin_managers_news.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    .field
+      = f.label :title, 'Назва', :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :title, :class => 'col-sm-4 form-control input-responsive'
+  .form-group
+    = f.label :date_start, 'Дата події', :class => 'col-sm-2 control-label'
+    .col-sm-10.date-select
+      = f.date_select :date_start, :order => [:day, :month, :year], :class => 'col-sm-4'
+  .form-group
+    = f.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :description,'Опис', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.cktext_area :description, :ckeditor => {:toolbar => 'mini', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Зберегти', :class => 'btn btn-primary'
+
+

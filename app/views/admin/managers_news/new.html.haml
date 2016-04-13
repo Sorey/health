@@ -1,0 +1,31 @@
+:scss
+  .new-for-managers{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+
+.new-for-managers
+  .container
+    .heading
+      .title
+        %h1 Створення новини для керівників
+      .btn-new
+        = link_to 'Усі новини', admin_managers_news_index_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'
+
+
+

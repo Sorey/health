@@ -1,0 +1,65 @@
+:scss
+  .managers-news{
+    margin-bottom: 10px;
+    .row{
+    padding: 0 15px;
+      .one-news{
+        background: rgba(203, 202, 202, 0.31);
+        //border: 1px solid #cce7d9;
+        padding: 10px 0;
+        border-bottom: 1px solid dimgrey;
+        .info{
+          p{
+            .btn{
+              float:right;
+              padding: 2px 5px;
+
+            }
+            span{
+              float:right;
+              padding: 3px 10px;
+              color: #ABAAAA;
+            }
+            strong{
+              a{
+                color: #4CAF50;
+                font-size: 20px;
+              }
+            }
+          }
+          .pre-text{
+            font-size: 17px;
+          }
+          .description{
+            line-height: 1.6em;
+            font-size: 15px;
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+    .row:nth-child(2n) .one-news{
+      background: rgba(203, 202, 202, 0.13);
+      //background: #DBDBDB;
+    }
+    .row .one-news:hover{
+      background: rgba(203, 202, 202, 0.59);
+    }
+  }
+
+.managers-news
+  .container
+    %h1 Новини для керівників
+    - @all_managers_news.each do |n|
+      .row
+        .one-news.clearfix
+          .col-md-12.col-sm-12.info
+            %p
+              %strong
+                %a{:href => show_one_managers_news_path(n), title: "Переглянути"}= n.title
+              = link_to "Переглянути", show_one_managers_news_path(n), :class => 'btn btn-success'
+              %span
+                -#= truncate(strip_tags(n.publish_up.to_s), length: 10)
+                = l(n.date_start, :format => "%d-%m-%Y")
+                -#= (n.date_start.to_s).mb_chars.limit(10)
+            %p.description= truncate(strip_tags(n.description), length: 400)

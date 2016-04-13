@@ -134,10 +134,14 @@
                   %span.caret
                 %ul.dropdown-menu
                   %li
-                    %a{:href => admin_news_index_path} Усі новини
-                  %li.divider{:role => "separator"}
+                    %a{:href => admin_news_index_path} Публічні новини
                   %li
                     %a{:href => new_admin_news_path } Створити новину
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => admin_managers_news_index_path} Новини для керівників
+                  %li
+                    %a{:href => new_admin_managers_news_path } Створити новину
             - if current_user && current_user.access_admin?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

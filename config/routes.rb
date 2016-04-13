@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :managers_news
   end
   DynamicRouter.load
-#go go
+#go go go
   mount Ckeditor::Engine => '/ckeditor'
 
   post 'message' => 'message#create' , as: :message

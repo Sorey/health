@@ -33,6 +33,7 @@
 
 .galleries
   .container
+    = Admin::News.first.id
     %h3
       -#= debug @news_photo.inspect
       Основні показники діяльності охорони здоров'я

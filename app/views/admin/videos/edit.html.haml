@@ -1,0 +1,28 @@
+:scss
+  .edit-video{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+.edit-video
+  .container
+    .container
+    .heading
+      .title
+        %h1 Редагувати відеоматеріал
+      .btn-new-news
+        = link_to 'Відеоматеріали', admin_videos_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'

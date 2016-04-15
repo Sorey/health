@@ -1,0 +1,30 @@
+= form_for @admin_video, html: { class: 'form-horizontal' } do |f|
+  - if @admin_video.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_video.errors.count, "error")} prohibited this admin_video from being saved:"
+      %ul
+        - @admin_video.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :title, 'Назва', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, :class => 'col-sm-4 form-control input-responsive'
+  .form-group
+    = f.label :iframe, 'Iframe', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :iframe, :class => 'col-sm-4 form-control input-responsive'
+  .form-group
+    = f.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :description,'Oпис', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :description, rows: '4', :class => 'form-control input-responsive'
+
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Зберегти', :class => 'btn btn-primary'
+

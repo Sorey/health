@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_filter :get_right_menu
   before_filter :get_polls
+  before_filter :get_three_videos
 
   def index
     # @news = Admin::News.find( { publish_on: true } ).sort( { created_at: -1 } ).limit(4) if @news
@@ -28,6 +29,10 @@ class HomeController < ApplicationController
     end
   end
 
+
+  def get_three_videos
+    @three_videos = Admin::Video.where(publish_on: true).order(created_at: :desc).limit(3)
+  end
 
   def all_news
     # @news = Admin::News.find( { publish_on: true } ).sort( { created_at: -1 } )

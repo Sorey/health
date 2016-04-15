@@ -1,0 +1,43 @@
+:scss
+  .show-one-video{
+    margin-top: 10px;
+    .panel{
+      border-color: #cce7d9;
+      background: #F3FFF9;
+      word-wrap: break-word;
+      .panel-heading{
+        background: #cce7d9;
+        border-color: #cce7d9;
+        strong{
+          float: left;
+        }
+        span{
+          float:right;
+        }
+      }
+      .panel-body{
+
+        .iframe{
+          iframe{
+            width: 100%;
+            height: 400px;
+          }
+        }
+      }
+    }
+  }
+
+.show-one-video
+  .container
+    - if notice
+      %p#notice= notice
+    .col-md-10.col-md-offset-1
+      .panel.panel-default
+        .panel-heading.clearfix
+          %strong
+            = @video.title
+        .panel-body
+          .iframe
+            = @video.iframe.html_safe
+          .info
+            %p= simple_format(@video.description)

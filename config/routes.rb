@@ -44,17 +44,19 @@ Rails.application.routes.draw do
     resources :polls do
       resources :replies
     end
-    resources :news
+
     resources :users
     resources :roles
+    resources :news
+    resources :managers_news
+    resources :videos
     resources :menu_items
     resources :articles
     resources :articles_groups
     resources :medical_setups
     resources :medical_setups_groups, exept: :show
     resources :private_medical_setups
-    resources :videos
-    resources :managers_news
+    resources :files
   end
 
   root 'home#index'

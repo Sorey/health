@@ -1,0 +1,30 @@
+:scss
+
+.show-file
+  .container
+    - if notice
+      %p#notice= notice
+    %p
+      %h2
+        Файл
+        %em
+          = @admin_file.file.to_s.split('/').last
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        %tr
+          %th Файл
+          %td= @admin_file.file.to_s.split('/').last
+        %tr
+          %th Шлях
+          %td= @admin_file.file
+        %tr
+          %th Опис
+          %td= @admin_file.description
+    = link_to 'Файли', admin_files_path, :class => 'btn btn-primary'
+    -#- if current_user && current_user.editor?
+    = link_to 'Редагувати', edit_admin_file_path(@admin_file), :class => 'btn btn-primary'
+    -#- if current_user && current_user.admin?
+    = link_to 'Видалити', @admin_file, :class => 'btn btn-primary', |
+      method: :delete,                                                  |
+      data: { confirm: 'Ви впевнені?' }

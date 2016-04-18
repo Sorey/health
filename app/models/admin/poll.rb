@@ -7,6 +7,16 @@ class Admin::Poll
   validates_presence_of :question
 
   embeds_many :replies, class_name: 'Reply'
+
+  def self.count_plus? poll
+    @poll = self.find(poll.id)
+    iter = 0
+    @poll.replies.each do |reply|
+      iter = iter + reply.count_answer.to_i
+    end
+    iter > 0
+  end
+
 end
 
 class Reply

@@ -1,6 +1,6 @@
 :scss
   .show-chart{
-    h2{
+    h2, h3{
       text-align: center !important;
     }
   }
@@ -35,7 +35,7 @@
       legend: {position: 'right',alignment: 'center', textStyle: {fontSize: 17}},
       chartArea: {left:0,top:0, bottom: 0, right: 0},
       'legend.alignment': 'end',
-      title: '#{@poll.question}',
+      title: "#{@poll.question}",
       is3D: true,
       height: 500,
       tooltip: {textStyle: {fontSize: 13.5}, showColorCode: true},

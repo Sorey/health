@@ -74,7 +74,8 @@
         .actions.clearfix
           - if cookies[poll.id.to_s] != poll.id.to_s
             = submit_tag("Відправити", :class=>"btn btn-success")
-          = link_to "Результати", polls_chart_url(poll), title: "Результати", :class=>"btn btn-primary"
+          - if Admin::Poll.count_plus?(poll)
+            = link_to "Результати", polls_chart_url(poll), title: "Результати", :class=>"btn btn-primary"
       .chart{:style => "display: none"}
       -#= render :partial => 'home/content/columns_2-data/chart', locals: {poll: poll }
 

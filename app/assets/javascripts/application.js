@@ -16,6 +16,7 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require bootstrap
+//= require select2
 //= require fancybox/jquery.fancybox
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-thumbs

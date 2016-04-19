@@ -5,10 +5,30 @@ module Admin
     before_action :set_article, only: [:show, :edit, :update, :destroy]
     layout 'application_admin'
     around_filter :catch_not_found
+
+    helper_method :sort_column, :sort_direction
     # GET /articles
     # GET /articles.json
     def index
-      @articles = Admin::Article.all
+      # @articles = Admin::Article.all
+
+
+      @articles = Admin::Article.order(sort_column + " " + sort_direction)
+      # @articles = @articles.where(:title => params[:title]) unless params[:title].blank?
+      # @articles = @articles.where(:created_at => params[:created_at]) unless params[:created_at].blank?
+      #
+      # @articles = @articles.where(:admin_articles_group_id => params[:admin_articles_group_id]) unless params[:admin_articles_group_id].blank?
+      @articles = @articles.where(:admin_articles_group.in => params["group_select"]) unless params["group_select"].blank?
+
+      # Query for Mongod:
+      # @articles = @articles.any_of({:category => ""}, {:category => nil}) unless params[:category_empty].blank?
+      # @articles = @articles.page(params[:page]).per(10)
+
+      respond_to do |format|
+        format.js
+        format.html
+      end
+
     end
 
     # GET /articles/1
@@ -70,6 +90,14 @@ module Admin
     end
 
     private
+
+      def sort_column
+        Admin::Article.fields.keys.include?(params[:sort]) ? params[:sort] : "admin_articles_group_id"
+      end
+
+      def sort_direction
+        %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      end
 
       def catch_not_found
         yield

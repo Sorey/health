@@ -59,6 +59,9 @@ gem "fog-aws"
 # https://github.com/galetahub/ckeditor
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
+# https://rubygems.org/gems/select2-rails/versions/4.0.0
+gem 'select2-rails'
+
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 
 # https://github.com/amatsuda/kaminari

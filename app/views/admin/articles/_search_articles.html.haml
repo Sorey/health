@@ -1,0 +1,15 @@
+- @articles.each do |article|
+  %tr
+    %td= article.title
+    -#%td
+      - all_text = Nokogiri::HTML(%{#{article.description.html_safe}})
+      = all_text.at_css("p").text.first(120) unless all_text.at_css("p").nil?
+    %td= article.publish_on
+    %td= article.created_at.to_s.first(10)
+    %td= article.admin_articles_group.title unless article.admin_articles_group.nil?
+    %td= link_to 'Show', article
+    %td= link_to 'Edit', edit_admin_article_path(article)
+    %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  -#%tr
+    %td{:colspan => 6}
+      .des-html= article.description.html_safe

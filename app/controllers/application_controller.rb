@@ -78,12 +78,10 @@ class ApplicationController < ActionController::Base
 
           @menu << '<li class="divider", role = "separator"></li>' if iterator_separator > 0 && t_level == 'Заголовок меню'
 
-          unless m_b.alias.blank?
-            # if  params[:controller] == 'home' # Need for upload image with CkEditor
+          unless m_b.alias.blank? || params[:controller] != 'home' # != 'home' Need for upload image with CkEditor and not show this menu_items
               m_i_alias = url_for(['menu_item', m_b.alias])
               @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
               @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
-            # end
           else
             @menu << "<li><a href='#{m_b.link}' target='#{m_b.target}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
             @menu << "<li><a href='#{m_b.link}' target='#{m_b.target}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'

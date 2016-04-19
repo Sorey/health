@@ -1,10 +1,10 @@
 - 1) Короткі задачі:
   - CkEditor не зберігає деякі теги при Update
-  - CkEditor не загружаєтьсяя картинка із компа
+  + CkEditor не загружаєтьсяя картинка із компа
   + Час життя cookies
   + footer down forever
   + border for programs_article(js)
-  - В слайдер 4 картинки
+  + В слайдер 4 картинки
   - Опитування. Форма поле селект(order) update
   - Перенос Статті із Home
   - Перенос новин із Home
@@ -17,10 +17,13 @@
 + 4) CRUD До відома керівників
   + назва дата публікувати? основний текст
   + https://vinvk.com.ua/novunu - зразок
--+ 5) CRUD для Відеоматеріали
++- 5) CRUD для Відеоматеріали
   - парсити iframe
   + html_safe
 - 6) Рефактор логіки для Користувачів (Рекурсія)
 + 7) Настройка Pull для Руслана.
-
 - 8) Розібратися із Console errors (Home page)
+- 9) Пошук по сайту
+
+Next instruction
+ 1) rake assets:precompile

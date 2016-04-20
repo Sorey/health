@@ -1,8 +1,5 @@
-class Admin::PollsController < ApplicationController
+class Admin::PollsController < Admin::AdminController
   before_action :set_admin_test, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
-  before_action :require_role
-  layout 'application_admin'
 
   # GET /admin/tests
   # GET /admin/tests.json

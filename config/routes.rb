@@ -10,15 +10,15 @@ Rails.application.routes.draw do
   # get 'polls_chart/:id' => 'home#show_chart', as: :polls_chart
 
   get 'groups/:title_group' => 'articles#show_articles_group'
-  get 'groups/:title_group/:title_article' => 'articles#show_article'
+  get 'groups/:title_group/:title_article' => 'articles#show_groups_article'
 
   get 'home/index' => 'home#index'
-  get '/news/', to: 'home#all_news'
-  get '/news/:id', to: 'home#show_one_news', as: :show_one_news
 
   get '/videos/', to: 'videos#all_videos'
   get '/videos/:id', to: 'videos#show_one_video', as: :show_one_video
 
+  get '/news/', to: 'news#all_news'
+  get '/news/:id', to: 'news#show_one_news', as: :show_one_news
   get '/managers_news/' => 'news#all_managers_news',  as: :all_managers_news
   get '/managers_news/:id' => 'news#show_one_managers_news',  as: :show_one_managers_news
 
@@ -28,9 +28,6 @@ Rails.application.routes.draw do
 
   get '/statistic' => 'gallery#galleries', as: :galleries
   get '/statistic/:gallery' => 'gallery#show', as: :gallery
-
-  get '/schedule' => 'home#schedule', as: :schedule
-  get '/structure' => 'home#structure', as: :structure
 
   namespace :admin do
     controller :sessions do

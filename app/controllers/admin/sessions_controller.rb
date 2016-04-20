@@ -1,7 +1,7 @@
 module Admin
-  class SessionsController < ApplicationController
+  class SessionsController < AdminController
     skip_before_action :authorize
-    layout 'application_admin'
+    skip_before_action :require_role
 
     def new
       # render layout: false

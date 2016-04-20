@@ -31,6 +31,16 @@
     = u.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.check_box :publish_on, :class => 'form-control input-responsive'
+
+  .form-group
+    = u.label :meta_keywords,'Ключові слова для пошуку', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.text_field :meta_keywords, :placeholder => 'ліки, вакцинація, імунітет', :class => 'form-control input-responsive'
+  .form-group
+    = u.label :meta_description,'Опис для пошуку', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = u.text_field :meta_description, :class => 'form-control input-responsive'
+
   .form-group
     =u.label :description,'Повний опис <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10

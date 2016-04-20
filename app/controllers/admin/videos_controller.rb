@@ -1,8 +1,5 @@
-class Admin::VideosController < ApplicationController
+class Admin::VideosController < Admin::AdminController
   before_action :set_admin_video, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
-  before_action :require_role
-  layout 'application_admin'
 
   def index
     @admin_videos = Admin::Video.all

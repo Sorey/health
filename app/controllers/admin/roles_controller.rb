@@ -1,12 +1,5 @@
 module Admin
-  class RolesController < ApplicationController
-    before_action :authorize
-    before_action :require_role
-    # before_action :require_admin, only: [:new, :destroy]
-    # before_action :require_editor, only: [:edit]
-    # before_action :require_admin, only: [:new, :destroy]
-    layout 'application_admin'
-
+  class RolesController < AdminController
     def index
       @roles = Admin::Role.all
     end

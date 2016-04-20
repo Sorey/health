@@ -1,9 +1,6 @@
 module Admin
-  class MenuItemsController < ApplicationController
-    before_action :authorize
-    before_action :require_role
+  class MenuItemsController < AdminController
     before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
-    layout 'application_admin'
 
     # GET /menu_items
     # GET /menu_items.json

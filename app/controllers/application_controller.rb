@@ -6,30 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :get_footer
   before_filter :get_header_numbers
 
-
-  helper_method :current_user
-
-  def current_user
-    # abort @current_user.inspect
-    @current_user ||= Admin::User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def require_role
-    redirect_to :back unless current_user.access?(params[:controller], params[:action])
-  rescue ActionController::RedirectBackError
-    redirect_to root_path
-  end
-
-  # def require_editor
-  #   redirect_to '/' unless current_user.editor?  # || current_user.admin?
-  #   # ----------------- test data from controller to model -----------
-  #   # redirect_to '/' unless current_user.editor?(params[:controller])
-  # end
-  #
-  # def require_admin
-  #   redirect_to :back unless current_user.admin?
-  # end
-
   def get_footer
     @footer_contacts = Admin::Article.where(title: "Футер - На зв'язку").first
     @news_footer = Admin::News.where(publish_on: true).order(created_at: :desc).limit(2)
@@ -60,6 +36,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    def meta_data page
+      @title_page = page.title unless page.title.blank?
+      @meta_keywords = page.meta_keywords unless page.meta_keywords.blank?
+      @meta_description = page.meta_description unless page.meta_keywords.blank?
+    end
+
     def get_children id, t_level
       # Inspect if m_item has children
       has_children = false
@@ -77,9 +59,10 @@ class ApplicationController < ActionController::Base
         if m_b.parent_id == id
 
           @menu << '<li class="divider", role = "separator"></li>' if iterator_separator > 0 && t_level == 'Заголовок меню'
-
-          unless m_b.alias.blank? || params[:controller] != 'home' # != 'home' Need for upload image with CkEditor and not show this menu_items
+          # abort params.inspect
+          unless m_b.alias.blank? || params[:controller] == 'ckeditor/pictures' # != 'home' Need for upload image with CkEditor and not show this menu_items
               m_i_alias = url_for(['menu_item', m_b.alias])
+              # abort m_i_alias.inspect
               @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level == 'Заголовок меню'
               @menu << "<li><a href='#{m_i_alias}'> #{m_b.title}</a>" if t_level != 'Заголовок меню'
           else
@@ -94,15 +77,5 @@ class ApplicationController < ActionController::Base
         end
       end
       @menu << '</ul>' if has_children == true
-    end
-
-    def authorize
-      # User.find_by(id: session[:user_id])
-      # abort session[:user_id].inspect
-      # abort admin_login_url.inspect
-      if session[:user_id].nil? || !Admin::User.find_by(id: session[:user_id])
-        # abort admin_login_url.inspect
-        redirect_to admin_login_url, notice: "Please log in"
-      end
     end
 end

@@ -1,8 +1,5 @@
-class Admin::PrivateMedicalSetupsController < ApplicationController
+class Admin::PrivateMedicalSetupsController < Admin::AdminController
   before_action :set_admin_private_medical_setup, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
-  before_action :require_role
-  layout 'application_admin'
 
   def index
     @private_medical_setups = Admin::PrivateMedicalSetup.all.order(id: :asc)

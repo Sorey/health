@@ -1,9 +1,5 @@
 module Admin
-  class NewsController < ApplicationController
-    before_action :authorize
-    before_action :require_role
-    layout 'application_admin'
-
+  class NewsController < AdminController
     def index
       @news = News.all.order(updated_at: :desc)
     end
@@ -65,7 +61,7 @@ module Admin
   private
 
     def news_params
-      params.require(:admin_news).permit(:title, :pre_text, :description, :publish_on, :publish_up, :publish_down, :image)
+      params.require(:admin_news).permit(:title, :pre_text, :description, :publish_on, :publish_up, :publish_down, :image, :meta_keywords, :meta_description)
     end
   end
 end

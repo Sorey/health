@@ -1,11 +1,4 @@
-class Admin::MedicalSetupsController < ApplicationController
-  before_action :authorize
-  before_action :require_role
-  # before_action :require_admin, only: [:new, :destroy]
-  # before_action :require_editor, only: [:edit]
-  # before_action :require_admin, only: [:new, :destroy]
-  layout 'application_admin'
-
+class Admin::MedicalSetupsController < Admin::AdminController
   def index
     @medical_setups = Admin::MedicalSetup.get_medical_setups_group params[:category]
 

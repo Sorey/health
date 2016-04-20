@@ -1,9 +1,5 @@
-class Admin::ManagersNewsController < ApplicationController
-
-  before_action :authorize
-  before_action :require_role
+class Admin::ManagersNewsController < Admin::AdminController
   before_action :set_admin_for_manager, only: [:show, :edit, :update, :destroy]
-  layout 'application_admin'
 
   # GET /admin/managers_news
   # GET /admin/managers_news.json

@@ -6,6 +6,12 @@ class ArticlesController < ApplicationController
   end
 
   def show_article
+    @article = Admin::Article.find(params[:id])
+
+    meta_data @article
+  end
+
+  def show_groups_article
     @article = Admin::Article.find_by(title_english: params[:title_article])
   end
 end

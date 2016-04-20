@@ -1,8 +1,6 @@
-class Admin::RepliesController < ApplicationController
+class Admin::RepliesController < Admin::AdminController
   before_action :set_reply
-  before_action :authorize
-  before_action :require_role
-  layout 'application_admin'
+
   def create
     respond_to do |format|
       if @poll.replies.create!(reply_params)

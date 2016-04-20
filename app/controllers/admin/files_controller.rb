@@ -1,8 +1,5 @@
-class Admin::FilesController < ApplicationController
+class Admin::FilesController < Admin::AdminController
   before_action :set_admin_file, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
-  before_action :require_role
-  layout 'application_admin'
 
   # GET /admin/files
   # GET /admin/files.json

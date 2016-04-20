@@ -1,21 +1,48 @@
 :scss
-  .article{
-    box-shadow: -5px 0 5px -5px #00a951, 5px 0 5px -5px #00a951;
-    //padding-bottom: 10%;
+  .show-article{
+    padding: 10px 0;
+    .title{
+      background: #DCEFE5;
+      border-radius: 5px;
+      min-width: 10px;
+      padding: 5px;
+      text-align: center;
+    }
   }
 
-.container.article
-  - if notice
-    %p#notice= notice
-  .example
-    = @article.description.html_safe ||= "empty"
-
-:javascript
-
-  $(document).ready(function(){
-    var content_all = $(".content-all").height();
-    var article = $(".article").height();
-    var padding_a = content_all - article;
-
-    $(".article").css("padding-bottom", padding_a);
-  });
+.show-article
+  - @title_page = @article.title
+  - @meta_keywords = @article.meta_keywords
+  - @meta_description = @article.meta_description
+  .container
+    - if notice
+      %p#notice= notice
+    = @article.description.html_safe
+    -#%meta{:content => @article.meta_description, :name => "description"}
+    -#%meta{:content => @article.meta_keywords, :name => "keywords"}
+  -#  %h2.title
+  -#    = @article.title
+  -#  %p.description
+  -#    = @article.description.html_safe
+  -#.container
+  -#  %h2
+  -#
+  -#  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#00A951"}
+  -#    %tbody
+  -#      %tr
+  -#        %th #
+  -#        %td= @article.id
+  -#      %tr
+  -#        %th Title
+  -#        %td= @article.title
+  -#      %tr
+  -#        %th Description
+  -#        %td= @article.description.html_safe ||= "empty"
+  -#
+  -#  -#= link_to 'Усі статті', articles_path, :class => 'btn btn-primary'
+  -#  -#-#- if current_user && current_user.editor?
+  -#  -#= link_to 'Редагувати', edit_article_path(@article), :class => 'btn btn-primary'
+  -#  -#-#- if current_user && current_user.admin?
+  -#  -#= link_to 'Видалити', article_path(@article), :class => 'btn btn-primary', |
+  -#  -#  method: :delete,                                                  |
+  -#  -#  data: { confirm: 'Ви впевнені?' }

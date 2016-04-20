@@ -13,6 +13,9 @@ class Admin::News
   field :publish_down, type: DateTime
   field :publish_on, type: Boolean
   field :image, type: String
+  field :meta_keywords, type: String
+  field :meta_description, type: String
+
   # field :user_id, type: String
 
   # belongs_to :user_id, class_name: 'User'

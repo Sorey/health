@@ -1,12 +1,10 @@
 !!!
 %html
   %head
-
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    - if @article
-      %meta{:content => @article.meta_description, :name => "description"}
-      %meta{:content => @article.meta_keywords, :name => "keywords"}
-    %title Health
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:content => @meta_keywords || "ДОЗ, Вінниччина, здоров'я", :name => "keywords"}
+    %meta{:content => @meta_description || "Сайт Департаменту Охорони Здоров'я Вінниччини", :name => "description"}
+    %title= @title_page || "Охорона Здоров'я Вінниччини"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags

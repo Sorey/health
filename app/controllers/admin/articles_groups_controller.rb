@@ -1,9 +1,6 @@
 module Admin
-  class ArticlesGroupsController < ApplicationController
-    before_action :authorize
-    before_action :require_role
+  class ArticlesGroupsController < AdminController
     before_action :set_articles_group, only: [:show, :edit, :update, :destroy]
-    layout 'application_admin'
 
     # GET /articles_groups
     # GET /articles_groups.json

@@ -26,13 +26,18 @@
         %tr
           %th Стислий опис
           %td.description= @news.pre_text
+        %tr
+          %th Ключові слова для пошуку
+          %td= @news.meta_keywords
+        %tr
+          %th Опис для пошуку
+          %td= @news.meta_description
         -#%tr
         -#  %th Початок публікації
         -#  %td= @news.publish_up ||= "empty"
         -#%tr
         -#  %th Кінець публікації
         -#  %td= @news.publish_down ||= "empty"
-
         %tr
           %th Опис
           %td= @news.description.html_safe

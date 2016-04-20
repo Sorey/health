@@ -1,5 +1,8 @@
 :scss
   .managers-news{
+    .panel-paginate{
+      text-align: center;
+    }
     margin-bottom: 10px;
     .row{
     padding: 0 15px;
@@ -63,3 +66,5 @@
                 = l(n.date_start, :format => "%d-%m-%Y")
                 -#= (n.date_start.to_s).mb_chars.limit(10)
             %p.description= truncate(strip_tags(n.description), length: 400)
+    .panel-paginate
+      = paginate @all_managers_news  #, :remote => true

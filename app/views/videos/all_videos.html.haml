@@ -1,5 +1,8 @@
 :scss
   .public-videos{
+    .panel-paginate{
+      text-align: center;
+    }
     .row{
     padding: 0 15px;
       .one-video{
@@ -64,3 +67,5 @@
                 %a{:href =>show_one_video_path(video), title: "Переглянути"}= video.title
               = link_to "Переглянути", show_one_video_path(video), :class => 'btn btn-success'
             %p.description= truncate(strip_tags(video.description), length: 400)
+    .panel-paginate
+      = paginate @videos  #, :remote => true

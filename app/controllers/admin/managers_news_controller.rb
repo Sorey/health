@@ -4,7 +4,9 @@ class Admin::ManagersNewsController < Admin::AdminController
   # GET /admin/managers_news
   # GET /admin/managers_news.json
   def index
-    @admin_managers_news = Admin::ManagersNews.all
+    @admin_managers_news = Admin::ManagersNews.all.page(params[:page]).per(20)
+    # @users = User.order(:name).page params[:page]
+    # @admin_managers_news = Kaminari.paginate_array(@admin_managers_news).page(params[:page]).per(20)
   end
 
   # GET /admin/managers_news/1

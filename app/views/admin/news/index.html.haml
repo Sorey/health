@@ -1,5 +1,8 @@
 :scss
   .admin_all_news{
+    .panel-paginate{
+      text-align: center;
+    }
     td.wrap{
       text-align: justify;
     }
@@ -60,3 +63,6 @@
               -#= link_to 'Редагувати', edit_admin_news_path(u), :class => 'btn btn-default'
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_news_path(u), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, u, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
+
+    .panel-paginate
+      = paginate @news  #, :remote => true

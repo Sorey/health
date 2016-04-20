@@ -60,3 +60,5 @@
             %th
         %tbody#results
           = render partial: "search_articles", :locals => { articles: @articles }
+    .panel-paginate
+      = paginate @articles #, :remote => true

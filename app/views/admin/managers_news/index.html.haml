@@ -1,5 +1,8 @@
 :scss
   .admin-for-managers{
+    .panel-paginate{
+      text-align: center;
+    }
     table{
       border-style:solid;
       border-color:#0BBA6A;
@@ -77,3 +80,5 @@
               = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_managers_news_path(admin_managers_news), title: "Переглянути",  :class => 'btn btn-info'
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_managers_news_path(admin_managers_news), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_managers_news, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
+    .panel-paginate
+      = paginate @admin_managers_news  #, :remote => true

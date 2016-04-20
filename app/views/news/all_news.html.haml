@@ -1,6 +1,9 @@
 :scss
 
   .public-news{
+    .panel-paginate{
+      text-align: center;
+    }
     .row{
     padding: 0 15px;
 
@@ -85,6 +88,8 @@
                 = (n.publish_up.to_s).mb_chars.limit(10)
             %p.pre-text= n.pre_text
             %p.description= truncate(strip_tags(n.description), length: 400)
+    .panel-paginate
+      = paginate @news  #, :remote => true
     -#%table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
         %tr

@@ -7,8 +7,9 @@ module Admin
     # GET /articles
     # GET /articles.json
     def index
-      @articles = Admin::Article.order(sort_column + " " + sort_direction)
-      @articles = @articles.where(:admin_articles_group.in => params["group_select"]) unless params["group_select"].blank?
+      @articles1 = Admin::Article.order(sort_column + " " + sort_direction)
+      @articles1 = @articles1.where(:admin_articles_group.in => params["group_select"]) unless params["group_select"].blank?
+      @articles = @articles1.page(params[:page]).per(35)
 
       respond_to do |format|
         format.js

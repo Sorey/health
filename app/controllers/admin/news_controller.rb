@@ -1,7 +1,7 @@
 module Admin
   class NewsController < AdminController
     def index
-      @news = News.all.order(updated_at: :desc)
+      @news = News.all.order(updated_at: :desc).page(params[:page]).per(20)
     end
 
     def show

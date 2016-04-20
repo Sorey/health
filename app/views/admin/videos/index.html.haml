@@ -86,3 +86,5 @@
               = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_video, title: "Переглянути",  :class => 'btn btn-info'
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_video_path(admin_video), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_video, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
+    .panel-paginate
+      = paginate @admin_videos  #, :remote => true

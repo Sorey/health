@@ -2,7 +2,7 @@ class Admin::VideosController < Admin::AdminController
   before_action :set_admin_video, only: [:show, :edit, :update, :destroy]
 
   def index
-    @admin_videos = Admin::Video.all
+    @admin_videos = Admin::Video.all.page(params[:page]).per(20)
   end
 
   # GET /admin/videos/1

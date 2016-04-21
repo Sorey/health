@@ -24,12 +24,14 @@
   }
 
 = form_for @admin_managers_news, html: { class: 'form-horizontal' } do |f|
-  - if @admin_managers_news.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_managers_news.errors.count, "error")} prohibited this @admin_managers_news from being saved:"
-      %ul
-        - @admin_managers_news.errors.full_messages.each do |msg|
-          %li= msg
+  .form-group
+    .col-sm-10.col-md-offset-2
+      - if @admin_managers_news.errors.any?
+        #error_explanation
+          %h2= "Не дозволяють зберегти новину #{pluralize(@admin_managers_news.errors.count, "error")}:"
+          %ul
+            - @admin_managers_news.errors.full_messages.each do |msg|
+              %li= msg
 
   .form-group
     .field

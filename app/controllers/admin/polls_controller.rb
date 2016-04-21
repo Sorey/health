@@ -4,7 +4,7 @@ class Admin::PollsController < Admin::AdminController
   # GET /admin/tests
   # GET /admin/tests.json
   def index
-    @polls = Admin::Poll.all
+    @polls = Admin::Poll.all.order(order_question: 1)
   end
 
   # GET /admin/tests/1

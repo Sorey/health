@@ -19,10 +19,10 @@
   .container
     .heading
       .title
-        %h1 Editing menu_item
+        %h1 Редагування пункту меню
       .btn-new-news
         -#= link_to 'Show', @menu_item, :class => 'btn btn-primary'
-        = link_to 'Back', admin_menu_items_path, :class => 'btn btn-primary'
+        = link_to 'Пункти Головного меню', admin_menu_items_path, :class => 'btn btn-primary'
   .container
     .form
       = render 'form'

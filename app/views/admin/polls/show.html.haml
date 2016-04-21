@@ -1,21 +1,42 @@
+:scss
+  .show-poll{
+    .heading{
+      .title{
+        display: inline-block;
+        h3{
+          margin: 5px 0;
+        }
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
 
+          margin:5px 0 0px;
+        }
+      }
+    }
+  }
 
-.container
+.container.show-poll
   %p#notice= notice
-  %h3
-    %p
-      Publish on:
-      %em= @poll.publish_on
-    %em= @poll.question + ":"
+  .heading
+    .title
+      %h3
+        %em= @poll.question
+    .btn-new-news
+      = link_to 'Редагувати', edit_admin_poll_path(@poll), :class => 'btn btn-primary'
+      = link_to 'Всі опитування', admin_polls_path, :class => 'btn btn-primary'
+    -#%em= @poll.question + ":"
   - if @poll.replies
     - if @poll.replies.size > 0
-      - @poll.replies.sort_by(&:value).each_with_index do |reply, i|
+      - @poll.replies.sort_by(&:order_answer).each_with_index do |reply, i|
         %h4
-          = 'Reply ' + "#{i+1}" + ': - '
+          = 'Відповідь ' + "#{i+1}" + ':  '
           = link_to 'Edit', edit_admin_poll_reply_path(@poll, reply)
           = link_to 'Destroy', [@poll, reply], :method => :delete, :data => { :confirm => 'Are you sure?' }
           -#= reply.id
-          =reply.order_answer if reply.order_answer
+          -#=reply.order_answer if reply.order_answer
           %em= "--- " + reply.answer
 
 
@@ -26,7 +47,7 @@
       -#    = "--- " + comment.answer
       -#  = link_to 'Edit', edit_admin_test_reply_path(@@admin_question, comment)
       -#  = link_to 'Destroy', [@@admin_question, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
-  %h2 New reply
+  %h2 Нова відповідь
   = form_for [@poll, @reply], html: { class: 'form-horizontal' } do |f|
     - if @reply.errors.any?
       #error_explanation
@@ -36,29 +57,21 @@
             %li= msg
     .form-group
       .field
-        = f.label :answer, false, :class => 'col-sm-12'
+        = f.label :answer, 'Текст відповіді', :class => 'col-sm-12'
         .col-sm-12
           = f.text_field :answer, :class => 'form-control input-responsive'
-    .form-group
+    -#.form-group
       .field
         = f.label :value, false, :class => 'col-sm-12'
         .col-sm-12
           = f.text_field :value, :class => 'form-control input-responsive'
     .form-group
       .field
-        = f.label :order_answer, false, :class => 'col-sm-12'
+        = f.label :order_answer, 'Порядок відображення', :class => 'col-sm-12'
         .col-sm-12
-          = f.select :order_answer, options_for_select(1..25), {}, :class => 'form-control input-responsive'
-
+          = f.select :order_answer, [1,2,3,4,5,6,7,8,9,10], {}, :class => 'form-control input-responsive'
     .form-group
       .actions
         .col-sm-12
-          = f.submit :class => 'btn btn-primary'
-    -#%p
-    -#  = f.label :answer, 'Reply'
-    -#  = f.text_field :answer
-    -#%p= f.submit
+          = f.submit 'Створити відповідь', :class => 'btn btn-primary'
 
-  = link_to 'Edit', edit_admin_poll_path(@poll)
-  \|
-  = link_to 'Back', admin_polls_path

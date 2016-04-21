@@ -8,10 +8,10 @@ class Admin::RepliesController < Admin::AdminController
         format.json { render :show, status: :ok, location: @poll }
         # abort @reply.inspect
       else
-        abort @reply.inspect
+        # abort @reply.inspect
         @reply = @poll.replies.find(params[:id])
-        abort @reply.inspect
-        format.html { render 'admin/polls/show'}
+        # abort @reply.inspect
+        format.html { render 'admin/polls/show', :notice => "Comment created!"}
         format.json { render json: @reply.errors, status: :unprocessable_entity, location: [@poll, @reply] }
       end
     end

@@ -3,9 +3,7 @@
     .col-sm-10.col-md-offset-2
       - if @news.errors.any?
         #error_explanation
-          %h2
-            = pluralize(@news.errors.count, "error")
-            prohibited this news from being saved:
+          %h2= "Не дозволяють зберегти новину #{pluralize(@news.errors.count, "error")}:"
           %ul
             - @news.errors.full_messages.each do |msg|
               %li= msg
@@ -63,7 +61,7 @@
           = '<span style="color:#F98C39;"> * </span>'.html_safe
           = "- Поля обов'язкові для заповнення."
       .col-sm-offset-2.col-sm-10
-        = u.submit buttom, :class => 'btn btn-primary'
+        = u.submit 'Зберегти', :class => 'btn btn-primary'
 
 -#:javascript
 -#  $(function () {

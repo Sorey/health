@@ -57,7 +57,7 @@ module Admin
     def destroy
       @articles_group.destroy
       respond_to do |format|
-        format.html { redirect_to articles_groups_url, notice: 'Articles group was successfully destroyed.' }
+        format.html { redirect_to admin_articles_groups_url, notice: 'Articles group was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

@@ -1,16 +1,51 @@
-.container
-  %h1 Listing polls
+:scss
+  .admin-polls{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
 
+          margin:20px 0 5px;
+        }
+      }
+    }
+    thead{
+      th{
+        white-space: nowrap;
+      }
+    }
+    tbody{
+      .des-html{
+        overflow-y: scroll;
+        width:100%;
+        height: 300px;
+      }
+    }
+
+  }
+.container.admin-polls
+  .heading
+    .title
+      %h1 Список опитувань
+    .btn-new-news
+      -#- if current_user && current_user.admin?
+      = link_to 'Нове опитування', new_admin_poll_path, :class => 'btn btn-primary'
   %table.table.table-condensed.table-striped
     %thead
       %tr
+        %th Order
         %th Poll
         %th Publish on
-        %th
+        %th Action
 
     %tbody
       - @polls.each do |poll|
         %tr
+          %td= poll.order_question
           %td= poll.question
           %td= poll.publish_on
           -#%td= @admin_question.replies
@@ -18,7 +53,3 @@
             = link_to 'Show', poll
             = link_to 'Edit', edit_admin_poll_path(poll)
             = link_to 'Destroy', poll, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-
-  = link_to 'New Poll', new_admin_poll_path

@@ -3,14 +3,14 @@ class Admin::User
   include Mongoid::Document
   include ActiveModel::SecurePassword
 
-  has_and_belongs_to_many :admin_roles, :class_name => 'Admin::Role'
-
   include Mongoid::Timestamps
   field :name, type: String
   field :email, type: String
 
   field :password_digest, :type => String
   has_secure_password
+
+  has_and_belongs_to_many :admin_roles, :class_name => 'Admin::Role'
 
   def access? (cont, act)
     @admin = 0
@@ -45,10 +45,4 @@ class Admin::User
   def access_admin?
     self.admin_roles.first.title == "admin"
   end
-
-  # has_many :user_roles
-  # has_many :roles, through: :user_roles, dependent: :destroy
-  # accepts_nested_attributes_for :user_roles
-
-  # has_many :admin_newses, :class_name => 'Admin::News'
 end

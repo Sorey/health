@@ -3,30 +3,30 @@
     #error_explanation
       %h2= "#{pluralize(@reply.errors.count, "error")} prohibited this @@poll from being saved:"
       %ul
-        =debug @reply.errors.inspect
+        -#=debug @reply.errors.inspect
         - @reply.errors.full_messages.each do |msg|
           %li= msg
   .form-group
     .field
-      = f.label :answer, 'Текст', :class => 'col-sm-2 control-label'
+      = f.label :answer, 'Текст питання', :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.text_field :answer, :class => 'form-control input-responsive'
-  .form-group
+  -#.form-group
     .field
       = f.label :name, :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.text_field :name, :class => 'form-control input-responsive'
-  .form-group
+  -#.form-group
     .field
       = f.label :value, false, :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.text_field :value, :class => 'form-control input-responsive'
   .form-group
     .field
-      = f.label :order_answer, false, :class => 'col-sm-2 control-label'
+      = f.label :order_answer, 'Порядок відображення', :class => 'col-sm-2 control-label'
       .col-sm-10
-        = f.select :order_answer, options_for_select(1..25), {}, :class => 'form-control input-responsive'
+        = f.select :order_answer, [1,2,3,4,5,6,7,8,9,10], {}, :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10
-        = f.submit :class => 'btn btn-primary'
+        = f.submit 'Зберегти', :class => 'btn btn-primary'

@@ -5,6 +5,7 @@ module Admin
     # GET /menu_items
     # GET /menu_items.json
     def index
+      params[:category] = params[:category] || "Головне меню"
       @menu_items = MenuItem.where(show: true, type_item: params[:category]).order(order_item: :asc) unless params[:category].blank?
       @menu_category = params[:category] unless params[:category].blank?
       # @menu_items = Admin::MenuItem.order( type_item: "asc")

@@ -35,7 +35,7 @@
         %h1 Список статей
       .btn-new-news
         -#- if current_user && current_user.admin?
-        = link_to 'New Article', new_admin_article_path, :class => 'btn btn-primary'
+        = link_to 'Нова стаття', new_admin_article_path, :class => 'btn btn-primary'
       = render partial: 'search'
   .container
 
@@ -48,7 +48,8 @@
             -#%th Type menu
             %th
               = sortable "title", 'Title'
-            -#%th Description
+            %th
+              = sortable "title_english", 'Title english'
             %th
               = sortable "publish_on", 'Publish'
             %th

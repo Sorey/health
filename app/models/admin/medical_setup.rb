@@ -14,6 +14,7 @@ class Admin::MedicalSetup
   # has_and_belongs_to_many :admin_medical_setup_category, :class_name => 'Admin::MedicalSetupsGroup'
   belongs_to :admin_medical_setup_category, :class_name => 'Admin::MedicalSetupsGroup'
 
+  validates :name,  length: { minimum: 5, maximum: 200, message: "(Назва): мінімально 5, максимально 200 символів."}
 
   def self.get_medical_setups_group (group = '')
     @medical_setups = self.all.order(id: :asc)

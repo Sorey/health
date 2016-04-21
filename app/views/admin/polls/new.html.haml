@@ -1,6 +1,28 @@
-.container
-  %h1 New poll
+:scss
+  .new-poll{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
 
-  = render 'form'
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
 
-  = link_to 'Back', admin_polls_path
+.new-poll
+  .container
+    .heading
+      .title
+        %h1 Нове опитування
+      .btn-new-news
+        = link_to 'Всі опитування', admin_polls_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'
+

@@ -4,7 +4,8 @@ class Admin::Poll
   field :publish_on, type: Boolean
   field :order_question, type: Integer
   # abort order_question.inspect
-  validates_presence_of :question
+  # validates_presence_of :question
+  validates :question,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."}
 
   embeds_many :replies, class_name: 'Reply'
 
@@ -27,6 +28,7 @@ class Reply
   field :order_answer, type: Integer
   field :count_answer, type: Integer
 
+  # validates :answer,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."} #, presence: { message: "не може бути пустим"}
   # validates_presence_of :answer
   # validates :answer,  length: { minimum: 1, maximum: 80}
 

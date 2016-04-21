@@ -1,6 +1,7 @@
 - @articles.each do |article|
   %tr
     %td= article.title
+    %td= article.title_english
     -#%td
       - all_text = Nokogiri::HTML(%{#{article.description.html_safe}})
       = all_text.at_css("p").text.first(120) unless all_text.at_css("p").nil?

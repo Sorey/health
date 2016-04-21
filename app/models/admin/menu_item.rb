@@ -24,6 +24,15 @@ class Admin::MenuItem
   has_many :children, class_name: "Admin::MenuItem" #, foreign_key: "parent_id"
   belongs_to :parent, class_name: "Admin::MenuItem"
   after_save :reload_routes
+
+
+  validates :title,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."} #, presence: { message: "не може бути пустим"}
+  validates_format_of :link, :allow_blank => true, :with => /\A[\S]+\z/, message: "повинен бути без пробілів."
+  validates :alias, :allow_blank => true,
+            uniqueness: { message: "уже зайнято."},
+            format: { with:  /\A[a-zA-Z0-9]+\z/, message: "лише латинські літери без пробілів!"},
+            length: { minimum: 3, maximum: 25, message: "мінімально 3, максимально 25 символів."}
+
   # before_save :set_type_level
   # before_create :get_level
   # before_update :get_level
@@ -40,6 +49,9 @@ class Admin::MenuItem
   #              else "Invalid Score"
   #            end
   # end
+
+
+
 
   def self.get_alias_links
     get_not_empty = where(:alias.ne =>  '')

@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+  # require 'sunspot_rails'
 #---------------------- News ------------------------#
   def all_news
     # @news = Admin::News.where( { publish_on: true } ).sort( { created_at: 1 })

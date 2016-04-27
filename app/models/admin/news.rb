@@ -1,7 +1,9 @@
 require 'file_size_validator'
+# require 'sunspot_rails'
 class Admin::News
   require 'carrierwave/mongoid'
   include Mongoid::Document
+  include Sunspot::Mongoid
 
   include Mongoid::Timestamps
   field :title, type: String
@@ -15,6 +17,13 @@ class Admin::News
   field :meta_description, type: String
 
   belongs_to :user, class_name: 'Admin::User'
+
+
+  searchable do
+    text :title, :description
+    time :created_at
+    boolean :publish_on
+  end
 
   validates :title,  length: { minimum: 5, maximum: 80, message: "(Заголовок): мінімально 5, максимально 80 символів."}
   validates :pre_text, :allow_blank => true,  length: { minimum: 6, maximum: 150, message: "(Стислий опис): мінімально 6, максимально 150 символів."}

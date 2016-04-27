@@ -67,6 +67,13 @@ gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 # https://github.com/amatsuda/kaminari
 gem 'kaminari'
 
+group :development do
+  gem 'sunspot_solr', github: 'sunspot/sunspot', branch: 'master'
+end
+
+gem 'sunspot_rails' , github: 'sunspot/sunspot', branch: 'master'
+gem 'sunspot_mongoid'
+
 # https://github.com/summernote/summernote-rails
 # gem 'summernote-rails', '~> 0.8.1.1'
 # gem 'bootstrap-sass'     # required

@@ -1,0 +1,46 @@
+:scss
+
+  .search{
+    .head-title{
+      color: #008f44;
+    }
+    span{
+      display: block;
+    }
+    .one-result{
+      margin-bottom: 20px;
+      .title{
+        font-size: 18px;
+      }
+      .date{
+        color: grey;
+        font-size: 15px;
+      }
+      .description{
+        font-size: 16px;
+      }
+    }
+    .panel-paginate{
+      text-align: center;
+    }
+  }
+
+.search
+  .container
+    %h3.head-title Результати пошуку (#{@count})
+    -if @results
+      - @results.each do |n|
+        .row
+          .col-md-12.col-sm-12.one-result
+            %span.title
+              -if n.class == Admin::News
+                - url_alias = url_for(id: n, action: 'show_one_news', controller: 'news')
+                = link_to "#{n.title}", "#{url_alias}", title: "Переглянути"
+              -if n.class == Admin::Video
+                - url_alias = url_for(id: n, action: 'show_one_video', controller: 'videos')
+                = link_to "#{n.title}", "#{url_alias}", title: "Переглянути"
+            %span.date
+              = l(n.created_at, :format => "%d-%m-%Y")
+            %span.description= truncate(strip_tags(n.description), length: 400)
+      .panel-paginate
+        = paginate @results  #, :remote => true

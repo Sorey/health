@@ -28,6 +28,20 @@ GIT
     rails_log_stdout (0.0.1)
 
 GIT
+  remote: git://github.com/sunspot/sunspot.git
+  revision: 964ecd0ed0a0c949f399d93cba42021c92cf6062
+  branch: master
+  specs:
+    sunspot (2.2.5)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.1.1)
+    sunspot_rails (2.2.5)
+      nokogiri
+      rails (>= 3)
+      sunspot (= 2.2.5)
+    sunspot_solr (2.2.5)
+
+GIT
   remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -198,6 +212,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pr_geohash (1.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -235,6 +250,8 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     ref (2.0.0)
+    rsolr (1.1.1)
+      builder (>= 2.1.2)
     ruby_parser (3.8.1)
       sexp_processor (~> 4.1)
     sass (3.4.22)
@@ -258,6 +275,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sunspot_mongoid (0.4.1)
+      mongoid
+      sunspot (>= 1.1.0)
+      sunspot_rails (>= 1.1.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -310,6 +331,9 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   select2-rails
   spring
+  sunspot_mongoid
+  sunspot_rails!
+  sunspot_solr!
   therubyracer
   turbolinks
   twitter-bootstrap-rails!

@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get '/videos/', to: 'videos#all_videos'
   get '/videos/:id', to: 'videos#show_one_video', as: :show_one_video
 
-  get '/news/', to: 'news#all_news'
+  get '/search' => 'search#search', as: :search
+  get '/news/', to: 'news#all_news',  as: :all_public_news
   get '/news/:id', to: 'news#show_one_news', as: :show_one_news
   get '/managers_news/' => 'news#all_managers_news',  as: :all_managers_news
   get '/managers_news/:id' => 'news#show_one_managers_news',  as: :show_one_managers_news
@@ -57,7 +58,6 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-
 
   # get 'news/' => 'news#index'
   # The priority is based upon order of creation: first created -> highest priority.

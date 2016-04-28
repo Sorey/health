@@ -4,6 +4,8 @@ class NewsUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  after :store, :delete_old_tmp_file
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -38,6 +40,16 @@ class NewsUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+
+  # remember the tmp file
+  def cache!(new_file)
+    super
+    @old_tmp_file = new_file
+  end
+
+  def delete_old_tmp_file(dummy)
+    @old_tmp_file.try :delete
   end
 
   # Override the filename of the uploaded files:

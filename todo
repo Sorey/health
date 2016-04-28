@@ -7,6 +7,7 @@
   + В слайдер 4 картинки
   + Опитування. Форма поле селект(order) update
   - MenuItem dynamic form
+  - MedicalSetups beauty url(change sitemap file)
   + Перенос Статті із Home
   + Перенос новин із Home
   + Сортування в таблицях
@@ -25,11 +26,12 @@
 - 6) Рефактор логіки для Користувачів (Рекурсія)
 + 7) Настройка Pull для Руслана.
 + 8) Розібратися із Console errors (Home page) *Помилка від розробників Youtube
-- 9) Пошук по сайту
++ 9) Пошук по сайту
 + 10) Пагінація в потрібних зонах
     + Новини(для керівників, публічні, в адмінці)
     + Відео
     + Статті(адмінка)
++ 11) SEO(robotos.txt, sitemap.xml)
 
 Next instruction
  1) rake assets:precompile

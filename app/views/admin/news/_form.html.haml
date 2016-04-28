@@ -25,6 +25,7 @@
     = u.label :image, 'Картинка <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.file_field :image, :class => 'form-control input-responsive'
+    = u.hidden_field :image_cache
   .form-group
     = u.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
     .col-sm-10

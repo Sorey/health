@@ -37,6 +37,22 @@ class HomeController < ApplicationController
     @polls = Admin::Poll.where(publish_on: true).order(order_question: :asc)
   end
 
+  def sitemap
+    @alias_articles = Admin::MenuItem.get_alias_links
+    @articles = Admin::Article.where(publish_on: true)
+    @videos = Admin::Video.where(publish_on: true)
+    @news = Admin::News.where(publish_on: true)
+
+    @articles_group = Admin::ArticlesGroup.find_by(title_english: 'regional_programs')
+    @group_articles = Admin::Article.where(:admin_articles_group_id => @articles_group.id)
+
+    @medical_setups_groups = Admin::MedicalSetupsGroup.all
+
+    respond_to do |format|
+      format.xml
+    end
+  end
+
   protected
 
   # Inspect if m_item has children

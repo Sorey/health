@@ -67,7 +67,6 @@
         <filter class="solr.TrimFilterFactory" />
         <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="15"/>
       </analyzer>
-
       <analyzer type="query">
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.StandardFilterFactory"/>

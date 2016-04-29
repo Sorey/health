@@ -1,11 +1,6 @@
 module Admin
   class UsersController < AdminController
     def index
-      #-- Create Indexes in solr/default
-      Sunspot.index(Admin::News.all)
-      Sunspot.index(Admin::Video.all)
-      # /////abort User.all.inspect
-      #
       @users = Admin::User.all
     end
 

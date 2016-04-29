@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    #-- Create Indexes in solr/default
+    #-- Create Indexes in solr/default (rake create_search_indexes:create_solr_indexes)
     # Sunspot.index(Admin::News.all)
     # Sunspot.index(Admin::Video.all)
 

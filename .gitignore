@@ -3,9 +3,9 @@ capybara-*.html
 .rspec
 /log
 /tmp
-/solr/default
-/solr/development
-/solr/pids
+/solr/default/
+/solr/development/
+/solr/pids/
 #!/configsets/sunspot/conf/schema.yml
 /db/*.sqlite3
 /db/*.sqlite3-journal

@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     #-- Create Indexes in solr/default (rake create_search_indexes:create_solr_indexes)
     # Sunspot.index(Admin::News.all)
     # Sunspot.index(Admin::Video.all)
-    abort Admin::ArticlesGroup.find_by(title_english: 'regional_programs').inspect
+
     unless params[:search].blank?
       @search = Sunspot.search(Admin::News, Admin::Video)  do
         fulltext params[:search]

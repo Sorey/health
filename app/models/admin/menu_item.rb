@@ -30,8 +30,8 @@ class Admin::MenuItem
   validates_format_of :link, :allow_blank => true, :with => /\A[\S]+\z/, message: "повинен бути без пробілів."
   validates :alias, :allow_blank => true,
             uniqueness: { message: "уже зайнято."},
-            format: { with:  /\A[a-zA-Z0-9]+\z/, message: "лише латинські літери без пробілів!"},
-            length: { minimum: 3, maximum: 25, message: "мінімально 3, максимально 25 символів."}
+            format: { with:  /\A[a-zA-Z0-9_-]+\z/, message: "лише латинські літери без пробілів!"},
+            length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 25 символів."}
 
   # before_save :set_type_level
   # before_create :get_level

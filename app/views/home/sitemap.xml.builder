@@ -2,7 +2,7 @@ base_url = "http://#{request.host_with_port}"
 xml.instruct! :xml, :version=>'1.0'
 xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   xml.url{
-    xml.loc("http://vinobliacms.vn.ua")
+    xml.loc "#{base_url}"
     xml.changefreq("weekly")
     xml.priority(1.0)
   }
@@ -40,13 +40,15 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
       xml.priority(0.5)
     }
   end
-  @group_articles.each do |article|
-    xml.url {
-      xml.loc "http://vinobliacms.vn.ua/groups/regional_programs/#{article.title_english}"
-      xml.lastmod article.updated_at.strftime("%F")
-      xml.changefreq("monthly")
-      xml.priority(0.5)
-    }
+  if @group_articles
+    @group_articles.each do |article|
+      xml.url {
+        xml.loc "http://vinobliacms.vn.ua/groups/regional_programs/#{article.title_english}"
+        xml.lastmod article.updated_at.strftime("%F")
+        xml.changefreq("monthly")
+        xml.priority(0.5)
+      }
+    end
   end
   @medical_setups_groups.each do |group|
     xml.url {

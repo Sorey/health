@@ -43,8 +43,8 @@ class HomeController < ApplicationController
     @videos = Admin::Video.where(publish_on: true)
     @news = Admin::News.where(publish_on: true)
 
-    @articles_group = Admin::ArticlesGroup.find_by(title_english: 'regional_programs')
-    @group_articles = Admin::Article.where(:admin_articles_group_id => @articles_group.id)
+    @articles_group = Admin::ArticlesGroup.where(title_english: 'regional_programs').first
+    @group_articles = Admin::Article.where(:admin_articles_group_id => @articles_group.id) if @articles_group
 
     @medical_setups_groups = Admin::MedicalSetupsGroup.all
 

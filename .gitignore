@@ -3,6 +3,7 @@ capybara-*.html
 .rspec
 /log
 /tmp
+
 /solr/default/
 /solr/development/
 /solr/pids/

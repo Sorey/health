@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   get '/managers_news/' => 'news#all_managers_news',  as: :all_managers_news
   get '/managers_news/:id' => 'news#show_one_managers_news',  as: :show_one_managers_news
 
-  get '/medical_setups' => 'medical_setups#index'
+  get '/medical_setups/:medical_setups_group' => 'medical_setups#index'
+  # get '/medical_setups' => 'medical_setups#index'
   get '/private_medical_setups' => 'medical_setups#show_private_ms'
 
 

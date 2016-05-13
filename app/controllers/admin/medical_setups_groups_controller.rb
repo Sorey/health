@@ -58,6 +58,6 @@ class Admin::MedicalSetupsGroupsController < Admin::AdminController
   private
 
   def medical_setups_group_params
-    params.require(:admin_medical_setups_group).permit(:name)
+    params.require(:admin_medical_setups_group).permit(:name, :ang_name)
   end
 end

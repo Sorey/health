@@ -7,7 +7,7 @@
   + В слайдер 4 картинки
   + Опитування. Форма поле селект(order) update
   - MenuItem dynamic form
-  - MedicalSetups beauty url(change sitemap file)
+  + MedicalSetups beauty url(change sitemap file)
   + Перенос Статті із Home
   + Перенос новин із Home
   + Сортування в таблицях
@@ -32,6 +32,14 @@
     + Відео
     + Статті(адмінка)
 + 11) SEO(robotos.txt, sitemap.xml)
++ 12) Помилка урлу http://vinobliacms.vn.ua/groups/standarting_files/Complex_plan_2016.pdf
+      Перенастроїти FileUploader коротший урл
+- 13) Здача сайту
+    - Написати інструкцію користування сайтом для чайників
+    - Зміна адмінки під користувача(на українську)
+
 
 Next instruction
- 1) rake assets:precompile
+ 1) change ang_name in medical_s_groups
+    change url in menu_item "Медичні заклади"
+ 2) Змінити картинку в статті Працівники ДОЗ

@@ -2,44 +2,44 @@
   %p#notice= notice
   %p
     %h2
-      Menu item
+      Пункт меню
       %em
         = @menu_item.title
   %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
     %tbody
       %tr
-        %th Id_post:
+        %th Id_пункту:
         %td= @menu_item._id.to_s.last(8)
       %tr
-        %th Type level:
+        %th Тип пункту меню:
         %td= @menu_item.type_level
       %tr
-        %th Type item:
+        %th Група:
         %td= @menu_item.type_item
       %tr
-        %th Title:
+        %th Назва:
         %td= @menu_item.title
       %tr
-        %th Link:
+        %th URL:
         %td
           - if @menu_item.link
             +
           - else
             -
       %tr
-        %th Target:
+        %th Таргет:
         %td= @menu_item.target
       %tr
-        %th Parent:
+        %th Батько:
         %td= @menu_item.parent_id
       %tr
-        %th Order_item:
+        %th Порядок:
         %td= @menu_item.order_item
       %tr
-        %th Show:
+        %th Показувати?
         %td= @menu_item.show
 
 
-  = link_to 'Edit', edit_admin_menu_item_path(@menu_item), :class => 'btn btn-primary'
+  = link_to 'Редагувати', edit_admin_menu_item_path(@menu_item), :class => 'btn btn-primary'
 
-  = link_to 'Back', admin_menu_items_path, :class => 'btn btn-primary'
+  = link_to 'Повернутись', admin_menu_items_path, :class => 'btn btn-primary'

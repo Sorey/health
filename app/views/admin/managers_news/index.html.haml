@@ -63,10 +63,10 @@
       %thead
         %tr
           -#%th #
-          %th Title
-          %th Date start
-          %th Publish on
-          %th Description
+          %th Назва
+          %th Дата
+          %th Публікувати?
+          %th Опис
 
           %th Дія
       %tbody
@@ -79,6 +79,6 @@
             %td
               = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_managers_news_path(admin_managers_news), title: "Переглянути",  :class => 'btn btn-info'
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_managers_news_path(admin_managers_news), title: "Редагувати", :class => 'btn btn-primary'
-              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_managers_news, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
+              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_managers_news, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
     .panel-paginate
       = paginate @admin_managers_news  #, :remote => true

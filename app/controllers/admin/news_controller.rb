@@ -54,8 +54,11 @@ module Admin
     def destroy
       @news = News.find(params[:id])
       @news.destroy
-
-      redirect_to admin_news_index_path
+      respond_to do |format|
+        format.html { redirect_to admin_news_index_path, notice: 'Новина успішно видалена.' }
+        format.json { head :no_content }
+      end
+      # redirect_to admin_news_index_path, notice: 'Новина успішно видалена.'
     end
 
   private

@@ -30,7 +30,7 @@ class Admin::ManagersNewsController < Admin::AdminController
 
     respond_to do |format|
       if @admin_managers_news.save
-        format.html { redirect_to @admin_managers_news, notice: "Manager's news was successfully created." }
+        format.html { redirect_to @admin_managers_news, notice: "Новина для керівників успішно створена." }
         format.json { render :show, status: :created, location: @admin_managers_news }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::ManagersNewsController < Admin::AdminController
   def update
     respond_to do |format|
       if @admin_managers_news.update(admin_managers_news_params)
-        format.html { redirect_to @admin_managers_news, notice: "Manager's news was successfully updated." }
+        format.html { redirect_to @admin_managers_news, notice: "Новина для керівників успішно оновлена." }
         format.json { render :show, status: :ok, location: @admin_managers_news }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::ManagersNewsController < Admin::AdminController
   def destroy
     @admin_managers_news.destroy
     respond_to do |format|
-      format.html { redirect_to admin_managers_news_index_url, notice: "Manager's news was successfully destroyed." }
+      format.html { redirect_to admin_managers_news_index_url, notice: "Новина для керівників успішно видалена." }
       format.json { head :no_content }
     end
   end

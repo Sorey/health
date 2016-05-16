@@ -38,7 +38,7 @@ class Admin::PollsController < Admin::AdminController
 
     respond_to do |format|
       if @poll.save
-        format.html { redirect_to @poll, notice: 'Test was successfully created.' }
+        format.html { redirect_to @poll, notice: 'Опитування успішно створено.' }
         format.json { render :show, status: :created, location: @poll }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class Admin::PollsController < Admin::AdminController
   def update
     respond_to do |format|
       if @poll.update(admin_poll_params)
-        format.html { redirect_to @poll, notice: 'Test was successfully updated.' }
+        format.html { redirect_to @poll, notice: 'Опитування успішно оновлено.' }
         format.json { render :show, status: :ok, location: @poll }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class Admin::PollsController < Admin::AdminController
   def destroy
     @poll.destroy
     respond_to do |format|
-      format.html { redirect_to admin_polls_url, notice: 'Test was successfully destroyed.' }
+      format.html { redirect_to admin_polls_url, notice: 'Опитуваня успішно видалено.' }
       format.json { head :no_content }
     end
   end

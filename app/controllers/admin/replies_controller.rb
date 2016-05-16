@@ -4,14 +4,14 @@ class Admin::RepliesController < Admin::AdminController
   def create
     respond_to do |format|
       if @poll.replies.create!(reply_params)
-        format.html { redirect_to @poll, :notice => "Comment created!"}
+        format.html { redirect_to @poll, :notice => "Відповідь створена!"}
         format.json { render :show, status: :ok, location: @poll }
         # abort @reply.inspect
       else
         # abort @reply.inspect
         @reply = @poll.replies.find(params[:id])
         # abort @reply.inspect
-        format.html { render 'admin/polls/show', :notice => "Comment created!"}
+        format.html { render 'admin/polls/show', :notice => "Відповідь створена."}
         format.json { render json: @reply.errors, status: :unprocessable_entity, location: [@poll, @reply] }
       end
     end
@@ -25,7 +25,7 @@ class Admin::RepliesController < Admin::AdminController
   def update
     respond_to do |format|
       if @poll.replies.find(params[:id]).update(reply_params)
-        format.html { redirect_to @poll, :notice => "Comment deleted!" }
+        format.html { redirect_to @poll, :notice => "Відповідь оновлена!" }
         format.json { render :show, status: :ok, location: @poll }
       else
         @reply = @poll.replies.find(params[:id])
@@ -43,7 +43,7 @@ class Admin::RepliesController < Admin::AdminController
 
   def destroy
     @poll.replies.find(params[:id]).destroy
-    redirect_to @poll, :notice => "Comment deleted!"
+    redirect_to @poll, :notice => "Відповідь видалена!"
   end
 
   private

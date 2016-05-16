@@ -43,7 +43,7 @@ module Admin
 
       respond_to do |format|
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.html { redirect_to @article, notice: 'Стаття успішно створена.' }
           format.json { render :show, status: :created, location: @article }
         else
           format.html { render :new }
@@ -57,7 +57,7 @@ module Admin
     def update
       respond_to do |format|
         if @article.update(article_params)
-          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.html { redirect_to @article, notice: 'Стаття успішно оновлена.' }
           format.json { render :show, status: :ok, location: @article }
         else
           format.html { render :edit }
@@ -71,7 +71,7 @@ module Admin
     def destroy
       @article.destroy
       respond_to do |format|
-        format.html { redirect_to admin_articles_url, notice: 'Article was successfully destroyed.' }
+        format.html { redirect_to admin_articles_url, notice: 'Стаття успішно видалена.' }
         format.json { head :no_content }
       end
     end
@@ -89,7 +89,7 @@ module Admin
       def catch_not_found
         yield
       rescue ActiveRecord::RecordNotFound
-        redirect_to root_url, :flash => { :error => "Record not found." }
+        redirect_to root_url, :flash => { :error => "Сторінки не існує." }
       end
       # Use callbacks to share common setup or constraints between actions.
       def set_article

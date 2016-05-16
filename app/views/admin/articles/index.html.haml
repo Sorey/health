@@ -47,17 +47,17 @@
             -#%th Type menu item
             -#%th Type menu
             %th
-              = sortable "title", 'Title'
+              = sortable "title", 'Назва'
             %th
-              = sortable "title_english", 'Title english'
+              = sortable "title_english", 'URL назва'
             %th
-              = sortable "publish_on", 'Publish'
+              = sortable "publish_on", 'Публікувати?'
             %th
-              = sortable "created_at", 'Date create'
+              = sortable "created_at", 'Дата створення'
             %th
-              = sortable "admin_articles_group_id", 'Group'
+              = sortable "admin_articles_group_id", 'Група'
             %th
-            %th
+            %th Дія
             %th
         %tbody#results
           = render partial: "search_articles", :locals => { articles: @articles }

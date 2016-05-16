@@ -11,43 +11,43 @@
               %li= msg
 
   .form-group
-    = f.label :type_item, "Type menu", :class => 'col-sm-2 control-label'
+    = f.label :type_item, "Група", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :type_item , ['Головне меню', 'Бокове меню'], {}, :multiple => false, :class => 'form-control'
   .form-group
-    = f.label :type_level, "Type menu item", :class => 'col-sm-2 control-label'
+    = f.label :type_level, "Тип пункту", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :type_level, ['Заголовок меню', 'Пункт меню', 'Перший рівень', 'Додатковий рівень'], {}, :multiple => false, :class => 'form-control'
   .form-group
-    = f.label :parent_id, :class => 'col-sm-2 control-label'
+    = f.label :parent_id, "Батько", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :parent_id, Admin::MenuItem.parent_roles.insert(0, 0), {}, :multiple => false, :class => 'form-control'
   .form-group
-    = f.label :title, :class => 'col-sm-2 control-label'
+    = f.label :title, "Назва", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :title, :class => 'form-control input-responsive'
   .form-group
-    = f.label :link, '<span style="color:#15379E;">Link</span>'.html_safe, :class => 'col-sm-2 control-label'
+    = f.label :link,'<span style="color:#15379E;">URL</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :link , :class => 'form-control input-responsive'
   .form-group
-    = f.label :target, '<span style="color:#15379E;">Target</span>'.html_safe, :class => 'col-sm-2 control-label'
+    = f.label :target, '<span style="color:#15379E;">Таргет</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :target ,['_self', '_blank', '_parent', '_top' ], {}, :class => 'form-control input-responsive'
   .form-group
-    = f.label :id_post, '<span style="color:#6224AF;">Post</span>'.html_safe, :class => 'col-sm-2 control-label'
+    = f.label :id_post, '<span style="color:#6224AF;">Стаття</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :id_post, Admin::Article.all.collect {|x| [x.title, x.id]}, {include_blank: true}, :multiple => false,  :class => 'form-control input-responsive'
   .form-group
-    = f.label :alias, '<span style="color:#6224AF;">Alias</span>'.html_safe, :class => 'col-sm-2 control-label'
+    = f.label :alias, '<span style="color:#6224AF;">Аліас</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :alias , :class => 'form-control input-responsive'
   .form-group
-    = f.label :order_item, :class => 'col-sm-2 control-label'
+    = f.label :order_item, "Порядок", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.number_field :order_item, :class => 'form-control input-responsive'
   .form-group
-    = f.label :show, :class => 'col-sm-2 control-label'
+    = f.label :show, "Показувати?", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.check_box :show, :class => 'form-control input-responsive'
   .form-group

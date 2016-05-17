@@ -31,7 +31,7 @@ class Admin::MenuItem
   validates :alias, :allow_blank => true,
             uniqueness: { message: "уже зайнято."},
             format: { with:  /\A[a-zA-Z0-9_-]+\z/, message: "лише латинські літери без пробілів!"},
-            length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 25 символів."}
+            length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 50 символів."}
 
   # before_save :set_type_level
   # before_create :get_level

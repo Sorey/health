@@ -16,7 +16,7 @@ class Admin::Article
   validates :title_english, presence: { message: "не може бути пустим"},
             uniqueness: { message: "уже зайнято."},
             format: { with:  /\A[a-zA-Z0-9_-]+\z/, message: "лише латинські літери без пробілів!"},
-            length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 25 символів."}
+            length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 50 символів."}
 
   validates :meta_keywords, :allow_blank => true, length: { minimum: 3, maximum: 160, message: "(Ключові слова): мінімально 3, максимально 150 символів."}
   validates :meta_description, :allow_blank => true, length: { minimum: 5, maximum: 250, message: "(Опис для пошуку): мінімально 5, максимально 250 символів."}

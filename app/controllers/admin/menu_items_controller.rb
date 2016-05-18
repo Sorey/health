@@ -6,7 +6,7 @@ module Admin
     # GET /menu_items.json
     def index
       params[:category] = params[:category] || "Головне меню"
-      @menu_items = MenuItem.where(show: true, type_item: params[:category]).order(order_item: :asc) unless params[:category].blank?
+      @menu_items = MenuItem.where(type_item: params[:category]).order(order_item: :asc) unless params[:category].blank?
       @menu_category = params[:category] unless params[:category].blank?
       # @menu_items = Admin::MenuItem.order( type_item: "asc")
       @menu = ''
@@ -15,7 +15,7 @@ module Admin
           @menu << '<tr>'
           @menu << "<td> #{m_i.id.to_s.last(8)}</td>"
           # @menu << "<td> #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
-          @menu << "<td> #{m_i.title} </td> <td> #{m_i.link.blank? ? '-' : '+'} </td> <td class='td_link'> #{m_i.target} </td><td> #{m_i.alias} </td><td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td>"
+          @menu << "<td> #{m_i.title} </td> <td> #{m_i.show == true ? '+' : '-'} </td> <td class='td_link'> #{m_i.target} </td><td> #{m_i.alias} </td><td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td>"
           @menu << "<td><a href='/admin/menu_items/#{m_i.id}' class='btn btn-info'><i class='fa fa-eye'></i></a> </td> <td><a href='/admin/menu_items/#{m_i.id}/edit' class='btn btn-primary' ><i class='fa fa-pencil-square-o'></i></a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}' class='btn btn-danger'><i class='fa fa-trash-o'></i></a></td> "
           @menu << '</tr>'
 
@@ -105,7 +105,7 @@ module Admin
             @menu << '<tr>'
             @menu << "<td> #{m_i.id.to_s.last(8)}</td>"
             # @menu << "<td>#{get_level} #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
-            @menu << "<td>#{get_level} #{m_i.title} </td> <td class='td_link'> #{m_i.link.blank? ? '-' : '+'} </td> <td class='td_link'> #{m_i.target} </td> <td> #{m_i.alias} </td><td> #{m_i.parent_id.to_s.last(8)} </td> <td> #{m_i.order_item} </td>"
+            @menu << "<td>#{get_level} #{m_i.title} </td> <td class='td_link'> #{m_i.show == true ? '+' : '-'} </td> <td class='td_link'> #{m_i.target} </td> <td> #{m_i.alias} </td><td> #{m_i.parent_id.to_s.last(8)} </td> <td> #{m_i.order_item} </td>"
             # @menu << "<td><a href='/admin/menu_items/#{m_i.id}'>Show</a> </td> <td><a href='/admin/menu_items/#{m_i.id}/edit'>Edit</a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}'>Destroy</a></td> "
             @menu << "<td><a href='/admin/menu_items/#{m_i.id}' class='btn btn-info'><i class='fa fa-eye'></i></a> </td> <td><a href='/admin/menu_items/#{m_i.id}/edit' class='btn btn-primary' ><i class='fa fa-pencil-square-o'></i></a></td> <td><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}' class='btn btn-danger'><i class='fa fa-trash-o'></i></a></td> "
 

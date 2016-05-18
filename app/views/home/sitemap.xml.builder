@@ -52,7 +52,7 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   end
   @medical_setups_groups.each do |group|
     xml.url {
-      xml.loc "http://vinobliacms.vn.ua/medical_setups?category=#{group.ang_name}"
+      xml.loc "http://vinobliacms.vn.ua/medical_setups/#{group.ang_name}"
       # xml.lastmod group.updated_at.strftime("%F")
       xml.changefreq("monthly")
       xml.priority(0.5)

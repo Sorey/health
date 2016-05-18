@@ -1,3 +1,25 @@
+:scss
+  table{
+    //font-size: 13px;
+    thead{
+      th{
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+    tbody{
+      td:nth-child(3), td:nth-child(6), td:nth-child(7), td:first-child{
+        text-align: center;
+      }
+      td .btn{
+       //display: inline-block;
+       //margin: 0px 0px 5px;
+       //padding: 4px 6px;
+       //width: 30px;
+      }
+    }
+  }
+
 .heading
   .title
     %h1 Список пунктів  #{menu_category}
@@ -11,13 +33,13 @@
       -#%th Type menu
       %th #
       %th Назва
-      %th URL
+      %th Показувати?
       %th Таргет
       %th Аліас
       %th Батько
       %th Порядок
       %th
-      %th Дія
+      %th Дії
       %th
   %tbody
     = menu.html_safe

@@ -142,6 +142,9 @@
                     %a{:href => admin_managers_news_index_path} Новини для керівників
                   %li
                     %a{:href => new_admin_managers_news_path } Створити новину
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => admin_videos_path} Відеоматеріали
             - if current_user && current_user.access_admin?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -168,8 +171,8 @@
                   %li.divider{:role => "separator"}
                   %li
                     %a{:href => admin_polls_path} Опитування
-                  %li.divider{:role => "separator"}
-                  %li
+                  -#%li.divider{:role => "separator"}
+                  -#%li
                     %a{:href => admin_videos_path} Відеоматеріали
                   %li.divider{:role => "separator"}
                   %li

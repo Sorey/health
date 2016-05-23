@@ -65,8 +65,45 @@ class Admin::MenuItem
   #   self.type_level = level.to_i + 1
   # end
 
-  def self.parent_roles
+  def self.parent_roles1
     all.collect{|a| [a.title, a.id]}
+  end
+
+  def self.parent_roles
+    @menu_items = all.order(type_item: :desc, order_item: :asc)
+    @menu = []
+    @menu_items.each do |m_i|
+      if m_i.parent_id.to_s.to_i == 0
+        menu = []
+        menu[0] = m_i.title
+        menu[1] = m_i.id
+        @menu << menu
+        get_children_m m_i.id
+      end
+    end
+    @menu
+  end
+
+  def self.get_children_m parent_id
+    @menu_items.each do |m_i|
+      if m_i.parent_id == parent_id
+        menu = []
+
+        type_level = m_i.type_level
+        case type_level
+        when "Перший рівень"
+          level = '- '
+        when "Додатковий рівень"
+          level = '- - '
+        else
+          level = '- '
+        end
+        menu[0] = level + m_i.title
+        menu[1] = m_i.id
+        @menu << menu
+        get_children_m m_i.id
+      end
+    end
   end
 
   def self.type_items

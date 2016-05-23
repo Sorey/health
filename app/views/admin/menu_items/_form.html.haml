@@ -9,7 +9,6 @@
           %ul
             - @menu_item.errors.full_messages.each do |msg|
               %li= msg
-
   .form-group
     = f.label :type_item, "Група", :class => 'col-sm-2 control-label'
     .col-sm-10
@@ -21,7 +20,7 @@
   .form-group
     = f.label :parent_id, "Батько", :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :parent_id, Admin::MenuItem.parent_roles.insert(0, 0), {}, :multiple => false, :class => 'form-control'
+      = f.select :parent_id, Admin::MenuItem.parent_roles.insert(0, "--Відсутній--"), {}, :multiple => false, :class => 'form-control'
   .form-group
     = f.label :title, "Назва", :class => 'col-sm-2 control-label'
     .col-sm-10

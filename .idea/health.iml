@@ -141,6 +141,7 @@
     <orderEntry type="library" scope="PROVIDED" name="ckeditor (v4.1.6@123389, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.0.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.5.8, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.1.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.10.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
@@ -173,6 +174,7 @@
     <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.13, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="method_source (v0.8.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v2.99.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mimemagic (v0.3.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.5.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
@@ -190,6 +192,7 @@
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="paperclip (v4.3.6, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pr_geohash (v1.0.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pry (v0.10.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.6.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v4.2.5, RVM: ruby-2.0.0-p647) [gem]" level="application" />
@@ -213,6 +216,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="select2-rails (v4.0.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sexp_processor (v4.7.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="slop (v3.6.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v1.6.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.5.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.0.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />

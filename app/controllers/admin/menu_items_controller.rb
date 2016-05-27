@@ -60,6 +60,9 @@ module Admin
 
       respond_to do |format|
         if @menu_item.save
+          author = [author: current_user.name, date: Time.now]
+          @menu_item.list_authors = author
+          @menu_item.save
           format.html { redirect_to @menu_item, notice: 'Menu item was successfully created.' }
           format.json { render :show, status: :created, location: @menu_item }
         else
@@ -75,6 +78,9 @@ module Admin
       # abort @menu_item.id_post.inspect
       respond_to do |format|
         if @menu_item.update(menu_item_params)
+          author = {author: current_user.name, date: Time.now}
+          @menu_item.list_authors << author
+          @menu_item.save
           format.html { redirect_to @menu_item, notice: 'Menu item was successfully updated.' }
           format.json { render :show, status: :ok, location: @menu_item }
         else

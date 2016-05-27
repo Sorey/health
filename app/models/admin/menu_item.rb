@@ -21,10 +21,12 @@ class Admin::MenuItem
   field :meta_description, type: String
   field :meta_keywords, type: String
 
+  field :list_authors, type: Array
+
   has_many :children, class_name: "Admin::MenuItem" #, foreign_key: "parent_id"
   belongs_to :parent, class_name: "Admin::MenuItem"
   after_save :reload_routes
-
+  # after_save :save_author
 
   validates :title,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."} #, presence: { message: "не може бути пустим"}
   validates_format_of :link, :allow_blank => true, :with => /\A[\S]+\z/, message: "повинен бути без пробілів."
@@ -50,8 +52,10 @@ class Admin::MenuItem
   #            end
   # end
 
-
-
+  # def save_author
+  #   author = [current_user.name, Time.now]
+  #   self.list_authors << author
+  # end
 
   def self.get_alias_links
     get_not_empty = where(:alias.ne =>  '')

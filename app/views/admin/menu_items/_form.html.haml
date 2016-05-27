@@ -30,7 +30,7 @@
     .col-sm-10
       = f.text_field :link , :class => 'form-control input-responsive'
   .form-group
-    = f.label :target, '<span style="color:#15379E;">Таргет</span>'.html_safe, :class => 'col-sm-2 control-label'
+    = f.label :target, 'Таргет'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :target ,['_self', '_blank', '_parent', '_top' ], {}, :class => 'form-control input-responsive'
   .form-group

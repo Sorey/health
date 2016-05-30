@@ -17,10 +17,14 @@ module Admin
         session[:user_id] = user.id.to_s
         # abort user.id.to_s.inspect
 
-        redirect_to admin_news_index_path
+        redirect_to action: 'successful_login'
       else
         redirect_to admin_login_url, alert: "Invalid user/password combination"
       end
+    end
+
+    def successful_login
+
     end
 
     def destroy

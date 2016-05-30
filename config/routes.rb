@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get  'login' => :new
       post 'login' => :create
       delete 'logout' => :destroy
+      get 'successful_login' => :successful_login
     end
     # resources :users1
     # get 'signup'  => 'users1#new'

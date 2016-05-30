@@ -11,6 +11,7 @@ class Admin::Article
   # field :meta_title, type: String
 
   belongs_to :admin_articles_group, :class_name => 'Admin::ArticlesGroup'
+  belongs_to :admin_role, :class_name => 'Admin::Role'
 
   validates :title,  length: { minimum: 5, maximum: 200, message: "(Заголовок): мінімально 5, максимально 200 символів."} #, presence: { message: "не може бути пустим"}
   validates :title_english, presence: { message: "не може бути пустим"},
@@ -21,4 +22,13 @@ class Admin::Article
   validates :meta_keywords, :allow_blank => true, length: { minimum: 3, maximum: 160, message: "(Ключові слова): мінімально 3, максимально 150 символів."}
   validates :meta_description, :allow_blank => true, length: { minimum: 5, maximum: 250, message: "(Опис для пошуку): мінімально 5, максимально 250 символів."}
   validates :description, presence: { message: "(Тіло статті) не може бути пустим"}
+
+  def self.get_articles user_role
+    if user_role.title == "admin"
+      all
+    else
+      where(:admin_role_id => user_role)
+    end
+  end
+
 end

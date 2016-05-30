@@ -82,7 +82,7 @@ module Admin
 
     def user_params
       # abort params.inspect
-      params.require(:admin_user).permit(:login, :first_name, :name, :last_name, :email, :password, :password_confirmation, admin_role_ids: [])
+      params.require(:admin_user).permit(:name, :full_name, :email, :password, :password_confirmation, admin_role_ids: [])
     end
 
 

@@ -1,5 +1,6 @@
 module Admin
   class ArticlesController < AdminController
+    skip_before_action :require_role  #, only: [:index, :show, :edit, :update]
     before_action :set_article, only: [:show, :edit, :update, :destroy]
     around_filter :catch_not_found
 
@@ -7,7 +8,9 @@ module Admin
     # GET /articles
     # GET /articles.json
     def index
-      @articles1 = Admin::Article.order(sort_column + " " + sort_direction)
+      @articles1 = Admin::Article.get_articles current_user.admin_roles.first
+      @articles1 = @articles1.order(sort_column + " " + sort_direction)
+      # @articles1 = Admin::Article.order(sort_column + " " + sort_direction)
       @articles1 = @articles1.where(:admin_articles_group.in => params["group_select"]) unless params["group_select"].blank?
       @articles = @articles1.page(params[:page]).per(35)
 
@@ -15,7 +18,6 @@ module Admin
         format.js
         format.html
       end
-
     end
 
     # GET /articles/1
@@ -40,7 +42,7 @@ module Admin
     # POST /articles.json
     def create
       @article = Admin::Article.new(article_params)
-
+      @article.admin_role = current_user.admin_roles.first
       respond_to do |format|
         if @article.save
           format.html { redirect_to @article, notice: 'Стаття успішно створена.' }

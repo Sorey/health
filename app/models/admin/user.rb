@@ -5,6 +5,7 @@ class Admin::User
 
   include Mongoid::Timestamps
   field :name, type: String
+  field :full_name, type: String
   field :email, type: String
 
   field :password_digest, :type => String

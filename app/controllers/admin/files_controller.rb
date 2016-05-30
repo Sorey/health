@@ -1,10 +1,12 @@
 class Admin::FilesController < Admin::AdminController
+  skip_before_action :require_role  #, only: [:index, :show, :edit, :update]
   before_action :set_admin_file, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/files
   # GET /admin/files.json
   def index
-    @admin_files = Admin::File.all
+    @admin_files = Admin::File.get_files current_user.admin_roles.first
+    # @admin_files = Admin::File.all
   end
 
   # GET /admin/files/1
@@ -25,6 +27,7 @@ class Admin::FilesController < Admin::AdminController
   # POST /admin/files.json
   def create
     @admin_file = Admin::File.new(admin_file_params)
+    @admin_file.admin_role = current_user.admin_roles.first
 
     respond_to do |format|
       if @admin_file.save

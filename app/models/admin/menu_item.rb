@@ -25,6 +25,7 @@ class Admin::MenuItem
 
   has_many :children, class_name: "Admin::MenuItem" #, foreign_key: "parent_id"
   belongs_to :parent, class_name: "Admin::MenuItem"
+  belongs_to :admin_role, :class_name => 'Admin::Role'
   after_save :reload_routes
   # after_save :save_author
 
@@ -56,6 +57,14 @@ class Admin::MenuItem
   #   author = [current_user.name, Time.now]
   #   self.list_authors << author
   # end
+
+  def self.get_menu_items(category, user_role)
+    if user_role.title == "admin"
+      where(type_item: category).order(order_item: :asc) unless category.blank?
+    else
+      where(type_item: category, :admin_role_id => user_role).order(order_item: :asc) unless category.blank?
+    end
+  end
 
   def self.get_alias_links
     get_not_empty = where(:alias.ne =>  '')
@@ -114,9 +123,9 @@ class Admin::MenuItem
     all.collect{|a| [a.type_item, a.type_item]}
   end
 
-  def self.get_menu_items
-    where(type_item: "header-menu").order(created_at: :desc)
-  end
+  # def self.get_menu_items
+  #   where(type_item: "header-menu").order(created_at: :desc)
+  # end
 
   def reload_routes
     DynamicRouter.reload

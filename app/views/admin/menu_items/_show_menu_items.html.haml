@@ -8,12 +8,13 @@
       }
     }
     tbody{
-      td:nth-child(3), td:nth-child(6), td:nth-child(7), td:first-child{
+      td:nth-child(3), td:nth-child(6), td:nth-child(7), td:first-child, td:last-child{
         text-align: center;
       }
       td .btn{
        //display: inline-block;
-       //margin: 0px 0px 5px;
+       //margin: 5px 5px 5px;
+       margin: 2px;
        //padding: 4px 6px;
        //width: 30px;
       }
@@ -24,8 +25,8 @@
   .title
     %h1 Список пунктів  #{menu_category}
   .btn-new-news
-    -#- if current_user && current_user.admin?
-    = link_to 'Створити пункт меню', new_admin_menu_item_path, :class => 'btn btn-primary'
+    - if current_user && current_user.access?(params[:controller], params[:action])
+      = link_to 'Створити пункт меню', new_admin_menu_item_path, :class => 'btn btn-primary'
 %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
   %thead
     %tr
@@ -38,8 +39,6 @@
       %th Аліас
       %th Батько
       %th Порядок
-      %th
       %th Дії
-      %th
   %tbody
     = menu.html_safe

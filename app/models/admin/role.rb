@@ -9,6 +9,9 @@ class Admin::Role
   has_and_belongs_to_many :admin_users, :class_name => 'Admin::User'
   has_many :children, :class_name => 'Admin::Role' #, foreign_key: 'parent_id'
   belongs_to :parent, :class_name => 'Admin::Role'
+  has_many :admin_menu_items, :class_name => 'Admin::MenuItem'
+  has_many :admin_articles, :class_name => 'Admin::Article'
+  has_many :admin_files, :class_name => 'Admin::File'
 
   def self.parent_roles
     all.collect{|a| [a.title, a.id]}

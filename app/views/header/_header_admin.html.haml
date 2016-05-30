@@ -133,18 +133,21 @@
                   Новини
                   %span.caret
                 %ul.dropdown-menu
-                  %li
-                    %a{:href => admin_news_index_path} Публічні новини
-                  %li
-                    %a{:href => new_admin_news_path } Створити новину
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => admin_managers_news_index_path} Новини для керівників
-                  %li
-                    %a{:href => new_admin_managers_news_path } Створити новину
-                  %li.divider{:role => "separator"}
-                  %li
-                    %a{:href => admin_videos_path} Відеоматеріали
+                  - if current_user.access? "admin/news", "index"
+                    %li
+                      %a{:href => admin_news_index_path} Публічні новини
+                    %li
+                      %a{:href => new_admin_news_path } Створити новину
+                    %li.divider{:role => "separator"}
+                  - if current_user.access? "admin/managers_news", "index"
+                    %li
+                      %a{:href => admin_managers_news_index_path} Новини для керівників
+                    %li
+                      %a{:href => new_admin_managers_news_path } Створити новину
+                    %li.divider{:role => "separator"}
+                  - if current_user.access? "admin/videos", "index"
+                    %li
+                      %a{:href => admin_videos_path} Відеоматеріали
             - if current_user
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -164,28 +167,20 @@
                   %li.divider{:role => "separator"}
                   %li
                     %a{:href => admin_articles_path} Статті
-                  - if current_user && current_user.access_admin?
-                    %li.divider{:role => "separator"}
-                    %li
-                      %a{:href => admin_articles_groups_path} Групи статей
-                    %li.divider{:role => "separator"}
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => admin_articles_groups_path} Групи статей
+                  %li.divider{:role => "separator"}
+                  - if current_user.access? "admin/medical_setups", "index"
                     %li
                       %a{:href => admin_medical_setups_path} Медичні установи
+                  - if current_user.access? "admin/private_medical_setups", "index"
                     %li
                       %a{:href => admin_private_medical_setups_path} Приватні медичні установи
+                  - if current_user.access? "admin/polls", "index"
                     %li.divider{:role => "separator"}
                     %li
                       %a{:href => admin_polls_path} Опитування
-                    -#%li.divider{:role => "separator"}
-                    -#%li
-                      %a{:href => admin_videos_path} Відеоматеріали
-                    -#%li.divider{:role => "separator"}
-                    -#%li
-                    -#  %a{:href => "#"} ddDDdd
-                    -#%li
-                    -#  %a.a-within{:href => "#"} ввКомплексний план
-                    -#%li
-                    -#  %a.a-within{:href => "#"} ввПлан роботи на місяць
             -#- if current_user && current_user.access_admin?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

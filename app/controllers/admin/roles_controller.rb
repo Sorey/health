@@ -1,7 +1,7 @@
 module Admin
   class RolesController < AdminController
     def index
-      @roles = Admin::Role.all
+      @roles = Admin::Role.all.order(created_at: :asc)
     end
 
     def show

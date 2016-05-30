@@ -14,7 +14,7 @@
           = @role.title
       %tr
         %th Parent
-        %td= @role.parent.title
+        %td= @role.parent.title if @role.parent
       %tr
         %th Role level
         %td= @role.type_role

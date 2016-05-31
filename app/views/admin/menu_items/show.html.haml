@@ -1,4 +1,19 @@
-.container
+:scss
+  .show_menu_item{
+    .authors{
+      display:none;
+    }
+    a.show_authors{
+      text-decoration: none;
+    }
+    a.show_authors:hover .authors{
+      display:block;
+      color: black;
+    }
+  }
+
+
+.container.show_menu_item
   %p#notice= notice
   %p
     %h2
@@ -38,7 +53,19 @@
       %tr
         %th Показувати?
         %td= @menu_item.show
-
+      %tr
+        %th Автори:
+        %td
+          - if @menu_item.list_authors
+            %a.show_authors
+              %li= "Автор */ Роль */ Дата"
+              - @menu_item.list_authors.each do |author|
+                %li.authors
+                  = author[:author]
+                  = "*/ "
+                  = author[:author_role]
+                  = "*/ "
+                  = author[:date]
 
   = link_to 'Редагувати', edit_admin_menu_item_path(@menu_item), :class => 'btn btn-primary'
 

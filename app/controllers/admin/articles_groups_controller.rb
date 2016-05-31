@@ -1,11 +1,12 @@
 module Admin
   class ArticlesGroupsController < AdminController
+    skip_before_action :require_role  #, only: [:index, :show, :edit, :update]
     before_action :set_articles_group, only: [:show, :edit, :update, :destroy]
 
     # GET /articles_groups
     # GET /articles_groups.json
     def index
-      @articles_groups = Admin::ArticlesGroup.all
+      @articles_groups = Admin::ArticlesGroup.get_groups_articles current_user.admin_roles.first
     end
 
     # GET /articles_groups/1
@@ -26,6 +27,7 @@ module Admin
     # POST /articles_groups.json
     def create
       @articles_group = Admin::ArticlesGroup.new(articles_group_params)
+      @articles_group.admin_role = current_user.admin_roles.first
 
       respond_to do |format|
         if @articles_group.save

@@ -8,6 +8,7 @@ class Admin::ArticlesGroup
   field :publish_on, type: Boolean
 
   has_many :admin_articles, :class_name => 'Admin::Article'
+  belongs_to :admin_role, :class_name => 'Admin::Role'
 
   validates :title,  length: { minimum: 5, maximum: 150, message: "(Заголовок): мінімально 5, максимально 150 символів."} #, presence: { message: "не може бути пустим"}
   validates :title_english, presence: { message: "не може бути пустим"},
@@ -18,5 +19,13 @@ class Admin::ArticlesGroup
 
   def self.get_group?
     self.find_by(title_english: 'regional_programs')
+  end
+
+  def self.get_groups_articles user_role
+    if user_role.title == "admin"
+      all
+    else
+      where(:admin_role_id => user_role)
+    end
   end
 end

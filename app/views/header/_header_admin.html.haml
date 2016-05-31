@@ -167,7 +167,7 @@
                   %li.divider{:role => "separator"}
                   %li
                     %a{:href => admin_articles_path} Статті
-                  %li.divider{:role => "separator"}
+                  -#%li.divider{:role => "separator"}
                   %li
                     %a{:href => admin_articles_groups_path} Групи статей
                   %li.divider{:role => "separator"}
@@ -177,8 +177,8 @@
                   - if current_user.access? "admin/private_medical_setups", "index"
                     %li
                       %a{:href => admin_private_medical_setups_path} Приватні медичні установи
-                  - if current_user.access? "admin/polls", "index"
                     %li.divider{:role => "separator"}
+                  - if current_user.access? "admin/polls", "index"
                     %li
                       %a{:href => admin_polls_path} Опитування
             -#- if current_user && current_user.access_admin?

@@ -18,7 +18,7 @@ module Admin
 
         redirect_to action: 'successful_login'
       else
-        redirect_to admin_login_url, alert: "Invalid user/password combination"
+        redirect_to admin_login_url, alert: "Invalid login/password combination"
       end
     end
 

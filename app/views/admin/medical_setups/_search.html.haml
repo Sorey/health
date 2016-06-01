@@ -1,0 +1,39 @@
+:scss
+  .search-medical-setups{
+    display: inline-block;
+    float: right;
+    margin:22px 5px 5px;
+    .search-field{
+      float: right;
+      min-width: 270px;
+    }
+    .search-buttom{
+      display: none;
+    }
+  }
+
+.search-medical-setups
+  = form_tag admin_medical_setups_path, :method => :get, :remote => true, :html => { :class => 'form-inline col-sm-12' } do |f|
+    -#.row
+    .search-field
+      = select_tag :group_select, options_for_select(Admin::MedicalSetupsGroup.all.collect {|x| [x.name, x.id]} ),{ multiple: true, class: 'group_select' }
+
+    .search-buttom
+      = button_tag(type: 'submit', :class => 'btn btn-primary', :id => 'search_btn') do
+        = 'Пошук'
+        %i.fa.fa-search.fa-lg
+
+:javascript
+  $(document).ready(function() {
+
+    $(".group_select").select2(
+      {
+        allowClear: true,
+        width: '100%',
+        placeholder: 'Оберіть групу',
+        multiSelect: true,
+      }
+    ).on("change", function(){
+      $("#search_btn").trigger("click");
+    })
+  });

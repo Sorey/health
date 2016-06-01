@@ -1,7 +1,7 @@
 class Admin::MedicalSetupsController < Admin::AdminController
   def index
     @medical_setups = Admin::MedicalSetup.get_medical_setups_group params[:category]
-
+    @medical_setups = @medical_setups.where(:admin_medical_setup_category.in => params["group_select"]) unless params["group_select"].blank?
     respond_to do |format|
       format.js
       format.html

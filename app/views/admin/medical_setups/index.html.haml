@@ -49,50 +49,32 @@
       .btn-new-news
         -#- if current_user && current_user.admin?
         = link_to 'Нова медична установа', new_admin_medical_setup_path, :class => 'btn btn-primary'
+      = render partial: 'search'
   .container-fluid
     -#.col-md-10.col-md-offset-1
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-      %thead
-        %tr
-          %th{rowspan: 2} № п/п
-          %th{rowspan: 2} Назва медичної установи
-          %th{rowspan: 2} Адреса
-          %th{rowspan: 2} Контактні телефони
-          %th{rowspan: 2} Головний лікар
-          %th{rowspan: 2} Електронна пошта
-          %th{colspan: 3} Ліцензія на право здійснювати медичну діяльність
-          %th{rowspan: 2} Категорія
-          %th{rowspan: 2} Дія
-          -#%th{rowspan: 2} Сайт
-          -#%th{rowspan: 2} Локація
-        %tr
-          -#%th Діє з
-          -#%th Номер ліцензії
-          -#%th Діє до
-          %th Термін дії ліцензії з
-          %th № ліцензії серія
-          %th Термін дії акредитаційного сертифіката по
-      %tbody
-        - m_iterator = 1
-        - @medical_setups.each do |m|
+    .medical-setups-table.table-responsive
+      %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+        %thead
           %tr
-            %td= m_iterator
-            -#%td= m.id.to_s.last(3)
-            %td= m.name
-            %td= m.address
-            %td= m.phone
-            %td= m.head_doctor
-            %td= m.email
-            %td= m.date_start
-            %td= m.number_license
-            %td= m.date_finish
-            %td= m.medical_level
-            %td
-              = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_medical_setup_path(m), title: "Переглянути",  :class => 'btn btn-info'
-              -#= link_to 'Редагувати', edit_admin_news_path(u), :class => 'btn btn-default'
-              = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_medical_setup_path(m), title: "Редагувати", :class => 'btn btn-primary'
-              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, m, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
-
-            - m_iterator = m_iterator + 1
+            %th{rowspan: 2} № п/п
+            %th{rowspan: 2} Назва медичної установи
+            %th{rowspan: 2} Адреса
+            %th{rowspan: 2} Контактні телефони
+            %th{rowspan: 2} Головний лікар
+            %th{rowspan: 2} Електронна пошта
+            %th{colspan: 3} Ліцензія на право здійснювати медичну діяльність
+            %th{rowspan: 2} Категорія
+            %th{rowspan: 2} Дія
+            -#%th{rowspan: 2} Сайт
+            -#%th{rowspan: 2} Локація
+          %tr
+            -#%th Діє з
+            -#%th Номер ліцензії
+            -#%th Діє до
+            %th Термін дії ліцензії з
+            %th № ліцензії серія
+            %th Термін дії акредитаційного сертифіката по
+        %tbody#results
+          = render partial: "search_medical_setups", :locals => { medical_setups: @medical_setups }
     .medical_setups_groups
       = link_to 'Групи медичних установ', admin_medical_setups_groups_path, :class => 'btn btn-primary'

@@ -14,7 +14,7 @@ class Admin::File
   skip_callback :update, :before, :store_previous_model_for_file
 
   def self.get_files user_role
-    if user_role.title == "admin"
+    if user_role.is_admin? || user_role.is_manager?
       all
     else
       where(:admin_role_id => user_role)

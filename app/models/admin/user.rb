@@ -74,12 +74,16 @@ class Admin::User
   # def admin?
   #   @roles = self.roles
   #   @roles.each do |r|
-  #     @true = r.title if r.title == 'admin'
+  #     @true = r.title if r.is_admin?
   #   end
   #   @true == 'admin'
   # end
 
-  def access_admin?
-    self.admin_roles.first.title == "admin"
+  def is_admin?
+    self.admin_roles.first.is_admin?
+  end
+
+  def is_manager?
+    self.admin_roles.first.is_manager?
   end
 end

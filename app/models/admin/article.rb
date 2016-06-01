@@ -24,7 +24,7 @@ class Admin::Article
   validates :description, presence: { message: "(Тіло статті) не може бути пустим"}
 
   def self.get_articles user_role
-    if user_role.title == "admin"
+    if user_role.is_admin? || user_role.is_manager?
       all
     else
       where(:admin_role_id => user_role)

@@ -22,7 +22,7 @@ class Admin::ArticlesGroup
   end
 
   def self.get_groups_articles user_role
-    if user_role.title == "admin"
+    if user_role.is_admin? || user_role.is_manager?
       all
     else
       where(:admin_role_id => user_role)
@@ -30,7 +30,7 @@ class Admin::ArticlesGroup
   end
 
   def self.get_groups_articles_for_select user_role
-    if user_role.title == "admin"
+    if user_role.is_admin? || user_role.is_manager?
       all.collect { |t| [t.title, t.id] }
     else
       where(:admin_role_id => user_role).collect { |t| [t.title, t.id] }

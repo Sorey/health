@@ -59,7 +59,7 @@ class Admin::MenuItem
   # end
 
   def self.get_menu_items(category, user_role)
-    if user_role.title == "admin"
+    if user_role.is_admin? || user_role.is_manager?
       where(type_item: category).order(order_item: :asc) unless category.blank?
     else
       where(type_item: category, :admin_role_id => user_role).order(order_item: :asc) unless category.blank?

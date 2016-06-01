@@ -9,7 +9,7 @@
           %ul
             - @menu_item.errors.full_messages.each do |msg|
               %li= msg
-  -if current_user.admin_roles.first.title == "admin"
+  -if current_user.is_admin? || current_user.is_manager?
     .form-group
       = f.label :admin_role_id, "Доступ для ролі:", :class => 'col-sm-2 control-label'
       .col-sm-10
@@ -46,15 +46,16 @@
     = f.label :alias, '<span style="color:#6224AF;">Аліас</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :alias , :class => 'form-control input-responsive'
-  -unless current_user.admin_roles.first.title != "admin" && @menu_item.type_level == 'Заголовок меню'|| @menu_item.type_level == 'Пункт меню'
+  - unless ((!current_user.is_admin? || !current_user.is_manager?) && (@menu_item.type_level == 'Заголовок меню'|| @menu_item.type_level == 'Пункт меню')) && (!current_user.is_admin? && !current_user.is_manager?)
+    -# show these fields for 'Заголовок меню' and 'Пункт меню' only for admin and manager
     .form-group
       = f.label :order_item, "Порядок", :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.number_field :order_item, :class => 'form-control input-responsive'
-  .form-group
-    = f.label :show, "Показувати?", :class => 'col-sm-2 control-label'
-    .col-sm-10
-      = f.check_box :show, :class => 'form-control input-responsive'
+    .form-group
+      = f.label :show, "Показувати?", :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.check_box :show, :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

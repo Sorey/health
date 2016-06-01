@@ -26,4 +26,16 @@ class Admin::Role
     # ).limit(1)
     where(title: role_ask).first
   end
+
+  def is_admin?
+    title.eql?("admin")
+  end
+
+  def is_manager?
+    title.eql?("manager")
+  end
+
+  def is_admin_or_manager?
+    title.eql?("admin") || title.eql?("manager")
+  end
 end

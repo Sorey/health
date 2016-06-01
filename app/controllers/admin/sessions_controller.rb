@@ -8,10 +8,9 @@ module Admin
     end
 
     def create
-      user = Admin::User.find_by(name: params[:name])
-      unless user
-        user = Admin::User.find_by(email: params[:name])
-      end
+      user = Admin::User.where(name: params[:name]).first
+      user = Admin::User.where(email: params[:name]).first unless user
+
       user
       if user and user.authenticate(params[:password])
         session[:user_id] = user.id.to_s

@@ -15,7 +15,7 @@
   .form-group
     = f.label :articles_group_id,'Категорія', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :admin_articles_group_id, Admin::ArticlesGroup.all.collect {|x| [x.title, x.id]}, {},:class => 'form-control input-responsive'
+      = f.select :admin_articles_group_id, Admin::ArticlesGroup.get_groups_articles_for_select(current_user.admin_roles.first), {},:class => 'form-control input-responsive'
   .form-group
     = f.label :title,'Заголовок', :class => 'col-sm-2 control-label'
     .col-sm-10

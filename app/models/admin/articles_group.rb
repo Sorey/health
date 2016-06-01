@@ -28,4 +28,13 @@ class Admin::ArticlesGroup
       where(:admin_role_id => user_role)
     end
   end
+
+  def self.get_groups_articles_for_select user_role
+    if user_role.title == "admin"
+      all.collect { |t| [t.title, t.id] }
+    else
+      where(:admin_role_id => user_role).collect { |t| [t.title, t.id] }
+    end
+  end
+
 end

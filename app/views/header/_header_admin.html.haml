@@ -151,7 +151,7 @@
             - if current_user
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                  Наповнення сайту
+                  Пункти меню
                   %span.caret
                 %ul.dropdown-menu
                   %li
@@ -170,10 +170,27 @@
                   -#%li.divider{:role => "separator"}
                   %li
                     %a{:href => admin_articles_groups_path} Групи статей
-                  %li.divider{:role => "separator"}
+                  -#%li.divider{:role => "separator"}
+                  -#- if current_user.access? "admin/medical_setups", "index"
+                  -#  %li
+                  -#    %a{:href => admin_medical_setups_path} Медичні установи
+                  -#- if current_user.access? "admin/private_medical_setups", "index"
+                  -#  %li
+                  -#    %a{:href => admin_private_medical_setups_path} Приватні медичні установи
+                  -#  %li.divider{:role => "separator"}
+                  -#- if current_user.access? "admin/polls", "index"
+                  -#  %li
+                  -#    %a{:href => admin_polls_path} Опитування
+            - if current_user
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Модулі
+                  %span.caret
+                %ul.dropdown-menu
                   - if current_user.access? "admin/medical_setups", "index"
                     %li
                       %a{:href => admin_medical_setups_path} Медичні установи
+                    %li.divider{:role => "separator"}
                   - if current_user.access? "admin/private_medical_setups", "index"
                     %li
                       %a{:href => admin_private_medical_setups_path} Приватні медичні установи

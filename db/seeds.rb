@@ -615,12 +615,12 @@
 # a_u2.admin_roles << [a_r2]
 # a_u3.admin_roles << [a_r3]
 
+#-----------------Add seed for users----------------------#
+a_u1 = Admin::User.create(name: "ManagerTru", full_name: "Трухановська О.В.", password: "987789", password_confirmation: "987789")
+a_u2 = Admin::User.create(name: "ManagerKor", full_name: "Король Г.В.", password: "876678", password_confirmation: "876678")
+a_u3 = Admin::User.create(name: "ManagerSav", full_name: "Савчук В.О.", password: "765567", password_confirmation: "765567")
 
-a_u1 = Admin::User.create(name: "Manager_tru", full_name: "Трухановська О.В.", password: "987789", password_confirmation: "987789")
-a_u2 = Admin::User.create(name: "Manager_kor", full_name: "Король Г.В.", password: "876678", password_confirmation: "876678")
-a_u3 = Admin::User.create(name: "Manager_sav", full_name: "Савчук В.О.", password: "765567", password_confirmation: "765567")
-
-#_____________________Add seed for roles______________________#
+#-----------------Add seed for roles---------------------#
 a_r1 = Admin::Role.create(title: "manager_tru", type_role: 0, parent_id: 1)
 a_r2 = Admin::Role.create(title: "manager_kor", type_role: 0, parent_id: 1)
 a_r3 = Admin::Role.create(title: "manager_sav", type_role: 0, parent_id: 1)
@@ -727,6 +727,8 @@ a_r68 = Admin::Role.create(title: "admin/menu_itemscreate", type_role: 1, parent
 a_r69 = Admin::Role.create(title: "admin/menu_itemsedit", type_role: 1, parent_id: a_r65_1.id)
 a_r70 = Admin::Role.create(title: "admin/menu_itemsupdate", type_role: 1, parent_id: a_r65_1.id)
 a_r71 = Admin::Role.create(title: "admin/menu_itemsdestroy", type_role: 1, parent_id: a_r65_1.id)
+
+#_____________________Add seed for roles___________________________#
 
 # Admin::MenuItem.delete_all
 # m1 = Admin::MenuItem.create(title: "Департамент охорони здоров'я", type_level: "Заголовок меню", type_item: "Головне меню",

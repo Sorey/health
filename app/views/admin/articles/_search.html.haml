@@ -16,7 +16,7 @@
   = form_tag admin_articles_path, :method => :get, :remote => true, :html => { :class => 'form-inline col-sm-12' } do |f|
     -#.row
     .search-field
-      = select_tag :group_select, options_for_select(Admin::ArticlesGroup.all.collect { |t| [t.title, t.id] } ),{ multiple: true, class: 'group_select' }
+      = select_tag :group_select, options_for_select(Admin::ArticlesGroup.get_groups_articles_for_select current_user.admin_roles.first ),{ multiple: true, class: 'group_select' }
 
     .search-buttom
       = button_tag(type: 'submit', :class => 'btn btn-primary', :id => 'search_btn') do

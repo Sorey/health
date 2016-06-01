@@ -28,7 +28,7 @@
   .form-group
     = u.label :type_role, 'Role level', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.text_field :type_role, :class => 'form-control input-responsive'
+      = u.select :type_role, [["Група дій", "0"], ["Дія", "1"]], {}, :multiple => false, :class => 'form-control input-responsive'
   .form-group
     = u.label :parent_id, :class => 'col-sm-2 control-label'
     .col-sm-10

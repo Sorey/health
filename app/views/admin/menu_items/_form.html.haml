@@ -13,7 +13,7 @@
     .form-group
       = f.label :admin_role_id, "Доступ для ролі:", :class => 'col-sm-2 control-label'
       .col-sm-10
-        = f.select :admin_role_id, Admin::Role.all.collect {|x| [x.title, x.id]}, {include_blank: true}, :multiple => false,  :class => 'form-control input-responsive'
+        = f.select :admin_role_id, Admin::Role.parent_roles, {include_blank: true}, :multiple => false,  :class => 'form-control input-responsive'
     .form-group
       = f.label :type_item, "Група", :class => 'col-sm-2 control-label'
       .col-sm-10

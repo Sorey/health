@@ -4,7 +4,7 @@
       display:none;
     }
     a.show_authors{
-      text-decoration: none;
+      //text-decoration: none;
     }
     a.show_authors:hover .authors{
       display:block;
@@ -22,7 +22,7 @@
         = @menu_item.title
   %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
     %tbody
-      %tr
+      -#%tr
         %th Id_пункту:
         %td= @menu_item._id.to_s.last(8)
       %tr
@@ -36,11 +36,10 @@
         %td= @menu_item.title
       %tr
         %th URL:
-        %td
-          - if @menu_item.link
-            +
-          - else
-            -
+        %td= @menu_item.link
+      %tr
+        %th Аліас
+        %td= @menu_item.alias
       %tr
         %th Таргет:
         %td= @menu_item.target
@@ -50,6 +49,10 @@
       %tr
         %th Порядок:
         %td= @menu_item.order_item
+      %tr
+        %th Доступ для ролі
+        %td
+          = @menu_item.admin_role.title if @menu_item.admin_role
       %tr
         %th Показувати?
         %td= @menu_item.show

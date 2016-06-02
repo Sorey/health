@@ -14,9 +14,12 @@ class Admin::Role
   has_many :admin_articles_groups, :class_name => 'Admin::ArticlesGroup'
   has_many :admin_files, :class_name => 'Admin::File'
 
+  validates :title, presence: { message: "не може бути пустим"},
+            uniqueness: { message: "уже зайнято."}
 
   def self.parent_roles
-    all.collect{|a| [a.title, a.id]}
+    # all.collect{|a| [a.title, a.id]}
+    where(:title.nin => [/#{"/"}/]).collect {|x| [x.title, x.id]}
   end
 
   def self.take_title(role_ask)

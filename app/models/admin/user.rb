@@ -13,6 +13,9 @@ class Admin::User
 
   has_and_belongs_to_many :admin_roles, :class_name => 'Admin::Role'
 
+  validates :name, presence: { message: "не може бути пустим"},
+            uniqueness: { message: "уже зайнято."}
+
   def access2? (cont, act)
     @admin_parent_id = 0
     @role_ask = "#{cont}#{act}"

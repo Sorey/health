@@ -1,7 +1,7 @@
 :scss
   .date-select select{
     display: inline-block;
-    width: 33%;
+    width: 33.3%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -41,7 +41,7 @@
   .form-group
     = f.label :date_start, 'Дата події', :class => 'col-sm-2 control-label'
     .col-sm-10.date-select
-      = f.date_select :date_start, :order => [:day, :month, :year], :class => 'col-sm-4'
+      = f.date_select :date_start, {:order => [:day, :month, :year], :use_month_numbers => true}, :class => 'col-sm-4'
   .form-group
     = f.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
     .col-sm-10

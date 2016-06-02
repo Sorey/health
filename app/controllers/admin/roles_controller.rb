@@ -42,7 +42,7 @@ module Admin
 
       respond_to do |format|
         if @role.update(role_params)
-          format.html { redirect_to @role, notice: 'User was successfully created.' }
+          format.html { redirect_to @role, notice: 'Role was successfully created.' }
           format.json { render action: 'show', status: :created, location: @role }
         else
           format.html { render action: 'edit' }
@@ -54,10 +54,12 @@ module Admin
 
     def destroy
       @role = Admin::Role.find(params[:id])
-      redirect_to :back if @role.title.eql?("admin")
-      @role.destroy
+      @role.destroy unless @role.title.eql?("admin")
 
-      redirect_to admin_roles_path
+      respond_to do |format|
+        format.html { redirect_to admin_roles_url, notice: 'Role was successfully deleted.' }
+        format.json { head :no_content }
+      end
     end
 
     private

@@ -594,12 +594,12 @@
 
 
 # --- New seeds ---
-# Admin::User.delete_all
-# a_u1 = Admin::User.create(name: "Admin", email: "33admin44@gmail.com", password: "987789", password_confirmation: "987789")
-# a_u2 = Admin::User.create(name: "Manager", email: "33manager44@gmail.com", password: "876678", password_confirmation: "876678")
-# a_u3 = Admin::User.create(name: "User", email: "33user44@gmail.com", password: "765567", password_confirmation: "765567")
+Admin::User.delete_all
+a_u01 = Admin::User.create(name: "Admin", email: "33admin44@gmail.com", password: "987789", password_confirmation: "987789")
+a_u02 = Admin::User.create(name: "Manager", email: "33manager44@gmail.com", password: "876678", password_confirmation: "876678")
+a_u03 = Admin::User.create(name: "User", email: "33user44@gmail.com", password: "765567", password_confirmation: "765567")
 #
-# Admin::Role.delete_all
+Admin::Role.delete_all
 # a_r1 = Admin::Role.create(title: "admin", type_role: 0, parent_id: 0)
 # a_r2 = Admin::Role.create(title: "manager", type_role: 0, parent_id: a_r1.id)
 # a_r3 = Admin::Role.create(title: "user", type_role: 0, parent_id: a_r2.id)
@@ -610,10 +610,7 @@
 # a_r8 = Admin::Role.create(title: "admin/newsedit", type_role: 1, parent_id: a_r2.id)
 # a_r9 = Admin::Role.create(title: "admin/newsupdate", type_role: 1, parent_id: a_r2.id)
 # a_r10 = Admin::Role.create(title: "admin/newsdestroy", type_role: 1, parent_id: a_r2.id)
-#
-# a_u1.admin_roles << [a_r1]
-# a_u2.admin_roles << [a_r2]
-# a_u3.admin_roles << [a_r3]
+
 
 #-----------------Add seed for users----------------------#
 a_u1 = Admin::User.create(name: "ManagerTru", full_name: "Трухановська О.В.", password: "987789", password_confirmation: "987789")
@@ -621,7 +618,14 @@ a_u2 = Admin::User.create(name: "ManagerKor", full_name: "Король Г.В.", 
 a_u3 = Admin::User.create(name: "ManagerSav", full_name: "Савчук В.О.", password: "765567", password_confirmation: "765567")
 
 #-----------------Add seed for roles---------------------#
-a_r0 = Admin::Role.create(title: "manager", type_role: 0, parent_id: 1)
+a_r01 = Admin::Role.create(title: "admin", type_role: 0, parent_id: 0)
+a_r0 = Admin::Role.create(title: "manager", type_role: 0, parent_id: a_r01.id)
+a_r03 = Admin::Role.create(title: "user", type_role: 0, parent_id: a_r0.id)
+
+a_u01.admin_roles << [a_r01]
+a_u02.admin_roles << [a_r0]
+a_u03.admin_roles << [a_r03]
+
 a_r1 = Admin::Role.create(title: "manager_tru", type_role: 0, parent_id: a_r0.id)
 a_r2 = Admin::Role.create(title: "manager_kor", type_role: 0, parent_id: a_r0.id)
 a_r3 = Admin::Role.create(title: "manager_sav", type_role: 0, parent_id: a_r0.id)

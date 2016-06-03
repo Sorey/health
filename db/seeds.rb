@@ -633,7 +633,6 @@ a_u1.admin_roles << [a_r1]
 a_u2.admin_roles << [a_r2]
 a_u3.admin_roles << [a_r3]
 
-
 a_r4_1 = Admin::Role.create(title: "managers_news", type_role: 0, parent_id: a_r1.id)
 a_r4 = Admin::Role.create(title: "admin/managers_newsindex", type_role: 1, parent_id: a_r4_1.id)
 a_r5 = Admin::Role.create(title: "admin/managers_newsshow", type_role: 1, parent_id: a_r4_1.id)

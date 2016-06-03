@@ -611,7 +611,6 @@ Admin::Role.delete_all
 # a_r9 = Admin::Role.create(title: "admin/newsupdate", type_role: 1, parent_id: a_r2.id)
 # a_r10 = Admin::Role.create(title: "admin/newsdestroy", type_role: 1, parent_id: a_r2.id)
 
-
 #-----------------Add seed for users----------------------#
 a_u1 = Admin::User.create(name: "ManagerTru", full_name: "Трухановська О.В.", password: "987789", password_confirmation: "987789")
 a_u2 = Admin::User.create(name: "ManagerKor", full_name: "Король Г.В.", password: "876678", password_confirmation: "876678")

@@ -28,7 +28,7 @@ module Admin
 
     def destroy
       session[:user_id] = nil
-      redirect_to  admin_login_url, notice: "Logged out"
+      redirect_to  admin_login_url, alert: "Logged out"
     end
   end
 end

@@ -621,9 +621,10 @@ a_u2 = Admin::User.create(name: "ManagerKor", full_name: "Король Г.В.", 
 a_u3 = Admin::User.create(name: "ManagerSav", full_name: "Савчук В.О.", password: "765567", password_confirmation: "765567")
 
 #-----------------Add seed for roles---------------------#
-a_r1 = Admin::Role.create(title: "manager_tru", type_role: 0, parent_id: 1)
-a_r2 = Admin::Role.create(title: "manager_kor", type_role: 0, parent_id: 1)
-a_r3 = Admin::Role.create(title: "manager_sav", type_role: 0, parent_id: 1)
+a_r0 = Admin::Role.create(title: "manager", type_role: 0, parent_id: 1)
+a_r1 = Admin::Role.create(title: "manager_tru", type_role: 0, parent_id: a_r0.id)
+a_r2 = Admin::Role.create(title: "manager_kor", type_role: 0, parent_id: a_r0.id)
+a_r3 = Admin::Role.create(title: "manager_sav", type_role: 0, parent_id: a_r0.id)
 
 a_u1.admin_roles << [a_r1]
 a_u2.admin_roles << [a_r2]
@@ -667,6 +668,15 @@ a_r16_1 = Admin::Role.create(title: "admin/medical_setups_groupsupdate", type_ro
 a_r17_1 = Admin::Role.create(title: "admin/medical_setups_groupsdestroy", type_role: 1, parent_id: a_r11_1_1.id)
 
 
+a_r25_0 = Admin::Role.create(title: "news", type_role: 0, parent_id: a_r3.id)
+a_r25_0_1 = Admin::Role.create(title: "admin/newsindex", type_role: 1, parent_id: a_r25_0.id)
+a_r25_0_2 = Admin::Role.create(title: "admin/newsshow", type_role: 1, parent_id: a_r25_0.id)
+a_r25_0_3 = Admin::Role.create(title: "admin/newsnew", type_role: 1, parent_id: a_r25_0.id)
+a_r25_0_4 = Admin::Role.create(title: "admin/newscreate", type_role: 1, parent_id: a_r25_0.id)
+a_r25_0_5 = Admin::Role.create(title: "admin/newsedit", type_role: 1, parent_id: a_r25_0.id)
+a_r25_0_6 = Admin::Role.create(title: "admin/newsupdate", type_role: 1, parent_id: a_r25_0.id)
+a_r25_0_7 = Admin::Role.create(title: "admin/newsdestroy", type_role: 1, parent_id: a_r25_0.id)
+
 a_r25_1 = Admin::Role.create(title: "videos", type_role: 0, parent_id: a_r3.id)
 a_r25 = Admin::Role.create(title: "admin/videosindex", type_role: 1, parent_id: a_r25_1.id)
 a_r26 = Admin::Role.create(title: "admin/videosshow", type_role: 1, parent_id: a_r25_1.id)
@@ -692,7 +702,7 @@ a_r41 = Admin::Role.create(title: "admin/repliesupdate", type_role: 1, parent_id
 a_r42 = Admin::Role.create(title: "admin/repliesdestroy", type_role: 1, parent_id: a_r39_1.id)
 
 #----------------------------
-a_r43_1 = Admin::Role.create(title: "articles", type_role: 0, parent_id: 1)
+a_r43_1 = Admin::Role.create(title: "articles", type_role: 0, parent_id: a_r0.id)
 a_r44 = Admin::Role.create(title: "admin/articlesindex", type_role: 1, parent_id: a_r43_1.id)
 a_r45 = Admin::Role.create(title: "admin/articlesshow", type_role: 1, parent_id: a_r43_1.id)
 a_r46 = Admin::Role.create(title: "admin/articlesnew", type_role: 1, parent_id: a_r43_1.id)
@@ -701,7 +711,7 @@ a_r48 = Admin::Role.create(title: "admin/articlesedit", type_role: 1, parent_id:
 a_r49 = Admin::Role.create(title: "admin/articlesupdate", type_role: 1, parent_id: a_r43_1.id)
 a_r50 = Admin::Role.create(title: "admin/articlesdestroy", type_role: 1, parent_id: a_r43_1.id)
 
-a_r51_1 = Admin::Role.create(title: "articles_groups", type_role: 0, parent_id: 1)
+a_r51_1 = Admin::Role.create(title: "articles_groups", type_role: 0, parent_id: a_r0.id)
 a_r51 = Admin::Role.create(title: "admin/articles_groupsindex", type_role: 1, parent_id: a_r51_1.id)
 a_r52 = Admin::Role.create(title: "admin/articles_groupsshow", type_role: 1, parent_id: a_r51_1.id)
 a_r53 = Admin::Role.create(title: "admin/articles_groupsnew", type_role: 1, parent_id: a_r51_1.id)
@@ -710,7 +720,7 @@ a_r55 = Admin::Role.create(title: "admin/articles_groupsedit", type_role: 1, par
 a_r56 = Admin::Role.create(title: "admin/articles_groupsupdate", type_role: 1, parent_id: a_r51_1.id)
 a_r57 = Admin::Role.create(title: "admin/articles_groupsdestroy", type_role: 1, parent_id: a_r51_1.id)
 
-a_r58_1 = Admin::Role.create(title: "files", type_role: 0, parent_id: 1)
+a_r58_1 = Admin::Role.create(title: "files", type_role: 0, parent_id: a_r0.id)
 a_r58 = Admin::Role.create(title: "admin/filesindex", type_role: 1, parent_id: a_r58_1.id)
 a_r59 = Admin::Role.create(title: "admin/filesshow", type_role: 1, parent_id: a_r58_1.id)
 a_r60 = Admin::Role.create(title: "admin/filesnew", type_role: 1, parent_id: a_r58_1.id)
@@ -719,7 +729,7 @@ a_r62 = Admin::Role.create(title: "admin/filesedit", type_role: 1, parent_id: a_
 a_r63 = Admin::Role.create(title: "admin/filesupdate", type_role: 1, parent_id: a_r58_1.id)
 a_r64 = Admin::Role.create(title: "admin/filesdestroy", type_role: 1, parent_id: a_r58_1.id)
 
-a_r65_1 = Admin::Role.create(title: "menu_items", type_role: 0, parent_id: 1)
+a_r65_1 = Admin::Role.create(title: "menu_items", type_role: 0, parent_id: a_r0.id)
 a_r65 = Admin::Role.create(title: "admin/menu_itemsindex", type_role: 1, parent_id: a_r65_1.id)
 a_r66 = Admin::Role.create(title: "admin/menu_itemsshow", type_role: 1, parent_id: a_r65_1.id)
 a_r67 = Admin::Role.create(title: "admin/menu_itemsnew", type_role: 1, parent_id: a_r65_1.id)

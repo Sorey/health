@@ -13,7 +13,7 @@
             - @article.errors.full_messages.each do |msg|
               %li= msg
   .form-group
-    = f.label :articles_group_id,'Категорія', :class => 'col-sm-2 control-label'
+    = f.label :articles_group_id,'Група', :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.select :admin_articles_group_id, Admin::ArticlesGroup.get_groups_articles_for_select(current_user.admin_roles.first), {include_blank: true},:class => 'form-control input-responsive'
   .form-group

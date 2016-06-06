@@ -26,19 +26,19 @@
       .form
         .row
           .col-sm-12
-            %h3 Please Log In
+            %h3 Увійдіть, будь ласка!
         = form_tag( {action: 'create'}, { class: 'form-horizontal'}) do
           .form-group
             .field
-              = label_tag :name, 'Login:', :class => 'col-sm-2 control-label'
+              = label_tag :name, 'Логін:', :class => 'col-sm-2 control-label'
               .col-sm-10
                 = text_field_tag :name, params[:login], :class => 'form-control input-responsive'
           .form-group
             .field
-              = label_tag :password, 'Password:', :class => 'col-sm-2 control-label'
+              = label_tag :password, 'Пароль:', :class => 'col-sm-2 control-label'
               .col-sm-10
                 = password_field_tag :password, params[:password], :class => 'form-control input-responsive'
           .form-group
             .actions
               .col-sm-offset-2.col-sm-10
-                = submit_tag "Login", :class => 'btn btn-primary'
+                = submit_tag "Увійти", :class => 'btn btn-primary'

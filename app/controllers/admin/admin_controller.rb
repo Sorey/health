@@ -28,7 +28,7 @@ module Admin
     def authorize
       if session[:user_id].nil? || !Admin::User.find_by(id: session[:user_id])
         # abort admin_login_url.inspect
-        redirect_to admin_login_url, alert: "Зареєструйтесь!"
+        redirect_to admin_login_url, alert: "Авторизуйтесь!"
       end
     end
   end

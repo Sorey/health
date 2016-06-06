@@ -18,7 +18,7 @@ module Admin
 
         redirect_to action: 'successful_login'
       else
-        redirect_to admin_login_url, alert: "Invalid login/password combination"
+        redirect_to admin_login_url, alert: "Не вірна Логін/Пароль комбінація!"
       end
     end
 
@@ -28,7 +28,7 @@ module Admin
 
     def destroy
       session[:user_id] = nil
-      redirect_to  admin_login_url, alert: "Logged out"
+      redirect_to  admin_login_url, alert: "Ви вийшли."
     end
   end
 end

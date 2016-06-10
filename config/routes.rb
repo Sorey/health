@@ -45,6 +45,10 @@ Rails.application.routes.draw do
       resources :replies
     end
 
+    resources :photo_galleries do
+      resources :photos, exept: :index
+    end
+
     resources :users
     resources :roles
     resources :news

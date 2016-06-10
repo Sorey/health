@@ -1,0 +1,27 @@
+:scss
+  .new-photo-gallery{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+
+.new-photo-gallery
+  .container
+    .heading
+      .title
+        %h1 Створення фотогалереї
+      .btn-new
+        = link_to 'Усі фотогалареї', admin_photo_galleries_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'

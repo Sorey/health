@@ -1,0 +1,29 @@
+:scss
+
+= form_for @admin_photo_gallery, html: { class: 'form-horizontal' } do |f|
+  .form-group
+    .col-sm-10.col-md-offset-2
+      - if @admin_photo_gallery.errors.any?
+        #error_explanation
+          %h2= "Не дозволяють зберегти галерею #{pluralize(@admin_photo_gallery.errors.count, "error")}:"
+          %ul
+            - @admin_photo_gallery.errors.full_messages.each do |msg|
+              %li= msg
+
+  .form-group
+    .field
+      = f.label :title, 'Назва', :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :title, :class => 'col-sm-4 form-control input-responsive'
+  .form-group
+    = f.label :description,'Опис', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :description,:class => 'form-control input-responsive'
+  .form-group
+    = f.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.check_box :publish_on, :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Зберегти', :class => 'btn btn-primary'

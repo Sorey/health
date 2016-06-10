@@ -1,0 +1,22 @@
+= form_for [@admin_photo_gallery, @photo], html: { class: 'form-horizontal' } do |f|
+  - if @admin_photo_gallery.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this @@poll from being saved:"
+      %ul
+        -#=debug @reply.errors.inspect
+        - @photo.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    .field
+      = f.label :title, 'Текст питання', :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :title, :class => 'form-control input-responsive'
+  .form-group
+    .field
+      = f.label :order_photo, 'Порядок відображення', :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.select :order_photo, [1,2,3,4,5,6,7,8,9,10], {}, :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Зберегти', :class => 'btn btn-primary'

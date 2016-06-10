@@ -7,6 +7,10 @@
         - @photo.errors.full_messages.each do |msg|
           %li= msg
   .form-group
+    = f.label :image, 'Картинка', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.file_field :image, :class => 'form-control input-responsive'
+  .form-group
     .field
       = f.label :title, 'Текст питання', :class => 'col-sm-2 control-label'
       .col-sm-10

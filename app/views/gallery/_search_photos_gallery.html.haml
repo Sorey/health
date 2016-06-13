@@ -1,0 +1,4 @@
+- if @photo_gallery.photos
+  - @photo_gallery.photos.order(order_photo: :asc).each do |photo|
+    = link_to image_tag(photo.image), image_path(photo.image), title: "#{photo.title}", :rel => "fancybox-button", :class => "fancybox-button"
+    -#= link_to image_tag("statistic_gallery/#{@name_gallery}/#{n.split('/').last}"), image_path("statistic_gallery/#{@name_gallery}/#{n.split('/').last}"), title: "#{n.split('/').last.split('.').first}", :rel => "fancybox-button", :class => "fancybox-button"

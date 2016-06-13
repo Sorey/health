@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   get '/statistic' => 'gallery#galleries', as: :galleries
   get '/statistic/:gallery' => 'gallery#show', as: :gallery
 
+  get '/photo_galleries' => 'gallery#photo_galleries', as: :photo_galleries
+  get '/photo_galleries/:id' => 'gallery#show_photo_gallery', as: :photo_gallery
+
   namespace :admin do
     controller :sessions do
       get  'login' => :new

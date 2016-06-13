@@ -20,13 +20,20 @@ class Photo
   field :title, type: String
   field :order_photo, type: Integer
 
+  embedded_in :admin_photo_gallery, class_name: 'Admin::PhotoGallery', :inverse_of => :photos
+  before_save :inspect_order_photo
+
   # validates :answer,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."} #, presence: { message: "не може бути пустим"}
   # validates_presence_of :answer
   # validates :answer,  length: { minimum: 1, maximum: 80}
 
-  embedded_in :admin_photo_gallery, class_name: 'Admin::PhotoGallery', :inverse_of => :photos
-
   mount_uploader :image, PhotoGalleryUploader
   #Save previous image when update image_field is empty
   skip_callback :update, :before, :store_previous_model_for_image
+
+  def inspect_order_photo
+    if self.order_photo.nil?
+      self.order_photo = 2
+    end
+  end
 end

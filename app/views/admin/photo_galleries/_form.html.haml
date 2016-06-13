@@ -18,7 +18,7 @@
   .form-group
     = f.label :description,'Опис', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_area :description,:class => 'form-control input-responsive'
+      = f.text_area :description, rows: "5",:class => 'form-control input-responsive'
   .form-group
     = f.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
     .col-sm-10

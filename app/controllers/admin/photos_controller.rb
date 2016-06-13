@@ -4,11 +4,11 @@ class Admin::PhotosController < Admin::AdminController
   def create
     respond_to do |format|
       if @admin_photo_gallery.photos.create!(photo_params)
-        format.html { redirect_to @admin_photo_gallery, :notice => "Відповідь створена!"}
+        format.html { redirect_to @admin_photo_gallery, :notice => "Фото додано!"}
         format.json { render :show, status: :ok, location: @admin_photo_gallery }
       else
         @photo = @admin_photo_gallery.photos.find(params[:id])
-        format.html { render 'admin/polls/show', :notice => "Відповідь створена."}
+        format.html { render 'admin/polls/show', :notice => "Фото додано."}
         format.json { render json: @photo.errors, status: :unprocessable_entity, location: [@admin_photo_gallery, @photo] }
       end
     end
@@ -23,7 +23,7 @@ class Admin::PhotosController < Admin::AdminController
   def update
     respond_to do |format|
       if @admin_photo_gallery.photos.find(params[:id]).update(photo_params)
-        format.html { redirect_to @admin_photo_gallery, :notice => "Відповідь оновлена!" }
+        format.html { redirect_to @admin_photo_gallery, :notice => "Фото оновлено!" }
         format.json { render :show, status: :ok, location: @admin_photo_gallery }
       else
         @photo = @admin_photo_gallery.photos.find(params[:id])
@@ -35,7 +35,7 @@ class Admin::PhotosController < Admin::AdminController
 
   def destroy
     @admin_photo_gallery.photos.find(params[:id]).destroy
-    redirect_to @admin_photo_gallery, :notice => "Відповідь видалена!"
+    redirect_to @admin_photo_gallery, :notice => "Фото видалено!"
   end
 
   private

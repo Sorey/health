@@ -1,0 +1,60 @@
+:scss
+  .gallery-photo{
+    //background: #AFAFE9;
+    .title{
+      h2{
+        text-align: center;
+      }
+    }
+    .description{
+      font-size: 16px;
+      text-align: justify;
+    }
+    .description::first-letter{
+      font-size: 26px;
+      font-style: italic;
+      margin: 0 0 0 15px;
+    }
+    //#images-paginator{
+    //  text-align: center;
+    //  .pagination{
+    //  }
+    //}
+    a.fancybox-button{
+      img{
+        width: 32.5%;
+        padding: 5px;
+      }
+    }
+
+  }
+
+
+.container.gallery-photo
+  .title
+    %h2
+      = @photo_gallery.title
+  .description
+    = simple_format(@photo_gallery.description)
+  -##images-paginator
+    = paginate @photo_gallery.photos, :remote => true
+  #results
+    = render partial: "search_photos_gallery", :locals => { images: @photo_gallery.photos }
+
+:javascript
+
+  $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+      prevEffect	: 'none',
+      nextEffect	: 'fade',
+      helpers		: {
+        title	: false,
+        //title	: { type : 'inside' },
+        buttons	: {},
+        thumbs	: {
+          width	: 100,
+          height: 100
+        }
+      }
+    });
+  });

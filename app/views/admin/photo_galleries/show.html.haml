@@ -13,6 +13,22 @@
         .btn{
           margin:5px 0 0px;
         }
+        .form{
+          display: inline-block;
+          form{
+            margin-bottom: 0;
+          }
+          input[type="file"]{
+            display: none;
+          }
+          label.file-label{
+            //vertical-align: middle;
+            //text-align: center;
+            //color: white;
+            //border-radius: 5px;
+            //background: linear-gradient(to left bottom, blue, #51C5FF, blue);
+          }
+        }
       }
     }
     .photo{
@@ -47,6 +63,20 @@
         right: -5px;
       }
     }
+    .form{
+      //input[type="file"]{
+      //  display: none;
+      //}
+      //label.file-label{
+      //  font-size: 18px;
+      //  vertical-align: middle;
+      //  text-align: center;
+      //  color: white;
+      //  //border: 1px solid blue;
+      //  border-radius: 5px;
+      //  background: linear-gradient(to left bottom, yellow, green, blue);
+      //}
+    }
   }
 
 .container.show-gallery
@@ -56,54 +86,66 @@
       %h3
         %em= @admin_photo_gallery.title
     .btn-new-news
+      .form
+        = form_for [@admin_photo_gallery, @photo], html: { class: 'form-horizontal' } do |f|
+          - if @photo.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this reply from being saved:"
+              %ul
+                - @photo.errors.full_messages.each do |msg|
+                  %li= msg
+          = f.label :image, 'Додати фото', :class => 'control-label btn btn-info file-label'
+          = f.file_field :image, onChange: 'form.submit()', :class => 'form-control input-responsive'
       = link_to 'Редагувати', edit_admin_photo_gallery_path(@admin_photo_gallery), :class => 'btn btn-primary'
       = link_to 'Всі фотогалереї', admin_photo_galleries_path, :class => 'btn btn-primary'
   %p
     %b Опис:
     = simple_format(@admin_photo_gallery.description)
-  - if @admin_photo_gallery.photos
-    - if @admin_photo_gallery.photos.size > 0
-      - @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
-        %div.photo
-          -#= link_to image_tag(photo.image.thumb), image_path(photo.image.thumb), title: "rrr", target: "_blank"
 
-          %a{href: "#{image_path(photo.image.thumb)}" , title: "rrr", target: "_blank"}
-            =image_tag photo.image.thumb # if photo.image.thumb
-          = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
-          = link_to '<i class="fa fa-times"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger btn-photo btn-delete'
-          -#%h4
-            = 'Фото ' + "#{i+1}" + ':  '
-            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary'
-            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
-            %em= "--- " + photo.title
-            %span
-              =image_tag photo.image.thumb if photo.image.thumb
+  -#.form.clearfix
+    %h2.col-sm-offset-2 Нове фото
+    = form_for [@admin_photo_gallery, @photo], html: { class: 'form-horizontal' } do |f|
+      - if @photo.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this reply from being saved:"
+          %ul
+            - @photo.errors.full_messages.each do |msg|
+              %li= msg
 
-  %h2.col-sm-offset-2 Нове фото
-  = form_for [@admin_photo_gallery, @photo], html: { class: 'form-horizontal' } do |f|
-    - if @photo.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this reply from being saved:"
-        %ul
-          - @photo.errors.full_messages.each do |msg|
-            %li= msg
-
-    .form-group
-      = f.label :image, 'Картинка', :class => 'col-sm-2 control-label'
-      .col-sm-10
-        = f.file_field :image, :class => 'form-control input-responsive'
-    .form-group
-      .field
-        = f.label :title, 'Назва', :class => 'col-sm-2 control-label'
+      .form-group
+        = f.label :image, 'Додати фото', :class => 'col-sm-2 control-label file-label'
         .col-sm-10
-          = f.text_field :title, :class => 'form-control input-responsive'
-    .form-group
-      .field
-        = f.label :order_photo, 'Порядок відображення', :class => 'col-sm-2 control-label'
-        .col-sm-10
-          = f.number_field :order_photo, value: 2, :class => 'form-control input-responsive'
-          -#= f.select :order_photo, [1,2,3,4,5,6,7,8,9,10], {}, :class => 'form-control input-responsive'
-    .form-group
-      .actions
-        .col-sm-offset-2.col-sm-10
-          = f.submit 'Додати фото', :class => 'btn btn-primary'
+          = f.file_field :image, onChange: 'form.submit()', :class => 'form-control input-responsive'
+      .form-group
+        .field
+          = f.label :title, 'Назва', :class => 'col-sm-2 control-label'
+          .col-sm-10
+            = f.text_field :title, :class => 'form-control input-responsive'
+      .form-group
+        .field
+          = f.label :order_photo, 'Порядок відображення', :class => 'col-sm-2 control-label'
+          .col-sm-10
+            = f.number_field :order_photo, value: 2, :class => 'form-control input-responsive'
+      -#= f.select :order_photo, [1,2,3,4,5,6,7,8,9,10], {}, :class => 'form-control input-responsive'
+      .form-group
+        .actions
+          .col-sm-offset-2.col-sm-10
+            = f.submit 'Додати фото', :class => 'btn btn-primary'
+  .photos
+    - if @admin_photo_gallery.photos
+      - if @admin_photo_gallery.photos.size > 0
+        - @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
+          %div.photo
+            -#= link_to image_tag(photo.image.thumb), image_path(photo.image.thumb), title: "rrr", target: "_blank"
+
+            %a{href: "#{image_path(photo.image.thumb)}" , title: "rrr", target: "_blank"}
+              =image_tag photo.image.thumb # if photo.image.thumb
+            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
+            = link_to '<i class="fa fa-times"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger btn-photo btn-delete'
+            -#%h4
+              = 'Фото ' + "#{i+1}" + ':  '
+              = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary'
+              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
+              %em= "--- " + photo.title
+              %span
+                =image_tag photo.image.thumb if photo.image.thumb

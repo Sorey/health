@@ -1,9 +1,10 @@
-- @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
+-#- @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
+- @admin_photo_gallery.photos.each_with_index do |photo, i|
   %div.photo{'data-id' => "#{photo.id}"}
     -#= link_to image_tag(photo.image.thumb), image_path(photo.image.thumb), title: "rrr", target: "_blank"
     %a{href: "#{image_path(photo.image.thumb)}" , title: "rrr", target: "_blank"}
       =image_tag photo.image.thumb # if photo.image.thumb
-    = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
+    -#= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
     = link_to '<i class="fa fa-times"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger btn-photo btn-delete'
     -#%h4
       = 'Фото ' + "#{i+1}" + ':  '

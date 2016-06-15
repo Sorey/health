@@ -38,6 +38,13 @@ class Admin::PhotosController < Admin::AdminController
     redirect_to @admin_photo_gallery, :notice => "Фото видалено!"
   end
 
+  def sort
+    params[:order].each do |key,value|
+      @admin_photo_gallery.photos.find(value[:id]).update_attribute(:order_photo,value[:position])
+    end
+    render :nothing => true
+  end
+
   private
 
   def set_photo

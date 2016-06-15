@@ -49,7 +49,9 @@ Rails.application.routes.draw do
     end
 
     resources :photo_galleries do
-      resources :photos, exept: :index
+      resources :photos, exept: :index do
+        put :sort, on: :collection
+      end
     end
 
     resources :users

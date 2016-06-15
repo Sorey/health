@@ -77,6 +77,15 @@
       //  background: linear-gradient(to left bottom, yellow, green, blue);
       //}
     }
+    .sortable-placeholder {
+      border: 1px dashed #CCC;
+      background-color: #f9f9f9;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    .sortable {
+      display: list-item;
+    }
   }
 
 .container.show-gallery
@@ -131,21 +140,66 @@
         .actions
           .col-sm-offset-2.col-sm-10
             = f.submit 'Додати фото', :class => 'btn btn-primary'
-  .photos
-    - if @admin_photo_gallery.photos
-      - if @admin_photo_gallery.photos.size > 0
-        - @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
-          %div.photo
-            -#= link_to image_tag(photo.image.thumb), image_path(photo.image.thumb), title: "rrr", target: "_blank"
+  .photos.sortable
+    - if @admin_photo_gallery.photos.any?
+      -#= render @admin_photo_gallery.photos
+      = render 'admin/photos/photo'
+      -#- @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
+        %div.photo
+          -#= link_to image_tag(photo.image.thumb), image_path(photo.image.thumb), title: "rrr", target: "_blank"
 
-            %a{href: "#{image_path(photo.image.thumb)}" , title: "rrr", target: "_blank"}
-              =image_tag photo.image.thumb # if photo.image.thumb
-            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
-            = link_to '<i class="fa fa-times"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger btn-photo btn-delete'
-            -#%h4
-              = 'Фото ' + "#{i+1}" + ':  '
-              = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary'
-              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
-              %em= "--- " + photo.title
-              %span
-                =image_tag photo.image.thumb if photo.image.thumb
+          %a{href: "#{image_path(photo.image.thumb)}" , title: "rrr", target: "_blank"}
+            =image_tag photo.image.thumb # if photo.image.thumb
+          = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
+          = link_to '<i class="fa fa-times"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger btn-photo btn-delete'
+          -#%h4
+            = 'Фото ' + "#{i+1}" + ':  '
+            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary'
+            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
+            %em= "--- " + photo.title
+            %span
+              =image_tag photo.image.thumb if photo.image.thumb
+:javascript
+
+  var ready, set_positions;
+
+  set_positions = function(){
+    // loop through and give each task a data-pos
+    // attribute that holds its position in the DOM
+    $('.photo').each(function(i){
+      $(this).attr("data-pos",i+1);
+    });
+  }
+
+  ready = function(){
+
+    // call set_positions function
+    set_positions();
+
+    $('.sortable').sortable();
+
+        $('.sortable').sortable().bind('sortupdate', function(e, ui) {
+        // array to store new order
+        updated_order = []
+        // set the updated positions
+        set_positions();
+
+        // populate the updated_order array with the new task positions
+        $('.photo').each(function(i){
+            updated_order.push({ id: $(this).data("id"), position: i+1 });
+        });
+
+        // send the updated order via ajax
+        $.ajax({
+            type: "PUT",
+            url: '/tasks/sort',
+            data: { order: updated_order }
+        });
+    });
+  }
+
+  $(document).ready(ready);
+  /**
+   * if using turbolinks
+   */
+  $(document).on('page:load', ready);

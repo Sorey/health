@@ -20,5 +20,6 @@
 //= require fancybox/jquery.fancybox
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-thumbs
+//= require html.sortable
 //= require turbolinks
 //= require_tree .

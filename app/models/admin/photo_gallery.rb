@@ -8,7 +8,8 @@ class Admin::PhotoGallery
 
   embeds_many :photos, class_name: 'Photo'
 
-  # validates :question,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."}
+  validates :title, length: { minimum: 3, maximum: 80, message: "(Заголовок): мінімально 3, максимально 80 символів."}
+  validates :description, :allow_blank => true, length: { minimum: 3, maximum: 320, message: "(Опис): мінімально 3, максимально 320 символів."}
 end
 
 

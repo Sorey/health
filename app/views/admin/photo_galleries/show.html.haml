@@ -106,7 +106,7 @@
                 - @photo.errors.full_messages.each do |msg|
                   %li= msg
           = f.label :image, 'Додати фото', :class => 'control-label btn btn-info file-label'
-          = f.file_field :image, onChange: 'form.submit()', :class => 'form-control input-responsive'
+          = f.file_field :image, accept: 'image/*', onChange: 'form.submit()', :class => 'form-control input-responsive'
       = link_to 'Редагувати', edit_admin_photo_gallery_path(@admin_photo_gallery), :class => 'btn btn-primary'
       = link_to 'Всі фотогалереї', admin_photo_galleries_path, :class => 'btn btn-primary'
   %p

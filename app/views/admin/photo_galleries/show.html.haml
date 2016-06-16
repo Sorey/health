@@ -110,8 +110,10 @@
       = link_to 'Редагувати', edit_admin_photo_gallery_path(@admin_photo_gallery), :class => 'btn btn-primary'
       = link_to 'Всі фотогалереї', admin_photo_galleries_path, :class => 'btn btn-primary'
   %p
-    %b Опис:
-    = simple_format(@admin_photo_gallery.description)
+    %b
+      Дата створення:
+      = l(@admin_photo_gallery.created_at, :format => "%d-%m-%Y")
+  %p= simple_format(@admin_photo_gallery.description)
 
   -#.form.clearfix
     %h2.col-sm-offset-2 Нове фото

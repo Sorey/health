@@ -7,25 +7,31 @@
         opacity: 1;
       }
       .gallery{
+        box-shadow: inset 0 0 0 2px white;
         display: inline-block;
         vertical-align: top;
-        margin: 0 20px 10px 0;
+        margin: 0 0 10px 0;
         padding: 5px;
         opacity: .8;
-        background: #E7FFF1;
+        background: #00a951;
         border-radius: 5px;
-        width: 250px;
+        width: 24.2%;
         a{
+          box-shadow: inset 0 0 0 35px white;
           text-decoration: none;
           text-align: center;
           font-size: 16px;
+          .div{
+            box-shadow: inset 0 0 0 2px #A7FDA9;
+          }
           img{
             width: 100%;
           }
           .title{
             margin-top: 5px;
-            background: #E7FFF1;
+            background: #00a951;
             word-break: break-all;
+            color: white;
           }
         }
       }
@@ -39,8 +45,8 @@
     .galleries-box
       - @photo_galleries.each do |photo_gallery|
         .gallery
-          %a{:href => photo_gallery_path(photo_gallery),  'data-method' => "get", style: " background: url('#{image_path(photo_gallery.photos.order(order_photo: :asc).first.image)}') no-repeat center;" }
-            .div{style: " width: 100%; min-height: 150px; background: url('#{image_path(photo_gallery.photos.order(order_photo: :asc).first.image)}') no-repeat; background-position: 100% 50%; background-size: 100% auto; "}
+          %a{:href => photo_gallery_path(photo_gallery),  'data-method' => "get" }
+            .div{style: " width: 100%; min-height: 150px; background: url('#{image_path(photo_gallery.photos.order(order_photo: :asc).first.image) if photo_gallery.photos.any?}') no-repeat; background-position: 100% 50%; background-size: 100% auto; "}
             -#= image_tag photo_gallery.photos.order(order_photo: :asc).first.image.thumb if photo_gallery.photos.first
             -#= image_tag("statistic_gallery/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg")
             -#- binding.pry

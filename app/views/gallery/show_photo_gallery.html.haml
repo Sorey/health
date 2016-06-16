@@ -1,6 +1,5 @@
 :scss
   .gallery-photo{
-    //background: #AFAFE9;
     .title{
       h2{
         text-align: center;
@@ -15,18 +14,17 @@
       font-style: italic;
       margin: 0 0 0 15px;
     }
-    //#images-paginator{
-    //  text-align: center;
-    //  .pagination{
-    //  }
-    //}
-    a.fancybox-button{
-      img{
-        width: 32.5%;
-        padding: 5px;
+    .photos{
+      a.fancybox-button{
+        height: 250px;
+        box-shadow: inset 0 0 0 5px white, inset 0 0 0 9px #00a951;
+        padding: 0 10px;
+      }
+      a.fancybox-button:hover{
+        box-shadow: inset 0 0 10px 5px #00a951, inset 0 0 0 7px white;
+        opacity: 0.9;
       }
     }
-
   }
 
 
@@ -36,10 +34,8 @@
       = @photo_gallery.title
   .description
     = simple_format(@photo_gallery.description)
-  -##images-paginator
-    = paginate @photo_gallery.photos, :remote => true
-  #results
-    = render partial: "search_photos_gallery", :locals => { images: @photo_gallery.photos }
+  .photos.row
+    = render partial: "photos_gallery", :locals => { images: @photo_gallery.photos }
 
 :javascript
 

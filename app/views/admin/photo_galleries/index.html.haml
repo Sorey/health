@@ -47,6 +47,7 @@
         -#%th Порядок
         %th Назва
         %th Опис
+        %th Дата створення
         %th Публікувати?
         %th Дії
 
@@ -55,6 +56,7 @@
         %tr
           %td= gallery.title
           %td= gallery.description
+          %td= l(gallery.created_at, :format => "%d-%m-%Y")
           %td= gallery.publish_on
           -#%td= @admin_question.replies
           %td

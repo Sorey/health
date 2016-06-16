@@ -4,7 +4,7 @@ class Admin::PhotoGalleriesController < Admin::AdminController
   # GET /admin/photo_galleries
   # GET /admin/photo_galleries.json
   def index
-    @admin_photo_galleries = Admin::PhotoGallery.all
+    @admin_photo_galleries = Admin::PhotoGallery.order(created_at: :desc)
   end
 
   # GET /admin/photo_galleries/1

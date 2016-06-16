@@ -195,6 +195,10 @@
                     %li
                       %a{:href => admin_private_medical_setups_path} Приватні медичні установи
                     %li.divider{:role => "separator"}
+                  - if current_user.access? "admin/photo_galleries", "index"
+                    %li
+                      %a{:href => admin_photo_galleries_path} Фотоматеріали
+                    %li.divider{:role => "separator"}
                   - if current_user.access? "admin/polls", "index"
                     %li
                       %a{:href => admin_polls_path} Опитування

@@ -27,7 +27,7 @@
     #images-paginator
       = paginate @images, :remote => true
     #results
-      = render partial: "search_images", :locals => { images: @images }
+      = render partial: "images", :locals => { images: @images }
 
 
     -#= link_to image_tag("http://www.fullhdoboi.com/wallpapers/thumbs/12/foto-tri-serdca-4202.jpg"), image_path("http://www.fullhdoboi.com/wallpapers/thumbs/12/foto-tri-serdca-4202.jpg"), title: "Переглянути", :rel => "fancybox-button fancybox-thumb", :title => "n.title", :class => "fancybox-button fancybox-thumb"
@@ -51,7 +51,7 @@
         -#= debug n.inspect
         = link_to image_tag(n.image.thumb), image_path(n.image), title: "Переглянути", :rel => "fancybox-button fancybox-thumb", :title => n.title, :class => "fancybox-button fancybox-thumb"
 
-:javascript
+  :javascript
 
   //$(document).on('page:load', function() {
   //  $(".fancybox-button").fancybox({

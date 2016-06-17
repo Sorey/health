@@ -35,7 +35,7 @@
   .description
     = simple_format(@photo_gallery.description)
   .photos.row
-    = render partial: "photos_gallery", :locals => { images: @photo_gallery.photos }
+    = render partial: "photos", :locals => { images: @photo_gallery.photos }
 
 :javascript
 

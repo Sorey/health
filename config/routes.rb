@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   get '/private_medical_setups' => 'medical_setups#show_private_ms'
 
 
-  get '/statistic' => 'gallery#galleries', as: :galleries
-  get '/statistic/:gallery' => 'gallery#show', as: :gallery
+  get '/statistic' => 'gallery#statistic_galleries', as: :statistic_galleries
+  get '/statistic/:gallery' => 'gallery#show_statistic_gallery', as: :statistic_gallery
 
   get '/photo_galleries' => 'gallery#photo_galleries', as: :photo_galleries
   get '/photo_galleries/:id' => 'gallery#show_photo_gallery', as: :photo_gallery

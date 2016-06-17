@@ -1,9 +1,9 @@
 class GalleryController < ApplicationController
 
-  def galleries
+  def statistic_galleries
   end
 
-  def show
+  def show_statistic_gallery
       @name_gallery = params[:gallery] ||= "charts"
       @title = @name_gallery == "charts" ? "Основні показники діяльності охорони здоров'я за 2010-2015 роки" : "Основні показники діяльності охорони здоров'я за 2015 рік"
       @images = Dir.glob("app/assets/images/statistic_gallery/#{@name_gallery}/*.jpg").sort

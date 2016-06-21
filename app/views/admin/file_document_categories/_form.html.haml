@@ -1,0 +1,22 @@
+= form_for @admin_file_document_category do |f|
+  - if @admin_file_document_category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_file_document_category.errors.count, "error")} prohibited this admin_file_document_category from being saved:"
+      %ul
+        - @admin_file_document_category.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :admin_role_id, "Доступ для ролі:", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :admin_role_id, Admin::Role.parent_roles, {include_blank: true}, :multiple => false,  :class => 'form-control input-responsive'
+  .form-group
+    = f.label :title, "Назва", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :url_title, "Url назва", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :url_title, :class => 'form-control input-responsive'
+  .actions
+    = f.submit 'Save'

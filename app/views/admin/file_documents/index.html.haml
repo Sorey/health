@@ -1,0 +1,26 @@
+%h1 Listing admin_file_documents
+
+%table
+  %thead
+    %tr
+      %th Назва
+      %th Категорія
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_file_documents.each do |admin_file_document|
+      %tr
+        %td= admin_file_document.title
+        %td
+          - admin_file_document.admin_file_document_categories.each do |category|
+            = category.title
+            %br
+        %td= link_to 'Show', admin_file_document
+        %td= link_to 'Edit', edit_admin_file_document_path(admin_file_document)
+        %td= link_to 'Destroy', admin_file_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New File document', new_admin_file_document_path

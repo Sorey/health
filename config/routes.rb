@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :file_documents
+  end
+  namespace :admin do
+    resources :file_document_categories
+  end
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'

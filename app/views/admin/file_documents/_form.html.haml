@@ -1,0 +1,19 @@
+= form_for @admin_file_document do |f|
+  - if @admin_file_document.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_file_document.errors.count, "error")} prohibited this admin_file_document from being saved:"
+      %ul
+        - @admin_file_document.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .form-group
+    = f.label :admin_file_document_category_ids, "Доступ для ролі:", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {}, multiple: true, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :title, "Назва", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, :class => 'form-control input-responsive'
+  .actions
+    = f.submit 'Save'

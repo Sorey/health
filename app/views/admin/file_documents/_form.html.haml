@@ -1,4 +1,4 @@
-= form_for @admin_file_document do |f|
+= form_for @admin_file_document, html: { class: 'form-horizontal' } do |f|
   - if @admin_file_document.errors.any?
     #error_explanation
       %h2= "#{pluralize(@admin_file_document.errors.count, "error")} prohibited this admin_file_document from being saved:"
@@ -6,14 +6,34 @@
         - @admin_file_document.errors.full_messages.each do |msg|
           %li= msg
 
-
-  .form-group
-    = f.label :admin_file_document_category_ids, "Доступ для ролі:", :class => 'col-sm-2 control-label'
-    .col-sm-10
-      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {}, multiple: true, :class => 'form-control input-responsive'
   .form-group
     = f.label :title, "Назва", :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :title, :class => 'form-control input-responsive'
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label :year_publish, "Затверджено", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :year_publish,' data-provide' => 'datepicker', :class => 'form-control input-responsive datepicker'
+  .form-group
+    = f.label :file, 'Файл', :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.file_field :file, :class => 'form-control input-responsive'
+  .form-group
+    = f.label :admin_file_document_category_ids, "Група документів", :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {}, multiple: true,  :class => 'form-control input-responsive'
+  .form-group
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Зберегти', :class => 'btn btn-primary'
+
+:javascript
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      todayHighlight: true,
+      orientation: 'auto bottom',
+      format: 'dd-mm-yyyy',
+      language: 'ua'
+    });
+  });

@@ -1,6 +1,30 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_admin_file_document_path(@admin_file_document)
-\|
-= link_to 'Back', admin_file_documents_path
+.show-file-document
+  .container
+    - if notice
+      %p#notice= notice
+    %p
+      %h2
+        Нормативний документ
+        %em
+          = @admin_file_document.title
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        %tr
+          %th Назва
+          %td= @admin_file_document.title
+        %tr
+          %th Затверджено
+          %td
+            = l(@admin_file_document.year_publish, :format => "%d-%m-%Y")
+        %tr
+          %th Група
+          %td
+            - @admin_file_document.admin_file_document_categories.each do |category|
+              = category.title
+              %br
+    = link_to 'Нормативні документи', admin_file_documents_path, :class => 'btn btn-primary'
+    = link_to 'Редагувати', edit_admin_file_document_path(@admin_file_document), :class => 'btn btn-primary'
+    = link_to 'Видалити', @admin_file_document, :class => 'btn btn-primary', |
+      method: :delete,
+      data: { confirm: 'Ви впевнені?' }

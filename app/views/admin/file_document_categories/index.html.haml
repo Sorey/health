@@ -1,21 +1,59 @@
-%h1 Listing admin_file_document_categories
+:scss
+  .admin-file-document-categories{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+    table{
+      thead{
+        th:last-child{
+          vertical-align: middle;
+          text-align: center;
+        }
+      }
+      tbody{
+        td:last-child{
+          text-align: center;
+        }
+        td .btn{
+         display: inline-block;
+         margin: 0px 0px 5px;
+         padding: 4px 6px;
+         width: 30px;
+        }
+      }
+    }
+  }
 
-%table
-  %thead
-    %tr
-      %th Назва
-      %th
-      %th
-      %th
-
-  %tbody
-    - @admin_file_document_categories.each do |admin_file_document_category|
+.container.admin-file-document-categories
+  -if notice
+    %p#notice= notice
+  .heading
+    .title
+      %h1 Список груп нормативних документів
+    .btn-new-news
+      -#- if current_user && current_user.admin?
+      = link_to 'Нова група', new_admin_file_document_category_path, :class => 'btn btn-primary'
+  %table.table.table-condensed.table-striped
+    %thead
       %tr
-        %td= admin_file_document_category.title
-        %td= link_to 'Show', admin_file_document_category
-        %td= link_to 'Edit', edit_admin_file_document_category_path(admin_file_document_category)
-        %td= link_to 'Destroy', admin_file_document_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New File document category', new_admin_file_document_category_path
+        %th Назва
+        %th Url назва
+        %th Дії
+    %tbody
+      - @admin_file_document_categories.each do |category|
+        %tr
+          %td= category.title
+          %td= category.url_title
+          %td
+            = link_to '<i class="fa fa-eye "></i>'.html_safe, category, title: "Переглянути",  :class => 'btn btn-info'
+            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_file_document_category_path(category), title: "Редагувати", :class => 'btn btn-primary'
+            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, category, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'

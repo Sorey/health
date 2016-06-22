@@ -4,10 +4,11 @@ class Admin::FileDocumentsController < Admin::AdminController
   # GET /admin/file_documents
   # GET /admin/file_documents.json
   def index
-    @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: "orders")
-    @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
-  end
+    # @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: "orders")
+    # @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
 
+    @admin_file_documents = Admin::FileDocument.all
+  end
   # GET /admin/file_documents/1
   # GET /admin/file_documents/1.json
   def show
@@ -29,7 +30,7 @@ class Admin::FileDocumentsController < Admin::AdminController
 
     respond_to do |format|
       if @admin_file_document.save
-        format.html { redirect_to @admin_file_document, notice: 'File document was successfully created.' }
+        format.html { redirect_to @admin_file_document, notice: 'Документ успішно створений.' }
         format.json { render :show, status: :created, location: @admin_file_document }
       else
         format.html { render :new }
@@ -41,9 +42,12 @@ class Admin::FileDocumentsController < Admin::AdminController
   # PATCH/PUT /admin/file_documents/1
   # PATCH/PUT /admin/file_documents/1.json
   def update
+    unless admin_file_document_params[:file].blank?
+      @admin_file_document.remove_file!
+    end
     respond_to do |format|
       if @admin_file_document.update(admin_file_document_params)
-        format.html { redirect_to @admin_file_document, notice: 'File document was successfully updated.' }
+        format.html { redirect_to @admin_file_document, notice: 'Документ успішно оновлений.' }
         format.json { render :show, status: :ok, location: @admin_file_document }
       else
         format.html { render :edit }
@@ -57,7 +61,7 @@ class Admin::FileDocumentsController < Admin::AdminController
   def destroy
     @admin_file_document.destroy
     respond_to do |format|
-      format.html { redirect_to admin_file_documents_url, notice: 'File document was successfully destroyed.' }
+      format.html { redirect_to admin_file_documents_url, notice: 'Документ видалено.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +74,7 @@ class Admin::FileDocumentsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_file_document_params
-      params.fetch(:admin_file_document, {})
-      params.require(:admin_file_document).permit(:title, admin_file_document_category_ids: [])
+      # params.fetch(:admin_file_document, {})
+      params.require(:admin_file_document).permit(:title, :year_publish , :file, admin_file_document_category_ids: [])
     end
 end

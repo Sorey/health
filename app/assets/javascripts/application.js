@@ -21,5 +21,6 @@
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-thumbs
 //= require html.sortable
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .

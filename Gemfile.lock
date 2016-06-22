@@ -94,6 +94,8 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.6.1.1)
+      railties (>= 3.0)
     bson (3.2.6)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -312,6 +314,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap-datepicker-rails
   bson_ext
   byebug
   carrierwave!

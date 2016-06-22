@@ -28,8 +28,8 @@ class Admin::FileDocumentCategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @admin_file_document_category.save
-        format.html { redirect_to @admin_file_document_category, notice: 'File document category was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_file_document_category }
+        format.html { redirect_to admin_file_document_categories_url, notice: 'File document category was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @admin_file_document_category.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class Admin::FileDocumentCategoriesController < Admin::AdminController
   def update
     respond_to do |format|
       if @admin_file_document_category.update(admin_file_document_category_params)
-        format.html { redirect_to @admin_file_document_category, notice: 'File document category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_file_document_category }
+        format.html { redirect_to admin_file_document_categories_url, notice: 'File document category was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @admin_file_document_category.errors, status: :unprocessable_entity }

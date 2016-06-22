@@ -13,7 +13,7 @@ class Admin::Role
   has_many :admin_articles, :class_name => 'Admin::Article'
   has_many :admin_articles_groups, :class_name => 'Admin::ArticlesGroup'
   has_many :admin_files, :class_name => 'Admin::File'
-  has_many :admin_file_documents, :class_name => 'Admin::FileDocument'
+  # has_many :admin_file_document_categories, :class_name => 'Admin::FileDocumentCategory'
 
   validates :title, presence: { message: "не може бути пустим"},
             uniqueness: { message: "уже зайнято."}

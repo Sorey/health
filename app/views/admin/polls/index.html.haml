@@ -48,7 +48,8 @@
 
   }
 .container.admin-polls
-  %p#notice= notice
+  -if notice
+    %p#notice= notice
   .heading
     .title
       %h1 Список опитувань

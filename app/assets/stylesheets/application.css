@@ -14,6 +14,7 @@
  *= require fancybox/helpers/jquery.fancybox-buttons
  *= require fancybox/helpers/jquery.fancybox-thumbs
  *= require select2
+ *= require bootstrap-datepicker
 
  +*= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .

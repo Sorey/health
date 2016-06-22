@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :file_documents
-  end
-  namespace :admin do
-    resources :file_document_categories
-  end
   DynamicRouter.load
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -40,6 +34,8 @@ Rails.application.routes.draw do
   get '/photo_galleries' => 'gallery#photo_galleries', as: :photo_galleries
   get '/photo_galleries/:id' => 'gallery#show_photo_gallery', as: :photo_gallery
 
+  get '/documents/:file_document_category' => 'file_documents#category_file_documents'
+
   namespace :admin do
     controller :sessions do
       get  'login' => :new
@@ -72,6 +68,8 @@ Rails.application.routes.draw do
     resources :medical_setups_groups, exept: :show
     resources :private_medical_setups
     resources :files
+    resources :file_documents
+    resources :file_document_categories
   end
 
   root 'home#index'

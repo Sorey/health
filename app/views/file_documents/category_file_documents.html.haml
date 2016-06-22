@@ -1,0 +1,67 @@
+:scss
+  .file_documents{
+    .heading{
+      .title{
+        width: 100%;
+        h1{
+          text-align: center;
+        }
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+    table{
+      //border-style:solid;
+      //border-color:#0BBA6A;
+      //border-radius: 3px;
+      font-size: 16px;
+      thead{
+        th:first-child{
+          //vertical-align: middle;
+          //text-align: center;
+        }
+      }
+      tbody{
+        td:nth-child(n+7), td:first-child{
+          //text-align: center;
+        }
+        td .btn{
+         display: inline-block;
+         margin: 0px 0px 5px;
+         padding: 4px 6px;
+         width: 30px;
+        }
+      }
+    }
+  }
+
+.file_documents
+  .container
+    .heading
+      .title
+        %h1= @file_document_category.title
+  .container
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          -#%th № п/п
+          %th Файл
+          %th Назва
+          %th Затверджено
+      %tbody
+        -#- m_iterator = 1
+        - @file_documents.each do |document|
+          %tr
+            -#%td= m_iterator
+            %td
+              - if document.file?
+                = link_to document.file.url, title: 'Завантажити' do
+                  %i.fa.fa-2x.fa-download
+            %td= document.title
+            %td= l(document.year_publish, :format => "%d-%m-%Y")
+            -#- m_iterator = m_iterator + 1

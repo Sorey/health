@@ -1,0 +1,11 @@
+-#- m_iterator = 1
+- @file_documents.each do |document|
+  %tr
+    -#%td= m_iterator
+    %td
+      - if document.file?
+        = link_to document.file.url, title: 'Завантажити' do
+          %i.fa.fa-2x.fa-download
+    %td= document.title
+    %td= l(document.year_publish, :format => "%d-%m-%Y")
+    -#- m_iterator = m_iterator + 1

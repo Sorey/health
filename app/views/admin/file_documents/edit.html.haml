@@ -20,7 +20,8 @@
       .title
         %h1 Редагування нормативного документу
       .btn-new-news
-        = link_to 'Нормативні документи', admin_file_documents_path, :class => 'btn btn-primary'
+        - header_documents = session[:file_document_category_title] || 'Нормативні документи'
+        = link_to header_documents, admin_file_document_category_path(session[:file_document_category]), :class => 'btn btn-primary'
   .container
     .form
       = render 'form'

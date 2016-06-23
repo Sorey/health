@@ -29,6 +29,22 @@
          padding: 4px 6px;
          width: 30px;
         }
+        td{
+          border-top: none;
+          .category_link{
+            display:block;
+            width: 100% !important;
+            //margin: 5px 0 3px 0;
+            padding: 5px;
+            background: #428bca;
+            border-radius: 3px;
+            color: #ffffff;
+            text-decoration: none;
+          }
+          .category_link:hover{
+            background: #5bc0de;
+          }
+        }
       }
     }
   }
@@ -38,22 +54,27 @@
     %p#notice= notice
   .heading
     .title
-      %h1 Список груп нормативних документів
-    .btn-new-news
-      -#- if current_user && current_user.admin?
-      = link_to 'Нова група', new_admin_file_document_category_path, :class => 'btn btn-primary'
+      %h1 Групи нормативних документів
+    - if current_user.access? "admin/file_documents", "index"
+      .btn-new-news
+        -#- if current_user && current_user.admin?
+        = link_to 'Нова група', new_admin_file_document_category_path, :class => 'btn btn-primary'
   %table.table.table-condensed.table-striped
     %thead
       %tr
-        %th Назва
-        %th Url назва
-        %th Дії
+        - if current_user.access? "admin/file_documents", "index"
+          %th Група
+          %th Url назва
+          %th Дії
     %tbody
       - @admin_file_document_categories.each do |category|
         %tr
-          %td= category.title
-          %td= category.url_title
           %td
-            = link_to '<i class="fa fa-eye "></i>'.html_safe, category, title: "Переглянути",  :class => 'btn btn-info'
-            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_file_document_category_path(category), title: "Редагувати", :class => 'btn btn-primary'
-            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, category, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
+            = link_to category.title, admin_file_document_category_path(category.url_title), :class => 'category_link'
+            -#= category.title
+          - if current_user.access? "admin/file_documents", "index"
+            %td= category.url_title
+            %td
+              = link_to '<i class="fa fa-eye "></i>'.html_safe, category, title: "Переглянути",  :class => 'btn btn-info'
+              = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_file_document_category_path(category), title: "Редагувати", :class => 'btn btn-primary'
+              = link_to '<i class="fa fa-trash-o"></i>'.html_safe, category, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'

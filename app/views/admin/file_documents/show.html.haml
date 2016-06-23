@@ -23,7 +23,8 @@
             - @admin_file_document.admin_file_document_categories.each do |category|
               = category.title
               %br
-    = link_to 'Нормативні документи', admin_file_documents_path, :class => 'btn btn-primary'
+    - header_documents = session[:file_document_category_title] || 'Нормативні документи'
+    = link_to header_documents, admin_file_document_category_path(session[:file_document_category]), :class => 'btn btn-primary'
     = link_to 'Редагувати', edit_admin_file_document_path(@admin_file_document), :class => 'btn btn-primary'
     = link_to 'Видалити', @admin_file_document, :class => 'btn btn-primary', |
       method: :delete,

@@ -1,4 +1,5 @@
 class Admin::FileDocumentsController < Admin::AdminController
+  skip_before_action :require_role
   before_action :set_admin_file_document, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/file_documents
@@ -7,7 +8,21 @@ class Admin::FileDocumentsController < Admin::AdminController
     # @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: "orders")
     # @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
 
-    @admin_file_documents = Admin::FileDocument.all
+    # @admin_file_documents = Admin::FileDocument.all
+    # params[:file_document_category] ||= session[:file_document_category]
+    @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: params[:file_document_category] ||= session[:file_document_category])
+    session[:file_document_category] = params[:file_document_category]
+    session[:file_document_category_title] = @admin_file_document_category.title
+    session[:file_document_category_id] = @admin_file_document_category.id
+    # @admin_file_documents = Admin::FileDocument.all
+    @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
+    # @admin_file_documents = @admin_file_documents.order(sort_column + " " + sort_direction)
+    # @admin_file_documents = @admin_file_documents.page(params[:page]).per(25)
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
   # GET /admin/file_documents/1
   # GET /admin/file_documents/1.json

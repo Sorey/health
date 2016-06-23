@@ -37,7 +37,7 @@
     %p#notice= notice
   .heading
     .title
-      %h1 Список нормативних документів
+      %h1= session[:file_document_category_title] || 'Список нормативних документів'
     .btn-new-news
       -#- if current_user && current_user.admin?
       = link_to 'Новй нормативний документ', new_admin_file_document_path, :class => 'btn btn-primary'

@@ -21,20 +21,45 @@
       //border-radius: 3px;
       font-size: 16px;
       thead{
-        th:first-child{
-          //vertical-align: middle;
-          //text-align: center;
+        th{
+          &:last-child{
+            text-align: right;
+          }
+          &:first-child{
+            text-align: center;
+            width: 50px;
+          }
+          .current {
+            position:relative;
+          }
+          .current:before {
+            position:absolute;
+            font-family: FontAwesome;
+            top:0;
+            right:-10px;
+          }
+          .asc:before {
+            content: "\f0de";
+          }
+          .desc:before {
+            content: "\f0dd";
+          }
         }
       }
       tbody{
-        td:nth-child(n+7), td:first-child{
-          //text-align: center;
-        }
-        td .btn{
-         display: inline-block;
-         margin: 0px 0px 5px;
-         padding: 4px 6px;
-         width: 30px;
+        td{
+          &:first-child{
+            text-align: center;
+          }
+          &:last-child{
+            text-align: right;
+          }
+          .btn{
+           display: inline-block;
+           margin: 0px 0px 5px;
+           padding: 4px 6px;
+           width: 30px;
+          }
         }
       }
     }
@@ -46,22 +71,16 @@
       .title
         %h1= @file_document_category.title
   .container
-    %table.table.table-condensed.table-striped
-      %thead
-        %tr
-          -#%th № п/п
-          %th Файл
-          %th Назва
-          %th Затверджено
-      %tbody
-        -#- m_iterator = 1
-        - @file_documents.each do |document|
+    .file-documents-table.table-responsive
+      %table.table.table-condensed.table-striped
+        %thead
           %tr
-            -#%td= m_iterator
-            %td
-              - if document.file?
-                = link_to document.file.url, title: 'Завантажити' do
-                  %i.fa.fa-2x.fa-download
-            %td= document.title
-            %td= l(document.year_publish, :format => "%d-%m-%Y")
-            -#- m_iterator = m_iterator + 1
+            -#%th № п/п
+            %th Файл
+            %th Назва
+            %th
+              = sortable "year_publish", 'Затверджено'
+        %tbody#results
+          = render partial: "search_file_documents", :locals => { file_documents: @file_documents }
+    .panel-paginate
+      = paginate @file_documents #, :remote => true

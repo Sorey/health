@@ -34,7 +34,9 @@ Rails.application.routes.draw do
   get '/photo_galleries' => 'gallery#photo_galleries', as: :photo_galleries
   get '/photo_galleries/:id' => 'gallery#show_photo_gallery', as: :photo_gallery
 
-  get '/documents/:file_document_category' => 'file_documents#category_file_documents'
+  get '/documents/:file_document_category' => 'file_documents#category_file_documents', as: :file_document_category
+
+  # get '/admin/file_documents/:file_document_category' => 'admin_file_documents#index', as: :file_document_category_admin
 
   namespace :admin do
     controller :sessions do
@@ -69,6 +71,7 @@ Rails.application.routes.draw do
     resources :private_medical_setups
     resources :files
     resources :file_documents
+    get '/documents/:file_document_category' => 'file_documents#index', as: :file_document_category
     resources :file_document_categories
   end
 

@@ -21,7 +21,7 @@
   .form-group
     = f.label :admin_file_document_category_ids, "Група документів", :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {:selected => session[:file_document_category_id]}, multiple: true,  :class => 'form-control input-responsive'
+      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {}, multiple: true,  :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

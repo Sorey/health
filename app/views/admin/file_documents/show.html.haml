@@ -16,7 +16,7 @@
         %tr
           %th Затверджено
           %td
-            = l(@admin_file_document.year_publish, :format => "%d-%m-%Y")
+            = l(@admin_file_document.year_publish, :format => "%d-%m-%Y") if @admin_file_document.year_publish?
         %tr
           %th Група
           %td

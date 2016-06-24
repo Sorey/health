@@ -13,7 +13,7 @@ class Admin::FileDocumentsController < Admin::AdminController
     @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: params[:file_document_category] ||= session[:file_document_category])
     session[:file_document_category] = params[:file_document_category]
     session[:file_document_category_title] = @admin_file_document_category.title
-    session[:file_document_category_id] = @admin_file_document_category.id
+    session[:file_document_category_id] = @admin_file_document_category.id.to_s
     # @admin_file_documents = Admin::FileDocument.all
     @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
     # @admin_file_documents = @admin_file_documents.order(sort_column + " " + sort_direction)
@@ -32,6 +32,7 @@ class Admin::FileDocumentsController < Admin::AdminController
   # GET /admin/file_documents/new
   def new
     @admin_file_document = Admin::FileDocument.new
+    @admin_file_document.admin_file_document_category_ids.push(session[:file_document_category_id])
   end
 
   # GET /admin/file_documents/1/edit

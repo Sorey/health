@@ -1,0 +1,17 @@
+- @admin_file_documents.each do |admin_file_document|
+  %tr
+    %td
+      - if admin_file_document.file?
+        = link_to admin_file_document.file.url, title: 'Завантажити' do
+          %i.fa.fa-2x.fa-download
+    %td= admin_file_document.title
+    %td
+      = admin_file_document.year_publish.year if admin_file_document.year_publish?
+    %td
+      - admin_file_document.admin_file_document_categories.each do |category|
+        = category.title
+        %br
+    %td
+      = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_file_document, title: "Переглянути",  :class => 'btn btn-info'
+      = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_file_document_path(admin_file_document), title: "Редагувати", :class => 'btn btn-primary'
+      = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_file_document, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'

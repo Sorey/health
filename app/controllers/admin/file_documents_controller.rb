@@ -2,22 +2,21 @@ class Admin::FileDocumentsController < Admin::AdminController
   skip_before_action :require_role
   before_action :set_admin_file_document, only: [:show, :edit, :update, :destroy]
 
+  helper_method :sort_column, :sort_direction
+
   # GET /admin/file_documents
   # GET /admin/file_documents.json
   def index
-    # @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: "orders")
-    # @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
-
     # @admin_file_documents = Admin::FileDocument.all
     # params[:file_document_category] ||= session[:file_document_category]
     @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: params[:file_document_category] ||= session[:file_document_category])
     session[:file_document_category] = params[:file_document_category]
     session[:file_document_category_title] = @admin_file_document_category.title
     session[:file_document_category_id] = @admin_file_document_category.id.to_s
-    # @admin_file_documents = Admin::FileDocument.all
+
     @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
-    # @admin_file_documents = @admin_file_documents.order(sort_column + " " + sort_direction)
-    # @admin_file_documents = @admin_file_documents.page(params[:page]).per(25)
+    @admin_file_documents = @admin_file_documents.order(sort_column + " " + sort_direction)
+    @admin_file_documents = @admin_file_documents.page(params[:page]).per(25)
 
     respond_to do |format|
       format.js
@@ -83,6 +82,14 @@ class Admin::FileDocumentsController < Admin::AdminController
   end
 
   private
+
+    def sort_column
+      Admin::FileDocument.fields.keys.include?(params[:sort]) ? params[:sort] : "created_at"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_file_document
       @admin_file_document = Admin::FileDocument.find(params[:id])

@@ -41,29 +41,19 @@
     .btn-new-news
       -#- if current_user && current_user.admin?
       = link_to 'Новй документ', admin_new_file_document_path(session[:file_document_category_id]), :class => 'btn btn-primary'
-  %table.table.table-condensed.table-striped
-    %thead
-      %tr
-        %th Файл
-        %th Назва
-        %th Затверджено
-        %th Група
-        %th Дії
-    %tbody
-      - @admin_file_documents.each do |admin_file_document|
+  .file-documents-table.table-responsive
+    %table.table.table-condensed.table-striped
+      %thead
         %tr
-          %td
-            - if admin_file_document.file?
-              = link_to admin_file_document.file.url, title: 'Завантажити' do
-                %i.fa.fa-2x.fa-download
-          %td= admin_file_document.title
-          %td
-            = admin_file_document.year_publish.year if admin_file_document.year_publish?
-          %td
-            - admin_file_document.admin_file_document_categories.each do |category|
-              = category.title
-              %br
-          %td
-            = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_file_document, title: "Переглянути",  :class => 'btn btn-info'
-            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_file_document_path(admin_file_document), title: "Редагувати", :class => 'btn btn-primary'
-            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_file_document, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
+          %th
+            = sortable "created_at", 'Файл'
+          %th
+            = sortable "title", 'Назва'
+          %th
+            = sortable "year_publish", 'Затверджено'
+          %th Група
+          %th Дії
+      %tbody#results
+        = render partial: "search_file_documents", :locals => { admin_file_documents: @admin_file_documents }
+  .panel-paginate
+    = paginate @admin_file_documents #, :remote => true

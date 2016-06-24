@@ -40,7 +40,7 @@
       %h1= session[:file_document_category_title] || 'Список нормативних документів'
     .btn-new-news
       -#- if current_user && current_user.admin?
-      = link_to 'Новй нормативний документ', new_admin_file_document_path, :class => 'btn btn-primary'
+      = link_to 'Новй нормативний документ', admin_new_file_document_path(session[:file_document_category_id]), :class => 'btn btn-primary'
   %table.table.table-condensed.table-striped
     %thead
       %tr

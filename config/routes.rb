@@ -72,6 +72,7 @@ Rails.application.routes.draw do
     resources :files
     resources :file_documents
     get '/documents/:file_document_category' => 'file_documents#index', as: :file_document_category
+    get '/file_documents/new/:file_document_category' => 'file_documents#new', as: :new_file_document
     resources :file_document_categories
   end
 

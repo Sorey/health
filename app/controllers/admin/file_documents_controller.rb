@@ -32,7 +32,7 @@ class Admin::FileDocumentsController < Admin::AdminController
   # GET /admin/file_documents/new
   def new
     @admin_file_document = Admin::FileDocument.new
-    @admin_file_document.admin_file_document_category_ids.push(session[:file_document_category_id])
+    @admin_file_document.admin_file_document_category_ids.push(params[:file_document_category])
   end
 
   # GET /admin/file_documents/1/edit

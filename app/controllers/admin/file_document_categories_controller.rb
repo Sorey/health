@@ -1,5 +1,4 @@
 class Admin::FileDocumentCategoriesController < Admin::AdminController
-  skip_before_action :require_role
   before_action :set_admin_file_document_category, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/file_document_categories

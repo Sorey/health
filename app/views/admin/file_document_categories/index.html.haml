@@ -55,14 +55,14 @@
   .heading
     .title
       %h1 Групи нормативних документів
-    - if current_user.access? "admin/file_documents", "index"
+    - if current_user.access? "admin/file_document_categories", "new"
       .btn-new-news
         -#- if current_user && current_user.admin?
         = link_to 'Нова група', new_admin_file_document_category_path, :class => 'btn btn-primary'
   %table.table.table-condensed.table-striped
     %thead
       %tr
-        - if current_user.access? "admin/file_documents", "index"
+        - if current_user.access? "admin/file_document_categories", "show"
           %th Група
           %th Url назва
           %th Дії
@@ -72,7 +72,7 @@
           %td
             = link_to category.title, admin_file_document_category_path(category.url_title), :class => 'category_link'
             -#= category.title
-          - if current_user.access? "admin/file_documents", "index"
+          - if current_user.access? "admin/file_document_categories", "show"
             %td= category.url_title
             %td
               = link_to '<i class="fa fa-eye "></i>'.html_safe, category, title: "Переглянути",  :class => 'btn btn-info'

@@ -1,10 +1,24 @@
+:scss
+
+  #error_explanation{
+    padding: 3px 10px;
+    color: #ffffff;
+    background: #5bc0de;
+    border-radius: 10px;
+    h2{
+      margin-top:5px;
+    }
+  }
+
 = form_for @admin_file_document, html: { class: 'form-horizontal' } do |f|
-  - if @admin_file_document.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_file_document.errors.count, "error")} prohibited this admin_file_document from being saved:"
-      %ul
-        - @admin_file_document.errors.full_messages.each do |msg|
-          %li= msg
+  .form-group
+    .col-sm-10.col-md-offset-2
+      - if @admin_file_document.errors.any?
+        #error_explanation
+          %h2= "Не дозволяють зберегти документ #{pluralize(@admin_file_document.errors.count, "error")}:"
+          %ul
+            - @admin_file_document.errors.full_messages.each do |msg|
+              %li= msg
 
   .form-group
     = f.label :title, "Назва", :class => 'col-sm-2 control-label'
@@ -13,7 +27,7 @@
   .form-group
     = f.label :year_publish, "Затверджено", :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :year_publish,' data-provide' => 'datepicker', :class => 'form-control input-responsive datepicker'
+      = f.text_field :year_publish,' data-provide' => 'datepicker', :required => true, :class => 'form-control input-responsive datepicker'
   .form-group
     = f.label :file, 'Файл', :class => 'col-sm-2 control-label'
     .col-sm-10
@@ -21,7 +35,7 @@
   .form-group
     = f.label :admin_file_document_category_ids, "Група документів", :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {}, multiple: true,  :class => 'form-control input-responsive'
+      = f.select :admin_file_document_category_ids, Admin::FileDocumentCategory.all.collect {|x| [x.title, x.id]}, {}, multiple: true, :required => true,  :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

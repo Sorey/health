@@ -9,9 +9,9 @@ class Admin::FileDocumentsController < Admin::AdminController
     # @admin_file_documents = Admin::FileDocument.all
     # params[:file_document_category] ||= session[:file_document_category]
     @admin_file_document_category = Admin::FileDocumentCategory.find_by(url_title: params[:file_document_category] ||= session[:file_document_category])
-    session[:file_document_category] = params[:file_document_category]
-    session[:file_document_category_title] = @admin_file_document_category.title
-    session[:file_document_category_id] = @admin_file_document_category.id.to_s
+    session[:file_document_category] = params[:file_document_category]             #url_title for link for button in show, new, edit view
+    session[:file_document_category_title] = @admin_file_document_category.title   #header for list file_documents and name button in new, edit view
+    session[:file_document_category_id] = @admin_file_document_category.id.to_s    #for select in action new
 
     @admin_file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @admin_file_document_category.id)
     @admin_file_documents = @admin_file_documents.order(sort_column + " " + sort_direction)
@@ -30,7 +30,8 @@ class Admin::FileDocumentsController < Admin::AdminController
   # GET /admin/file_documents/new
   def new
     @admin_file_document = Admin::FileDocument.new
-    @admin_file_document.admin_file_document_category_ids.push(params[:file_document_category])
+    @admin_file_document.admin_file_document_category_ids.push(params[:file_document_category_id])
+    # binding.pry
   end
 
   # GET /admin/file_documents/1/edit

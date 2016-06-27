@@ -1,0 +1,26 @@
+:scss
+  .new-people-file{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
+
+.new-people-file
+  .container
+    .heading
+      .title
+        %h1 Новий матеріал для населення
+      .btn-new-news
+        = link_to 'Матеріали для населення', admin_people_files_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'

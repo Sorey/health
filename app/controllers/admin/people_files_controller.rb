@@ -1,4 +1,4 @@
-class Admin::PeopleFilesController < ApplicationController
+class Admin::PeopleFilesController < Admin::AdminController
   before_action :set_admin_people_file, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/people_files
@@ -40,6 +40,13 @@ class Admin::PeopleFilesController < ApplicationController
   # PATCH/PUT /admin/people_files/1
   # PATCH/PUT /admin/people_files/1.json
   def update
+    unless admin_people_file_params[:title].blank?
+      unless admin_people_file_params[:description].blank?
+        unless admin_people_file_params[:file].blank?
+          @admin_people_file.remove_file!
+        end
+      end
+    end
     respond_to do |format|
       if @admin_people_file.update(admin_people_file_params)
         format.html { redirect_to @admin_people_file, notice: 'People file was successfully updated.' }

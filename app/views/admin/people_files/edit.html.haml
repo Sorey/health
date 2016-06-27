@@ -1,7 +1,26 @@
-%h1 Editing admin_people_file
+:scss
+  .edit-people-file{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
 
-= render 'form'
-
-= link_to 'Show', @admin_people_file
-\|
-= link_to 'Back', admin_people_files_path
+.edit-people-file
+  .container
+    .heading
+      .title
+        %h1 Редагування матеріалу для населення
+      .btn-new-news
+        = link_to 'Матеріали для населення', admin_people_files_path, :class => 'btn btn-primary'
+  .container
+    .form
+      = render 'form'

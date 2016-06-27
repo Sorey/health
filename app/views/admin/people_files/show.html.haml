@@ -1,15 +1,37 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @admin_people_file.title
-%p
-  %b Description:
-  = @admin_people_file.description
-%p
-  %b Publish on:
-  = @admin_people_file.publish_on
-
-= link_to 'Edit', edit_admin_people_file_path(@admin_people_file)
-\|
-= link_to 'Back', admin_people_files_path
+.show-people-file
+  .container
+    - if notice
+      %p#notice= notice
+    %p
+      %h2
+        Матеріал
+        %em
+          = @admin_people_file.title
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %tbody
+        %tr
+          %th Файл
+          %td
+            - if @admin_people_file.file?
+              = link_to @admin_people_file.file.url, title: 'Переглянути', target: '_blank'  do
+                %i.fa.fa-2x.fa-file-pdf-o
+        %tr
+          %th Назва
+          %td= @admin_people_file.title
+        %tr
+          %th Дата створення
+          %td= @admin_people_file.created_at
+        %tr
+          %th Опис
+          %td= @admin_people_file.description
+        %tr
+          %th Публікувати?
+          %td= @admin_people_file.publish_on
+    = link_to 'Матеріали для населення', admin_people_files_path, :class => 'btn btn-primary'
+    -#- if current_user && current_user.editor?
+    = link_to 'Редагувати', edit_admin_people_file_path(@admin_people_file), :class => 'btn btn-primary'
+    -#- if current_user && current_user.admin?
+    = link_to 'Видалити', @admin_people_file, :class => 'btn btn-primary', |
+      method: :delete,
+      data: { confirm: 'Ви впевнені?' }

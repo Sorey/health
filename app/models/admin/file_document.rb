@@ -16,7 +16,6 @@ class Admin::FileDocument
             }
   validates :admin_file_document_category_ids, presence: true
 
-
   mount_uploader :file, FileDocumentUploader
   skip_callback :update, :before, :store_previous_model_for_file
 

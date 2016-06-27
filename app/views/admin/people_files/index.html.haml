@@ -1,25 +1,72 @@
-%h1 Listing admin_people_files
+:scss
+  .admin_files{
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Publish on
-      %th
-      %th
-      %th
+    thead{
+      th:last-child{
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+    tbody{
+      td:last-child{
+        text-align: center;
+        white-space: nowrap;
+      }
+      td.wrap{
+        text-align: justify;
+      }
+      td .btn{
+         display: inline-block;
+         margin: 0px 0px 5px;
+         padding: 4px 6px;
+         width: 30px;
+      }
+    }
 
-  %tbody
-    - @admin_people_files.each do |admin_people_file|
-      %tr
-        %td= admin_people_file.title
-        %td= admin_people_file.description
-        %td= admin_people_file.publish_on
-        %td= link_to 'Show', admin_people_file
-        %td= link_to 'Edit', edit_admin_people_file_path(admin_people_file)
-        %td= link_to 'Destroy', admin_people_file, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new-news{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
+      }
+    }
+  }
 
-%br
-
-= link_to 'New People file', new_admin_people_file_path
+.admin_files
+  .container
+    .heading
+      .title
+        %h1 Матеріали для населення
+      .btn-new-news
+        = link_to 'Створити матеріал', new_admin_people_file_path, :class => 'btn btn-primary'
+  .container
+    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+      %thead
+        %tr
+          %th Файл
+          %th Назва
+          %th Дата створення
+          %th Опис
+          %th Публікувати?
+          %th Дія
+      %tbody
+        -if @admin_people_files
+          - @admin_people_files.each do |admin_people_file|
+            %tr
+              %td
+                - if admin_people_file.file?
+                  = link_to admin_people_file.file.url, title: 'Переглянути', target: '_blank'  do
+                    %i.fa.fa-2x.fa-file-pdf-o
+              %td= admin_people_file.title
+              %td= l(admin_people_file.created_at, :format => "%d-%m-%Y")
+              %td= admin_people_file.description
+              %td= admin_people_file.publish_on
+              %td
+                = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_people_file, title: "Переглянути",  :class => 'btn btn-info'
+                = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_people_file_path(admin_people_file), title: "Редагувати", :class => 'btn btn-primary'
+                = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_people_file, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'

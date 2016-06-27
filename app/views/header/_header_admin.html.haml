@@ -206,6 +206,10 @@
                   - if current_user.access? "admin/file_documents", "index"
                     %li
                       %a{:href => admin_file_document_categories_path} Нормативні документи
+                    %li.divider{:role => "separator"}
+                  - if current_user.access? "admin/people_files", "index"
+                    %li
+                      %a{:href => admin_people_files_path} Матеріали для населення
             -#- if current_user && current_user.access_admin?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

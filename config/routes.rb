@@ -39,6 +39,9 @@ Rails.application.routes.draw do
 
   get '/documents/:file_document_category' => 'file_documents#category_file_documents', as: :file_document_category
 
+  get '/population_materials' => 'people_files#population_materials', as: :population_materials
+  get '/population_materials/:id' => 'people_files#show_population_material', as: :population_material
+
   # get '/admin/file_documents/:file_document_category' => 'admin_file_documents#index', as: :file_document_category_admin
 
   namespace :admin do

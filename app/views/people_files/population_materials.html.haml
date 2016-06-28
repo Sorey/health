@@ -1,0 +1,83 @@
+:scss
+  .people_files{
+    .panel-paginate{
+      text-align: center;
+    }
+    margin-bottom: 10px;
+    .row{
+      padding: 0 15px;
+      .one-material{
+        background: rgba(203, 202, 202, 0.31);
+        padding: 10px 0;
+        border-bottom: 2px solid #4CAF50;
+        .info{
+          p{
+            .btn{
+              float:right;
+              padding: 2px 5px;
+            }
+            span{
+              float:right;
+              padding: 3px 10px;
+              color: #ABAAAA;
+            }
+            strong{
+              a{
+                color: #4CAF50;
+                font-size: 20px;
+                font-family: Georgia;
+              }
+            }
+          }
+          .pre-text{
+            font-size: 17px;
+          }
+          .description{
+            line-height: 1.6em;
+            font-size: 15px;
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+    .row:nth-child(2n) .one-material{
+      background: rgba(203, 202, 202, 0.13);
+      //background: #DBDBDB;
+    }
+    .row .one-material:hover{
+      background: rgba(203, 202, 202, 0.59);
+      border-bottom: 2px solid #39b3d7;
+      .info strong a{
+        color: #5bc0de;
+      }
+      .info strong a:hover{
+        color: #39b3d7;
+        text-decoration: none;
+      }
+      .btn-success{
+        background-color: #5bc0de;
+        border-color: #46b8da;
+      }
+      .btn-success:hover{
+        background-color: #39b3d7;
+        border-color: #269abc;
+      }
+    }
+  }
+
+.people_files
+  .container
+    %h1 Матеріали для населення
+    - @population_materials.each do |material|
+      .row
+        .one-material.clearfix
+          .col-md-12.col-sm-12.info
+            %p
+              %strong
+                %a{:href => material.file.url, title: "Переглянути"}= material.title
+              = link_to "Переглянути", material.file.url, :class => 'btn btn-success'
+              %span
+                = l(material.created_at, :format => "%d-%m-%Y")
+            %p.description= truncate(strip_tags(material.description), length: 400)
+    .panel-paginate
+      = paginate @population_materials

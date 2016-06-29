@@ -176,11 +176,16 @@
   }
 
   ready = function(){
+    $.when(
+      $.getScript( "/assets/html.sortable.js" ),
+      $.Deferred(function( deferred ){
+        $( deferred.resolve );
+      })
+    ).done(function(){
+       // call set_positions function
+      set_positions();
 
-    // call set_positions function
-    set_positions();
-
-    $('.sortable').sortable();
+      $('.sortable').sortable();
 
         $('.sortable').sortable().bind('sortupdate', function(e, ui) {
         // array to store new order
@@ -199,6 +204,7 @@
             url: '/admin/photo_galleries/#{@admin_photo_gallery.id}/photos/sort',
             data: { order: updated_order }
         });
+      });
     });
   }
 

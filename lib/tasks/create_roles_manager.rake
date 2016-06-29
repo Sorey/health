@@ -37,6 +37,6 @@ namespace :create_roles_manager do
     a_r_file_document_6 = Admin::Role.create(title: "admin/file_documentsupdate", type_role: 1, parent_id: a_r_file_document.id)
     a_r_file_document_7 = Admin::Role.create(title: "admin/file_documentsdestroy", type_role: 1, parent_id: a_r_file_document.id)
 
-    puts "Roles for ManagerTru Created"
+    puts "Roles for ManagerTruSav Created"
   end
 end

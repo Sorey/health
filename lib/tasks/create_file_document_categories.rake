@@ -1,8 +1,6 @@
 namespace :create_file_document_categories do
   task :file_document_categories => :environment do
 
-    a_r_manager_tru = Admin::Role.find_by(title: "manager_tru")
-
     Admin::FileDocumentCategory.delete_all
     a_f_d_category_1 = Admin::FileDocumentCategory.create(title: "Нормативна база для приватних медичних установ",
                                                           url_title: "file_private_medical_setups")

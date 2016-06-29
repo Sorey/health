@@ -15,14 +15,16 @@
     table{
       //font-size: 13px;
       thead{
-        th:last-child{
+        th{
           vertical-align: middle;
+        }
+        th:first-child{
           text-align: center;
         }
       }
       tbody{
         td:last-child{
-          text-align: center;
+          //text-align: center;
         }
         td .btn{
          display: inline-block;
@@ -44,7 +46,7 @@
   %table.table.table-condensed.table-striped
     %thead
       %tr
-        -#%th Порядок
+        %th Фото
         %th Назва
         %th Опис
         %th Дата створення
@@ -54,6 +56,9 @@
     %tbody
       - @admin_photo_galleries.each do |gallery|
         %tr
+          %td
+            = link_to gallery, title: "Переглянути" do
+              .div{style: " width: 100px; height: 100px; background: url('#{image_path(gallery.photos.order(order_photo: :asc).first.image.middle) if gallery.photos.any?}') no-repeat; background-position: center; background-size: cover; "}
           %td= gallery.title
           %td= gallery.description
           %td= l(gallery.created_at, :format => "%d-%m-%Y")

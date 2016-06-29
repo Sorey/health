@@ -136,9 +136,10 @@
     <orderEntry type="library" scope="PROVIDED" name="bson_ext (v1.5.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.12.0.rc, RVM: ruby-2.0.0-p647) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="carrierwave (v0.10.0@0198be, RVM: ruby-2.0.0-p647) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="carrierwave-mongoid (v0.8.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ckeditor (v4.1.6@123389, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="byebug (v9.0.5, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="carrierwave (v0.11.0@b31f7c, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="carrierwave-mongoid (v0.9.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ckeditor (v4.1.6@93c1b1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.0.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.5.8, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
@@ -146,14 +147,17 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.10.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="commonjs (v0.2.7, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.0.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.2.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="excon (v0.50.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fog-aws (v0.9.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fog-core (v1.40.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fog-json (v1.0.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fog-xml (v0.1.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="font-awesome-rails (v4.6.3.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="formatador (v0.2.5, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.3.6, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="haml (v4.0.7, RVM: ruby-2.0.0-p647) [gem]" level="application" />
@@ -168,20 +172,28 @@
     <orderEntry type="library" scope="PROVIDED" name="kgio (v2.10.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less (v2.6.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less-rails (v2.7.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.15, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v0.8.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2016.0521, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mimemagic (v0.3.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.5.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.1.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.9.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mongoid (v4.0.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mongoid-grid_fs (v2.2.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mongoid-paperclip (v0.0.10, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mongoid-sadstory (v0.0.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="moped (v2.0.7, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.12.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.6.8, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="optionable (v0.2.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="origin (v2.2.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="paperclip (v4.3.6, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pkg-config (v1.1.7, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pr_geohash (v1.0.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.10.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.6.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
@@ -201,15 +213,20 @@
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ref (v2.0.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rsolr (v1.1.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby_parser (v3.8.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.22, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.4, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="select2-rails (v4.0.3, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sexp_processor (v4.7.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slop (v3.6.0, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="spring (v1.7.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.6.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.1.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sunspot (v2.2.5@8e2f4f, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sunspot_mongoid (v0.4.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sunspot_rails (v2.2.5@964ecd, RVM: ruby-2.0.0-p647) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sunspot_solr (v2.2.5@964ecd, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sunspot_rails (v2.2.5@8e2f4f, RVM: ruby-2.0.0-p647) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sunspot_solr (v2.2.5@8e2f4f, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.12.2, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.1, RVM: ruby-2.0.0-p647) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.5, RVM: ruby-2.0.0-p647) [gem]" level="application" />

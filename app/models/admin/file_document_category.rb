@@ -1,6 +1,7 @@
 class Admin::FileDocumentCategory
   include Mongoid::Document
 
+  include Mongoid::Timestamps
   field :title, type: String
   field :url_title, type: String
 

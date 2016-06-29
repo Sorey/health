@@ -4,7 +4,7 @@ class Admin::FileDocumentCategoriesController < Admin::AdminController
   # GET /admin/file_document_categories
   # GET /admin/file_document_categories.json
   def index
-    @admin_file_document_categories = Admin::FileDocumentCategory.all
+    @admin_file_document_categories = Admin::FileDocumentCategory.order(created_at: "desc")
   end
 
   # GET /admin/file_document_categories/1

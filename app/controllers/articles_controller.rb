@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   def show_articles_group
     @articles_group = Admin::ArticlesGroup.find_by(title_english: params[:title_group])
-    @articles = Admin::Article.where(publish_on: true, :admin_articles_group_id => @articles_group.id)
+    @articles = Admin::Article.where(publish_on: true, :admin_articles_group_id => @articles_group.id).page(params[:page]).per(30)
   end
 
   def show_article

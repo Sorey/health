@@ -26,3 +26,5 @@
   .articles
     - @articles.each do |article|
       %a.article{:href => "/groups/#{@articles_group.title_english}/#{article.title_english}", :target => "_self"}= article.title
+  .panel-paginate
+    = paginate @articles

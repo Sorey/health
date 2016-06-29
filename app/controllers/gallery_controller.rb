@@ -19,6 +19,7 @@ class GalleryController < ApplicationController
 
   def photo_galleries
     @photo_galleries = Admin::PhotoGallery.where(publish_on: true).order(created_at: :desc)
+    @photo_galleries = @photo_galleries.page(params[:page]).per(28)
   end
 
   def show_photo_gallery

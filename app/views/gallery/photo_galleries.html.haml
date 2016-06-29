@@ -56,3 +56,5 @@
 
               -#= link_to image_tag("statistic_gallery/cartograms/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg"), {:controller => "gallery", :action => "show", :gallery => "cartograms" }, method: :get
               -#= link_to image_tag("logo.png"), gallery_path("charts"), method: :get
+    .panel-paginate
+      = paginate @photo_galleries

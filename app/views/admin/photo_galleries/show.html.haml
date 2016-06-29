@@ -21,13 +21,6 @@
           input[type="file"]{
             display: none;
           }
-          label.file-label{
-            //vertical-align: middle;
-            //text-align: center;
-            //color: white;
-            //border-radius: 5px;
-            //background: linear-gradient(to left bottom, blue, #51C5FF, blue);
-          }
         }
       }
     }
@@ -62,20 +55,6 @@
       .btn-delete{
         right: -5px;
       }
-    }
-    .form{
-      //input[type="file"]{
-      //  display: none;
-      //}
-      //label.file-label{
-      //  font-size: 18px;
-      //  vertical-align: middle;
-      //  text-align: center;
-      //  color: white;
-      //  //border: 1px solid blue;
-      //  border-radius: 5px;
-      //  background: linear-gradient(to left bottom, yellow, green, blue);
-      //}
     }
     .sortable-placeholder {
       display: inline-block;
@@ -115,54 +94,10 @@
       = l(@admin_photo_gallery.created_at, :format => "%d-%m-%Y")
   %p= simple_format(@admin_photo_gallery.description)
 
-  -#.form.clearfix
-    %h2.col-sm-offset-2 Нове фото
-    = form_for [@admin_photo_gallery, @photo], html: { class: 'form-horizontal' } do |f|
-      - if @photo.errors.any?
-        #error_explanation
-          %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this reply from being saved:"
-          %ul
-            - @photo.errors.full_messages.each do |msg|
-              %li= msg
-
-      .form-group
-        = f.label :image, 'Додати фото', :class => 'col-sm-2 control-label file-label'
-        .col-sm-10
-          = f.file_field :image, onChange: 'form.submit()', :class => 'form-control input-responsive'
-      .form-group
-        .field
-          = f.label :title, 'Назва', :class => 'col-sm-2 control-label'
-          .col-sm-10
-            = f.text_field :title, :class => 'form-control input-responsive'
-      .form-group
-        .field
-          = f.label :order_photo, 'Порядок відображення', :class => 'col-sm-2 control-label'
-          .col-sm-10
-            = f.number_field :order_photo, value: 2, :class => 'form-control input-responsive'
-      -#= f.select :order_photo, [1,2,3,4,5,6,7,8,9,10], {}, :class => 'form-control input-responsive'
-      .form-group
-        .actions
-          .col-sm-offset-2.col-sm-10
-            = f.submit 'Додати фото', :class => 'btn btn-primary'
   .photos.sortable
     - if @admin_photo_gallery.photos.any?
-      -#= render @admin_photo_gallery.photos
       = render 'admin/photos/photo'
-      -#- @admin_photo_gallery.photos.sort_by(&:order_photo).each_with_index do |photo, i|
-        %div.photo
-          -#= link_to image_tag(photo.image.thumb), image_path(photo.image.thumb), title: "rrr", target: "_blank"
 
-          %a{href: "#{image_path(photo.image.thumb)}" , title: "rrr", target: "_blank"}
-            =image_tag photo.image.thumb # if photo.image.thumb
-          = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary btn-photo btn-edit'
-          = link_to '<i class="fa fa-times"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger btn-photo btn-delete'
-          -#%h4
-            = 'Фото ' + "#{i+1}" + ':  '
-            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_photo_path(@admin_photo_gallery, photo), title: "Редагувати", :class => 'btn btn-primary'
-            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, [@admin_photo_gallery, photo], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
-            %em= "--- " + photo.title
-            %span
-              =image_tag photo.image.thumb if photo.image.thumb
 :javascript
 
   var ready, set_positions;
@@ -176,34 +111,27 @@
   }
 
   ready = function(){
-    $.when(
-      $.getScript( "/assets/html.sortable.js" ),
-      $.Deferred(function( deferred ){
-        $( deferred.resolve );
-      })
-    ).done(function(){
-       // call set_positions function
+    // call set_positions function
+    set_positions();
+
+    $('.sortable').sortable();
+
+      $('.sortable').sortable().bind('sortupdate', function(e, ui) {
+      // array to store new order
+      updated_order = []
+      // set the updated positions
       set_positions();
 
-      $('.sortable').sortable();
+      // populate the updated_order array with the new task positions
+      $('.photo').each(function(i){
+          updated_order.push({ id: $(this).data("id"), position: i+1 });
+      });
 
-        $('.sortable').sortable().bind('sortupdate', function(e, ui) {
-        // array to store new order
-        updated_order = []
-        // set the updated positions
-        set_positions();
-
-        // populate the updated_order array with the new task positions
-        $('.photo').each(function(i){
-            updated_order.push({ id: $(this).data("id"), position: i+1 });
-        });
-
-        // send the updated order via ajax
-        $.ajax({
-            type: "PUT",
-            url: '/admin/photo_galleries/#{@admin_photo_gallery.id}/photos/sort',
-            data: { order: updated_order }
-        });
+      // send the updated order via ajax
+      $.ajax({
+          type: "PUT",
+          url: '/admin/photo_galleries/#{@admin_photo_gallery.id}/photos/sort',
+          data: { order: updated_order }
       });
     });
   }

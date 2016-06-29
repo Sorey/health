@@ -1,7 +1,7 @@
 class PeopleFilesController < ApplicationController
 
   def population_materials
-    @population_materials = Admin::PeopleFile.all.page(params[:page]).per(20)
+    @population_materials = Admin::PeopleFile.where(publish_on: true).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show_population_material

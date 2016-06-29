@@ -4,7 +4,7 @@ class Admin::PeopleFilesController < Admin::AdminController
   # GET /admin/people_files
   # GET /admin/people_files.json
   def index
-    @admin_people_files = Admin::PeopleFile.all
+    @admin_people_files = Admin::PeopleFile.order(created_at: :desc)
   end
 
   # GET /admin/people_files/1

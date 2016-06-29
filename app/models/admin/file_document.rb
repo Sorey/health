@@ -1,3 +1,4 @@
+require 'file_size_validator'
 class Admin::FileDocument
   include Mongoid::Document
 

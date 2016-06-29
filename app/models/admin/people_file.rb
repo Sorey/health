@@ -1,3 +1,4 @@
+# require 'file_size_validator'
 class Admin::PeopleFile
   include Mongoid::Document
 

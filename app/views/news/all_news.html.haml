@@ -5,8 +5,7 @@
       text-align: center;
     }
     .row{
-    padding: 0 15px;
-
+      padding: 0 15px;
       .one-news{
         background: #F3FFF9;
         border: 1px solid #cce7d9;
@@ -15,8 +14,6 @@
         border-radius: 10px 10px 50px 10px;
         .image{
           img{
-            //margin: 0 auto;
-            //margin-bottom: 5px;
             display: block;
             margin: 0 auto 5px;
             width: 100%;
@@ -27,7 +24,6 @@
             .btn{
               float:right;
               padding: 2px 5px;
-
             }
             span{
               float:right;
@@ -58,25 +54,12 @@
   }
 
 .public-news
-  - @title_page = "Новини ДОЗ"
-  -#.container
-  -#  .col-sm-11
-  -#.row
-  -#  %h1 Усі новини
-  -#.col-sm-1
-  -#  - if current_user && current_user.admin?
-  -#  %h1= link_to 'New news', new_admin_news_path, :class => 'btn btn-primary'
   .container
     %h1 Усі новини
     - @news.each do |n|
       .row
         .one-news.clearfix
           .col-md-2.col-sm-3.image
-            -#- if request.host == "localhost"
-            -#  = link_to image_tag(n.image.thumb), show_one_news_path(n), title: "Переглянути"
-            -#- else
-            -#  = link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
-            -#= link_to image_tag(n.image.thumb), show_one_news_path(n)
             = link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
           .col-md-10.col-sm-9.info
             %p
@@ -89,24 +72,4 @@
             %p.pre-text= n.pre_text
             %p.description= truncate(strip_tags(n.description), length: 400)
     .panel-paginate
-      = paginate @news  #, :remote => true
-    -#%table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-      %thead
-        %tr
-          %th #
-          %th Title
-          %th Description
-          %th Publish_on
-          %th Picture
-          %th Show
-      %tbody
-        - @news.each do |u|
-          %tr
-            %td= u.id
-            %td= u.title
-            %td= u.description
-            %td= u.publish_on
-            %td
-              - if u.image?
-                =image_tag u.image.thumb
-            %td= link_to "Show news", show_one_news_path(u), :class => 'btn btn-primary'
+      = paginate @news

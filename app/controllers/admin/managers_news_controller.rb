@@ -1,30 +1,20 @@
 class Admin::ManagersNewsController < Admin::AdminController
   before_action :set_admin_for_manager, only: [:show, :edit, :update, :destroy]
 
-  # GET /admin/managers_news
-  # GET /admin/managers_news.json
   def index
     @admin_managers_news = Admin::ManagersNews.all.page(params[:page]).per(20)
-    # @users = User.order(:name).page params[:page]
-    # @admin_managers_news = Kaminari.paginate_array(@admin_managers_news).page(params[:page]).per(20)
   end
 
-  # GET /admin/managers_news/1
-  # GET /admin/managers_news/1.json
   def show
   end
 
-  # GET /admin/managers_news/new
   def new
     @admin_managers_news = Admin::ManagersNews.new
   end
 
-  # GET /admin/managers_news/1/edit
   def edit
   end
 
-  # POST /admin/managers_news
-  # POST /admin/managers_news.json
   def create
     @admin_managers_news = Admin::ManagersNews.new(admin_managers_news_params)
 
@@ -39,8 +29,6 @@ class Admin::ManagersNewsController < Admin::AdminController
     end
   end
 
-  # PATCH/PUT /admin/managers_news/1
-  # PATCH/PUT /admin/managers_news/1.json
   def update
     respond_to do |format|
       if @admin_managers_news.update(admin_managers_news_params)
@@ -53,8 +41,6 @@ class Admin::ManagersNewsController < Admin::AdminController
     end
   end
 
-  # DELETE /admin/managers_news/1
-  # DELETE /admin/managers_news/1.json
   def destroy
     @admin_managers_news.destroy
     respond_to do |format|

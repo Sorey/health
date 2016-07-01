@@ -33,7 +33,6 @@
         }
       }
     }
-
     .heading{
       .title{
         display: inline-block;
@@ -56,18 +55,15 @@
       .title
         %h1 Список новин для керівників
       .btn-new-news
-        -#- if current_user && current_user.admin?
         = link_to 'Створити новину', new_admin_managers_news_path, :class => 'btn btn-primary'
   .container
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
       %thead
         %tr
-          -#%th #
           %th Назва
           %th Дата
           %th Публікувати?
           %th Опис
-
           %th Дія
       %tbody
         - @admin_managers_news.each do |admin_managers_news|
@@ -81,4 +77,4 @@
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_managers_news_path(admin_managers_news), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_managers_news, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
     .panel-paginate
-      = paginate @admin_managers_news  #, :remote => true
+      = paginate @admin_managers_news

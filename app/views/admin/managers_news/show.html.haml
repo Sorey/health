@@ -29,10 +29,7 @@
         %tr
           %td{colspan: 2}= sanitize(@admin_managers_news.description)
     = link_to 'Усі новини', admin_managers_news_index_path, :class => 'btn btn-primary'
-    -#- if current_user && current_user.editor?
     = link_to 'Редагувати', edit_admin_managers_news_path(@admin_managers_news), :class => 'btn btn-primary'
-    -#- if current_user && current_user.admin?
-    = link_to 'Видалити', @admin_managers_news, :class => 'btn btn-primary', |
-      method: :delete,                                                  |
+    = link_to 'Видалити', @admin_managers_news, :class => 'btn btn-primary',
+      method: :delete,
       data: { confirm: 'Ви впевнені?' }
-

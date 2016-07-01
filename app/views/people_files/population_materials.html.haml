@@ -67,7 +67,7 @@
 
 .people_files
   .container
-    %h1 Матеріали для населення
+    %h1= @header_title
     - @population_materials.each do |material|
       .row
         .one-material.clearfix

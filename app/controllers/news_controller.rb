@@ -1,15 +1,14 @@
 class NewsController < ApplicationController
-  # require 'sunspot_rails'
+
 #---------------------- News ------------------------#
   def all_news
-    # @news = Admin::News.where( { publish_on: true } ).sort( { created_at: 1 })
     @news = Admin::News.where(publish_on: true).order(created_at: :desc).page(params[:page]).per(20)
+    set_title_page "Новини Департаменту охорони здоров'я"
   end
 
   def show_one_news
     @news = Admin::News.find(params[:id])
-
-    meta_data @news
+    set_title_page @news.title
   end
 
 #------------------ Managers news -------------------#

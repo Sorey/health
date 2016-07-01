@@ -4,11 +4,11 @@ class FileDocumentsController < ApplicationController
 
   def category_file_documents
     @file_document_category = Admin::FileDocumentCategory.find_by(url_title: params[:file_document_category])
-    # @file_documents = Admin::FileDocument.all
     @file_documents = Admin::FileDocument.where(admin_file_document_category_ids: @file_document_category.id)
     @file_documents = @file_documents.order(sort_column + " " + sort_direction)
     @file_documents = @file_documents.page(params[:page]).per(25)
 
+    set_title_page @file_document_category.title
     respond_to do |format|
       format.js
       format.html

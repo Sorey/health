@@ -30,6 +30,7 @@ class InterrogationController < ApplicationController
       array = [reply.answer, reply.count_answer.nil? ? 0 : reply.count_answer]
       @poll_array.push(array)
     end
+    set_title_page @poll.question
     @poll_array
   end
 

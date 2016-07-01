@@ -36,6 +36,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    def set_title_page title
+      @title_page = title
+    end
+
     def meta_data page
       @title_page = page.title unless page.title.blank?
       @meta_keywords = page.meta_keywords unless page.meta_keywords.blank?

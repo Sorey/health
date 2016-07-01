@@ -1,11 +1,12 @@
 module Admin
   class NewsController < AdminController
+    before_action :set_admin_news, only: [:show, :edit, :update, :destroy]
+
     def index
       @news = News.all.order(updated_at: :desc).page(params[:page]).per(20)
     end
 
     def show
-      @news = News.find(params[:id])
     end
 
     def new
@@ -13,7 +14,6 @@ module Admin
     end
 
     def edit
-      @news = News.find(params[:id])
     end
 
     def create
@@ -31,8 +31,6 @@ module Admin
     end
 
     def update
-      @news = News.find(params[:id])
-
       unless news_params[:title].blank?
         unless news_params[:description].blank?
           unless news_params[:image].blank?
@@ -52,16 +50,18 @@ module Admin
     end
 
     def destroy
-      @news = News.find(params[:id])
       @news.destroy
       respond_to do |format|
         format.html { redirect_to admin_news_index_path, notice: 'Новина успішно видалена.' }
         format.json { head :no_content }
       end
-      # redirect_to admin_news_index_path, notice: 'Новина успішно видалена.'
     end
 
-  private
+    private
+
+    def set_admin_news
+      @news = News.find(params[:id])
+    end
 
     def news_params
       params.require(:admin_news).permit(:title, :pre_text, :description, :publish_on, :publish_up, :publish_down, :image, :meta_keywords, :meta_description)

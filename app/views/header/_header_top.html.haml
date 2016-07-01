@@ -1,63 +1,35 @@
 :scss
   .header-top{
     padding: 30px 0 15px;
-    //.gerb1{
-    //  position: absolute;
-    //  top: 35px;
-    //  left: 10%;
-    //  width:55px;
-    //  img{
-    //    opacity: .6;
-    //    width: 100%;
-    //    height: auto;
-    //  }
-    //}
-    .gerb1{
-      //position: absolute;
-      //top: 5px;
-      //left: 10%;
-      width:55px;
-      display:inline-block;
-      img{
-        opacity: .5;
-        width: 100%;
-        height: auto;
+    .logo-link{
+      display: block;
+      .gerb{
+        width:55px;
+        display:inline-block;
+        img{
+          opacity: .5;
+          width: 100%;
+          height: auto;
+        }
       }
-    }
-    .gerb{
-      position: absolute;
-      top: -23px;
-      left: 10px;
-      width:30px;
-      img{
-        opacity: .6;
-        width: 100%;
-        height: auto;
+      .image-logos{
+        white-space:  nowrap;
       }
-    }
-    .image-logos{
-      white-space:  nowrap;
-    }
-
-    .logo{
-      display:inline-block;
-      width: 80px;
-      img{
-        width: 100%;
-        height: auto;
-        //border-radius: 50px;
-        //background: white;
-        //padding: 5px 0 0 0;
+      .logo{
+        display:inline-block;
+        width: 80px;
+        img{
+          width: 100%;
+          height: auto;
+        }
       }
-        //background: transparent url('/assets/images/logo.png');
-        //background-repeat: no-repeat;
-    }
-    .title{
-      font-size: 38px;
-      line-height: 1;
-      letter-spacing: 1px;
-      color: #008f44;
-      font-family: Century Gothic;
+      .title{
+        font-size: 38px;
+        line-height: 1;
+        letter-spacing: 1px;
+        color: #008f44;
+        font-family: Century Gothic;
+      }
     }
     .welcome{
       .message{
@@ -71,7 +43,6 @@
       }
       .phone-icon{
         padding-top: 15px;
-        //text-align: right;
       }
       .number{
         padding-top: 7px;
@@ -83,40 +54,24 @@
   }
 
 .header-top
-  -#.gerb1
-    = image_tag 'gerb_vin.png'
   .container
     .row
       .col-md-6
-        .row
-          -#.col-md-2.col-sm-2.col-xs-2
-            .gerb1
-              = image_tag 'gerb_vin.png'
+        %a.row.logo-link{:href => root_path}
           .col-md-3.col-sm-3.col-xs-5.image-logos
-            -#.gerb
-              = image_tag 'gerb_vin.png'
-            .gerb1
+            .gerb
               = image_tag 'gerb_vin.png'
             .logo
               = image_tag 'snake.png'
-            -#= link_to '', '#', class: "logo"
           .col-md-9.col-sm-9.col-xs-7
             .title
-              -#%h2
               Охорона здоров'я Вінниччини
       .col-md-6
         .row.welcome
           .col-md-6
             .message
               = form_tag search_path, :method => :get do
-                -#%p
                 = text_field_tag :search, params[:search], placeholder: 'Пошук...', :class => 'form-control'
-              -#%form
-                %input.form-control{ placeholder: 'Пошук...', type: 'search'}
-              -#%button.morphsearch-submit{type: 'submit'}
-                  -#Search
-              -#%span Ми на зв'язку з вами 24 години на добу.
-              -#%span По невідкладним потребам можете зателефонувати нам
           .col-md-6
             .row
               .col-md-2.col-sm-2.col-xs-3
@@ -129,7 +84,3 @@
                   .number
                     .phone (0432) 35-37-431
                     .phone (0432) 67-01-20
-                    -#%form
-                      %input.form-control{ placeholder: 'Пошук...', type: 'search'}
-                      -#%button.morphsearch-submit{type: 'submit'}
-                        -#Search

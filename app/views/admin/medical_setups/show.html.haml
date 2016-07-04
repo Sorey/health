@@ -1,3 +1,11 @@
+:scss
+  .show-medical-setup{
+    table{
+      border-style: solid;
+      border-color: #63B8FF;
+    }
+  }
+
 .show-medical-setup
   .container
     - if notice
@@ -8,7 +16,7 @@
         %em
           = @medical_setup.name
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %tbody
         %tr
           %th Назва медичної установи
@@ -25,8 +33,6 @@
         %tr
           %th Електронна пошта
           %td= @medical_setup.email
-        -#%tr
-        -#  %th Ліцензія на право здійснювати медичну діяльність
         %tr
           %th № ліцензії серія
           %td= @medical_setup.date_start
@@ -40,9 +46,7 @@
           %th Категорія
           %td= @medical_setup.medical_level
     = link_to 'Медичні установи', admin_medical_setups_path, :class => 'btn btn-primary'
-    -#- if current_user && current_user.editor?
     = link_to 'Редагувати', edit_admin_medical_setup_path(@medical_setup), :class => 'btn btn-primary'
-    -#- if current_user && current_user.admin?
-    = link_to 'Видалити', @medical_setup, :class => 'btn btn-primary', |
-      method: :delete,                                                  |
-      data: { confirm: 'Ви впевнені?' }                                |
+    = link_to 'Видалити', @medical_setup, :class => 'btn btn-primary',
+      method: :delete,
+      data: { confirm: 'Ви впевнені?' }

@@ -1,0 +1,49 @@
+:scss
+
+  .private-medical-setups{
+    .heading{
+      .title{
+        width: 100%;
+        h1{
+          text-align: center;
+        }
+      }
+    }
+    table{
+      border-style:solid;
+      border-color:#0BBA6A;
+      border-radius: 3px;
+      font-size: 13px;
+      thead{
+        th{
+          text-align: center;
+        }
+      }
+      tbody{
+        td:first-child{
+          text-align: center;
+        }
+      }
+    }
+  }
+
+.private-medical-setups
+  .container
+    .heading
+      .title
+        %h1= @header_title
+  .container
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          %th № п/п
+          %th Структура
+          %th Адреса
+      %tbody
+        - m_iterator = 1
+        - @private_medical_setups.each do |m|
+          %tr
+            %td= m_iterator
+            %td= m.name
+            %td= m.address
+          - m_iterator = m_iterator + 1

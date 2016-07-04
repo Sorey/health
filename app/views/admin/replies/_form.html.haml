@@ -3,7 +3,6 @@
     #error_explanation
       %h2= "#{pluralize(@reply.errors.count, "error")} prohibited this @@poll from being saved:"
       %ul
-        -#=debug @reply.errors.inspect
         - @reply.errors.full_messages.each do |msg|
           %li= msg
   .form-group
@@ -11,16 +10,6 @@
       = f.label :answer, 'Текст питання', :class => 'col-sm-2 control-label'
       .col-sm-10
         = f.text_field :answer, :class => 'form-control input-responsive'
-  -#.form-group
-    .field
-      = f.label :name, :class => 'col-sm-2 control-label'
-      .col-sm-10
-        = f.text_field :name, :class => 'form-control input-responsive'
-  -#.form-group
-    .field
-      = f.label :value, false, :class => 'col-sm-2 control-label'
-      .col-sm-10
-        = f.text_field :value, :class => 'form-control input-responsive'
   .form-group
     .field
       = f.label :order_answer, 'Порядок відображення', :class => 'col-sm-2 control-label'

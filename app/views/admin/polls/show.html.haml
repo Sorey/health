@@ -11,7 +11,6 @@
         display: inline-block;
         float: right;
         .btn{
-
           margin:5px 0 0px;
         }
       }
@@ -27,29 +26,15 @@
     .btn-new-news
       = link_to 'Редагувати', edit_admin_poll_path(@poll), :class => 'btn btn-primary'
       = link_to 'Всі опитування', admin_polls_path, :class => 'btn btn-primary'
-    -#%em= @poll.question + ":"
   - if @poll.replies
     - if @poll.replies.size > 0
       - @poll.replies.sort_by(&:order_answer).each_with_index do |reply, i|
         %h4
           = 'Відповідь ' + "#{i+1}" + ':  '
-          -#= link_to 'Edit', edit_admin_poll_reply_path(@poll, reply)
-          -#= link_to 'Destroy', [@poll, reply], :method => :delete, :data => { :confirm => 'Are you sure?' }
           = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_poll_reply_path(@poll, reply), title: "Редагувати", :class => 'btn btn-primary'
           = link_to '<i class="fa fa-trash-o"></i>'.html_safe, [@poll, reply], title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
-
-          -#= reply.id
-          -#=reply.order_answer if reply.order_answer
           %em= "--- " + reply.answer
 
-
-      -#- for comment in @@admin_question.replies
-      -#  %h4
-      -#    = 'reply '
-      -#    = comment.id
-      -#    = "--- " + comment.answer
-      -#  = link_to 'Edit', edit_admin_test_reply_path(@@admin_question, comment)
-      -#  = link_to 'Destroy', [@@admin_question, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
   %h2 Нова відповідь
   = form_for [@poll, @reply], html: { class: 'form-horizontal' } do |f|
     - if @reply.errors.any?
@@ -63,11 +48,6 @@
         = f.label :answer, 'Текст відповіді', :class => 'col-sm-12'
         .col-sm-12
           = f.text_field :answer, :class => 'form-control input-responsive'
-    -#.form-group
-      .field
-        = f.label :value, false, :class => 'col-sm-12'
-        .col-sm-12
-          = f.text_field :value, :class => 'form-control input-responsive'
     .form-group
       .field
         = f.label :order_answer, 'Порядок відображення', :class => 'col-sm-12'

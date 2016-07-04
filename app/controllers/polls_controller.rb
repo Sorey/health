@@ -1,12 +1,8 @@
-class InterrogationController < ApplicationController
+class PollsController < ApplicationController
   def get_reply
-    # abort params.inspect
-
     @question = Admin::Poll.find(params[:question])
     unless params[:reply].nil?
       @reply = @question.replies.find(params[:reply]).inc(count_answer:1) unless ip_address_old?
-      # cookies[:user] = request.remote_ip unless cookies[:user]
-      # cookies[params[:question]] = params[:question] unless cookies[params[:question]]
 
       cookies[:user] = { :value => request.remote_ip, :expires => 1.year.from_now } unless cookies[:user]
       cookies[params[:question]] = { :value => params[:question], :expires => 1.year.from_now } unless cookies[params[:question]]
@@ -14,12 +10,6 @@ class InterrogationController < ApplicationController
     else
       redirect_to root_url, notice: 'Ви не обрали відповідь!'
     end
-
-
-      # abort request.remote_ip.inspect
-    # abort cookies[:user].inspect
-    # abort cookies.inspect
-
   end
 
   def show_chart

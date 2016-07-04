@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   post 'message' => 'message#create' , as: :message
-  post 'reply' => 'interrogation#get_reply', as: :reply
-  get 'polls_chart/:id' => 'interrogation#show_chart', as: :polls_chart
-  # get 'polls_chart/:id' => 'home#show_chart', as: :polls_chart
+
+  post 'reply' => 'polls#get_reply', as: :reply
+  get 'polls_chart/:id' => 'polls#show_chart', as: :polls_chart
 
   get 'groups/:title_group' => 'articles#show_articles_group'
   get 'groups/:title_group/:title_article' => 'articles#show_groups_article'
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get '/managers_news/:id' => 'news#show_one_managers_news',  as: :show_one_managers_news
 
   get '/medical_setups/:medical_setups_group' => 'medical_setups#index'
-  # get '/medical_setups' => 'medical_setups#index'
   get '/private_medical_setups' => 'medical_setups#show_private_ms'
 
 
@@ -42,8 +41,6 @@ Rails.application.routes.draw do
   get '/population_materials' => 'people_files#population_materials', as: :population_materials
   get '/population_materials/:id' => 'people_files#show_population_material', as: :population_material
 
-  # get '/admin/file_documents/:file_document_category' => 'admin_file_documents#index', as: :file_document_category_admin
-
   namespace :admin do
     controller :sessions do
       get  'login' => :new
@@ -51,9 +48,7 @@ Rails.application.routes.draw do
       delete 'logout' => :destroy
       get 'successful_login' => :successful_login
     end
-    # resources :users1
-    # get 'signup'  => 'users1#new'
-    # get 'news/' => 'news#index'
+
     resources :polls do
       resources :replies
     end

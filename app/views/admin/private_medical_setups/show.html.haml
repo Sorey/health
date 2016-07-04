@@ -18,9 +18,7 @@
           %td= @private_medical_setup.address
 
     = link_to 'Приватні структури', admin_private_medical_setups_path, :class => 'btn btn-primary'
-    -#- if current_user && current_user.editor?
     = link_to 'Редагувати', edit_admin_private_medical_setup_path(@private_medical_setup), :class => 'btn btn-primary'
-    -#- if current_user && current_user.admin?
-    = link_to 'Видалити', @private_medical_setup, :class => 'btn btn-primary', |
-      method: :delete,                                                  |
-      data: { confirm: 'Ви впевнені?' }                                |
+    = link_to 'Видалити', @private_medical_setup, :class => 'btn btn-primary',
+      method: :delete,
+      data: { confirm: 'Ви впевнені?' }

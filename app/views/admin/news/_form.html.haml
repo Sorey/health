@@ -17,10 +17,6 @@
     = u.label :pre_text,'Cтислий опис', :class => 'col-sm-2 control-label'
     .col-sm-10
       = u.text_field :pre_text, :class => 'form-control input-responsive'
-  -#.form-group
-    = u.label :description,'Повний опис <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
-    .col-sm-10
-      = u.text_area :description, :class => 'form-control input-responsive'
   .form-group
     = u.label :image, 'Картинка <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
@@ -46,15 +42,6 @@
       -#= u.cktext_area :description,:as => ckeditor, :input_html =>{ :ckeditor => {:toolbar => 'mini'} }, :class => 'col-sm-2 control-label'
       = u.cktext_area :description, :ckeditor => {:toolbar => 'mini', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
 
-
-  -#.form-group
-  -#  = u.label :publish_up, 'Початок публікації', :class => 'col-sm-2 control-label'
-  -#  .col-sm-10
-  -#    = u.datetime_select :publish_up, :order => [:day, :month, :year, :hour, :minute], :class => 'datetimepicker form-control input-responsive'
-  -#.form-group
-  -#  = u.label :publish_down, 'Кінець публікації', :class => 'col-sm-2 control-label'
-  -#  .col-sm-10
-  -#    = u.datetime_select :publish_down, :order => [:day, :month, :year, :hour, :minute], :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10
@@ -63,10 +50,3 @@
           = "- Поля обов'язкові для заповнення."
       .col-sm-offset-2.col-sm-10
         = u.submit 'Зберегти', :class => 'btn btn-primary'
-
--#:javascript
--#  $(function () {
--#    $('.datetimepicker').datetimepicker({
--#      sideBySide: true
--#    });
--#  });

@@ -8,7 +8,6 @@
     padding: 0 15px;
       .one-news{
         background: rgba(203, 202, 202, 0.31);
-        //border: 1px solid #cce7d9;
         padding: 10px 0;
         border-bottom: 1px solid dimgrey;
         .info{
@@ -16,7 +15,6 @@
             .btn{
               float:right;
               padding: 2px 5px;
-
             }
             span{
               float:right;
@@ -62,9 +60,7 @@
                 %a{:href => show_one_managers_news_path(n), title: "Переглянути"}= n.title
               = link_to "Переглянути", show_one_managers_news_path(n), :class => 'btn btn-success'
               %span
-                -#= truncate(strip_tags(n.publish_up.to_s), length: 10)
                 = l(n.date_start, :format => "%d-%m-%Y")
-                -#= (n.date_start.to_s).mb_chars.limit(10)
             %p.description= truncate(strip_tags(n.description), length: 400)
     .panel-paginate
-      = paginate @all_managers_news  #, :remote => true
+      = paginate @all_managers_news

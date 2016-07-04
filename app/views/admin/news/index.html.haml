@@ -33,7 +33,6 @@
       .title
         %h1 Список новин
       .btn-new-news
-        -#- if current_user && current_user.admin?
         = link_to 'Створити новину', new_admin_news_path, :class => 'btn btn-primary'
   .container
     %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
@@ -49,7 +48,6 @@
       %tbody
         - @news.each do |u|
           %tr
-            -#%td= u.id.to_s.last(8)
             %td
               - if u.image?
                 =image_tag u.image.thumb
@@ -61,9 +59,8 @@
             %td
 
               = link_to '<i class="fa fa-eye "></i>'.html_safe, admin_news_path(u), title: "Переглянути",  :class => 'btn btn-info'
-              -#= link_to 'Редагувати', edit_admin_news_path(u), :class => 'btn btn-default'
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_news_path(u), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, u, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
 
     .panel-paginate
-      = paginate @news  #, :remote => true
+      = paginate @news

@@ -67,7 +67,6 @@
                 %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
               = link_to "Переглянути", show_one_news_path(n), :class => 'btn btn-success'
               %span
-                -#= truncate(strip_tags(n.publish_up.to_s), length: 10)
                 = (n.publish_up.to_s).mb_chars.limit(10)
             %p.pre-text= n.pre_text
             %p.description= truncate(strip_tags(n.description), length: 400)

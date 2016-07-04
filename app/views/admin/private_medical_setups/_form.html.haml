@@ -19,23 +19,7 @@
     = m.label :address,'Адреса', :class => 'col-sm-2 control-label'
     .col-sm-10
       = m.text_field :address, :class => 'form-control input-responsive'
-
-  -#.form-group
-  -#  = u.label :publish_up, 'Початок публікації', :class => 'col-sm-2 control-label'
-  -#  .col-sm-10
-  -#    = u.datetime_select :publish_up, :order => [:day, :month, :year, :hour, :minute], :class => 'datetimepicker form-control input-responsive'
-  -#.form-group
-  -#  = u.label :publish_down, 'Кінець публікації', :class => 'col-sm-2 control-label'
-  -#  .col-sm-10
-  -#    = u.datetime_select :publish_down, :order => [:day, :month, :year, :hour, :minute], :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10
         = m.submit buttom, :class => 'btn btn-primary'
-
-        -#:javascript
-        -#  $(function () {
-        -#    $('.datetimepicker').datetimepicker({
-        -#      sideBySide: true
-        -#    });
-        -#  });

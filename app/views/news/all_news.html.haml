@@ -56,19 +56,19 @@
 .public-news
   .container
     %h1 Усі новини
-    - @news.each do |n|
+    - @news.each do |news|
       .row
         .one-news.clearfix
           .col-md-2.col-sm-3.image
-            = link_to image_tag(n.image), show_one_news_path(n), title: "Переглянути"
+            = link_to image_tag(news.image), show_one_news_path(news), title: "Переглянути"
           .col-md-10.col-sm-9.info
             %p
               %strong
-                %a{:href => show_one_news_path(n), title: "Переглянути"}= n.title
-              = link_to "Переглянути", show_one_news_path(n), :class => 'btn btn-success'
+                %a{:href => show_one_news_path(news), title: "Переглянути"}= news.title
+              = link_to "Переглянути", show_one_news_path(news), :class => 'btn btn-success'
               %span
-                = (n.publish_up.to_s).mb_chars.limit(10)
-            %p.pre-text= n.pre_text
-            %p.description= truncate(strip_tags(n.description), length: 400)
+                = (news.publish_up.to_s).mb_chars.limit(10)
+            %p.pre-text= news.pre_text
+            %p.description= truncate(strip_tags(news.description), length: 400)
     .panel-paginate
       = paginate @news

@@ -1,5 +1,12 @@
 :scss
 
+  .show-news{
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+    }
+  }
+
 .show-news
   .container
     - if notice
@@ -10,7 +17,7 @@
         %em
           = @news.title
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %tbody
         %tr
           %th Картинка

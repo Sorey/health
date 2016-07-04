@@ -1,9 +1,16 @@
 :scss
-  .show-news{
+  .show-manager-news{
     margin-bottom: 15px;
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+      th.header-description{
+        text-align:center;
+      }
+    }
   }
 
-.show-news
+.show-manager-news
   .container
     - if notice
       %p#notice= notice
@@ -13,7 +20,7 @@
         %em
           = @admin_managers_news.title
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %tbody
         %tr
           %th Заголовок
@@ -25,7 +32,7 @@
           %th Публікувати?
           %td= @admin_managers_news.publish_on
         %tr
-          %th{:style => "text-align:center", colspan: 2} Опис
+          %th.header-description{colspan: 2} Опис
         %tr
           %td{colspan: 2}= sanitize(@admin_managers_news.description)
     = link_to 'Усі новини', admin_managers_news_index_path, :class => 'btn btn-primary'

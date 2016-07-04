@@ -1,4 +1,4 @@
-= form_for(@news, html: { class: 'form-horizontal' })  do |u|
+= form_for(@news, html: { class: 'form-horizontal' })  do |f|
   .form-group
     .col-sm-10.col-md-offset-2
       - if @news.errors.any?
@@ -10,37 +10,35 @@
 
   .form-group
     .field
-      = u.label :title, 'Заголовок<span style="color:#F98C39;"> *</span>'.html_safe, :class => 'col-sm-2 control-label'
+      = f.label :title, 'Заголовок<span style="color:#F98C39;"> *</span>'.html_safe, :class => 'col-sm-2 control-label'
       .col-sm-10
-        = u.text_field :title, :class => 'form-control input-responsive'
+        = f.text_field :title, :class => 'form-control input-responsive'
   .form-group
-    = u.label :pre_text,'Cтислий опис', :class => 'col-sm-2 control-label'
+    = f.label :pre_text,'Cтислий опис', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.text_field :pre_text, :class => 'form-control input-responsive'
+      = f.text_field :pre_text, :class => 'form-control input-responsive'
   .form-group
-    = u.label :image, 'Картинка <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
+    = f.label :image, 'Картинка <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.file_field :image, :class => 'form-control input-responsive'
-    = u.hidden_field :image_cache
+      = f.file_field :image, :class => 'form-control input-responsive'
+    = f.hidden_field :image_cache
   .form-group
-    = u.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
+    = f.label :publish_on, 'Публікувати? ', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.check_box :publish_on, :class => 'form-control input-responsive'
-
+      = f.check_box :publish_on, :class => 'form-control input-responsive'
   .form-group
-    = u.label :meta_keywords,'Ключові слова для пошуку', :class => 'col-sm-2 control-label'
+    = f.label :meta_keywords,'Ключові слова для пошуку', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.text_field :meta_keywords, :placeholder => 'ліки, вакцинація, імунітет', :class => 'form-control input-responsive'
+      = f.text_field :meta_keywords, :placeholder => 'ліки, вакцинація, імунітет', :class => 'form-control input-responsive'
   .form-group
-    = u.label :meta_description,'Опис для пошуку', :class => 'col-sm-2 control-label'
+    = f.label :meta_description,'Опис для пошуку', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = u.text_field :meta_description, :class => 'form-control input-responsive'
-
+      = f.text_field :meta_description, :class => 'form-control input-responsive'
   .form-group
-    =u.label :description,'Повний опис <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
+    =f.label :description,'Повний опис <span style="color:#F98C39;">*</span>'.html_safe, :class => 'col-sm-2 control-label'
     .col-sm-10
       -#= u.cktext_area :description,:as => ckeditor, :input_html =>{ :ckeditor => {:toolbar => 'mini'} }, :class => 'col-sm-2 control-label'
-      = u.cktext_area :description, :ckeditor => {:toolbar => 'mini', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
+      = f.cktext_area :description, :ckeditor => {:toolbar => 'mini', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
 
   .form-group
     .actions
@@ -49,4 +47,4 @@
           = '<span style="color:#F98C39;"> * </span>'.html_safe
           = "- Поля обов'язкові для заповнення."
       .col-sm-offset-2.col-sm-10
-        = u.submit 'Зберегти', :class => 'btn btn-primary'
+        = f.submit 'Зберегти', :class => 'btn btn-primary'

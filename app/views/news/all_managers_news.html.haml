@@ -51,16 +51,16 @@
 .managers-news
   .container
     %h1 Новини для керівників
-    - @all_managers_news.each do |n|
+    - @all_managers_news.each do |managers_news|
       .row
         .one-news.clearfix
           .col-md-12.col-sm-12.info
             %p
               %strong
-                %a{:href => show_one_managers_news_path(n), title: "Переглянути"}= n.title
-              = link_to "Переглянути", show_one_managers_news_path(n), :class => 'btn btn-success'
+                %a{:href => show_one_managers_news_path(managers_news), title: "Переглянути"}= managers_news.title
+              = link_to "Переглянути", show_one_managers_news_path(managers_news), :class => 'btn btn-success'
               %span
-                = l(n.date_start, :format => "%d-%m-%Y")
-            %p.description= truncate(strip_tags(n.description), length: 400)
+                = l(managers_news.date_start, :format => "%d-%m-%Y")
+            %p.description= truncate(strip_tags(managers_news.description), length: 400)
     .panel-paginate
       = paginate @all_managers_news

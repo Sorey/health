@@ -1,5 +1,6 @@
 :scss
-  .medical_setups-group{
+
+  .medical_setups-groups{
     .heading{
       .title{
         display: inline-block;
@@ -13,6 +14,8 @@
       }
     }
     table{
+      border-style:solid;
+      border-color:#63B8FF;
       font-size: 13px;
       thead{
         th{
@@ -34,17 +37,15 @@
     }
   }
 
-.medical_setups-group
+.medical_setups-groups
   .container
     .heading
       .title
         %h1= 'Список груп медичних установ'
       .btn-new-news
-        -#- if current_user && current_user.admin?
         = link_to 'Нова група', new_admin_medical_setups_group_path, :class => 'btn btn-primary'
   .container
-    -#.col-md-10.col-md-offset-1
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %thead
         %tr
           %th{rowspan: 2} № п/п
@@ -57,8 +58,6 @@
             %td= m_iterator
             %td= m.name
             %td
-              -#= link_to '<i class="fa fa-eye "></i>'.html_safe, admin_medical_setups_group_path(m), title: "Переглянути",  :class => 'btn btn-info'
-              -#= link_to 'Редагувати', edit_admin_news_path(u), :class => 'btn btn-default'
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_medical_setups_group_path(m), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, m, title: "Видалити", :method => :delete, :data => { :confirm => 'Ви впевнені?' }, :class => 'btn btn-danger'
             - m_iterator = m_iterator + 1

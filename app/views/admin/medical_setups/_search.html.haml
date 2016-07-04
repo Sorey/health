@@ -1,4 +1,5 @@
 :scss
+
   .search-medical-setups{
     display: inline-block;
     float: right;
@@ -13,11 +14,9 @@
   }
 
 .search-medical-setups
-  = form_tag admin_medical_setups_path, :method => :get, :remote => true, :html => { :class => 'form-inline col-sm-12' } do |f|
-    -#.row
+  = form_tag admin_medical_setups_path, :method => :get, :remote => true, :html => { :class => 'form-inline col-sm-12' } do
     .search-field
       = select_tag :group_select, options_for_select(Admin::MedicalSetupsGroup.all.collect {|x| [x.name, x.id]}.insert(0, "- Оберіть групу -")),{ class: 'group_select form-control input-responsive' }
-
     .search-buttom
       = button_tag(type: 'submit', :class => 'btn btn-primary', :id => 'search_btn') do
         = 'Пошук'

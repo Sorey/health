@@ -1,3 +1,12 @@
+:scss
+
+  .show-private-medical-setup{
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+    }
+  }
+
 .show-private-medical-setup
   .container
     - if notice
@@ -8,7 +17,7 @@
         %em
           = @private_medical_setup.name
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %tbody
         %tr
           %th Структура

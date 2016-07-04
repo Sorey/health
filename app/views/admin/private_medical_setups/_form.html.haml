@@ -1,4 +1,4 @@
-= form_for(@private_medical_setup, html: { class: 'form-horizontal' })  do |m|
+= form_for(@private_medical_setup, html: { class: 'form-horizontal' })  do |f|
   .form-group
     .col-sm-10.col-md-offset-2
       - if @private_medical_setup.errors.any?
@@ -12,14 +12,14 @@
 
   .form-group
     .field
-      = m.label :name, 'Назва', :class => 'col-sm-2 control-label'
+      = f.label :name, 'Назва', :class => 'col-sm-2 control-label'
       .col-sm-10
-        = m.text_field :name, :class => 'form-control input-responsive'
+        = f.text_field :name, :class => 'form-control input-responsive'
   .form-group
-    = m.label :address,'Адреса', :class => 'col-sm-2 control-label'
+    = f.label :address,'Адреса', :class => 'col-sm-2 control-label'
     .col-sm-10
-      = m.text_field :address, :class => 'form-control input-responsive'
+      = f.text_field :address, :class => 'form-control input-responsive'
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10
-        = m.submit buttom, :class => 'btn btn-primary'
+        = f.submit buttom, :class => 'btn btn-primary'

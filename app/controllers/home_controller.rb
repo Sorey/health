@@ -12,17 +12,17 @@ class HomeController < ApplicationController
     @right_menu_items = Admin::MenuItem.where(show: true, type_item: "Бокове меню").order(order_item: :asc)
 
     @right_menu = ""
-    @right_menu_items.each do |m_a|
-      if m_a.parent_id.to_s.to_i == 0
+    @right_menu_items.each do |right_menu_item|
+      if right_menu_item.parent_id.to_s.to_i == 0
         @right_menu << "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title dd'>"
-        @right_menu << "<a data-parent='#accordion' data-toggle='collapse' href='##{m_a.id.to_s.last(8)}'>
-        <div class='item'><div class='text'>#{m_a.title}</div><i class='fa fa-chevron-left'></i>
-        <i class='fa fa-chevron-down'></i></div></a></h4></div>" if m_a.type_level == 'Заголовок меню'
-        @right_menu << "<a href='#{m_a.link}' target='#{m_a.target}'>
-        <div class='item'><div class='text'>#{m_a.title}</div>
-        <i class='fa fa-chevron-left'></i></div></a></h4></div>" if m_a.type_level == 'Пункт меню'
+        @right_menu << "<a data-parent='#accordion' data-toggle='collapse' href='##{right_menu_item.id.to_s.last(8)}'>
+        <div class='item'><div class='text'>#{right_menu_item.title}</div><i class='fa fa-chevron-left'></i>
+        <i class='fa fa-chevron-down'></i></div></a></h4></div>" if right_menu_item.type_level == 'Заголовок меню'
+        @right_menu << "<a href='#{right_menu_item.link}' target='#{right_menu_item.target}'>
+        <div class='item'><div class='text'>#{right_menu_item.title}</div>
+        <i class='fa fa-chevron-left'></i></div></a></h4></div>" if right_menu_item.type_level == 'Пункт меню'
 
-        get_right_children m_a.id
+        get_right_children right_menu_item.id if right_menu_item.children.any?
 
         @right_menu << "</div>"
       end
@@ -55,40 +55,29 @@ class HomeController < ApplicationController
 
   protected
 
-  # Inspect if m_item has children
-  def children_has? id_p
-    has_children = false
-    @right_menu_items.each do |right_menu_item|
-      if right_menu_item.parent_id == id_p
-        has_children = true
-      end
-    end
-    has_children
-  end
-
   def get_right_children id
-    @right_menu << "<div class='panel-collapse collapse' id='#{id.to_s.last(8)}'>" if children_has? id
+    @right_menu << "<div class='panel-collapse collapse' id='#{id.to_s.last(8)}'>" # if children_has? id
     @right_menu_items.each do |right_menu_item|
       if right_menu_item.parent_id == id
         unless right_menu_item.alias.blank? # Get alias or link
           m_i_alias = url_for(['menu_item', right_menu_item.alias])
           @right_menu << "<div class='items'><a href='#{m_i_alias}'><div class='item'><div class='text'>#{right_menu_item.title}
-          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? right_menu_item.id
+          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !right_menu_item.children.any?
         else
           @right_menu << "<div class='items'><a href='#{right_menu_item.link}' target='#{right_menu_item.target}'><div class='item'><div class='text'>#{right_menu_item.title}
-          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? right_menu_item.id
+          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !right_menu_item.children.any?
         end
         @right_menu << "<div class='items' id='accordion2'><div class='panel panel-default'><div class='panel-heading'>
         <h4 class='panel-title dd'><a data-parent='#accordion2' data-toggle='collapse' href='##{right_menu_item.id.to_s.last(8)}'>
         <div class='item'><div class='text'>#{right_menu_item.title}</div><i class='fa fa-chevron-left'></i><i class='fa fa-chevron-down'>
-        </i></div></a></h4></div>" if children_has? right_menu_item.id
+        </i></div></a></h4></div>" if right_menu_item.children.any?
 
         get_right_children right_menu_item.id
 
-        @right_menu << "</div></div>" if children_has? right_menu_item.id
+        @right_menu << "</div></div>" if right_menu_item.children.any?
       end
     end
-    @right_menu << "</div>" if children_has? id
+    @right_menu << "</div>" # if children_has? id
   end
 
 end

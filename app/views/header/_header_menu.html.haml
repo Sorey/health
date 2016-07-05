@@ -1,13 +1,12 @@
 :scss
+
   .header-menu{
-    //background-color: rgba(254,235,204,0.8);
     background-color: rgb(0, 169, 81);
     .navbar-collapse{
       max-height: inherit;
     }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
       background-color: rgb(0, 189, 91);
-      //color: white;
       transition-duration: .7s;
     }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > .open > a{
@@ -18,11 +17,6 @@
     .navbar-default .navbar-nav > li > a:focus{
       color: white;
     }
-    //.navbar-default .navbar-nav > .open > a{
-    //  background-color: rgb(0, 189, 91);
-    //  color: white;
-    //}
-
     .navbar-nav > li > .dropdown-menu{
       min-width: 100%;
       border: 1px solid rgb(0, 189, 91);
@@ -71,7 +65,6 @@
         color: white;
       }
       .dropdown-menu > li > a{
-        //background-color: rgb(0, 189, 91);
         color: rgb(0, 179, 91);
       }
       .dropdown-menu > li > .a-within{
@@ -116,138 +109,6 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           =  @menu.html_safe if @menu
 
-          -#%ul.nav.navbar-nav
-
-            -#- @menu_items.each do|m_i|
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", target: "blank" }
-                Департамент охорони здоров'я
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{target: "blank", :href => "#"} Про департамент
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => structure_path} Структура
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Працівники ДОЗ
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => schedule_path} Графік прийому громадян
-                %li.divider{:role => "separator"}
-                %li
-                  %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
-
-            -#%li.dropdown
-            -#  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH", :role => "button", target: "blank" }
-            -#    Департамент охорони здоров'я
-            -#    %span.caret
-            -#  %ul.dropdown-menu
-            -#    %li
-            -#      %a{target: "blank", :href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/main?OpenDocument&count=15&RestrictToCategory=GrA9ALH"} Про департамент
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => structure_path} Структура
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Працівники ДОЗ
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => schedule_path} Графік прийому громадян
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Головні позаштатні спеціалісти ДОЗ
-            -#%li.dropdown
-            -#  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            -#    Медичні заклади
-            -#    %span.caret
-            -#  %ul.dropdown-menu
-            -#    %li
-            -#      %a{:href => "#"} Первинного рівня
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Вторинного рівня (спеціалізовані)
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Третинного рівня  (високоспеціалізовані)
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Санаторії
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Швидка медична допомога
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Будинки дитини
-            -#    -#%li
-            -#    -#  %a{:href => "#"} Лікувальні заклади (по територіях)
-            -#    -#%li.divider{:role => "separator"}
-            -#    -#%li
-            -#    -#  %a{:href => "#"} Інші заклади
-            -#    -#%li.divider{:role => "separator"}
-            -#    -#%li
-            -#    -#  %a{:href => "#"} Навчальні медичні заклади
-            -#%li.dropdown
-            -#  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            -#    Нормативна база
-            -#    %span.caret
-            -#  %ul.dropdown-menu
-            -#    %li
-            -#      %a{:href => "http://moz.gov.ua/ua/portal/publrel_standbase.html", target: "blank"}
-            -#        Нормативна база МОЗ
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "http://www.vin.gov.ua/web/upravlinnya/web_upr_zdor.nsf/webgr_view/GrNVGFM?OpenDocument&count=5&RestrictToCategory=GrNVGFM", :target => "_blank"}
-            -#        Програми
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "http://www.vin.gov.ua/web/vinoda.nsf/webgr_view/Gr68F7P?OpenDocument&count=5&RestrictToCategory=Gr68F7P"}
-            -#        Розпорядження голови ОДА
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "http://www.vinrada.gov.ua/proekti_rishen.htm"}
-            -#        Рішення обласної Ради
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Накази ДОЗ
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} Рішення засідань колегії ДОЗ
-            -#    %li.divider{:role => "separator"}
-            -#    %li
-            -#      %a{:href => "#"} План роботи ДОЗ
-            -#    %li
-            -#      %a.a-within{:href => "#"} Комплексний план
-            -#    %li
-            -#      %a.a-within{:href => "#"} План роботи на місяць
-            -#%li
-            -#  %a{:href => "#contacts"} Контакти
-
-
-
-          -#%form.navbar-form.navbar-left{:role => "search"}
-          -#  .form-group
-          -#    %input.form-control{:placeholder => "Search", :type => "text"}
-          -#  %button.btn.btn-default{:type => "submit"} Submit
-          -#%ul.nav.navbar-nav.navbar-right
-          -#  %li
-          -#    %a{:href => "#"} Link
-          -#  %li.dropdown
-          -#    %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          -#      Dropdown
-          -#      %span.caret
-          -#    %ul.dropdown-menu
-          -#      %li
-          -#        %a{:href => "#"} Action
-          -#      %li
-          -#        %a{:href => "#"} Another action
-          -#      %li
-          -#        %a{:href => "#"} Something else here
-          -#      %li.divider{:role => "separator"}
-          -#      %li
-          -#        %a{:href => "#"} Separated link
-
 :javascript
 
   $(document).ready(function(){
@@ -265,31 +126,3 @@
      });
   });
 
-
-
-  //$(function (){
-  //  $('.dropdown').hover(
-  //    function (){
-  //      $('.dropdown').removeClass('open'),
-  //      $(this).addClass('open')},
-  //    function (){
-  //      $(this).removeClass('open')}
-  //  );
-  //});
-
-  //setTimeout(func, 1000);
-  //$(document).ready(function(){
-  //  $('.dropdown').mouseover(
-  //    function(){
-  //      $('.dropdown').removeClass('open');
-  //      $(this).addClass('open')
-  //    }
-  //  );
-  //});
-
-
-  //$(function(){
-  //  $('.dropdown').hover(function(){
-  //    $('.dropdown').addClass('open')
-  //  });
-  //});

@@ -3,8 +3,6 @@ module Admin
     skip_before_action :require_role, only: [:index, :show, :edit, :update]
     before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
 
-    # GET /menu_items
-    # GET /menu_items.json
     def index
       params[:category] = params[:category] || "Головне меню"
       # @menu_items = MenuItem.where(type_item: params[:category]).order(order_item: :asc) unless params[:category].blank?
@@ -15,7 +13,6 @@ module Admin
         if m_i.parent_id.to_s.to_i == 0
           @menu << '<tr>'
           @menu << "<td> #{m_i.id.to_s.last(8)}</td>"
-          # @menu << "<td> #{m_i.type_level} </td> <td> #{m_i.type_item} </td>
           @menu << "<td> #{m_i.title} </td> <td> #{m_i.show == true ? '+' : '-'} </td> <td class='td_link'> #{m_i.target} </td><td> #{m_i.alias} </td><td> #{m_i.parent_id} </td> <td> #{m_i.order_item} </td><td>"
           @menu << "<a href='/admin/menu_items/#{m_i.id}' class='btn btn-info'><i class='fa fa-eye'></i></a> <a href='/admin/menu_items/#{m_i.id}/edit' class='btn btn-primary' ><i class='fa fa-pencil-square-o'></i></a>"
           @menu << "<a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}' class='btn btn-danger'><i class='fa fa-trash-o'></i></a> " if current_user.access?(params[:controller], params[:action])
@@ -30,8 +27,6 @@ module Admin
       end
     end
 
-
-
     def get_level level
       result = case level
         when 'Перший рівень' then "-"
@@ -41,22 +36,16 @@ module Admin
       result
     end
 
-    # GET /menu_items/1
-    # GET /menu_items/1.json
     def show
     end
 
-    # GET /menu_items/new
     def new
       @menu_item = Admin::MenuItem.new
     end
 
-    # GET /menu_items/1/edit
     def edit
     end
 
-    # POST /menu_items
-    # POST /menu_items.json
     def create
       @menu_item = Admin::MenuItem.new(menu_item_params)
 
@@ -74,10 +63,7 @@ module Admin
       end
     end
 
-    # PATCH/PUT /menu_items/1
-    # PATCH/PUT /menu_items/1.json
     def update
-      # abort @menu_item.id_post.inspect
       respond_to do |format|
         if @menu_item.update(menu_item_params)
           if @menu_item.list_authors.nil?
@@ -97,8 +83,6 @@ module Admin
       end
     end
 
-    # DELETE /menu_items/1
-    # DELETE /menu_items/1.json
     def destroy
       @menu_item.destroy
       respond_to do |format|
@@ -121,7 +105,6 @@ module Admin
             @menu << "<td>#{get_level} #{m_i.title} </td> <td class='td_link'> #{m_i.show == true ? '+' : '-'} </td> <td class='td_link'> #{m_i.target} </td> <td> #{m_i.alias} </td><td> #{m_i.parent_id.to_s.last(8)} </td> <td> #{m_i.order_item} </td><td>"
             @menu << "<a href='/admin/menu_items/#{m_i.id}' class='btn btn-info'><i class='fa fa-eye'></i></a> <a href='/admin/menu_items/#{m_i.id}/edit' class='btn btn-primary' ><i class='fa fa-pencil-square-o'></i></a"
             @menu << "><a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/admin/menu_items/#{m_i.id}' class='btn btn-danger'><i class='fa fa-trash-o'></i></a>" if current_user.access?(params[:controller], params[:action])
-
             @menu << '</td></tr>'
 
             get_children_m m_i.id

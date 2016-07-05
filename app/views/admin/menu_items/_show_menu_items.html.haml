@@ -1,26 +1,38 @@
 :scss
-  table{
-    //font-size: 13px;
-    thead{
-      th{
-        vertical-align: middle;
-        text-align: center;
+
+  .admin-menu-items{
+    .heading{
+      .title{
+        display: inline-block;
+      }
+      .btn-new{
+        display: inline-block;
+        float: right;
+        .btn{
+          margin:20px 0 5px;
+        }
       }
     }
-    tbody{
-      td:nth-child(3), td:nth-child(6), td:nth-child(7), td:first-child, td:last-child{
-        text-align: center;
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+      thead{
+        th{
+          vertical-align: middle;
+          text-align: center;
+        }
       }
-      td:last-child{
-        text-align: center;
-        white-space: pre-wrap;
-      }
-      td .btn{
-       //display: inline-block;
-       //margin: 5px 5px 5px;
-       margin: 2px;
-       //padding: 4px 6px;
-       //width: 30px;
+      tbody{
+        td:nth-child(3), td:nth-child(6), td:nth-child(7), td:first-child, td:last-child{
+          text-align: center;
+        }
+        td:last-child{
+          text-align: center;
+          white-space: pre-wrap;
+        }
+        td .btn{
+         margin: 2px;
+        }
       }
     }
   }
@@ -28,14 +40,12 @@
 .heading
   .title
     %h1 Список пунктів  #{menu_category}
-  .btn-new-news
+  .btn-new
     - if current_user && current_user.access?(params[:controller], params[:action])
       = link_to 'Створити пункт меню', new_admin_menu_item_path, :class => 'btn btn-primary'
-%table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+%table.table.table-condensed.table-striped
   %thead
     %tr
-      -#%th Type menu item
-      -#%th Type menu
       %th #
       %th Назва
       %th Показувати?

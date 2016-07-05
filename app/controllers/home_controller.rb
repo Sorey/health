@@ -58,8 +58,8 @@ class HomeController < ApplicationController
   # Inspect if m_item has children
   def children_has? id_p
     has_children = false
-    @right_menu_items.each do |m_b|
-      if m_b.parent_id == id_p
+    @right_menu_items.each do |right_menu_item|
+      if right_menu_item.parent_id == id_p
         has_children = true
       end
     end
@@ -68,29 +68,24 @@ class HomeController < ApplicationController
 
   def get_right_children id
     @right_menu << "<div class='panel-collapse collapse' id='#{id.to_s.last(8)}'>" if children_has? id
-
-    @right_menu_items.each do |m_b|
-      if m_b.parent_id == id
-
-        unless m_b.alias.blank? # Get alias or link
-          # if  params[:controller] == 'home' # Need for upload image with CkEditor
-          m_i_alias = url_for(['menu_item', m_b.alias])
-          @right_menu << "<div class='items'><a href='#{m_i_alias}'><div class='item'><div class='text'>#{m_b.title}
-          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? m_b.id
+    @right_menu_items.each do |right_menu_item|
+      if right_menu_item.parent_id == id
+        unless right_menu_item.alias.blank? # Get alias or link
+          m_i_alias = url_for(['menu_item', right_menu_item.alias])
+          @right_menu << "<div class='items'><a href='#{m_i_alias}'><div class='item'><div class='text'>#{right_menu_item.title}
+          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? right_menu_item.id
         else
-          @right_menu << "<div class='items'><a href='#{m_b.link}' target='#{m_b.target}'><div class='item'><div class='text'>#{m_b.title}
-          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? m_b.id
+          @right_menu << "<div class='items'><a href='#{right_menu_item.link}' target='#{right_menu_item.target}'><div class='item'><div class='text'>#{right_menu_item.title}
+          </div><i class='fa fa-chevron-left'></i></div></a></div>" if !children_has? right_menu_item.id
         end
-        # abort "fsf"
         @right_menu << "<div class='items' id='accordion2'><div class='panel panel-default'><div class='panel-heading'>
-        <h4 class='panel-title dd'><a data-parent='#accordion2' data-toggle='collapse' href='##{m_b.id.to_s.last(8)}'>
-        <div class='item'><div class='text'>#{m_b.title}</div><i class='fa fa-chevron-left'></i><i class='fa fa-chevron-down'>
-        </i></div></a></h4></div>" if children_has? m_b.id
+        <h4 class='panel-title dd'><a data-parent='#accordion2' data-toggle='collapse' href='##{right_menu_item.id.to_s.last(8)}'>
+        <div class='item'><div class='text'>#{right_menu_item.title}</div><i class='fa fa-chevron-left'></i><i class='fa fa-chevron-down'>
+        </i></div></a></h4></div>" if children_has? right_menu_item.id
 
-        get_right_children m_b.id #, m_b.type_level
+        get_right_children right_menu_item.id
 
-        @right_menu << "</div></div>" if children_has? m_b.id
-
+        @right_menu << "</div></div>" if children_has? right_menu_item.id
       end
     end
     @right_menu << "</div>" if children_has? id

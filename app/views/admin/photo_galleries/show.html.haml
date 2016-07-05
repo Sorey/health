@@ -7,7 +7,7 @@
           margin: 5px 0;
         }
       }
-      .btn-new-news{
+      .btn-new{
         display: inline-block;
         float: right;
         .btn{
@@ -40,18 +40,12 @@
         border-radius: 15px;
         font-size: 15px;
       }
-      .btn-edit{
-        left: -5px;
-      }
       .btn-delete{
         right: 15px;
       }
     }
     .photo:nth-child(3n){
       padding-right: 0px;
-      .btn-edit{
-        left: -5px;
-      }
       .btn-delete{
         right: -5px;
       }
@@ -60,7 +54,6 @@
       display: inline-block;
       border: 1px dashed #CCC;
       background-color: #f9f9f9;
-      //height: 80px;
       width: 30%;
       margin: 5px;
     }
@@ -75,7 +68,7 @@
     .title
       %h3
         %em= @admin_photo_gallery.title
-    .btn-new-news
+    .btn-new
       .form
         = form_for [@admin_photo_gallery, @photo], html: { class: 'form-horizontal' } do |f|
           - if @photo.errors.any?
@@ -101,7 +94,6 @@
 :javascript
 
   var ready, set_positions;
-
   set_positions = function(){
     // loop through and give each task a data-pos
     // attribute that holds its position in the DOM
@@ -109,14 +101,12 @@
       $(this).attr("data-pos",i+1);
     });
   }
-
   ready = function(){
     // call set_positions function
     set_positions();
 
     $('.sortable').sortable();
-
-      $('.sortable').sortable().bind('sortupdate', function(e, ui) {
+    $('.sortable').sortable().bind('sortupdate', function(e, ui) {
       // array to store new order
       updated_order = []
       // set the updated positions

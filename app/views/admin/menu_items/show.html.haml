@@ -1,17 +1,20 @@
 :scss
   .show_menu_item{
-    .authors{
-      display:none;
-    }
-    a.show_authors{
-      //text-decoration: none;
-    }
-    a.show_authors:hover .authors{
-      display:block;
-      color: black;
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+      .authors{
+        display:none;
+      }
+      a.show_authors{
+        text-decoration: none;
+      }
+      a.show_authors:hover .authors{
+        display:block;
+        color: black;
+      }
     }
   }
-
 
 .container.show_menu_item
   %p#notice= notice
@@ -20,11 +23,8 @@
       Пункт меню
       %em
         = @menu_item.title
-  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+  %table.table.table-condensed.table-striped
     %tbody
-      -#%tr
-        %th Id_пункту:
-        %td= @menu_item._id.to_s.last(8)
       %tr
         %th Тип пункту меню:
         %td= @menu_item.type_level
@@ -69,7 +69,5 @@
                   = author[:author_role]
                   = "*/ "
                   = author[:date]
-
   = link_to 'Редагувати', edit_admin_menu_item_path(@menu_item), :class => 'btn btn-primary'
-
   = link_to 'Повернутись', admin_menu_items_path, :class => 'btn btn-primary'

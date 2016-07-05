@@ -1,5 +1,3 @@
 - if @photo_gallery.photos
   - @photo_gallery.photos.order(order_photo: :asc).each do |photo|
     = link_to "",{}, { href:image_path(photo.image), title: "#{photo.title}", :rel => "fancybox-button", :class => "col-md-4 col-sm-4 col-xs-6 fancybox-button", style: "background: url('#{image_path(photo.image.middle)}') no-repeat; background-position: center; background-size: cover; " }
-    -#= link_to image_path(photo.image), title: "#{photo.title}", :rel => "fancybox-button", :class => "col-md-4 fancybox-button", style: " min-height: 250px;" do
-      =image_tag image_path(photo.image), class: ' img-responsive'

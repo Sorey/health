@@ -30,7 +30,6 @@
           .title{
             margin-top: 5px;
             background: #00a951;
-            //word-break: break-all;
             color: white;
           }
         }
@@ -40,21 +39,14 @@
 
 .photo-galleries
   .container
-    %h3
+    %h2
       Фотоматеріали
     .galleries-box
       - @photo_galleries.each do |photo_gallery|
         .gallery
           %a{:href => photo_gallery_path(photo_gallery),  'data-method' => "get" }
             .div{style: " width: 100%; min-height: 150px; background: url('#{image_path(photo_gallery.photos.order(order_photo: :asc).first.image) if photo_gallery.photos.any?}') no-repeat; background-position: center; background-size: cover; "}
-            -#= image_tag photo_gallery.photos.order(order_photo: :asc).first.image.thumb if photo_gallery.photos.first
-            -#= image_tag("statistic_gallery/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg")
-            -#- binding.pry
             .title
               = photo_gallery.title
-
-
-              -#= link_to image_tag("statistic_gallery/cartograms/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg"), {:controller => "gallery", :action => "show", :gallery => "cartograms" }, method: :get
-              -#= link_to image_tag("logo.png"), gallery_path("charts"), method: :get
     .panel-paginate
       = paginate @photo_galleries

@@ -1,5 +1,5 @@
 class Admin::PhotosController < Admin::AdminController
-  before_action :set_photo
+  before_action :set_photo_gallery
 
   def create
     respond_to do |format|
@@ -15,8 +15,6 @@ class Admin::PhotosController < Admin::AdminController
   end
 
   def edit
-    # binding.pry
-    @admin_photo_gallery = Admin::PhotoGallery.find(params[:photo_gallery_id])
     @photo = @admin_photo_gallery.photos.find(params[:id])
   end
 
@@ -47,12 +45,11 @@ class Admin::PhotosController < Admin::AdminController
 
   private
 
-  def set_photo
-    # binding.pry
-    @admin_photo_gallery = Admin::PhotoGallery.find(params[:photo_gallery_id])
-  end
+    def set_photo_gallery
+      @admin_photo_gallery = Admin::PhotoGallery.find(params[:photo_gallery_id])
+    end
 
-  def photo_params
-    params.require(:photo).permit(:title, :order_photo, :image)
-  end
+    def photo_params
+      params.require(:photo).permit(:title, :order_photo, :image)
+    end
 end

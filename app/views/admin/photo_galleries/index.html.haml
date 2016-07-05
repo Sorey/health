@@ -4,7 +4,7 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
+      .btn-new{
         display: inline-block;
         float: right;
         .btn{
@@ -13,19 +13,12 @@
       }
     }
     table{
-      //font-size: 13px;
       thead{
-        th{
-          vertical-align: middle;
-        }
         th:first-child{
           text-align: center;
         }
       }
       tbody{
-        td:last-child{
-          //text-align: center;
-        }
         td .btn{
          display: inline-block;
          margin: 0px 0px 5px;
@@ -40,8 +33,7 @@
   .heading
     .title
       %h1 Список фотогалерей
-    .btn-new-news
-      -#- if current_user && current_user.admin?
+    .btn-new
       = link_to 'Нова галерея', new_admin_photo_gallery_path, :class => 'btn btn-primary'
   %table.table.table-condensed.table-striped
     %thead
@@ -52,7 +44,6 @@
         %th Дата створення
         %th Публікувати?
         %th Дії
-
     %tbody
       - @admin_photo_galleries.each do |gallery|
         %tr
@@ -63,7 +54,6 @@
           %td= gallery.description
           %td= l(gallery.created_at, :format => "%d-%m-%Y")
           %td= gallery.publish_on
-          -#%td= @admin_question.replies
           %td
             = link_to '<i class="fa fa-eye "></i>'.html_safe, gallery, title: "Переглянути",  :class => 'btn btn-info'
             = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_photo_gallery_path(gallery), title: "Редагувати", :class => 'btn btn-primary'

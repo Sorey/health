@@ -34,21 +34,15 @@
 .galleries
   .container
     %h3
-      -#= debug @news_photo.inspect
       Основні показники діяльності охорони здоров'я
     .galleries-box
       .gallery
         %a{:href => statistic_gallery_path("charts"),  'data-method' => "get"}
           = image_tag("statistic_gallery/accounting.jpg")
-          -#= image_tag("statistic_gallery/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg")
           .title
             Показники за 2010-2015 роки
       .gallery
         %a{:href => statistic_gallery_path("cartograms"), 'data-method' => "get"}
           = image_tag("statistic_gallery/accounting.jpg")
-          -#= image_tag("statistic_gallery/g_graph.jpg")
           .title
             Показники в картограмах за 2015 рік
-
-            -#= link_to image_tag("statistic_gallery/cartograms/1_Основні показники_2003-2015 р_22.02.2016_5 лет.jpg"), {:controller => "gallery", :action => "show", :gallery => "cartograms" }, method: :get
-            -#= link_to image_tag("logo.png"), gallery_path("charts"), method: :get

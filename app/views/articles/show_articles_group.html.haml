@@ -11,10 +11,8 @@
         background-color: rgba(214, 235, 224, 0.8);
         border-radius: 5px;
         box-shadow: -5px 0 5px -3px #00a951, 5px 0 5px -3px #00a951;
-
       }
     }
-
   }
 
 .container.articles_group
@@ -22,7 +20,6 @@
   %p
     %h2
       = @articles_group.title
-
   .articles
     - @articles.each do |article|
       %a.article{:href => "/groups/#{@articles_group.title_english}/#{article.title_english}", :target => "_self"}= article.title

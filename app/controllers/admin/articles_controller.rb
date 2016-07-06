@@ -1,18 +1,16 @@
 module Admin
   class ArticlesController < AdminController
-    skip_before_action :require_role  #, only: [:index, :show, :edit, :update]
+    skip_before_action :require_role
     before_action :set_article, only: [:show, :edit, :update, :destroy]
     around_filter :catch_not_found
 
     helper_method :sort_column, :sort_direction
-    # GET /articles
-    # GET /articles.json
+
     def index
-      @articles1 = Admin::Article.get_articles current_user.admin_roles.first
-      @articles1 = @articles1.order(sort_column + " " + sort_direction)
-      # @articles1 = Admin::Article.order(sort_column + " " + sort_direction)
-      @articles1 = @articles1.where(:admin_articles_group.in => params["group_select"]) unless params["group_select"].blank?
-      @articles = @articles1.page(params[:page]).per(35)
+      @articles = Admin::Article.get_articles current_user.admin_roles.first
+      @articles = @articles.order(sort_column + " " + sort_direction)
+      @articles = @articles.where(:admin_articles_group.in => params["group_select"]) unless params["group_select"].blank?
+      @articles = @articles.page(params[:page]).per(35)
 
       respond_to do |format|
         format.js
@@ -20,26 +18,16 @@ module Admin
       end
     end
 
-    # GET /articles/1
-    # GET /articles/1.json
     def show
     end
 
-    def show_front_page
-
-    end
-
-    # GET /articles/new
     def new
       @article = Admin::Article.new
     end
 
-    # GET /articles/1/edit
     def edit
     end
 
-    # POST /articles
-    # POST /articles.json
     def create
       @article = Admin::Article.new(article_params)
       @article.admin_role = current_user.admin_roles.first
@@ -54,8 +42,6 @@ module Admin
       end
     end
 
-    # PATCH/PUT /articles/1
-    # PATCH/PUT /articles/1.json
     def update
       respond_to do |format|
         if @article.update(article_params)
@@ -68,8 +54,6 @@ module Admin
       end
     end
 
-    # DELETE /articles/1
-    # DELETE /articles/1.json
     def destroy
       @article.destroy
       respond_to do |format|
@@ -93,19 +77,10 @@ module Admin
       rescue ActiveRecord::RecordNotFound
         redirect_to root_url, :flash => { :error => "Сторінки не існує." }
       end
+
       # Use callbacks to share common setup or constraints between actions.
       def set_article
-        # render_404 unless params[:id]
-        # render_404 and return if params[:id].blank?
         @article = Admin::Article.find(params[:id])
-
-        # begin
-        #   # @userEvents = current_user.event
-        #   @article = Article.find(params[:id])
-        # rescue ActiveRecord::RecordNotFound
-        #   render file: "#{Rails.root}/public/404.html", layout: false, status: 404
-        #   return
-        # end
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.

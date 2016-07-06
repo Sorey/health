@@ -3,6 +3,7 @@
     text-align: center;
     padding-bottom: 5px;
   }
+
 = form_for(@article, html: { class: 'form-horizontal' }) do |f|
   .form-group
     .col-sm-10.col-md-offset-2
@@ -40,11 +41,8 @@
   .form-group.label-ckeditor
     = f.label :description, 'Тіло статті', :class => 'label-ckeditor control-label'
     .col-sm-12
-      -#= f.cktext_area :description, :ckeditor => {:uiColor => '#E1E4E3', :toolbar => 'mini',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
       = f.cktext_area :description, :ckeditor => {:toolbar => 'full', :uiColor => '#E1E4E3',:language => 'uk',:height => '400',:autoParagraph => true }, :class => 'form-control input-responsive'
-      -#= f.cktext_area :title, :class => 'form-control input-responsive', :ckeditor => {:language => 'uk'}
-      -#= f.cktext_area :description, :value => 'Default value', :id => 'sometext'
-      -#= cktext_area :description, :info, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini',:language => 'uk'}
+
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

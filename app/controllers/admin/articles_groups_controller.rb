@@ -1,30 +1,22 @@
 module Admin
   class ArticlesGroupsController < AdminController
-    skip_before_action :require_role  #, only: [:index, :show, :edit, :update]
+    skip_before_action :require_role
     before_action :set_articles_group, only: [:show, :edit, :update, :destroy]
 
-    # GET /articles_groups
-    # GET /articles_groups.json
     def index
       @articles_groups = Admin::ArticlesGroup.get_groups_articles current_user.admin_roles.first
     end
 
-    # GET /articles_groups/1
-    # GET /articles_groups/1.json
     def show
     end
 
-    # GET /articles_groups/new
     def new
       @articles_group = Admin::ArticlesGroup.new
     end
 
-    # GET /articles_groups/1/edit
     def edit
     end
 
-    # POST /articles_groups
-    # POST /articles_groups.json
     def create
       @articles_group = Admin::ArticlesGroup.new(articles_group_params)
       @articles_group.admin_role = current_user.admin_roles.first
@@ -40,8 +32,6 @@ module Admin
       end
     end
 
-    # PATCH/PUT /articles_groups/1
-    # PATCH/PUT /articles_groups/1.json
     def update
       respond_to do |format|
         if @articles_group.update(articles_group_params)
@@ -54,8 +44,6 @@ module Admin
       end
     end
 
-    # DELETE /articles_groups/1
-    # DELETE /articles_groups/1.json
     def destroy
       @articles_group.destroy
       respond_to do |format|

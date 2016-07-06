@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :menu_items_html
-  before_filter :get_footer
+  before_filter :get_footer_data
   before_filter :get_header_numbers
 
-  def get_footer
+  def get_footer_data
     @footer_contacts = Admin::Article.get_footer_contacts
     @news_footer = Admin::News.get_footer_news
     @footer_navigation = Admin::Article.get_footer_navigation

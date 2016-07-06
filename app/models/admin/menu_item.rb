@@ -35,12 +35,9 @@ class Admin::MenuItem
             format: { with:  /\A[a-zA-Z0-9_-]+\z/, message: "лише латинські літери без пробілів!"},
             length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 50 символів."}
 
-  def self.get_main_menu
-    where(show: true, type_item: "Головне меню").order(order_item: :asc)
-  end
 
-  def self.get_right_menu
-    where(show: true, type_item: "Бокове меню").order(order_item: :asc)
+  def self.get_menu type_menu
+    where(show: true, type_item: type_menu).order(order_item: :asc)
   end
 
   def self.get_menu_items(category, user_role)

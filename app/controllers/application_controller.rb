@@ -7,17 +7,17 @@ class ApplicationController < ActionController::Base
   before_filter :get_header_numbers
 
   def get_footer_data
-    @footer_contacts = Admin::Article.get_footer_contacts
-    @news_footer = Admin::News.get_footer_news
-    @footer_navigation = Admin::Article.get_footer_navigation
+    @footer_contacts = Admin::Article.get_article 'footer_contacts'
+    @news_footer = Admin::News.get_last_news(2)
+    @footer_navigation = Admin::Article.get_article 'footer-navigation'
   end
 
   def get_header_numbers
-    @header_numbers = Admin::Article.get_header_numbers
+    @header_numbers = Admin::Article.get_article 'header_numbers'
   end
 
   def menu_items_html
-    @menu_items = Admin::MenuItem.get_main_menu
+    @menu_items = Admin::MenuItem.get_menu 'Головне меню'
     @menu = '<ul class="nav navbar-nav">'
     @menu_items.each do |menu_item|
       if menu_item.parent_id.to_s.to_i == 0

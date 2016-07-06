@@ -31,13 +31,7 @@ class Admin::Article
     end
   end
 
-  def self.get_header_numbers
-    where(title_english: "header-numbers").first
-  end
-  def self.get_footer_contacts
-    where(title_english: "footer_contacts").first
-  end
-  def self.get_footer_navigation
-    where(title_english: "footer-navigation").first
+  def self.get_article title
+    where(title_english: title).first
   end
 end

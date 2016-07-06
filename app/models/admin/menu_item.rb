@@ -27,7 +27,6 @@ class Admin::MenuItem
   belongs_to :parent, class_name: "Admin::MenuItem"
   belongs_to :admin_role, :class_name => 'Admin::Role'
   after_save :reload_routes
-  # after_save :save_author
 
   validates :title,  length: { minimum: 3, maximum: 120, message: "(Заголовок): мінімально 3, максимально 120 символів."} #, presence: { message: "не може бути пустим"}
   validates_format_of :link, :allow_blank => true, :with => /\A[\S]+\z/, message: "повинен бути без пробілів."
@@ -36,27 +35,13 @@ class Admin::MenuItem
             format: { with:  /\A[a-zA-Z0-9_-]+\z/, message: "лише латинські літери без пробілів!"},
             length: { minimum: 3, maximum: 50, message: "мінімально 3, максимально 50 символів."}
 
-  # before_save :set_type_level
-  # before_create :get_level
-  # before_update :get_level
+  def self.get_main_menu
+    where(show: true, type_item: "Головне меню").order(order_item: :asc)
+  end
 
-  # def set_type_level
-  #   type_menu = ['Заголовок меню', 'Пункт меню', 'Перший рівень', 'Додатковий рівень']
-  #   parent = Admin::MenuItem.find(self.parent_id).type_level
-  #   # abort parent.inspect
-  #
-  #   result = case parent
-  #              when type_menu[0] then type_menu[1]
-  #              when type_menu[1] then type_menu[2]
-  #
-  #              else "Invalid Score"
-  #            end
-  # end
-
-  # def save_author
-  #   author = [current_user.name, Time.now]
-  #   self.list_authors << author
-  # end
+  def self.get_right_menu
+    where(show: true, type_item: "Бокове меню").order(order_item: :asc)
+  end
 
   def self.get_menu_items(category, user_role)
     if user_role.is_admin? || user_role.is_manager?
@@ -69,17 +54,6 @@ class Admin::MenuItem
   def self.get_alias_links
     get_not_empty = where(:alias.ne =>  '')
     get_not_nil= get_not_empty.any_of({:alias.ne  => nil})
-  end
-
-  # def get_level
-  #   level = self.parent.type_level if self.parent
-  #   # logger.debug level
-  #   level = -1 unless self.parent
-  #   self.type_level = level.to_i + 1
-  # end
-
-  def self.parent_roles1
-    all.collect{|a| [a.title, a.id]}
   end
 
   def self.parent_roles
@@ -118,14 +92,6 @@ class Admin::MenuItem
       end
     end
   end
-
-  def self.type_items
-    all.collect{|a| [a.type_item, a.type_item]}
-  end
-
-  # def self.get_menu_items
-  #   where(type_item: "header-menu").order(created_at: :desc)
-  # end
 
   def reload_routes
     DynamicRouter.reload

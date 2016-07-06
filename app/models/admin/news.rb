@@ -39,4 +39,8 @@ class Admin::News
   mount_uploader :image, NewsUploader
   #Save previous image when update image_field is empty
   skip_callback :update, :before, :store_previous_model_for_image
+
+  def self.get_footer_news
+    where(publish_on: true).order(created_at: :desc).limit(2)
+  end
 end

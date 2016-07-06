@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def get_footer
     @footer_contacts = Admin::Article.get_footer_contacts
-    @news_footer = Admin::News.where(publish_on: true).order(created_at: :desc).limit(2)
+    @news_footer = Admin::News.get_footer_news
     @footer_navigation = Admin::Article.get_footer_navigation
   end
 

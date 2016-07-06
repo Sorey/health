@@ -4,11 +4,10 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
+      .btn-new{
         display: inline-block;
         float: right;
         .btn{
-
           margin:20px 0 5px;
         }
       }
@@ -20,11 +19,8 @@
     .heading
       .title
         %h1 Редагування групи для статей
-      .btn-new-news
-        -#= link_to 'Show', @articles_group
+      .btn-new
         = link_to 'Усі групи', admin_articles_groups_path, :class => 'btn btn-primary'
   .container
     .form
       = render 'form'
-
-

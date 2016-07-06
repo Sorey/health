@@ -4,28 +4,29 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
+      .btn-new{
         display: inline-block;
         float: right;
         .btn{
-
           margin:20px 0 5px;
         }
       }
     }
-    thead{
-      th{
-        white-space: nowrap;
+    table{
+      border-bottom: 3px solid #B9B9B9;
+      thead{
+        th{
+          white-space: nowrap;
+        }
+      }
+      tbody{
+        .des-html{
+          overflow-y: scroll;
+          width:100%;
+          height: 300px;
+        }
       }
     }
-    tbody{
-      .des-html{
-        overflow-y: scroll;
-        width:100%;
-        height: 300px;
-      }
-    }
-
   }
 
 .admin-articles
@@ -33,19 +34,14 @@
     .heading
       .title
         %h1 Список статей
-      .btn-new-news
-        -#- if current_user && current_user.admin?
+      .btn-new
         = link_to 'Нова стаття', new_admin_article_path, :class => 'btn btn-primary'
       = render partial: 'search'
   .container
-
-
     .articles-table.table-responsive
-      %table.table.table-condensed.table-striped{:style => "border-size: 1px; border-bottom-style:solid; border-color:#B9B9B9"}
+      %table.table.table-condensed.table-striped
         %thead
           %tr
-            -#%th Type menu item
-            -#%th Type menu
             %th
               = sortable "title", 'Назва'
             %th
@@ -62,4 +58,4 @@
         %tbody#results
           = render partial: "search_articles", :locals => { articles: @articles }
     .panel-paginate
-      = paginate @articles #, :remote => true
+      = paginate @articles

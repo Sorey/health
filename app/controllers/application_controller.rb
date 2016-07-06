@@ -3,21 +3,21 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :menu_items_html
-  before_filter :get_footer
+  before_filter :get_footer_data
   before_filter :get_header_numbers
 
-  def get_footer
-    @footer_contacts = Admin::Article.where(title: "Футер - На зв'язку").first
-    @news_footer = Admin::News.where(publish_on: true).order(created_at: :desc).limit(2)
-    @footer_navigation = Admin::Article.where(title: "Footer-navigation").first
+  def get_footer_data
+    @footer_contacts = Admin::Article.get_footer_contacts
+    @news_footer = Admin::News.get_footer_news
+    @footer_navigation = Admin::Article.get_footer_navigation
   end
 
   def get_header_numbers
-    @header_numbers = Admin::Article.where(title: "Header-numbeers").first
+    @header_numbers = Admin::Article.get_header_numbers
   end
 
   def menu_items_html
-    @menu_items = Admin::MenuItem.where(show: true, type_item: "Головне меню").order(order_item: :asc)
+    @menu_items = Admin::MenuItem.get_main_menu
     @menu = '<ul class="nav navbar-nav">'
     @menu_items.each do |menu_item|
       if menu_item.parent_id.to_s.to_i == 0

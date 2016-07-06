@@ -1,11 +1,19 @@
-.container
+:scss
+  .show-article_group{
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+    }
+  }
+
+.container.show-article_group
   %p#notice= notice
   %p
     %h2
       Група статей
       %em
         = @articles_group.title
-  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+  %table.table.table-condensed.table-striped
     %tbody
       %tr
         %th Назва:
@@ -20,7 +28,5 @@
         %th Опис:
         %td= @articles_group.description
 
-
   = link_to 'Редагувати', edit_admin_articles_group_path(@articles_group), :class => 'btn btn-primary'
-
-  = link_to 'Повернутись', admin_articles_groups_path, :class => 'btn btn-primary'
+  = link_to 'Усі групи', admin_articles_groups_path, :class => 'btn btn-primary'

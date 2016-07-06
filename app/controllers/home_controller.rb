@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   end
 
   def get_right_menu
-    @right_menu_items = Admin::MenuItem.get_right_menu
+    @right_menu_items = Admin::MenuItem.get_menu 'Бокове меню'
 
     @right_menu = ""
     @right_menu_items.each do |right_menu_item|

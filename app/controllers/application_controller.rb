@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def menu_items_html
-    @menu_items = Admin::MenuItem.get_main_menu
+    @menu_items = Admin::MenuItem.get_menu 'Головне меню'
     @menu = '<ul class="nav navbar-nav">'
     @menu_items.each do |menu_item|
       if menu_item.parent_id.to_s.to_i == 0

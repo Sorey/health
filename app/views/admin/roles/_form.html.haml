@@ -1,5 +1,3 @@
-:scss
-
 = form_for(@role, html: { class: 'form-horizontal' })  do |u|
   .form-group
     .col-sm-10.col-md-offset-2
@@ -11,20 +9,11 @@
           %ul
             - @role.errors.full_messages.each do |msg|
               %li= msg
-  -#.form-group
-  -#  .field
-  -#    = u.label :login, :class => 'col-sm-2 control-label'
-  -#    .col-sm-10
-  -#      = u.text_field :login, :class => 'form-control input-responsive'
   .form-group
     .field
       = u.label :title, :class => 'col-sm-2 control-label'
       .col-sm-10
         = u.text_field :title, :class => 'form-control input-responsive'
-  -#.form-group
-  -#  = u.label :last_name, :class => 'col-sm-2 control-label'
-  -#  .col-sm-10
-  -#    = u.text_field :last_name, :class => 'form-control input-responsive'
   .form-group
     = u.label :type_role, 'Type role', :class => 'col-sm-2 control-label'
     .col-sm-10
@@ -32,9 +21,7 @@
   .form-group
     = u.label :parent_id, :class => 'col-sm-2 control-label'
     .col-sm-10
-      -#= u.collection_select(:role_id, Role.all, :id, :title, {}, {:class => 'form-control input-responsive'})
       = u.select :parent_id, Admin::Role.parent_roles, {}, :multiple => false, :class => 'form-control input-responsive'
-      -#= u.select :parent_id, Worker.all.collect{|a| [a.name, a.id]}, {}, :multiple => false,
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

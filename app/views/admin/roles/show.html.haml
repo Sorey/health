@@ -1,4 +1,12 @@
-.container
+:scss
+  .show-role{
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+    }
+  }
+
+.container.show-role
   - if notice
     %p#notice= notice
   %p
@@ -6,7 +14,7 @@
       Role
       %em
         = @role.title
-  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+  %table.table.table-condensed.table-striped
     %tbody
       %tr
         %th Title
@@ -18,10 +26,8 @@
       %tr
         %th Role level
         %td= @role.type_role
-  = link_to 'Back', admin_roles_path, :class => 'btn btn-primary'
-  -#- if current_user && current_user.editor?
+  = link_to 'All roles', admin_roles_path, :class => 'btn btn-primary'
   = link_to 'Edit', edit_admin_role_path(@role), :class => 'btn btn-primary'
-  -#- if current_user && current_user.admin?
-  = link_to 'Destroy', admin_role_path(@role), :class => 'btn btn-primary', |
-    method: :delete,                                                  |
-    data: { confirm: 'Are you sure?' }                                |
+  = link_to 'Destroy', admin_role_path(@role), :class => 'btn btn-primary',
+    method: :delete,
+    data: { confirm: 'Are you sure?' }

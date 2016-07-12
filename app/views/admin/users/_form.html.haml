@@ -9,11 +9,6 @@
           %ul
             - @user.errors.full_messages.each do |msg|
               %li= msg
-  -#.form-group
-  -#  .field
-  -#    = u.label :login, :class => 'col-sm-2 control-label'
-  -#    .col-sm-10
-  -#      = u.text_field :login, :class => 'form-control input-responsive'
   .form-group
     .field
       = u.label :name, 'Login',:class => 'col-sm-2 control-label'
@@ -24,10 +19,6 @@
       = u.label :full_name, :class => 'col-sm-2 control-label'
       .col-sm-10
         = u.text_field :full_name, :class => 'form-control input-responsive'
-  -#.form-group
-  -#  = u.label :last_name, :class => 'col-sm-2 control-label'
-  -#  .col-sm-10
-  -#    = u.text_field :last_name, :class => 'form-control input-responsive'
   .form-group
     = u.label :email, :class => 'col-sm-2 control-label'
     .col-sm-10
@@ -43,11 +34,7 @@
   .form-group
     = u.label :role_title, :class => 'col-sm-2 control-label'
     .col-sm-10
-      -#= u.collection_select(:role_id, Role.all, :id, :title, {}, {:class => 'form-control input-responsive'})
       = u.select :admin_role_ids, Admin::Role.all.collect {|x| [x.title, x.id]}, {}, multiple: true,  :class => 'form-control input-responsive'
-      -#= u.text_field :role_id, collection: Role.all, as: :select
-      -#= u.collection_select :role_ids, Role.all, :id, :title
-      -#= u.association :role, :collection => Role.all
   .form-group
     .actions
       .col-sm-offset-2.col-sm-10

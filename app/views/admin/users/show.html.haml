@@ -1,4 +1,12 @@
-.container
+:scss
+  .show-user{
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+    }
+  }
+
+.container.show-user
   - if notice
     %p#notice= notice
   %p
@@ -6,7 +14,7 @@
       User
       %em
         = @user.name
-  %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+  %table.table.table-condensed.table-striped
     %tbody
       %tr
         %th Role
@@ -14,25 +22,17 @@
           - @roles = @user.admin_roles
           - @roles.each do |r|
             = r.title
-      -#%tr
-      -#  %th Login
-      -#  %td= @user.login
       %tr
         %th Login
         %td= @user.name
       %tr
         %th Full name
         %td= @user.full_name
-      -#%tr
-      -#  %th Last_name
-      -#  %td= @user.last_name ||= "empty"
       %tr
         %th Email
         %td= @user.email
-  = link_to 'Back', admin_users_path, :class => 'btn btn-primary'
-  -#- if current_user && current_user.editor?
+  = link_to 'All users', admin_users_path, :class => 'btn btn-primary'
   = link_to 'Edit', edit_admin_user_path(@user), :class => 'btn btn-primary'
-  -#- if current_user && current_user.admin?
-  = link_to 'Destroy', admin_user_path(@user), :class => 'btn btn-primary', |
-    method: :delete,                                                  |
-    data: { confirm: 'Are you sure?' }                                |
+  = link_to 'Destroy', admin_user_path(@user), :class => 'btn btn-primary',
+    method: :delete,
+    data: { confirm: 'Are you sure?' }

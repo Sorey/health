@@ -8,7 +8,6 @@
         display: inline-block;
         float: right;
         .btn{
-
           margin:20px 0 5px;
         }
       }
@@ -21,7 +20,7 @@
       .title
         %h1 Create user
       .btn-new-news
-        = link_to 'Back', admin_users_path, :class => 'btn btn-primary'
+        = link_to 'All users', admin_users_path, :class => 'btn btn-primary'
   .container
     .form
       = render 'form'

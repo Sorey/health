@@ -4,11 +4,10 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
+      .btn-new{
         display: inline-block;
         float: right;
         .btn{
-
           margin:20px 0 5px;
         }
       }
@@ -17,12 +16,11 @@
 
 .new-role
   .container
-    .container
     .heading
       .title
         %h1 Create role
-      .btn-new-news
-        = link_to 'Back', admin_roles_path, :class => 'btn btn-primary'
+      .btn-new
+        = link_to 'All roles', admin_roles_path, :class => 'btn btn-primary'
   .container
     .form
       = render 'form'

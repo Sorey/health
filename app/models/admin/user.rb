@@ -1,4 +1,3 @@
-# class User
 class Admin::User
   include Mongoid::Document
   include ActiveModel::SecurePassword
@@ -16,43 +15,28 @@ class Admin::User
   validates :name, presence: { message: "не може бути пустим"},
             uniqueness: { message: "уже зайнято."}
 
-  def access2? (cont, act)
-    @admin_parent_id = 0
-    @role_ask = "#{cont}#{act}"
-    @role_id_user = self.admin_roles.first.id if self.admin_roles.first
-
-    @user_role_parent_id = self.admin_roles.first.parent_id if self.admin_roles.first
-    if Admin::Role.take_title(@role_ask)
-      @parent_role_id = Admin::Role.take_title(@role_ask).parent_id
-      @parent_role_id = Admin::Role.find(@parent_role_id).parent_id if @role_id_user != @parent_role_id && @parent_role_id
-    end
-    @role_id_user == @parent_role_id || @user_role_parent_id == @admin_parent_id
-  end
-
   def access? (cont, act)
+    # if role admin
     @admin_parent_id = 0
+    @user_role_parent_id = self.admin_roles.first.parent_id if self.admin_roles.first
+    return true if @user_role_parent_id == @admin_parent_id
+
+    # if role not admin
     @role_ask = "#{cont}#{act}"
     @user_role_id = self.admin_roles.first.id if self.admin_roles.first
 
-    @user_role_parent_id = self.admin_roles.first.parent_id if self.admin_roles.first
-    # binding.pry
-    return true if @user_role_parent_id == @admin_parent_id
-
     if Admin::Role.take_title(@role_ask)
       @parent_role_id = Admin::Role.take_title(@role_ask).parent_id
-      # binding.pry
       if @parent_role_id == @user_role_id
         return true
       else
         return role_true @parent_role_id, @user_role_id
       end
-      # @parent_id_role = Admin::Role.find(@parent_id_role).parent_id.to_s if @user_role_id != @parent_id_role && @parent_id_role
     end
   end
 
   def role_true role_id, user_role_id
     parent_role_id = Admin::Role.find(role_id).parent_id
-    # binding.pry
     if parent_role_id != 0
       if user_role_id == parent_role_id && parent_role_id
         return true
@@ -65,22 +49,6 @@ class Admin::User
       end
     end
   end
-
-  # def editor?
-  #   @roles = self.roles
-  #   @roles.each do |r|
-  #     @true = r.title if r.title == 'Editor'
-  #   end
-  #   @true == 'Editor'
-  # end
-  #
-  # def admin?
-  #   @roles = self.roles
-  #   @roles.each do |r|
-  #     @true = r.title if r.is_admin?
-  #   end
-  #   @true == 'admin'
-  # end
 
   def is_admin?
     self.admin_roles.first.is_admin?

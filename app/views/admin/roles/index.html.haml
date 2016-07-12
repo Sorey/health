@@ -4,39 +4,40 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
-        //display: inline-block;
+      .btn-new{
         float: right;
         .btn{
           margin:20px 0 5px;
         }
       }
     }
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+    }
   }
 
-.roles
-  .container
-    %p#notice= notice
-    .heading
-      .title
-        %h1 List roles
-      .btn-new-news
-        -#- if current_user && current_user.admin?
-        = link_to 'New role', new_admin_role_path, :class => 'btn btn-primary'
-  .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
-      %thead
+
+.container.roles
+  %p#notice= notice
+  .heading
+    .title
+      %h1 List roles
+    .btn-new
+      = link_to 'New role', new_admin_role_path, :class => 'btn btn-primary'
+  %table.table.table-condensed.table-striped
+    %thead
+      %tr
+        %th #
+        %th Title
+        %th Parent
+        %th Type
+        %th Action
+    %tbody
+      - @roles.each do |r|
         %tr
-          %th #
-          %th Title
-          %th Parent
-          %th Type
-          %th Action
-      %tbody
-        - @roles.each do |r|
-          %tr
-            %td= r.id
-            %td= r.title
-            %td= r.parent_id
-            %td= r.type_role
-            %td= link_to "Show role", admin_role_path(r), :class => 'btn btn-primary'
+          %td= r.id
+          %td= r.title
+          %td= r.parent_id
+          %td= r.type_role
+          %td= link_to "Show role", admin_role_path(r), :class => 'btn btn-primary'

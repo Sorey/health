@@ -1,6 +1,7 @@
 class Admin::Role
   include Mongoid::Document
   Mongoid::Attributes::Dynamic
+
   include Mongoid::Timestamps
   field :title, type: String
   field :type_role, type: Integer
@@ -19,15 +20,10 @@ class Admin::Role
             uniqueness: { message: "уже зайнято."}
 
   def self.parent_roles
-    # all.collect{|a| [a.title, a.id]}
     where(:title.nin => [/#{"/"}/]).collect {|x| [x.title, x.id]}
   end
 
   def self.take_title(role_ask)
-    # abort self.title.inspect
-    # find(
-    #     { title: role_ask }
-    # ).limit(1)
     where(title: role_ask).first
   end
 

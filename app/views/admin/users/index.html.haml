@@ -4,13 +4,16 @@
       .title{
         display: inline-block;
       }
-      .btn-new-news{
-        //display: inline-block;
+      .btn-new{
         float: right;
         .btn{
           margin:20px 0 5px;
         }
       }
+    }
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
     }
   }
 
@@ -19,11 +22,10 @@
     .heading
       .title
         %h1 List users
-      .btn-new-news
-        -#- if current_user && current_user.admin?
+      .btn-new
         = link_to 'New user', new_admin_user_path, :class => 'btn btn-primary'
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %thead
         %tr
           %th #
@@ -35,7 +37,6 @@
         - @users.each do |u|
           %tr
             %td= u.id
-            -#%td= u.role_id
             %td
               - @roles = u.admin_roles
               - @roles.each do |r|

@@ -5,22 +5,16 @@ class Admin::VideosController < Admin::AdminController
     @admin_videos = Admin::Video.all.order(created_at: :desc).page(params[:page]).per(20)
   end
 
-  # GET /admin/videos/1
-  # GET /admin/videos/1.json
   def show
   end
 
-  # GET /admin/videos/new
   def new
     @admin_video = Admin::Video.new
   end
 
-  # GET /admin/videos/1/edit
   def edit
   end
 
-  # POST /admin/videos
-  # POST /admin/videos.json
   def create
     @admin_video = Admin::Video.new(admin_video_params)
 
@@ -35,8 +29,6 @@ class Admin::VideosController < Admin::AdminController
     end
   end
 
-  # PATCH/PUT /admin/videos/1
-  # PATCH/PUT /admin/videos/1.json
   def update
     respond_to do |format|
       if @admin_video.update(admin_video_params)
@@ -49,8 +41,6 @@ class Admin::VideosController < Admin::AdminController
     end
   end
 
-  # DELETE /admin/videos/1
-  # DELETE /admin/videos/1.json
   def destroy
     @admin_video.destroy
     respond_to do |format|

@@ -1,11 +1,14 @@
 :scss
   .show-video{
     margin-bottom: 15px;
-    td.iframe{
-      //width: 180px;
-      iframe{
-        width: 60%;
-        height: 220px;
+    table{
+      border-style:solid;
+      border-color:#63B8FF;
+      td.iframe{
+        iframe{
+          width: 60%;
+          height: 220px;
+        }
       }
     }
   }
@@ -20,7 +23,7 @@
         %em
           = @admin_video.title
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %tbody
         %tr
           %th Заголовок
@@ -35,10 +38,8 @@
           %th Опис
           %td= simple_format(@admin_video.description)
     = link_to 'Відеоматеріали', admin_videos_path, :class => 'btn btn-primary'
-    -#- if current_user && current_user.editor?
     = link_to 'Редагувати', edit_admin_video_path(@admin_video), :class => 'btn btn-primary'
-    -#- if current_user && current_user.admin?
-    = link_to 'Видалити', @admin_video, :class => 'btn btn-primary', |
+    = link_to 'Видалити', @admin_video, :class => 'btn btn-primary',
       method: :delete,
       data: { confirm: 'Ви впевнені?' }
 

@@ -2,9 +2,7 @@
   .admin-videos{
     table{
       border-style:solid;
-      border-color:#0BBA6A;
-      border-radius: 3px;
-      font-size: 15px;
+      border-color:#63B8FF;
       thead{
         th{
           vertical-align: middle;
@@ -28,7 +26,6 @@
           padding: 4px 6px;
           width: 30px;
         }
-
         td.iframe{
           width: 180px;
           iframe{
@@ -38,12 +35,11 @@
         }
       }
     }
-
     .heading{
       .title{
         display: inline-block;
       }
-      .btn-new-news{
+      .btn-new{
         display: inline-block;
         float: right;
         .btn{
@@ -60,14 +56,12 @@
     .heading
       .title
         %h1 Список відеоматеріалів
-      .btn-new-news
-        -#- if current_user && current_user.admin?
+      .btn-new
         = link_to 'Створити відеоматеріал', new_admin_video_path, :class => 'btn btn-primary'
   .container
-    %table.table.table-condensed.table-striped{:style => "border-style:solid; border-color:#63B8FF"}
+    %table.table.table-condensed.table-striped
       %thead
         %tr
-          -#%th #
           %th Назва
           %th Iframe
           %th Публікувати?
@@ -79,7 +73,6 @@
           %tr
             %td= admin_video.title
             %td.iframe= admin_video.iframe.html_safe
-            -#%td= admin_video.iframe.blank? ? '-' : '+'
             %td= admin_video.publish_on
             %td.wrap= truncate(strip_tags(admin_video.description), length: 610)
             %td
@@ -87,4 +80,4 @@
               = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_admin_video_path(admin_video), title: "Редагувати", :class => 'btn btn-primary'
               = link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_video, title: "Видалити", :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
     .panel-paginate
-      = paginate @admin_videos  #, :remote => true
+      = paginate @admin_videos

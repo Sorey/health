@@ -29,7 +29,7 @@ class HomeController < ApplicationController
   end
 
   def get_three_videos
-    @three_videos = Admin::Video.where(publish_on: true).order(created_at: :desc).limit(3)
+    @three_videos = Admin::Video.get_last_videos(3)
   end
 
   def get_polls

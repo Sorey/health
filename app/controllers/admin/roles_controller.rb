@@ -1,11 +1,12 @@
 module Admin
   class RolesController < AdminController
+    before_action :set_role, only: [:show, :edit, :update, :destroy]
+
     def index
       @roles = Admin::Role.all.order(created_at: :asc)
     end
 
     def show
-      @role = Admin::Role.find(params[:id])
     end
 
     def new
@@ -13,7 +14,6 @@ module Admin
     end
 
     def edit
-      @role = Role.find(params[:id])
       redirect_to :back if @role.title.eql?("admin")
     end
 
@@ -22,14 +22,8 @@ module Admin
 
       respond_to do |format|
         if @role.save
-          # if :require_admin
           format.html { redirect_to @role, notice: 'Role was successfully created.' }
           format.json { render action: 'show', status: :created, location: @role }
-          # else
-          #   session[:user_id] = @user.id
-          #   format.html { render action: 'users1', notice: 'User was successfully created!!!' }
-          #   format.json { render action: '/', status: :created, location: @user }
-          # end
         else
           format.html { render action: 'new' }
           format.json { render json: @role.errors, status: :unprocessable_entity }
@@ -38,8 +32,6 @@ module Admin
     end
 
     def update
-      @role = Admin::Role.find(params[:id])
-
       respond_to do |format|
         if @role.update(role_params)
           format.html { redirect_to @role, notice: 'Role was successfully created.' }
@@ -47,13 +39,11 @@ module Admin
         else
           format.html { render action: 'edit' }
           format.json { render json: @role.errors, status: :unprocessable_entity }
-
         end
       end
     end
 
     def destroy
-      @role = Admin::Role.find(params[:id])
       @role.destroy unless @role.title.eql?("admin")
 
       respond_to do |format|
@@ -64,8 +54,12 @@ module Admin
 
     private
 
-    def role_params
-      params.require(:admin_role).permit(:title, :type_role, :parent_id)
-    end
+      def set_role
+        @role = Admin::Role.find(params[:id])
+      end
+
+      def role_params
+        params.require(:admin_role).permit(:title, :type_role, :parent_id)
+      end
   end
 end

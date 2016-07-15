@@ -1,9 +1,8 @@
 class PollsController < ApplicationController
   def get_reply
-    @polls = Admin::Poll.where(publish_on: true).order(order_question: :asc)
-    @question = Admin::Poll.find(params[:question])
+    @poll =  Admin::Poll.find(params[:question])
     unless params[:reply].nil?
-      @reply = @question.replies.find(params[:reply]).inc(count_answer:1) unless ip_address_old?
+      @reply = @poll.replies.find(params[:reply]).inc(count_answer:1) unless ip_address_old?
 
       cookies[:user] = { :value => request.remote_ip, :expires => 1.year.from_now } unless cookies[:user]
       cookies[params[:question]] = { :value => params[:question], :expires => 1.year.from_now } unless cookies[params[:question]]
@@ -14,9 +13,8 @@ class PollsController < ApplicationController
     end
     respond_to do |format|
       format.js{ flash.now[:notice] = message}
-      format.html{redirect_to root_path, location: poll}
+      format.html{redirect_to root_path}
     end
-
   end
 
   def show_chart

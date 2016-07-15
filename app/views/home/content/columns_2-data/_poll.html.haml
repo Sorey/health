@@ -1,0 +1,34 @@
+- if cookies[poll.id.to_s] == poll.id.to_s && notice.nil?
+  - message = 'Ваш голос враховано!'
+
+:scss
+  #poll-#{poll.id}:hover::before{
+    content: "#{message}";
+    position: absolute;
+    right: 5px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    background: #FFD564;
+  }
+
+- if notice
+  #notice
+    %span= notice
+.head
+  .icon
+    %i.fa.fa-check-square-o.fa-2x
+  %a{:href => "#poll-#{poll.id}"}
+    .title Опитування №#{poll.order_question}
+%p= poll.question
+= form_tag(reply_path, method: "post", remote: true) do
+  = hidden_field_tag 'question', "#{poll.id}"
+  - poll.replies.sort_by(&:order_answer).each do |reply|
+    .rdio-b
+      = radio_button_tag('reply', "#{reply.id}", checked = false, options = {class: "color_input"})
+      = reply.answer
+  .actions.clearfix
+    - if cookies[poll.id.to_s] != poll.id.to_s
+      = submit_tag("Відправити", :class=>"btn btn-success")
+    - if Admin::Poll.count_plus?(poll)
+      = link_to "Результати", polls_chart_url(poll), title: "Результати", :class=>"btn btn-primary"

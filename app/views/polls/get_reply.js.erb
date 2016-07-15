@@ -1,2 +1,2 @@
-$('#polls').html('<%= escape_javascript( render partial: 'home/content/columns_2-data/polls_results') %>');
-$('#polls #notice').slideDown(1000);
+$('.polls #poll-<%= params[:question]%>').html('<%= escape_javascript( render partial: 'home/content/columns_2-data/poll',:locals => {:poll => @poll }) %>');
+$('.polls #notice span').delay(3000).fadeOut(1000);

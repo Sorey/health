@@ -3,10 +3,20 @@
   .polls{
     border-bottom: 1px solid #cce7d9;
     .poll{
+      position: relative;
       box-shadow: 0 0 10px #cce7d9;
       padding: 5px 7px;
+      #notice{
+        margin-top: 5px;
+        span{
+          padding: 3px 5px;
+          border-radius: 3px;
+          font-weight: normal;
+          font-size: 14px;
+        }
+      }
       p{
-        font-weight: bold !important;
+        font-weight: bold;
         font-size: 15.5px;
       }
       .head{
@@ -48,28 +58,8 @@
   }
 
 .polls
+  -#= render :partial => 'home/content/columns_2-data/polls_results'
   %h3 Опитування
-  - iterator = 1
-  - @polls.each do |poll|
-    .poll
-      - if cookies[poll.id.to_s] == poll.id.to_s
-        Ваш голос враховано!
-      .head
-        .icon
-          %i.fa.fa-check-square-o.fa-2x
-        %a{:href => "#"}
-          .title Опитування №#{iterator}
-          -iterator = iterator + 1
-      %p= poll.question
-      = form_tag(reply_path, method: "post") do
-        = hidden_field_tag 'question', "#{poll.id}"
-        - poll.replies.sort_by(&:order_answer).each do |reply|
-          .rdio-b
-            = radio_button_tag('reply', "#{reply.id}", checked = false, options = {class: "color_input"})
-            = reply.answer
-        .actions.clearfix
-          - if cookies[poll.id.to_s] != poll.id.to_s
-            = submit_tag("Відправити", :class=>"btn btn-success")
-          - if Admin::Poll.count_plus?(poll)
-            = link_to "Результати", polls_chart_url(poll), title: "Результати", :class=>"btn btn-primary"
-      .chart{:style => "display: none"}
+  - @polls.each  do |poll|
+    .poll{id: "poll-#{poll.id}"}
+      = render :partial => 'home/content/columns_2-data/poll', :locals => {poll: poll}

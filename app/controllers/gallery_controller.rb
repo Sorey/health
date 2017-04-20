@@ -5,9 +5,10 @@ class GalleryController < ApplicationController
   end
 
   def show_statistic_gallery
-      @name_gallery = params[:gallery] ||= "charts"
-      @title = @name_gallery == "charts" ? "Основні показники діяльності охорони здоров'я за 2010-2015 роки" : "Основні показники діяльності охорони здоров'я за 2015 рік"
-      @images = Dir.glob("app/assets/images/statistic_gallery/#{@name_gallery}/*.jpg").sort
+      @name_gallery = params[:gallery] ||= 'charts_2012-2016'
+      @title = @name_gallery == 'charts_2012-2016' ? "Показники діяльності за 2012 - 2016 рр." : "Основні показники діяльності охорони здоров'я за 2016 рік"
+
+      @images = Dir.glob("app/assets/images/statistic_gallery/#{@name_gallery}/*.JPG").sort
       @images = Kaminari.paginate_array(@images).page(params[:page]).per(33)
 
       set_title_page @title

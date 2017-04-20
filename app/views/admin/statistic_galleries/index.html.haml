@@ -1,0 +1,29 @@
+%h1 Listing admin_statistic_galleries
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Publish on
+      %th Meta keywords
+      %th Meta description
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_statistic_galleries.each do |admin_statistic_gallery|
+      %tr
+        %td= admin_statistic_gallery.title
+        %td= admin_statistic_gallery.publish_on
+        %td= admin_statistic_gallery.meta_keywords
+        %td= admin_statistic_gallery.meta_description
+        %td= admin_statistic_gallery.description
+        %td= link_to 'Show', admin_statistic_gallery
+        %td= link_to 'Edit', edit_admin_statistic_gallery_path(admin_statistic_gallery)
+        %td= link_to 'Destroy', admin_statistic_gallery, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Statistic gallery', new_admin_statistic_gallery_path

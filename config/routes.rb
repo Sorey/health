@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    resources :statistic_galleries
+  end
+  namespace :admin do
     resources :people_files
   end
   DynamicRouter.load

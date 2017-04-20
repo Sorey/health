@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @admin_statistic_gallery.title
+%p
+  %b Publish on:
+  = @admin_statistic_gallery.publish_on
+%p
+  %b Meta keywords:
+  = @admin_statistic_gallery.meta_keywords
+%p
+  %b Meta description:
+  = @admin_statistic_gallery.meta_description
+%p
+  %b Description:
+  = @admin_statistic_gallery.description
+
+- if @admin_statistic_gallery.statistic_gallery
+  - @admin_statistic_gallery.statistic_gallery.each do |image|
+    .gallery
+      = image_tag image, style: 'height: 45px;'
+      = link_to '',
+              class: 'btn btn-warning pull-right delete-img',
+              data: { tooltip: 'Видалити картинку', filename: image.file.filename } do
+        X
+= link_to 'Edit', edit_admin_statistic_gallery_path(@admin_statistic_gallery)
+\|
+= link_to 'Back', admin_statistic_galleries_path
